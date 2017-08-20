@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form2
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form2
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.LNya = New System.Windows.Forms.Label()
@@ -29,12 +29,14 @@ Partial Class Form2
         Me.LNombre = New System.Windows.Forms.Label()
         Me.LApellido = New System.Windows.Forms.Label()
         Me.TDni = New System.Windows.Forms.TextBox()
-        Me.TNombre = New System.Windows.Forms.TextBox()
-        Me.TApellido = New System.Windows.Forms.TextBox()
         Me.TGuardar = New System.Windows.Forms.Button()
         Me.TEliminar = New System.Windows.Forms.Button()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.TApellido = New System.Windows.Forms.TextBox()
+        Me.TNombre = New System.Windows.Forms.TextBox()
+        Me.ErrorProvider2 = New System.Windows.Forms.ErrorProvider(Me.components)
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorProvider2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LNya
@@ -90,20 +92,6 @@ Partial Class Form2
         Me.TDni.Size = New System.Drawing.Size(100, 22)
         Me.TDni.TabIndex = 1
         '
-        'TNombre
-        '
-        Me.TNombre.Location = New System.Drawing.Point(203, 189)
-        Me.TNombre.Name = "TNombre"
-        Me.TNombre.Size = New System.Drawing.Size(100, 22)
-        Me.TNombre.TabIndex = 1
-        '
-        'TApellido
-        '
-        Me.TApellido.Location = New System.Drawing.Point(203, 148)
-        Me.TApellido.Name = "TApellido"
-        Me.TApellido.Size = New System.Drawing.Size(100, 22)
-        Me.TApellido.TabIndex = 1
-        '
         'TGuardar
         '
         Me.TGuardar.Location = New System.Drawing.Point(69, 260)
@@ -126,15 +114,33 @@ Partial Class Form2
         '
         Me.ErrorProvider1.ContainerControl = Me
         '
+        'TApellido
+        '
+        Me.TApellido.Location = New System.Drawing.Point(203, 146)
+        Me.TApellido.Name = "TApellido"
+        Me.TApellido.Size = New System.Drawing.Size(100, 22)
+        Me.TApellido.TabIndex = 3
+        '
+        'TNombre
+        '
+        Me.TNombre.Location = New System.Drawing.Point(203, 189)
+        Me.TNombre.Name = "TNombre"
+        Me.TNombre.Size = New System.Drawing.Size(100, 22)
+        Me.TNombre.TabIndex = 4
+        '
+        'ErrorProvider2
+        '
+        Me.ErrorProvider2.ContainerControl = Me
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(532, 336)
+        Me.Controls.Add(Me.TNombre)
+        Me.Controls.Add(Me.TApellido)
         Me.Controls.Add(Me.TEliminar)
         Me.Controls.Add(Me.TGuardar)
-        Me.Controls.Add(Me.TApellido)
-        Me.Controls.Add(Me.TNombre)
         Me.Controls.Add(Me.TDni)
         Me.Controls.Add(Me.LApellido)
         Me.Controls.Add(Me.LNombre)
@@ -144,6 +150,7 @@ Partial Class Form2
         Me.Name = "Form2"
         Me.Text = "Pequeño Formulario"
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorProvider2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -155,9 +162,10 @@ Partial Class Form2
     Friend WithEvents LNombre As Label
     Friend WithEvents LApellido As Label
     Friend WithEvents TDni As TextBox
-    Friend WithEvents TNombre As TextBox
-    Friend WithEvents TApellido As TextBox
     Friend WithEvents TGuardar As Button
     Friend WithEvents TEliminar As Button
     Friend WithEvents ErrorProvider1 As ErrorProvider
+    Friend WithEvents TApellido As TextBox
+    Friend WithEvents TNombre As TextBox
+    Friend WithEvents ErrorProvider2 As ErrorProvider
 End Class

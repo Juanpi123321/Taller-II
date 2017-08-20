@@ -11,3 +11,4 @@ D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Pr
 D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Practico1\obj\Debug\Practico1.pdb
 D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Practico1\obj\Debug\Practico1.Formulario_Principal.resources
 D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Practico1\obj\Debug\Practico1.Form2.resources
+D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Practico1\obj\Debug\Practico1.vbproj.CoreCompileInputs.cache
