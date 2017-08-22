@@ -4,6 +4,15 @@
     End Sub
 
     Private Sub BPractico2_Click(sender As Object, e As EventArgs) Handles BPractico2.Click
-        Form2.Show()
+        Formulario2.Show()
     End Sub
+
+    Private Sub BPractico3_Click(sender As Object, e As EventArgs) Handles BPractico3.Click
+        Formulario3.Show()
+    End Sub
+
+    Private Sub BPractico4_Click(sender As Object, e As EventArgs) Handles BPractico4.Click
+        Formulario4.Show()
+    End Sub
+
 End Class

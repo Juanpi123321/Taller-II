@@ -2,21 +2,21 @@
 <doc>
 <assembly>
 <name>
-Practico1
+Practicos
 </name>
 </assembly>
 <members>
-<member name="T:Practico1.My.Resources.Resources">
+<member name="T:Practicos.My.Resources.Resources">
 <summary>
   Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
 </summary>
 </member>
-<member name="P:Practico1.My.Resources.Resources.ResourceManager">
+<member name="P:Practicos.My.Resources.Resources.ResourceManager">
 <summary>
   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
 </summary>
 </member>
-<member name="P:Practico1.My.Resources.Resources.Culture">
+<member name="P:Practicos.My.Resources.Resources.Culture">
 <summary>
   Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
   búsquedas de recursos mediante esta clase de recurso fuertemente tipado.

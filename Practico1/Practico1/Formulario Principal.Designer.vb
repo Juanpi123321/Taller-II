@@ -24,6 +24,8 @@ Partial Class Formulario_Principal
     Private Sub InitializeComponent()
         Me.BPractico1 = New System.Windows.Forms.Button()
         Me.BPractico2 = New System.Windows.Forms.Button()
+        Me.BPractico4 = New System.Windows.Forms.Button()
+        Me.BPractico3 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'BPractico1
@@ -44,11 +46,31 @@ Partial Class Formulario_Principal
         Me.BPractico2.Text = "Practico 2"
         Me.BPractico2.UseVisualStyleBackColor = True
         '
+        'BPractico4
+        '
+        Me.BPractico4.Location = New System.Drawing.Point(453, 207)
+        Me.BPractico4.Name = "BPractico4"
+        Me.BPractico4.Size = New System.Drawing.Size(92, 32)
+        Me.BPractico4.TabIndex = 0
+        Me.BPractico4.Text = "Practico 4"
+        Me.BPractico4.UseVisualStyleBackColor = True
+        '
+        'BPractico3
+        '
+        Me.BPractico3.Location = New System.Drawing.Point(338, 207)
+        Me.BPractico3.Name = "BPractico3"
+        Me.BPractico3.Size = New System.Drawing.Size(92, 32)
+        Me.BPractico3.TabIndex = 0
+        Me.BPractico3.Text = "Practico 3"
+        Me.BPractico3.UseVisualStyleBackColor = True
+        '
         'Formulario_Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(750, 281)
+        Me.Controls.Add(Me.BPractico3)
+        Me.Controls.Add(Me.BPractico4)
         Me.Controls.Add(Me.BPractico2)
         Me.Controls.Add(Me.BPractico1)
         Me.Name = "Formulario_Principal"
@@ -59,4 +81,6 @@ Partial Class Formulario_Principal
 
     Friend WithEvents BPractico1 As Button
     Friend WithEvents BPractico2 As Button
+    Friend WithEvents BPractico4 As Button
+    Friend WithEvents BPractico3 As Button
 End Class

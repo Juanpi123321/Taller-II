@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Practico1", "Practico1\Practico1.vbproj", "{A3CDAB47-72B1-46DC-B5A5-B244C449E66E}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Practicos", "Practico1\Practicos.vbproj", "{A3CDAB47-72B1-46DC-B5A5-B244C449E66E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +18,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {653B523C-AC8D-44E1-95E2-302420DEE065}
 	EndGlobalSection
 EndGlobal

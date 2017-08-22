@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Form2
+Partial Class Formulario2
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -132,7 +132,7 @@ Partial Class Form2
         '
         Me.ErrorProvider2.ContainerControl = Me
         '
-        'Form2
+        'Formulario2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -147,7 +147,7 @@ Partial Class Form2
         Me.Controls.Add(Me.LDni)
         Me.Controls.Add(Me.LModificar)
         Me.Controls.Add(Me.LNya)
-        Me.Name = "Form2"
+        Me.Name = "Formulario2"
         Me.Text = "Pequeño Formulario"
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider2, System.ComponentModel.ISupportInitialize).EndInit()
