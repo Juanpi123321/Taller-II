@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Formulario3
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,13 +20,12 @@ Partial Class Formulario3
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Formulario3))
         Me.TNombre = New System.Windows.Forms.TextBox()
         Me.TApellido = New System.Windows.Forms.TextBox()
-        Me.TEliminar = New System.Windows.Forms.Button()
-        Me.TGuardar = New System.Windows.Forms.Button()
         Me.TDni = New System.Windows.Forms.TextBox()
         Me.LApellido = New System.Windows.Forms.Label()
         Me.LNombre = New System.Windows.Forms.Label()
@@ -38,16 +37,21 @@ Partial Class Formulario3
         Me.LTelefono = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TTelefono = New System.Windows.Forms.TextBox()
-        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.CBTarjeta3 = New System.Windows.Forms.CheckBox()
+        Me.CBTarjeta2 = New System.Windows.Forms.CheckBox()
+        Me.CBTarjeta1 = New System.Windows.Forms.CheckBox()
         Me.LTarjetas = New System.Windows.Forms.Label()
-        Me.BSalir = New System.Windows.Forms.Button()
         Me.RBVaron = New System.Windows.Forms.RadioButton()
         Me.RBMujer = New System.Windows.Forms.RadioButton()
+        Me.LTitulo = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.BSalir = New System.Windows.Forms.Button()
+        Me.TGuardar = New System.Windows.Forms.Button()
+        Me.TEliminar = New System.Windows.Forms.Button()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TNombre
@@ -63,24 +67,6 @@ Partial Class Formulario3
         Me.TApellido.Name = "TApellido"
         Me.TApellido.Size = New System.Drawing.Size(100, 22)
         Me.TApellido.TabIndex = 13
-        '
-        'TEliminar
-        '
-        Me.TEliminar.Location = New System.Drawing.Point(219, 368)
-        Me.TEliminar.Name = "TEliminar"
-        Me.TEliminar.Size = New System.Drawing.Size(75, 23)
-        Me.TEliminar.TabIndex = 11
-        Me.TEliminar.Text = "Eliminar"
-        Me.TEliminar.UseVisualStyleBackColor = True
-        '
-        'TGuardar
-        '
-        Me.TGuardar.Location = New System.Drawing.Point(85, 368)
-        Me.TGuardar.Name = "TGuardar"
-        Me.TGuardar.Size = New System.Drawing.Size(75, 23)
-        Me.TGuardar.TabIndex = 12
-        Me.TGuardar.Text = "Guardar"
-        Me.TGuardar.UseVisualStyleBackColor = True
         '
         'TDni
         '
@@ -156,9 +142,9 @@ Partial Class Formulario3
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ControlDark
         Me.Panel1.Controls.Add(Me.TTelefono)
-        Me.Panel1.Controls.Add(Me.CheckBox3)
-        Me.Panel1.Controls.Add(Me.CheckBox2)
-        Me.Panel1.Controls.Add(Me.CheckBox1)
+        Me.Panel1.Controls.Add(Me.CBTarjeta3)
+        Me.Panel1.Controls.Add(Me.CBTarjeta2)
+        Me.Panel1.Controls.Add(Me.CBTarjeta1)
         Me.Panel1.Controls.Add(Me.LNya)
         Me.Panel1.Controls.Add(Me.LTarjetas)
         Me.Panel1.Controls.Add(Me.LTelefono)
@@ -169,7 +155,7 @@ Partial Class Formulario3
         Me.Panel1.Controls.Add(Me.LNombre)
         Me.Panel1.Controls.Add(Me.LApellido)
         Me.Panel1.Controls.Add(Me.TDni)
-        Me.Panel1.Location = New System.Drawing.Point(29, 12)
+        Me.Panel1.Location = New System.Drawing.Point(29, 61)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(340, 325)
         Me.Panel1.TabIndex = 17
@@ -181,35 +167,35 @@ Partial Class Formulario3
         Me.TTelefono.Size = New System.Drawing.Size(100, 22)
         Me.TTelefono.TabIndex = 20
         '
-        'CheckBox3
+        'CBTarjeta3
         '
-        Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Location = New System.Drawing.Point(185, 276)
-        Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(103, 21)
-        Me.CheckBox3.TabIndex = 19
-        Me.CheckBox3.Text = "MasterCard"
-        Me.CheckBox3.UseVisualStyleBackColor = True
+        Me.CBTarjeta3.AutoSize = True
+        Me.CBTarjeta3.Location = New System.Drawing.Point(185, 276)
+        Me.CBTarjeta3.Name = "CBTarjeta3"
+        Me.CBTarjeta3.Size = New System.Drawing.Size(103, 21)
+        Me.CBTarjeta3.TabIndex = 19
+        Me.CBTarjeta3.Text = "MasterCard"
+        Me.CBTarjeta3.UseVisualStyleBackColor = True
         '
-        'CheckBox2
+        'CBTarjeta2
         '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(185, 249)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(57, 21)
-        Me.CheckBox2.TabIndex = 18
-        Me.CheckBox2.Text = "Visa"
-        Me.CheckBox2.UseVisualStyleBackColor = True
+        Me.CBTarjeta2.AutoSize = True
+        Me.CBTarjeta2.Location = New System.Drawing.Point(185, 249)
+        Me.CBTarjeta2.Name = "CBTarjeta2"
+        Me.CBTarjeta2.Size = New System.Drawing.Size(57, 21)
+        Me.CBTarjeta2.TabIndex = 18
+        Me.CBTarjeta2.Text = "Visa"
+        Me.CBTarjeta2.UseVisualStyleBackColor = True
         '
-        'CheckBox1
+        'CBTarjeta1
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(185, 222)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(80, 21)
-        Me.CheckBox1.TabIndex = 17
-        Me.CheckBox1.Text = "Naranja"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.CBTarjeta1.AutoSize = True
+        Me.CBTarjeta1.Location = New System.Drawing.Point(185, 222)
+        Me.CBTarjeta1.Name = "CBTarjeta1"
+        Me.CBTarjeta1.Size = New System.Drawing.Size(80, 21)
+        Me.CBTarjeta1.TabIndex = 17
+        Me.CBTarjeta1.Text = "Naranja"
+        Me.CBTarjeta1.UseVisualStyleBackColor = True
         '
         'LTarjetas
         '
@@ -220,19 +206,11 @@ Partial Class Formulario3
         Me.LTarjetas.TabIndex = 15
         Me.LTarjetas.Text = "Tarjetas de creditos"
         '
-        'BSalir
-        '
-        Me.BSalir.Location = New System.Drawing.Point(635, 373)
-        Me.BSalir.Name = "BSalir"
-        Me.BSalir.Size = New System.Drawing.Size(75, 23)
-        Me.BSalir.TabIndex = 19
-        Me.BSalir.Text = "Salir"
-        Me.BSalir.UseVisualStyleBackColor = True
-        '
         'RBVaron
         '
         Me.RBVaron.AutoSize = True
-        Me.RBVaron.Location = New System.Drawing.Point(447, 187)
+        Me.RBVaron.Checked = True
+        Me.RBVaron.Location = New System.Drawing.Point(447, 279)
         Me.RBVaron.Name = "RBVaron"
         Me.RBVaron.Size = New System.Drawing.Size(67, 21)
         Me.RBVaron.TabIndex = 21
@@ -243,33 +221,92 @@ Partial Class Formulario3
         'RBMujer
         '
         Me.RBMujer.AutoSize = True
-        Me.RBMujer.Location = New System.Drawing.Point(584, 187)
+        Me.RBMujer.Location = New System.Drawing.Point(584, 279)
         Me.RBMujer.Name = "RBMujer"
         Me.RBMujer.Size = New System.Drawing.Size(64, 21)
         Me.RBMujer.TabIndex = 22
-        Me.RBMujer.TabStop = True
         Me.RBMujer.Text = "Mujer"
         Me.RBMujer.UseVisualStyleBackColor = True
+        '
+        'LTitulo
+        '
+        Me.LTitulo.AutoSize = True
+        Me.LTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LTitulo.Location = New System.Drawing.Point(300, 9)
+        Me.LTitulo.Name = "LTitulo"
+        Me.LTitulo.Size = New System.Drawing.Size(165, 29)
+        Me.LTitulo.TabIndex = 25
+        Me.LTitulo.Text = "Nuevo Cliente"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.ErrorImage = Nothing
+        Me.PictureBox1.InitialImage = Nothing
+        Me.PictureBox1.Location = New System.Drawing.Point(447, 77)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(201, 185)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 24
+        Me.PictureBox1.TabStop = False
+        '
+        'BSalir
+        '
+        Me.BSalir.Image = Global.Practicos.My.Resources.Resources.salir_de_mi_perfil_icono_3964_128
+        Me.BSalir.Location = New System.Drawing.Point(584, 405)
+        Me.BSalir.Name = "BSalir"
+        Me.BSalir.Size = New System.Drawing.Size(109, 37)
+        Me.BSalir.TabIndex = 19
+        Me.BSalir.Text = "Salir"
+        Me.BSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BSalir.UseVisualStyleBackColor = True
+        '
+        'TGuardar
+        '
+        Me.TGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.TGuardar.Image = Global.Practicos.My.Resources.Resources.guardar
+        Me.TGuardar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.TGuardar.Location = New System.Drawing.Point(60, 408)
+        Me.TGuardar.Name = "TGuardar"
+        Me.TGuardar.Size = New System.Drawing.Size(109, 37)
+        Me.TGuardar.TabIndex = 12
+        Me.TGuardar.Text = "Guardar"
+        Me.TGuardar.TextAlign = System.Drawing.ContentAlignment.BottomRight
+        Me.TGuardar.UseVisualStyleBackColor = True
+        '
+        'TEliminar
+        '
+        Me.TEliminar.Image = Global.Practicos.My.Resources.Resources.remove_male_user_29366
+        Me.TEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.TEliminar.Location = New System.Drawing.Point(214, 408)
+        Me.TEliminar.Name = "TEliminar"
+        Me.TEliminar.Size = New System.Drawing.Size(109, 37)
+        Me.TEliminar.TabIndex = 11
+        Me.TEliminar.Text = "Eliminar"
+        Me.TEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.TEliminar.UseVisualStyleBackColor = True
         '
         'Formulario3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(727, 419)
+        Me.ClientSize = New System.Drawing.Size(739, 454)
+        Me.Controls.Add(Me.LTitulo)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.RBMujer)
         Me.Controls.Add(Me.RBVaron)
         Me.Controls.Add(Me.BSalir)
         Me.Controls.Add(Me.TGuardar)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.TEliminar)
-        Me.IsMdiContainer = True
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Formulario3"
         Me.Text = "Formulario3"
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -290,11 +327,13 @@ Partial Class Formulario3
     Friend WithEvents LTelefono As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents LTarjetas As Label
-    Friend WithEvents CheckBox3 As CheckBox
-    Friend WithEvents CheckBox2 As CheckBox
-    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents CBTarjeta3 As CheckBox
+    Friend WithEvents CBTarjeta2 As CheckBox
+    Friend WithEvents CBTarjeta1 As CheckBox
     Friend WithEvents BSalir As Button
     Friend WithEvents TTelefono As TextBox
     Friend WithEvents RBMujer As RadioButton
     Friend WithEvents RBVaron As RadioButton
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents LTitulo As Label
 End Class

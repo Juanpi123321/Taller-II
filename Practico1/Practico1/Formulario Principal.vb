@@ -8,7 +8,7 @@
     End Sub
 
     Private Sub BPractico3_Click(sender As Object, e As EventArgs) Handles BPractico3.Click
-        Formulario3.Show()
+        MDIParent1.Show()
     End Sub
 
     Private Sub BPractico4_Click(sender As Object, e As EventArgs) Handles BPractico4.Click

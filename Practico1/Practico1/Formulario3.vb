@@ -76,13 +76,30 @@ Public Class Formulario3
                 TDni.Clear()
                 TApellido.Clear()
                 TNombre.Clear()
+                TTelefono.Clear()
+                CBTarjeta1.Checked = False
+                CBTarjeta2.Checked = False
+                CBTarjeta3.Checked = False
                 ask = MsgBox(msg, style, title)
                 LModificar.Text = "modificar"
             End If
         End If
     End Sub
 
-    Private Sub Formulario3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub RBVaron_CheckedChanged(sender As Object, e As EventArgs) Handles RBVaron.CheckedChanged
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.BackgroundImage = My.Resources.usuario_hombre
 
     End Sub
+
+    Private Sub RBMujer_CheckedChanged(sender As Object, e As EventArgs) Handles RBMujer.CheckedChanged
+        PictureBox1.BackgroundImage = My.Resources.usuario_mujer2
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+
+    End Sub
+
+    Private Sub BSalir_Click(sender As Object, e As EventArgs) Handles BSalir.Click
+        Me.Close()
+    End Sub
+
 End Class

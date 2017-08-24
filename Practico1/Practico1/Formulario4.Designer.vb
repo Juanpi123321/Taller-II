@@ -22,6 +22,7 @@ Partial Class Formulario4
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.TDesde = New System.Windows.Forms.TextBox()
         Me.THasta = New System.Windows.Forms.TextBox()
         Me.LDesde = New System.Windows.Forms.Label()
@@ -29,21 +30,26 @@ Partial Class Formulario4
         Me.BGenerar = New System.Windows.Forms.Button()
         Me.LLista = New System.Windows.Forms.Label()
         Me.LBFuncion = New System.Windows.Forms.ListBox()
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.BPares = New System.Windows.Forms.Button()
+        Me.BImpares = New System.Windows.Forms.Button()
+        Me.BPrimos = New System.Windows.Forms.Button()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TDesde
         '
         Me.TDesde.Location = New System.Drawing.Point(129, 90)
         Me.TDesde.Name = "TDesde"
-        Me.TDesde.Size = New System.Drawing.Size(100, 22)
+        Me.TDesde.Size = New System.Drawing.Size(156, 22)
         Me.TDesde.TabIndex = 0
         '
         'THasta
         '
         Me.THasta.Location = New System.Drawing.Point(129, 161)
         Me.THasta.Name = "THasta"
-        Me.THasta.Size = New System.Drawing.Size(100, 22)
-        Me.THasta.TabIndex = 0
+        Me.THasta.Size = New System.Drawing.Size(156, 22)
+        Me.THasta.TabIndex = 1
         '
         'LDesde
         '
@@ -65,9 +71,9 @@ Partial Class Formulario4
         '
         'BGenerar
         '
-        Me.BGenerar.Location = New System.Drawing.Point(286, 90)
+        Me.BGenerar.Location = New System.Drawing.Point(129, 205)
         Me.BGenerar.Name = "BGenerar"
-        Me.BGenerar.Size = New System.Drawing.Size(128, 22)
+        Me.BGenerar.Size = New System.Drawing.Size(133, 23)
         Me.BGenerar.TabIndex = 2
         Me.BGenerar.Text = "Generar Funcion"
         Me.BGenerar.UseVisualStyleBackColor = True
@@ -75,9 +81,10 @@ Partial Class Formulario4
         'LLista
         '
         Me.LLista.AutoSize = True
-        Me.LLista.Location = New System.Drawing.Point(561, 56)
+        Me.LLista.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LLista.Location = New System.Drawing.Point(241, 26)
         Me.LLista.Name = "LLista"
-        Me.LLista.Size = New System.Drawing.Size(119, 17)
+        Me.LLista.Size = New System.Drawing.Size(202, 29)
         Me.LLista.TabIndex = 4
         Me.LLista.Text = "Lista de Numeros"
         '
@@ -85,16 +92,50 @@ Partial Class Formulario4
         '
         Me.LBFuncion.FormattingEnabled = True
         Me.LBFuncion.ItemHeight = 16
-        Me.LBFuncion.Location = New System.Drawing.Point(471, 94)
+        Me.LBFuncion.Location = New System.Drawing.Point(342, 90)
         Me.LBFuncion.Name = "LBFuncion"
-        Me.LBFuncion.Size = New System.Drawing.Size(295, 228)
+        Me.LBFuncion.Size = New System.Drawing.Size(423, 228)
         Me.LBFuncion.TabIndex = 5
+        '
+        'ErrorProvider1
+        '
+        Me.ErrorProvider1.ContainerControl = Me
+        '
+        'BPares
+        '
+        Me.BPares.Location = New System.Drawing.Point(129, 256)
+        Me.BPares.Name = "BPares"
+        Me.BPares.Size = New System.Drawing.Size(133, 23)
+        Me.BPares.TabIndex = 6
+        Me.BPares.Text = "Numeros Pares"
+        Me.BPares.UseVisualStyleBackColor = True
+        '
+        'BImpares
+        '
+        Me.BImpares.Location = New System.Drawing.Point(129, 285)
+        Me.BImpares.Name = "BImpares"
+        Me.BImpares.Size = New System.Drawing.Size(133, 23)
+        Me.BImpares.TabIndex = 7
+        Me.BImpares.Text = "Numeros Impares"
+        Me.BImpares.UseVisualStyleBackColor = True
+        '
+        'BPrimos
+        '
+        Me.BPrimos.Location = New System.Drawing.Point(129, 314)
+        Me.BPrimos.Name = "BPrimos"
+        Me.BPrimos.Size = New System.Drawing.Size(133, 23)
+        Me.BPrimos.TabIndex = 8
+        Me.BPrimos.Text = "Numeros Primos"
+        Me.BPrimos.UseVisualStyleBackColor = True
         '
         'Formulario4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(819, 355)
+        Me.ClientSize = New System.Drawing.Size(819, 374)
+        Me.Controls.Add(Me.BPrimos)
+        Me.Controls.Add(Me.BImpares)
+        Me.Controls.Add(Me.BPares)
         Me.Controls.Add(Me.LBFuncion)
         Me.Controls.Add(Me.LLista)
         Me.Controls.Add(Me.BGenerar)
@@ -104,6 +145,7 @@ Partial Class Formulario4
         Me.Controls.Add(Me.TDesde)
         Me.Name = "Formulario4"
         Me.Text = "Formulario4"
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -116,4 +158,8 @@ Partial Class Formulario4
     Friend WithEvents BGenerar As Button
     Friend WithEvents LLista As Label
     Friend WithEvents LBFuncion As ListBox
+    Friend WithEvents ErrorProvider1 As ErrorProvider
+    Friend WithEvents BPrimos As Button
+    Friend WithEvents BImpares As Button
+    Friend WithEvents BPares As Button
 End Class
