@@ -95,7 +95,7 @@ Partial Class Formulario4
         Me.LBFuncion.Location = New System.Drawing.Point(342, 90)
         Me.LBFuncion.Name = "LBFuncion"
         Me.LBFuncion.Size = New System.Drawing.Size(423, 228)
-        Me.LBFuncion.TabIndex = 5
+        Me.LBFuncion.TabIndex = 6
         '
         'ErrorProvider1
         '
@@ -106,7 +106,7 @@ Partial Class Formulario4
         Me.BPares.Location = New System.Drawing.Point(129, 256)
         Me.BPares.Name = "BPares"
         Me.BPares.Size = New System.Drawing.Size(133, 23)
-        Me.BPares.TabIndex = 6
+        Me.BPares.TabIndex = 3
         Me.BPares.Text = "Numeros Pares"
         Me.BPares.UseVisualStyleBackColor = True
         '
@@ -115,7 +115,7 @@ Partial Class Formulario4
         Me.BImpares.Location = New System.Drawing.Point(129, 285)
         Me.BImpares.Name = "BImpares"
         Me.BImpares.Size = New System.Drawing.Size(133, 23)
-        Me.BImpares.TabIndex = 7
+        Me.BImpares.TabIndex = 4
         Me.BImpares.Text = "Numeros Impares"
         Me.BImpares.UseVisualStyleBackColor = True
         '
@@ -124,7 +124,7 @@ Partial Class Formulario4
         Me.BPrimos.Location = New System.Drawing.Point(129, 314)
         Me.BPrimos.Name = "BPrimos"
         Me.BPrimos.Size = New System.Drawing.Size(133, 23)
-        Me.BPrimos.TabIndex = 8
+        Me.BPrimos.TabIndex = 5
         Me.BPrimos.Text = "Numeros Primos"
         Me.BPrimos.UseVisualStyleBackColor = True
         '

@@ -87,14 +87,12 @@ Public Class Formulario3
     End Sub
 
     Private Sub RBVaron_CheckedChanged(sender As Object, e As EventArgs) Handles RBVaron.CheckedChanged
-        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureBox1.BackgroundImage = My.Resources.usuario_hombre
+        PictureBox1.BackgroundImage = My.Resources.usuario_hombre2
 
     End Sub
 
     Private Sub RBMujer_CheckedChanged(sender As Object, e As EventArgs) Handles RBMujer.CheckedChanged
-        PictureBox1.BackgroundImage = My.Resources.usuario_mujer2
-        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.BackgroundImage = My.Resources.usuario_mujer3
 
     End Sub
 

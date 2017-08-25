@@ -1,0 +1,16 @@
+D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Practico1\obj\Debug\Practico1.vbprojResolveAssemblyReference.cache
+D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Practico1\obj\Debug\Practico1.vbproj.GenerateResource.Cache
+D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Practico1\obj\Debug\Practico1.vbproj.CoreCompileInputs.cache
+D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Practico1\bin\Debug\Practicos.exe.config
+D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Practico1\bin\Debug\Practicos.exe
+D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Practico1\bin\Debug\Practicos.pdb
+D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Practico1\bin\Debug\Practicos.xml
+D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Practico1\obj\Debug\Practicos.Formulario1.resources
+D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Practico1\obj\Debug\Practicos.Formulario_Principal.resources
+D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Practico1\obj\Debug\Practicos.Resources.resources
+D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Practico1\obj\Debug\Practicos.exe
+D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Practico1\obj\Debug\Practicos.xml
+D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Practico1\obj\Debug\Practicos.pdb
+D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Practico1\obj\Debug\Practicos.Formulario2.resources
+D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Practico1\obj\Debug\Practicos.Formulario4.resources
+D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Practico1\obj\Debug\Practicos.Formulario3.resources

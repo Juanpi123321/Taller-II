@@ -59,21 +59,21 @@ Partial Class Formulario3
         Me.TNombre.Location = New System.Drawing.Point(165, 134)
         Me.TNombre.Name = "TNombre"
         Me.TNombre.Size = New System.Drawing.Size(100, 22)
-        Me.TNombre.TabIndex = 14
+        Me.TNombre.TabIndex = 2
         '
         'TApellido
         '
         Me.TApellido.Location = New System.Drawing.Point(165, 91)
         Me.TApellido.Name = "TApellido"
         Me.TApellido.Size = New System.Drawing.Size(100, 22)
-        Me.TApellido.TabIndex = 13
+        Me.TApellido.TabIndex = 1
         '
         'TDni
         '
         Me.TDni.Location = New System.Drawing.Point(165, 52)
         Me.TDni.Name = "TDni"
         Me.TDni.Size = New System.Drawing.Size(100, 22)
-        Me.TDni.TabIndex = 10
+        Me.TDni.TabIndex = 0
         '
         'LApellido
         '
@@ -165,7 +165,7 @@ Partial Class Formulario3
         Me.TTelefono.Location = New System.Drawing.Point(165, 179)
         Me.TTelefono.Name = "TTelefono"
         Me.TTelefono.Size = New System.Drawing.Size(100, 22)
-        Me.TTelefono.TabIndex = 20
+        Me.TTelefono.TabIndex = 3
         '
         'CBTarjeta3
         '
@@ -173,7 +173,7 @@ Partial Class Formulario3
         Me.CBTarjeta3.Location = New System.Drawing.Point(185, 276)
         Me.CBTarjeta3.Name = "CBTarjeta3"
         Me.CBTarjeta3.Size = New System.Drawing.Size(103, 21)
-        Me.CBTarjeta3.TabIndex = 19
+        Me.CBTarjeta3.TabIndex = 6
         Me.CBTarjeta3.Text = "MasterCard"
         Me.CBTarjeta3.UseVisualStyleBackColor = True
         '
@@ -183,7 +183,7 @@ Partial Class Formulario3
         Me.CBTarjeta2.Location = New System.Drawing.Point(185, 249)
         Me.CBTarjeta2.Name = "CBTarjeta2"
         Me.CBTarjeta2.Size = New System.Drawing.Size(57, 21)
-        Me.CBTarjeta2.TabIndex = 18
+        Me.CBTarjeta2.TabIndex = 5
         Me.CBTarjeta2.Text = "Visa"
         Me.CBTarjeta2.UseVisualStyleBackColor = True
         '
@@ -193,7 +193,7 @@ Partial Class Formulario3
         Me.CBTarjeta1.Location = New System.Drawing.Point(185, 222)
         Me.CBTarjeta1.Name = "CBTarjeta1"
         Me.CBTarjeta1.Size = New System.Drawing.Size(80, 21)
-        Me.CBTarjeta1.TabIndex = 17
+        Me.CBTarjeta1.TabIndex = 4
         Me.CBTarjeta1.Text = "Naranja"
         Me.CBTarjeta1.UseVisualStyleBackColor = True
         '
@@ -213,7 +213,7 @@ Partial Class Formulario3
         Me.RBVaron.Location = New System.Drawing.Point(447, 279)
         Me.RBVaron.Name = "RBVaron"
         Me.RBVaron.Size = New System.Drawing.Size(67, 21)
-        Me.RBVaron.TabIndex = 21
+        Me.RBVaron.TabIndex = 7
         Me.RBVaron.TabStop = True
         Me.RBVaron.Text = "Varon"
         Me.RBVaron.UseVisualStyleBackColor = True
@@ -224,7 +224,7 @@ Partial Class Formulario3
         Me.RBMujer.Location = New System.Drawing.Point(584, 279)
         Me.RBMujer.Name = "RBMujer"
         Me.RBMujer.Size = New System.Drawing.Size(64, 21)
-        Me.RBMujer.TabIndex = 22
+        Me.RBMujer.TabIndex = 8
         Me.RBMujer.Text = "Mujer"
         Me.RBMujer.UseVisualStyleBackColor = True
         '
@@ -251,36 +251,36 @@ Partial Class Formulario3
         '
         'BSalir
         '
-        Me.BSalir.Image = Global.Practicos.My.Resources.Resources.salir_de_mi_perfil_icono_3964_128
-        Me.BSalir.Location = New System.Drawing.Point(584, 405)
+        Me.BSalir.Image = Global.Practicos.My.Resources.Resources.salir_min
+        Me.BSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BSalir.Location = New System.Drawing.Point(584, 408)
         Me.BSalir.Name = "BSalir"
-        Me.BSalir.Size = New System.Drawing.Size(109, 37)
-        Me.BSalir.TabIndex = 19
+        Me.BSalir.Size = New System.Drawing.Size(131, 54)
+        Me.BSalir.TabIndex = 11
         Me.BSalir.Text = "Salir"
         Me.BSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.BSalir.UseVisualStyleBackColor = True
         '
         'TGuardar
         '
-        Me.TGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.TGuardar.Image = Global.Practicos.My.Resources.Resources.guardar
-        Me.TGuardar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.TGuardar.Image = Global.Practicos.My.Resources.Resources.guardar_min
+        Me.TGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.TGuardar.Location = New System.Drawing.Point(60, 408)
         Me.TGuardar.Name = "TGuardar"
-        Me.TGuardar.Size = New System.Drawing.Size(109, 37)
-        Me.TGuardar.TabIndex = 12
+        Me.TGuardar.Size = New System.Drawing.Size(131, 54)
+        Me.TGuardar.TabIndex = 9
         Me.TGuardar.Text = "Guardar"
-        Me.TGuardar.TextAlign = System.Drawing.ContentAlignment.BottomRight
+        Me.TGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.TGuardar.UseVisualStyleBackColor = True
         '
         'TEliminar
         '
-        Me.TEliminar.Image = Global.Practicos.My.Resources.Resources.remove_male_user_29366
-        Me.TEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.TEliminar.Image = Global.Practicos.My.Resources.Resources.eliminar_min
+        Me.TEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.TEliminar.Location = New System.Drawing.Point(214, 408)
         Me.TEliminar.Name = "TEliminar"
-        Me.TEliminar.Size = New System.Drawing.Size(109, 37)
-        Me.TEliminar.TabIndex = 11
+        Me.TEliminar.Size = New System.Drawing.Size(131, 54)
+        Me.TEliminar.TabIndex = 10
         Me.TEliminar.Text = "Eliminar"
         Me.TEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.TEliminar.UseVisualStyleBackColor = True
@@ -290,7 +290,7 @@ Partial Class Formulario3
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(739, 454)
+        Me.ClientSize = New System.Drawing.Size(739, 481)
         Me.Controls.Add(Me.LTitulo)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.RBMujer)

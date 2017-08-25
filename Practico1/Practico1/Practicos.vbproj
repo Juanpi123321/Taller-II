@@ -106,6 +106,12 @@
     <Compile Include="Formulario4.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formulario5.Designer.vb">
+      <DependentUpon>Formulario5.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario5.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MDIParent1.Designer.vb">
       <DependentUpon>MDIParent1.vb</DependentUpon>
     </Compile>
@@ -149,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formulario4.resx">
       <DependentUpon>Formulario4.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulario5.resx">
+      <DependentUpon>Formulario5.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDIParent1.resx">
       <DependentUpon>MDIParent1.vb</DependentUpon>
@@ -197,6 +206,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\salir-de-mi-perfil-icono-3964-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar-min.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guardar-min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salir-min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario-hombre1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario-mujer2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario-hombre2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

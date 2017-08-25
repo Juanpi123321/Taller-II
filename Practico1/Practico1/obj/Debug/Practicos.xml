@@ -27,7 +27,17 @@ Practicos
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Practicos.My.Resources.Resources.eliminar_min">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Practicos.My.Resources.Resources.guardar">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Practicos.My.Resources.Resources.guardar_min">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
@@ -38,6 +48,11 @@ Practicos
 </summary>
 </member>
 <member name="P:Practicos.My.Resources.Resources.salir_de_mi_perfil_icono_3964_128">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Practicos.My.Resources.Resources.salir_min">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
@@ -57,6 +72,16 @@ Practicos
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Practicos.My.Resources.Resources.usuario_hombre1">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Practicos.My.Resources.Resources.usuario_hombre2">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Practicos.My.Resources.Resources.usuario_mujer">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
@@ -68,6 +93,11 @@ Practicos
 </summary>
 </member>
 <member name="P:Practicos.My.Resources.Resources.usuario_mujer2">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Practicos.My.Resources.Resources.usuario_mujer3">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
