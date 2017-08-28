@@ -75,12 +75,24 @@
             Dim hasta As Integer
             desde = Val(TDesde.Text)
             hasta = Val(THasta.Text)
-            While (desde <= hasta)
-                If (desde Mod 2 = 0) Then
-                    LBFuncion.Items.Add(desde)
+            Dim bandera As Boolean
+            Dim n As Integer
+            Dim i As Integer
+            For n = desde To hasta
+                bandera = True
+                For i = 2 To Math.Sqrt(n)
+                    If n Mod i = 0 Then
+                        bandera = False
+                        Exit For
+                    End If
+                Next
+                If bandera Then
+                    LBFuncion.Items.Add(n)
                 End If
-                desde = desde + 1
-            End While
+            Next
         End If
+
+
+
     End Sub
 End Class

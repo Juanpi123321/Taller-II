@@ -23,6 +23,9 @@ Partial Class Formulario4
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.TDesde = New System.Windows.Forms.TextBox()
         Me.THasta = New System.Windows.Forms.TextBox()
         Me.LDesde = New System.Windows.Forms.Label()
@@ -34,7 +37,9 @@ Partial Class Formulario4
         Me.BPares = New System.Windows.Forms.Button()
         Me.BImpares = New System.Windows.Forms.Button()
         Me.BPrimos = New System.Windows.Forms.Button()
+        Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TDesde
@@ -92,9 +97,9 @@ Partial Class Formulario4
         '
         Me.LBFuncion.FormattingEnabled = True
         Me.LBFuncion.ItemHeight = 16
-        Me.LBFuncion.Location = New System.Drawing.Point(342, 90)
+        Me.LBFuncion.Location = New System.Drawing.Point(383, 90)
         Me.LBFuncion.Name = "LBFuncion"
-        Me.LBFuncion.Size = New System.Drawing.Size(423, 228)
+        Me.LBFuncion.Size = New System.Drawing.Size(60, 228)
         Me.LBFuncion.TabIndex = 6
         '
         'ErrorProvider1
@@ -128,11 +133,28 @@ Partial Class Formulario4
         Me.BPrimos.Text = "Numeros Primos"
         Me.BPrimos.UseVisualStyleBackColor = True
         '
+        'Chart1
+        '
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend1)
+        Me.Chart1.Location = New System.Drawing.Point(476, 90)
+        Me.Chart1.Name = "Chart1"
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.Chart1.Series.Add(Series1)
+        Me.Chart1.Size = New System.Drawing.Size(317, 228)
+        Me.Chart1.TabIndex = 7
+        Me.Chart1.Text = "Chart1"
+        '
         'Formulario4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(819, 374)
+        Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.BPrimos)
         Me.Controls.Add(Me.BImpares)
         Me.Controls.Add(Me.BPares)
@@ -146,6 +168,7 @@ Partial Class Formulario4
         Me.Name = "Formulario4"
         Me.Text = "Formulario4"
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -162,4 +185,5 @@ Partial Class Formulario4
     Friend WithEvents BPrimos As Button
     Friend WithEvents BImpares As Button
     Friend WithEvents BPares As Button
+    Friend WithEvents Chart1 As DataVisualization.Charting.Chart
 End Class

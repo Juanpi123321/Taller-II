@@ -15,4 +15,7 @@
         Formulario4.Show()
     End Sub
 
+    Private Sub BPractico5_Click(sender As Object, e As EventArgs) Handles BPractico5.Click
+        Formulario5.Show()
+    End Sub
 End Class
