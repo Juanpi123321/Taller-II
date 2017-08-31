@@ -226,5 +226,14 @@
   <ItemGroup>
     <None Include="Resources\usuario-hombre2.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imagen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guardar2-min.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\default_user.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
