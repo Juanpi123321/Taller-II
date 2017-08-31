@@ -16,3 +16,5 @@ D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Pr
 D:\usuarios\alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Practico1\obj\Debug\Practicos.vbprojResolveAssemblyReference.cache
 D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Practico1\obj\Debug\Practicos.MDIParent1.resources
 D:\usuarios\alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Practico1\obj\Debug\Practicos.Formulario5.resources
+D:\usuarios\alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Practico1\bin\Debug\MySql.Data.dll
+D:\usuarios\alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Practico1\bin\Debug\MySql.Data.xml
