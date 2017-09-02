@@ -28,7 +28,7 @@ Partial Class Formulario5
         Me.BFoto = New System.Windows.Forms.Button()
         Me.RBMujer = New System.Windows.Forms.RadioButton()
         Me.RBHombre = New System.Windows.Forms.RadioButton()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.FechaNac = New System.Windows.Forms.DateTimePicker()
         Me.TFoto = New System.Windows.Forms.TextBox()
         Me.TSaldo = New System.Windows.Forms.TextBox()
         Me.TApellido = New System.Windows.Forms.TextBox()
@@ -40,6 +40,14 @@ Partial Class Formulario5
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Fecha_Nacimiento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Sexo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Eliminar = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.Saldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Foto = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.Ruta = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -64,7 +72,7 @@ Partial Class Formulario5
         Me.Panel1.Controls.Add(Me.BFoto)
         Me.Panel1.Controls.Add(Me.RBMujer)
         Me.Panel1.Controls.Add(Me.RBHombre)
-        Me.Panel1.Controls.Add(Me.DateTimePicker1)
+        Me.Panel1.Controls.Add(Me.FechaNac)
         Me.Panel1.Controls.Add(Me.TFoto)
         Me.Panel1.Controls.Add(Me.TSaldo)
         Me.Panel1.Controls.Add(Me.TApellido)
@@ -127,14 +135,14 @@ Partial Class Formulario5
         Me.RBHombre.Text = "Hombre"
         Me.RBHombre.UseVisualStyleBackColor = True
         '
-        'DateTimePicker1
+        'FechaNac
         '
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(268, 110)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(92, 22)
-        Me.DateTimePicker1.TabIndex = 3
-        Me.DateTimePicker1.Value = New Date(2014, 5, 12, 11, 25, 0, 0)
+        Me.FechaNac.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.FechaNac.Location = New System.Drawing.Point(268, 110)
+        Me.FechaNac.Name = "FechaNac"
+        Me.FechaNac.Size = New System.Drawing.Size(92, 22)
+        Me.FechaNac.TabIndex = 3
+        Me.FechaNac.Value = New Date(2014, 5, 12, 11, 25, 0, 0)
         '
         'TFoto
         '
@@ -231,11 +239,52 @@ Partial Class Formulario5
         '
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Apellido, Me.Nombre, Me.Fecha_Nacimiento, Me.Sexo, Me.Eliminar, Me.Saldo, Me.Foto, Me.Ruta})
         Me.DataGridView1.Location = New System.Drawing.Point(12, 395)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(846, 150)
+        Me.DataGridView1.Size = New System.Drawing.Size(846, 204)
         Me.DataGridView1.TabIndex = 4
+        '
+        'Apellido
+        '
+        Me.Apellido.HeaderText = "Apellido"
+        Me.Apellido.Name = "Apellido"
+        '
+        'Nombre
+        '
+        Me.Nombre.HeaderText = "Nombre"
+        Me.Nombre.Name = "Nombre"
+        '
+        'Fecha_Nacimiento
+        '
+        Me.Fecha_Nacimiento.HeaderText = "Fecha Nacimiento"
+        Me.Fecha_Nacimiento.Name = "Fecha_Nacimiento"
+        '
+        'Sexo
+        '
+        Me.Sexo.HeaderText = "Sexo"
+        Me.Sexo.Name = "Sexo"
+        '
+        'Eliminar
+        '
+        Me.Eliminar.HeaderText = "Eliminar"
+        Me.Eliminar.Name = "Eliminar"
+        '
+        'Saldo
+        '
+        Me.Saldo.HeaderText = "Saldo"
+        Me.Saldo.Name = "Saldo"
+        '
+        'Foto
+        '
+        Me.Foto.HeaderText = "Foto"
+        Me.Foto.Name = "Foto"
+        '
+        'Ruta
+        '
+        Me.Ruta.HeaderText = "Ruta"
+        Me.Ruta.Name = "Ruta"
         '
         'Formulario5
         '
@@ -243,7 +292,7 @@ Partial Class Formulario5
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.Practicos.My.Resources.Resources.imagen
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(870, 557)
+        Me.ClientSize = New System.Drawing.Size(870, 627)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Panel1)
@@ -263,7 +312,7 @@ Partial Class Formulario5
     Friend WithEvents BFoto As Button
     Friend WithEvents RBMujer As RadioButton
     Friend WithEvents RBHombre As RadioButton
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents FechaNac As DateTimePicker
     Friend WithEvents TFoto As TextBox
     Friend WithEvents TSaldo As TextBox
     Friend WithEvents TApellido As TextBox
@@ -275,4 +324,12 @@ Partial Class Formulario5
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Apellido As DataGridViewTextBoxColumn
+    Friend WithEvents Nombre As DataGridViewTextBoxColumn
+    Friend WithEvents Fecha_Nacimiento As DataGridViewTextBoxColumn
+    Friend WithEvents Sexo As DataGridViewTextBoxColumn
+    Friend WithEvents Eliminar As DataGridViewButtonColumn
+    Friend WithEvents Saldo As DataGridViewTextBoxColumn
+    Friend WithEvents Foto As DataGridViewImageColumn
+    Friend WithEvents Ruta As DataGridViewTextBoxColumn
 End Class
