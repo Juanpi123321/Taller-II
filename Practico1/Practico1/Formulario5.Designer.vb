@@ -157,6 +157,7 @@ Partial Class Formulario5
         Me.TSaldo.Name = "TSaldo"
         Me.TSaldo.Size = New System.Drawing.Size(254, 22)
         Me.TSaldo.TabIndex = 6
+        Me.TSaldo.Text = "0"
         '
         'TApellido
         '

@@ -26,7 +26,8 @@ Public Class Formulario5
         Dim eliminar As Button = New Button
         eliminar.Text = "Eliminar"
         DataGridView1.Rows.Add(TApellido.Text, TNombre.Text, FechaNac.Value.ToShortDateString, sexo, eliminar.Text, TSaldo.Text, PictureBox1.Image, TFoto.Text)
-        If Val(TSaldo.Text) < 50 Then
+        Dim valor_saldo As Integer = Integer.Parse(TSaldo.Text)
+        If valor_saldo < 50 Then
             DataGridView1.CurrentRow.DefaultCellStyle.BackColor = Color.Red
         End If
 
@@ -35,7 +36,7 @@ Public Class Formulario5
         TApellido.Clear()
         FechaNac.Value = New DateTime(1900, 1, 1)
         RBHombre.Checked = True
-        TSaldo.Clear()
+        TSaldo.Text = 0
         TFoto.Clear()
         PictureBox1.Image = Image.FromFile("D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\Practico1\Practico1\bin\Debug\Fotos\default_user.jpg")
 
