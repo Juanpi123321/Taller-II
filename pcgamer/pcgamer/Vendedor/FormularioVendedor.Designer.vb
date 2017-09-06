@@ -31,6 +31,7 @@ Partial Class FormularioVendedor
         Me.PBCliente = New System.Windows.Forms.PictureBox()
         Me.PBStock = New System.Windows.Forms.PictureBox()
         Me.PBFactura = New System.Windows.Forms.PictureBox()
+        Me.BAdmin = New System.Windows.Forms.Button()
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PBCliente, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -143,6 +144,21 @@ Partial Class FormularioVendedor
         Me.PBFactura.TabIndex = 0
         Me.PBFactura.TabStop = False
         '
+        'BAdmin
+        '
+        Me.BAdmin.BackColor = System.Drawing.Color.Black
+        Me.BAdmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BAdmin.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BAdmin.ForeColor = System.Drawing.Color.White
+        Me.BAdmin.Location = New System.Drawing.Point(662, 399)
+        Me.BAdmin.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.BAdmin.Name = "BAdmin"
+        Me.BAdmin.Size = New System.Drawing.Size(166, 32)
+        Me.BAdmin.TabIndex = 2
+        Me.BAdmin.Text = "Ir a Form Admin"
+        Me.BAdmin.UseVisualStyleBackColor = False
+        '
         'FormularioVendedor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 25.0!)
@@ -150,13 +166,14 @@ Partial Class FormularioVendedor
         Me.BackgroundImage = Global.pcgamer.My.Resources.Resources.hyperx_background
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(842, 442)
+        Me.Controls.Add(Me.BAdmin)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PBLogo)
         Me.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(5)
         Me.Name = "FormularioVendedor"
-        Me.Text = "FormularioVendedor"
+        Me.Text = "Formulario Vendedor"
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         CType(Me.PBCliente, System.ComponentModel.ISupportInitialize).EndInit()
@@ -174,4 +191,5 @@ Partial Class FormularioVendedor
     Friend WithEvents PBFactura As PictureBox
     Friend WithEvents BStock As Button
     Friend WithEvents BCliente As Button
+    Friend WithEvents BAdmin As Button
 End Class

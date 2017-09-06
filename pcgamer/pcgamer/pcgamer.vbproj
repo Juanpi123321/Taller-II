@@ -72,22 +72,28 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormularioCliente.Designer.vb">
+    <Compile Include="Administrador\FormularioAdministrador.Designer.vb">
+      <DependentUpon>FormularioAdministrador.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\FormularioAdministrador.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vendedor\FormularioCliente.Designer.vb">
       <DependentUpon>FormularioCliente.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormularioCliente.vb">
+    <Compile Include="Vendedor\FormularioCliente.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormularioFactura.Designer.vb">
+    <Compile Include="Vendedor\FormularioFactura.Designer.vb">
       <DependentUpon>FormularioFactura.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormularioFactura.vb">
+    <Compile Include="Vendedor\FormularioFactura.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormularioVendedor.Designer.vb">
+    <Compile Include="Vendedor\FormularioVendedor.Designer.vb">
       <DependentUpon>FormularioVendedor.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormularioVendedor.vb">
+    <Compile Include="Vendedor\FormularioVendedor.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.vb">
@@ -112,24 +118,27 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="FormularioStock.Designer.vb">
+    <Compile Include="Vendedor\FormularioStock.Designer.vb">
       <DependentUpon>FormularioStock.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormularioStock.vb">
+    <Compile Include="Vendedor\FormularioStock.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FormularioCliente.resx">
+    <EmbeddedResource Include="Administrador\FormularioAdministrador.resx">
+      <DependentUpon>FormularioAdministrador.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vendedor\FormularioCliente.resx">
       <DependentUpon>FormularioCliente.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormularioFactura.resx">
+    <EmbeddedResource Include="Vendedor\FormularioFactura.resx">
       <DependentUpon>FormularioFactura.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormularioStock.resx">
+    <EmbeddedResource Include="Vendedor\FormularioStock.resx">
       <DependentUpon>FormularioStock.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormularioVendedor.resx">
+    <EmbeddedResource Include="Vendedor\FormularioVendedor.resx">
       <DependentUpon>FormularioVendedor.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
@@ -195,6 +204,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\stock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Client-Service.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\63375334-representante-de-servicio-al-cliente-3d-ilustraci-n-aislado-sobre-fondo-blanco-Foto-de-archivo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\people-work-metaphor-separated-white-29812042.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\can-stock-photo_csp13638182.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
