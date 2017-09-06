@@ -42,7 +42,7 @@ Partial Class FormularioVendedor
         'PBLogo
         '
         Me.PBLogo.Image = Global.pcgamer.My.Resources.Resources.pcgamer_logo
-        Me.PBLogo.Location = New System.Drawing.Point(630, 14)
+        Me.PBLogo.Location = New System.Drawing.Point(794, 14)
         Me.PBLogo.Margin = New System.Windows.Forms.Padding(5)
         Me.PBLogo.Name = "PBLogo"
         Me.PBLogo.Size = New System.Drawing.Size(198, 34)
@@ -165,7 +165,7 @@ Partial Class FormularioVendedor
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.pcgamer.My.Resources.Resources.hyperx_background
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(842, 442)
+        Me.ClientSize = New System.Drawing.Size(1006, 593)
         Me.Controls.Add(Me.BAdmin)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PBLogo)

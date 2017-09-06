@@ -11,6 +11,7 @@ Public Class FormularioCliente
         TDni.Clear()
         TDomicilio.Clear()
         TTelefono.Clear()
+        TEmail.Clear()
     End Sub
 
     Private Sub BAgregar_Click_1(sender As Object, e As EventArgs) Handles BAgregar.Click
@@ -21,7 +22,7 @@ Public Class FormularioCliente
         msg = "Debe completar los campos obligatorios!"
         style = MsgBoxStyle.DefaultButton2 Or MsgBoxStyle.Critical
         title = "Error"
-        If TNombre.Text = "" Or TApellido.Text = "" Or TDni.Text = "" Or TDomicilio.Text = "" Then
+        If TNombre.Text = "" Or TApellido.Text = "" Or TDni.Text = "" Or TDomicilio.Text = "" Or TEmail.Text = "" Then
             ask = MsgBox(msg, style, title)
         Else
             msg = "El Cliente se ha registrado correctamente"
