@@ -62,4 +62,8 @@ Public Class FormularioCliente
         'Asignarle la fecha y hora del sistema
     End Sub
 
+    Private Sub BAgregarFactura_Click(sender As Object, e As EventArgs) Handles BAgregarFactura.Click
+        FormularioFactura.Show()
+        Me.Hide()
+    End Sub
 End Class

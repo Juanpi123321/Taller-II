@@ -229,5 +229,17 @@
   <ItemGroup>
     <None Include="Resources\pcgamer-logo-grande2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lupa-icon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lupa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lupa1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oie_transparent.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
