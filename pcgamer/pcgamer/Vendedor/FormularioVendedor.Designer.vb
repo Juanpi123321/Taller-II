@@ -78,7 +78,7 @@ Partial Class FormularioVendedor
         Me.BStock.Name = "BStock"
         Me.BStock.Size = New System.Drawing.Size(166, 32)
         Me.BStock.TabIndex = 1
-        Me.BStock.Text = "Consultar Stock"
+        Me.BStock.Text = "&Consultar Stock"
         Me.BStock.UseVisualStyleBackColor = False
         '
         'BCliente
@@ -93,7 +93,7 @@ Partial Class FormularioVendedor
         Me.BCliente.Name = "BCliente"
         Me.BCliente.Size = New System.Drawing.Size(166, 32)
         Me.BCliente.TabIndex = 1
-        Me.BCliente.Text = "Registrar/Consultar"
+        Me.BCliente.Text = "&Registrar/Consultar"
         Me.BCliente.UseVisualStyleBackColor = False
         '
         'BFactura
@@ -108,7 +108,7 @@ Partial Class FormularioVendedor
         Me.BFactura.Name = "BFactura"
         Me.BFactura.Size = New System.Drawing.Size(166, 32)
         Me.BFactura.TabIndex = 1
-        Me.BFactura.Text = "Generar Factura"
+        Me.BFactura.Text = "&Generar Factura"
         Me.BFactura.UseVisualStyleBackColor = False
         '
         'PBCliente

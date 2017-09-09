@@ -217,5 +217,17 @@
   <ItemGroup>
     <None Include="Resources\can-stock-photo_csp13638182.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gabinete.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gabinete1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gabinete2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pcgamer-logo-grande2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

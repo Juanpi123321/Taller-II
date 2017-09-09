@@ -184,6 +184,36 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property gabinete() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("gabinete", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property gabinete1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("gabinete1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property gabinete2() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("gabinete2", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property hyperx_background() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("hyperx-background", resourceCulture)
@@ -217,6 +247,16 @@ Namespace My.Resources
         Friend ReadOnly Property pcgamer_logo_grande1() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("pcgamer-logo-grande1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property pcgamer_logo_grande2() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("pcgamer-logo-grande2", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

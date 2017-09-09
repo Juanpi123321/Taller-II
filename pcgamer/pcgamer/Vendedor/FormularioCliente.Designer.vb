@@ -34,6 +34,8 @@ Partial Class FormularioCliente
         Me.TNombre = New System.Windows.Forms.TextBox()
         Me.TApellido = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.FechaReg = New System.Windows.Forms.DateTimePicker()
+        Me.LFechaReg = New System.Windows.Forms.Label()
         Me.TEmail = New System.Windows.Forms.TextBox()
         Me.LEmail = New System.Windows.Forms.Label()
         Me.LObligatorio = New System.Windows.Forms.Label()
@@ -46,10 +48,12 @@ Partial Class FormularioCliente
         Me.TabCliente = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.DataGridCliente = New System.Windows.Forms.DataGridView()
+        Me.CBBuscar = New System.Windows.Forms.ComboBox()
+        Me.BListarTodos = New System.Windows.Forms.Button()
         Me.BBuscar = New System.Windows.Forms.Button()
         Me.LBuscar = New System.Windows.Forms.Label()
         Me.TBuscar = New System.Windows.Forms.TextBox()
+        Me.DataGridCliente = New System.Windows.Forms.DataGridView()
         Me.Id_cliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.apellidos = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nombres = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -128,9 +132,9 @@ Partial Class FormularioCliente
         Me.LTitulo.ForeColor = System.Drawing.Color.White
         Me.LTitulo.Location = New System.Drawing.Point(327, 39)
         Me.LTitulo.Name = "LTitulo"
-        Me.LTitulo.Size = New System.Drawing.Size(293, 40)
-        Me.LTitulo.TabIndex = 12
-        Me.LTitulo.Text = "Registrar Cliente"
+        Me.LTitulo.Size = New System.Drawing.Size(304, 40)
+        Me.LTitulo.TabIndex = 18
+        Me.LTitulo.Text = "Gestionar Cliente"
         '
         'TNombre
         '
@@ -149,6 +153,8 @@ Partial Class FormularioCliente
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Black
+        Me.Panel1.Controls.Add(Me.FechaReg)
+        Me.Panel1.Controls.Add(Me.LFechaReg)
         Me.Panel1.Controls.Add(Me.TEmail)
         Me.Panel1.Controls.Add(Me.LEmail)
         Me.Panel1.Controls.Add(Me.LObligatorio)
@@ -163,17 +169,35 @@ Partial Class FormularioCliente
         Me.Panel1.Controls.Add(Me.LTelefono)
         Me.Panel1.Controls.Add(Me.LDomicilio)
         Me.Panel1.ForeColor = System.Drawing.Color.White
-        Me.Panel1.Location = New System.Drawing.Point(125, 57)
+        Me.Panel1.Location = New System.Drawing.Point(125, 26)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(365, 249)
-        Me.Panel1.TabIndex = 8
+        Me.Panel1.Size = New System.Drawing.Size(365, 286)
+        Me.Panel1.TabIndex = 15
+        '
+        'FechaReg
+        '
+        Me.FechaReg.Enabled = False
+        Me.FechaReg.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.FechaReg.Location = New System.Drawing.Point(138, 227)
+        Me.FechaReg.Name = "FechaReg"
+        Me.FechaReg.Size = New System.Drawing.Size(193, 28)
+        Me.FechaReg.TabIndex = 6
+        '
+        'LFechaReg
+        '
+        Me.LFechaReg.AutoSize = True
+        Me.LFechaReg.Location = New System.Drawing.Point(23, 227)
+        Me.LFechaReg.Name = "LFechaReg"
+        Me.LFechaReg.Size = New System.Drawing.Size(106, 20)
+        Me.LFechaReg.TabIndex = 13
+        Me.LFechaReg.Text = "Fecha Reg:"
         '
         'TEmail
         '
         Me.TEmail.Location = New System.Drawing.Point(138, 190)
         Me.TEmail.Name = "TEmail"
         Me.TEmail.Size = New System.Drawing.Size(193, 28)
-        Me.TEmail.TabIndex = 13
+        Me.TEmail.TabIndex = 5
         '
         'LEmail
         '
@@ -181,17 +205,17 @@ Partial Class FormularioCliente
         Me.LEmail.Location = New System.Drawing.Point(23, 193)
         Me.LEmail.Name = "LEmail"
         Me.LEmail.Size = New System.Drawing.Size(76, 20)
-        Me.LEmail.TabIndex = 14
+        Me.LEmail.TabIndex = 12
         Me.LEmail.Text = "*Email:"
         '
         'LObligatorio
         '
         Me.LObligatorio.AutoSize = True
         Me.LObligatorio.Font = New System.Drawing.Font("Verdana", 4.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LObligatorio.Location = New System.Drawing.Point(304, 232)
+        Me.LObligatorio.Location = New System.Drawing.Point(315, 269)
         Me.LObligatorio.Name = "LObligatorio"
         Me.LObligatorio.Size = New System.Drawing.Size(47, 8)
-        Me.LObligatorio.TabIndex = 12
+        Me.LObligatorio.TabIndex = 14
         Me.LObligatorio.Text = "*Obligatorio"
         '
         'TTelefono
@@ -226,7 +250,7 @@ Partial Class FormularioCliente
         Me.BLimpiar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BLimpiar.Name = "BLimpiar"
         Me.BLimpiar.Size = New System.Drawing.Size(166, 32)
-        Me.BLimpiar.TabIndex = 5
+        Me.BLimpiar.TabIndex = 16
         Me.BLimpiar.Text = "Limpiar Registro"
         Me.BLimpiar.UseVisualStyleBackColor = False
         '
@@ -241,7 +265,7 @@ Partial Class FormularioCliente
         Me.BAgregar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BAgregar.Name = "BAgregar"
         Me.BAgregar.Size = New System.Drawing.Size(166, 32)
-        Me.BAgregar.TabIndex = 13
+        Me.BAgregar.TabIndex = 17
         Me.BAgregar.Text = "Agregar Cliente"
         Me.BAgregar.UseVisualStyleBackColor = False
         '
@@ -257,7 +281,7 @@ Partial Class FormularioCliente
         Me.TabCliente.Name = "TabCliente"
         Me.TabCliente.SelectedIndex = 0
         Me.TabCliente.Size = New System.Drawing.Size(707, 453)
-        Me.TabCliente.TabIndex = 14
+        Me.TabCliente.TabIndex = 18
         '
         'TabPage1
         '
@@ -275,10 +299,13 @@ Partial Class FormularioCliente
         'TabPage2
         '
         Me.TabPage2.BackColor = System.Drawing.Color.Black
+        Me.TabPage2.Controls.Add(Me.CBBuscar)
+        Me.TabPage2.Controls.Add(Me.BListarTodos)
         Me.TabPage2.Controls.Add(Me.BBuscar)
         Me.TabPage2.Controls.Add(Me.LBuscar)
         Me.TabPage2.Controls.Add(Me.TBuscar)
         Me.TabPage2.Controls.Add(Me.DataGridCliente)
+        Me.TabPage2.Cursor = System.Windows.Forms.Cursors.Default
         Me.TabPage2.ForeColor = System.Drawing.SystemColors.ControlText
         Me.TabPage2.Location = New System.Drawing.Point(4, 29)
         Me.TabPage2.Name = "TabPage2"
@@ -287,15 +314,29 @@ Partial Class FormularioCliente
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Buscar"
         '
-        'DataGridCliente
+        'CBBuscar
         '
-        Me.DataGridCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridCliente.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id_cliente, Me.apellidos, Me.nombres, Me.dni, Me.fecha_ingreso})
-        Me.DataGridCliente.Location = New System.Drawing.Point(7, 268)
-        Me.DataGridCliente.Name = "DataGridCliente"
-        Me.DataGridCliente.RowTemplate.Height = 24
-        Me.DataGridCliente.Size = New System.Drawing.Size(686, 150)
-        Me.DataGridCliente.TabIndex = 0
+        Me.CBBuscar.FormattingEnabled = True
+        Me.CBBuscar.Items.AddRange(New Object() {"DNI", "Apellido y Nombre", "Id_cliente"})
+        Me.CBBuscar.Location = New System.Drawing.Point(374, 64)
+        Me.CBBuscar.Name = "CBBuscar"
+        Me.CBBuscar.Size = New System.Drawing.Size(121, 28)
+        Me.CBBuscar.TabIndex = 1
+        '
+        'BListarTodos
+        '
+        Me.BListarTodos.BackColor = System.Drawing.Color.DarkRed
+        Me.BListarTodos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BListarTodos.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BListarTodos.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BListarTodos.ForeColor = System.Drawing.Color.White
+        Me.BListarTodos.Location = New System.Drawing.Point(522, 136)
+        Me.BListarTodos.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.BListarTodos.Name = "BListarTodos"
+        Me.BListarTodos.Size = New System.Drawing.Size(136, 32)
+        Me.BListarTodos.TabIndex = 3
+        Me.BListarTodos.Text = "Listar Todos"
+        Me.BListarTodos.UseVisualStyleBackColor = False
         '
         'BBuscar
         '
@@ -304,12 +345,12 @@ Partial Class FormularioCliente
         Me.BBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BBuscar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BBuscar.ForeColor = System.Drawing.Color.White
-        Me.BBuscar.Location = New System.Drawing.Point(382, 63)
+        Me.BBuscar.Location = New System.Drawing.Point(522, 63)
         Me.BBuscar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BBuscar.Name = "BBuscar"
-        Me.BBuscar.Size = New System.Drawing.Size(101, 32)
-        Me.BBuscar.TabIndex = 9
-        Me.BBuscar.Text = "Buscar"
+        Me.BBuscar.Size = New System.Drawing.Size(159, 32)
+        Me.BBuscar.TabIndex = 2
+        Me.BBuscar.Text = "Poner icono buscar"
         Me.BBuscar.UseVisualStyleBackColor = False
         '
         'LBuscar
@@ -318,16 +359,26 @@ Partial Class FormularioCliente
         Me.LBuscar.ForeColor = System.Drawing.Color.White
         Me.LBuscar.Location = New System.Drawing.Point(49, 67)
         Me.LBuscar.Name = "LBuscar"
-        Me.LBuscar.Size = New System.Drawing.Size(109, 20)
+        Me.LBuscar.Size = New System.Drawing.Size(75, 20)
         Me.LBuscar.TabIndex = 10
-        Me.LBuscar.Text = "Buscar por:"
+        Me.LBuscar.Text = "Buscar:"
         '
         'TBuscar
         '
-        Me.TBuscar.Location = New System.Drawing.Point(166, 64)
+        Me.TBuscar.Location = New System.Drawing.Point(130, 64)
         Me.TBuscar.Name = "TBuscar"
-        Me.TBuscar.Size = New System.Drawing.Size(193, 28)
-        Me.TBuscar.TabIndex = 8
+        Me.TBuscar.Size = New System.Drawing.Size(229, 28)
+        Me.TBuscar.TabIndex = 0
+        '
+        'DataGridCliente
+        '
+        Me.DataGridCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridCliente.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id_cliente, Me.apellidos, Me.nombres, Me.dni, Me.fecha_ingreso})
+        Me.DataGridCliente.Location = New System.Drawing.Point(7, 216)
+        Me.DataGridCliente.Name = "DataGridCliente"
+        Me.DataGridCliente.RowTemplate.Height = 24
+        Me.DataGridCliente.Size = New System.Drawing.Size(686, 202)
+        Me.DataGridCliente.TabIndex = 4
         '
         'Id_cliente
         '
@@ -420,4 +471,8 @@ Partial Class FormularioCliente
     Friend WithEvents nombres As DataGridViewTextBoxColumn
     Friend WithEvents dni As DataGridViewTextBoxColumn
     Friend WithEvents fecha_ingreso As DataGridViewTextBoxColumn
+    Friend WithEvents FechaReg As DateTimePicker
+    Friend WithEvents LFechaReg As Label
+    Friend WithEvents CBBuscar As ComboBox
+    Friend WithEvents BListarTodos As Button
 End Class

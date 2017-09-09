@@ -57,4 +57,9 @@ Public Class FormularioCliente
         End If
 
     End Sub
+
+    Private Sub FechaReg_ValueChanged(sender As Object, e As EventArgs) Handles FechaReg.ValueChanged
+        'Asignarle la fecha y hora del sistema
+    End Sub
+
 End Class
