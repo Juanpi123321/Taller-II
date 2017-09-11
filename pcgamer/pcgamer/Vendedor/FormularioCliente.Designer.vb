@@ -578,8 +578,10 @@ Partial Class FormularioCliente
         Me.Controls.Add(Me.PBLogo)
         Me.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Location = New System.Drawing.Point(150, 40)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FormularioCliente"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Formulario Cliente"
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)

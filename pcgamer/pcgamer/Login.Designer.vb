@@ -74,7 +74,7 @@ Partial Class Login
         Me.LTitulo.BackColor = System.Drawing.Color.Black
         Me.LTitulo.Font = New System.Drawing.Font("Verdana", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LTitulo.ForeColor = System.Drawing.Color.White
-        Me.LTitulo.Location = New System.Drawing.Point(138, 50)
+        Me.LTitulo.Location = New System.Drawing.Point(213, 105)
         Me.LTitulo.Name = "LTitulo"
         Me.LTitulo.Size = New System.Drawing.Size(409, 40)
         Me.LTitulo.TabIndex = 4
@@ -89,9 +89,9 @@ Partial Class Login
         Me.BIngresar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.BIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BIngresar.ForeColor = System.Drawing.Color.White
-        Me.BIngresar.Location = New System.Drawing.Point(543, 216)
+        Me.BIngresar.Location = New System.Drawing.Point(668, 271)
         Me.BIngresar.Name = "BIngresar"
-        Me.BIngresar.Size = New System.Drawing.Size(173, 55)
+        Me.BIngresar.Size = New System.Drawing.Size(152, 55)
         Me.BIngresar.TabIndex = 3
         Me.BIngresar.Text = "Ingresar"
         Me.BIngresar.UseVisualStyleBackColor = False
@@ -104,7 +104,7 @@ Partial Class Login
         Me.Panel1.Controls.Add(Me.LContrasena)
         Me.Panel1.Controls.Add(Me.TContrasena)
         Me.Panel1.ForeColor = System.Drawing.Color.White
-        Me.Panel1.Location = New System.Drawing.Point(206, 129)
+        Me.Panel1.Location = New System.Drawing.Point(281, 184)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(295, 221)
         Me.Panel1.TabIndex = 4
@@ -112,7 +112,7 @@ Partial Class Login
         'PBLogo
         '
         Me.PBLogo.Image = Global.pcgamer.My.Resources.Resources.pcgamer_logo_grande1
-        Me.PBLogo.Location = New System.Drawing.Point(593, 21)
+        Me.PBLogo.Location = New System.Drawing.Point(668, 76)
         Me.PBLogo.Name = "PBLogo"
         Me.PBLogo.Size = New System.Drawing.Size(159, 137)
         Me.PBLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -125,15 +125,17 @@ Partial Class Login
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.pcgamer.My.Resources.Resources.asus_background
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(842, 442)
+        Me.ClientSize = New System.Drawing.Size(1006, 593)
         Me.Controls.Add(Me.PBLogo)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.BIngresar)
         Me.Controls.Add(Me.LTitulo)
         Me.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Location = New System.Drawing.Point(150, 40)
         Me.Margin = New System.Windows.Forms.Padding(5)
         Me.Name = "Login"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Login Pc-Gamer"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()

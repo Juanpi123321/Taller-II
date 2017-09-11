@@ -43,7 +43,6 @@ Partial Class FormularioStock
         Me.LCategoria = New System.Windows.Forms.Label()
         Me.TBuscar = New System.Windows.Forms.TextBox()
         Me.LBuscar = New System.Windows.Forms.Label()
-        Me.BBuscar = New System.Windows.Forms.Button()
         Me.CBBuscar = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -51,13 +50,14 @@ Partial Class FormularioStock
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
+        Me.BGenerarFactura = New System.Windows.Forms.Button()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.LTitulo = New System.Windows.Forms.Label()
-        Me.BGenerarFactura = New System.Windows.Forms.Button()
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridStock, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PBImagen, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -233,21 +233,6 @@ Partial Class FormularioStock
         Me.LBuscar.TabIndex = 14
         Me.LBuscar.Text = "Buscar:"
         '
-        'BBuscar
-        '
-        Me.BBuscar.BackColor = System.Drawing.Color.DarkRed
-        Me.BBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.BBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BBuscar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BBuscar.ForeColor = System.Drawing.Color.White
-        Me.BBuscar.Location = New System.Drawing.Point(473, 16)
-        Me.BBuscar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
-        Me.BBuscar.Name = "BBuscar"
-        Me.BBuscar.Size = New System.Drawing.Size(38, 32)
-        Me.BBuscar.TabIndex = 3
-        Me.BBuscar.Text = "Poner icono buscar"
-        Me.BBuscar.UseVisualStyleBackColor = False
-        '
         'CBBuscar
         '
         Me.CBBuscar.FormattingEnabled = True
@@ -305,6 +290,7 @@ Partial Class FormularioStock
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Black
+        Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.Label20)
         Me.Panel1.Controls.Add(Me.Label15)
         Me.Panel1.Controls.Add(Me.Label19)
@@ -317,7 +303,6 @@ Partial Class FormularioStock
         Me.Panel1.Controls.Add(Me.Label12)
         Me.Panel1.Controls.Add(Me.Label11)
         Me.Panel1.Controls.Add(Me.CBBuscar)
-        Me.Panel1.Controls.Add(Me.BBuscar)
         Me.Panel1.Controls.Add(Me.LBuscar)
         Me.Panel1.Controls.Add(Me.TBuscar)
         Me.Panel1.Controls.Add(Me.LCategoria)
@@ -338,6 +323,21 @@ Partial Class FormularioStock
         Me.Panel1.Size = New System.Drawing.Size(707, 414)
         Me.Panel1.TabIndex = 3
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.DarkRed
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.White
+        Me.Button1.Image = Global.pcgamer.My.Resources.Resources.oie_transparent
+        Me.Button1.Location = New System.Drawing.Point(473, 15)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(38, 33)
+        Me.Button1.TabIndex = 18
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'Label20
         '
         Me.Label20.AutoSize = True
@@ -355,6 +355,21 @@ Partial Class FormularioStock
         Me.Label19.Size = New System.Drawing.Size(75, 20)
         Me.Label19.TabIndex = 17
         Me.Label19.Text = "******"
+        '
+        'BGenerarFactura
+        '
+        Me.BGenerarFactura.BackColor = System.Drawing.Color.DarkRed
+        Me.BGenerarFactura.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BGenerarFactura.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BGenerarFactura.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BGenerarFactura.ForeColor = System.Drawing.Color.White
+        Me.BGenerarFactura.Location = New System.Drawing.Point(545, 16)
+        Me.BGenerarFactura.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.BGenerarFactura.Name = "BGenerarFactura"
+        Me.BGenerarFactura.Size = New System.Drawing.Size(159, 32)
+        Me.BGenerarFactura.TabIndex = 3
+        Me.BGenerarFactura.Text = "Generar Factura"
+        Me.BGenerarFactura.UseVisualStyleBackColor = False
         '
         'Label18
         '
@@ -395,21 +410,6 @@ Partial Class FormularioStock
         Me.LTitulo.TabIndex = 13
         Me.LTitulo.Text = "Consultar Stock"
         '
-        'BGenerarFactura
-        '
-        Me.BGenerarFactura.BackColor = System.Drawing.Color.DarkRed
-        Me.BGenerarFactura.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.BGenerarFactura.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BGenerarFactura.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BGenerarFactura.ForeColor = System.Drawing.Color.White
-        Me.BGenerarFactura.Location = New System.Drawing.Point(545, 16)
-        Me.BGenerarFactura.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
-        Me.BGenerarFactura.Name = "BGenerarFactura"
-        Me.BGenerarFactura.Size = New System.Drawing.Size(159, 32)
-        Me.BGenerarFactura.TabIndex = 3
-        Me.BGenerarFactura.Text = "Generar Factura"
-        Me.BGenerarFactura.UseVisualStyleBackColor = False
-        '
         'FormularioStock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 20.0!)
@@ -422,8 +422,10 @@ Partial Class FormularioStock
         Me.Controls.Add(Me.PBLogo)
         Me.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Location = New System.Drawing.Point(150, 40)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FormularioStock"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Formulario Stock"
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridStock, System.ComponentModel.ISupportInitialize).EndInit()
@@ -455,7 +457,6 @@ Partial Class FormularioStock
     Friend WithEvents LCategoria As Label
     Friend WithEvents TBuscar As TextBox
     Friend WithEvents LBuscar As Label
-    Friend WithEvents BBuscar As Button
     Friend WithEvents CBBuscar As ComboBox
     Friend WithEvents Label11 As Label
     Friend WithEvents Label12 As Label
@@ -470,4 +471,5 @@ Partial Class FormularioStock
     Friend WithEvents Label17 As Label
     Friend WithEvents Label16 As Label
     Friend WithEvents BGenerarFactura As Button
+    Friend WithEvents Button1 As Button
 End Class

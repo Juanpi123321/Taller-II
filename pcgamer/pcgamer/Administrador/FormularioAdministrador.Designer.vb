@@ -42,7 +42,7 @@ Partial Class FormularioAdministrador
         'PBLogo
         '
         Me.PBLogo.Image = Global.pcgamer.My.Resources.Resources.pcgamer_logo
-        Me.PBLogo.Location = New System.Drawing.Point(630, 14)
+        Me.PBLogo.Location = New System.Drawing.Point(794, 14)
         Me.PBLogo.Margin = New System.Windows.Forms.Padding(5)
         Me.PBLogo.Name = "PBLogo"
         Me.PBLogo.Size = New System.Drawing.Size(198, 34)
@@ -60,7 +60,7 @@ Partial Class FormularioAdministrador
         Me.Panel1.Controls.Add(Me.PBStock)
         Me.Panel1.Controls.Add(Me.PBPedido)
         Me.Panel1.Controls.Add(Me.PBClientes)
-        Me.Panel1.Location = New System.Drawing.Point(162, 102)
+        Me.Panel1.Location = New System.Drawing.Point(206, 132)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(580, 277)
@@ -77,7 +77,7 @@ Partial Class FormularioAdministrador
         Me.BPedido.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BPedido.Name = "BPedido"
         Me.BPedido.Size = New System.Drawing.Size(166, 32)
-        Me.BPedido.TabIndex = 1
+        Me.BPedido.TabIndex = 3
         Me.BPedido.Text = "Realizar Pedido"
         Me.BPedido.UseVisualStyleBackColor = False
         '
@@ -107,7 +107,7 @@ Partial Class FormularioAdministrador
         Me.BClientes.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BClientes.Name = "BClientes"
         Me.BClientes.Size = New System.Drawing.Size(166, 32)
-        Me.BClientes.TabIndex = 1
+        Me.BClientes.TabIndex = 0
         Me.BClientes.Text = "Gestionar Clientes"
         Me.BClientes.UseVisualStyleBackColor = False
         '
@@ -151,11 +151,11 @@ Partial Class FormularioAdministrador
         Me.BVendedor.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BVendedor.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BVendedor.ForeColor = System.Drawing.Color.White
-        Me.BVendedor.Location = New System.Drawing.Point(663, 399)
+        Me.BVendedor.Location = New System.Drawing.Point(794, 529)
         Me.BVendedor.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BVendedor.Name = "BVendedor"
         Me.BVendedor.Size = New System.Drawing.Size(166, 32)
-        Me.BVendedor.TabIndex = 3
+        Me.BVendedor.TabIndex = 4
         Me.BVendedor.Text = "Ir a Form Vendedor"
         Me.BVendedor.UseVisualStyleBackColor = False
         '
@@ -171,8 +171,10 @@ Partial Class FormularioAdministrador
         Me.Controls.Add(Me.PBLogo)
         Me.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Location = New System.Drawing.Point(150, 40)
         Me.Margin = New System.Windows.Forms.Padding(5)
         Me.Name = "FormularioAdministrador"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Formulario Administrador"
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)

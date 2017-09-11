@@ -55,15 +55,28 @@ Public Class FormularioCliente
             e.Handled = True
             ErrorProvider1.SetError(TDni, "Porfavor ingrese solo numeros")
         End If
-
     End Sub
 
+    'Private Sub TDni_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TDni.KeyPress
+    '   SoloNumeros(e)
+    'If Integer.Parse(Me.Usuario.Text) < 0 Or Integer.Parse(Me.Usuario.Text) > 255 Then
+    '       MessageBox.Show("Numero ingresado fuera del rango")
+    'End If
+    'End Sub
+
     Private Sub FechaReg_ValueChanged(sender As Object, e As EventArgs) Handles FechaReg.ValueChanged
-        'Asignarle la fecha y hora del sistema
+        FechaReg.Value = Now
     End Sub
 
     Private Sub BAgregarFactura_Click(sender As Object, e As EventArgs) Handles BAgregarFactura.Click
         FormularioFactura.Show()
         Me.Hide()
+    End Sub
+
+    Private Sub TTelefono_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TTelefono.KeyPress
+        If Not IsNumeric(e.KeyChar) Then
+            e.Handled = True
+            ErrorProvider1.SetError(TTelefono, "Porfavor ingrese solo numeros")
+        End If
     End Sub
 End Class

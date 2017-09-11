@@ -60,7 +60,7 @@ Partial Class FormularioVendedor
         Me.Panel1.Controls.Add(Me.PBCliente)
         Me.Panel1.Controls.Add(Me.PBStock)
         Me.Panel1.Controls.Add(Me.PBFactura)
-        Me.Panel1.Location = New System.Drawing.Point(162, 102)
+        Me.Panel1.Location = New System.Drawing.Point(206, 132)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(580, 277)
@@ -78,7 +78,7 @@ Partial Class FormularioVendedor
         Me.BStock.Name = "BStock"
         Me.BStock.Size = New System.Drawing.Size(166, 32)
         Me.BStock.TabIndex = 1
-        Me.BStock.Text = "&Consultar Stock"
+        Me.BStock.Text = "&3-Consultar Stock"
         Me.BStock.UseVisualStyleBackColor = False
         '
         'BCliente
@@ -93,7 +93,7 @@ Partial Class FormularioVendedor
         Me.BCliente.Name = "BCliente"
         Me.BCliente.Size = New System.Drawing.Size(166, 32)
         Me.BCliente.TabIndex = 1
-        Me.BCliente.Text = "&Registrar/Consultar"
+        Me.BCliente.Text = "&2-Registrar/Consultar"
         Me.BCliente.UseVisualStyleBackColor = False
         '
         'BFactura
@@ -108,7 +108,7 @@ Partial Class FormularioVendedor
         Me.BFactura.Name = "BFactura"
         Me.BFactura.Size = New System.Drawing.Size(166, 32)
         Me.BFactura.TabIndex = 1
-        Me.BFactura.Text = "&Generar Factura"
+        Me.BFactura.Text = "&1-Generar Factura"
         Me.BFactura.UseVisualStyleBackColor = False
         '
         'PBCliente
@@ -151,7 +151,7 @@ Partial Class FormularioVendedor
         Me.BAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BAdmin.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BAdmin.ForeColor = System.Drawing.Color.White
-        Me.BAdmin.Location = New System.Drawing.Point(662, 399)
+        Me.BAdmin.Location = New System.Drawing.Point(794, 529)
         Me.BAdmin.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BAdmin.Name = "BAdmin"
         Me.BAdmin.Size = New System.Drawing.Size(166, 32)
@@ -171,8 +171,10 @@ Partial Class FormularioVendedor
         Me.Controls.Add(Me.PBLogo)
         Me.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Location = New System.Drawing.Point(150, 40)
         Me.Margin = New System.Windows.Forms.Padding(5)
         Me.Name = "FormularioVendedor"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Formulario Vendedor"
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)

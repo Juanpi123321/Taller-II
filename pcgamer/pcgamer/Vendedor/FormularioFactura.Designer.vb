@@ -43,6 +43,7 @@ Partial Class FormularioFactura
         Me.LFactura2 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.BSeleccionarCliente = New System.Windows.Forms.Button()
+        Me.BCargar = New System.Windows.Forms.Button()
         Me.BEditar = New System.Windows.Forms.Button()
         Me.TVendedor = New System.Windows.Forms.Label()
         Me.LVendedor = New System.Windows.Forms.Label()
@@ -215,11 +216,11 @@ Partial Class FormularioFactura
         '
         Me.TFechaHora.AutoSize = True
         Me.TFechaHora.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TFechaHora.Location = New System.Drawing.Point(203, 135)
+        Me.TFechaHora.Location = New System.Drawing.Point(181, 135)
         Me.TFechaHora.Name = "TFechaHora"
-        Me.TFechaHora.Size = New System.Drawing.Size(141, 17)
+        Me.TFechaHora.Size = New System.Drawing.Size(15, 17)
         Me.TFechaHora.TabIndex = 0
-        Me.TFechaHora.Text = "15-09-2017 18:08"
+        Me.TFechaHora.Text = "-"
         '
         'LFactura7
         '
@@ -243,6 +244,7 @@ Partial Class FormularioFactura
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.BSeleccionarCliente)
+        Me.GroupBox3.Controls.Add(Me.BCargar)
         Me.GroupBox3.Controls.Add(Me.BEditar)
         Me.GroupBox3.Controls.Add(Me.TVendedor)
         Me.GroupBox3.Controls.Add(Me.LVendedor)
@@ -276,6 +278,21 @@ Partial Class FormularioFactura
         Me.BSeleccionarCliente.TabIndex = 4
         Me.BSeleccionarCliente.Text = "Seleccionar Cliente"
         Me.BSeleccionarCliente.UseVisualStyleBackColor = False
+        '
+        'BCargar
+        '
+        Me.BCargar.BackColor = System.Drawing.Color.DarkRed
+        Me.BCargar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BCargar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BCargar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BCargar.ForeColor = System.Drawing.Color.White
+        Me.BCargar.Location = New System.Drawing.Point(565, 70)
+        Me.BCargar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.BCargar.Name = "BCargar"
+        Me.BCargar.Size = New System.Drawing.Size(176, 32)
+        Me.BCargar.TabIndex = 4
+        Me.BCargar.Text = "Cargar Cliente Ficticio"
+        Me.BCargar.UseVisualStyleBackColor = False
         '
         'BEditar
         '
@@ -343,9 +360,8 @@ Partial Class FormularioFactura
         Me.TTelefono.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TTelefono.Location = New System.Drawing.Point(141, 76)
         Me.TTelefono.Name = "TTelefono"
-        Me.TTelefono.Size = New System.Drawing.Size(15, 18)
+        Me.TTelefono.Size = New System.Drawing.Size(0, 18)
         Me.TTelefono.TabIndex = 0
-        Me.TTelefono.Text = "-"
         '
         'TDireccion
         '
@@ -353,9 +369,8 @@ Partial Class FormularioFactura
         Me.TDireccion.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TDireccion.Location = New System.Drawing.Point(141, 58)
         Me.TDireccion.Name = "TDireccion"
-        Me.TDireccion.Size = New System.Drawing.Size(285, 18)
+        Me.TDireccion.Size = New System.Drawing.Size(0, 18)
         Me.TDireccion.TabIndex = 0
-        Me.TDireccion.Text = "9 de Julio 2781 Corrientes Capital"
         '
         'TDNI
         '
@@ -363,9 +378,8 @@ Partial Class FormularioFactura
         Me.TDNI.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TDNI.Location = New System.Drawing.Point(141, 40)
         Me.TDNI.Name = "TDNI"
-        Me.TDNI.Size = New System.Drawing.Size(96, 18)
+        Me.TDNI.Size = New System.Drawing.Size(0, 18)
         Me.TDNI.TabIndex = 0
-        Me.TDNI.Text = "11324123"
         '
         'TCliente
         '
@@ -373,9 +387,8 @@ Partial Class FormularioFactura
         Me.TCliente.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TCliente.Location = New System.Drawing.Point(141, 22)
         Me.TCliente.Name = "TCliente"
-        Me.TCliente.Size = New System.Drawing.Size(147, 18)
+        Me.TCliente.Size = New System.Drawing.Size(0, 18)
         Me.TCliente.TabIndex = 0
-        Me.TCliente.Text = "ALFONSO, Pedro"
         '
         'LCliente
         '
@@ -474,8 +487,10 @@ Partial Class FormularioFactura
         Me.Controls.Add(Me.PBLogo)
         Me.Font = New System.Drawing.Font("Verdana", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Location = New System.Drawing.Point(150, 40)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FormularioFactura"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Formulario Factura"
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
@@ -530,4 +545,5 @@ Partial Class FormularioFactura
     Friend WithEvents TFechaHora As Label
     Friend WithEvents BEditar As Button
     Friend WithEvents BSeleccionarCliente As Button
+    Friend WithEvents BCargar As Button
 End Class

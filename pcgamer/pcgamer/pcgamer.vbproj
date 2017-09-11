@@ -124,6 +124,7 @@
     <Compile Include="Vendedor\FormularioStock.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Funciones.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Administrador\FormularioAdministrador.resx">
