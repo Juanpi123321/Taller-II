@@ -22,6 +22,11 @@ Partial Class FormularioStock
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormularioStock))
         Me.PBLogo = New System.Windows.Forms.PictureBox()
         Me.DataGridStock = New System.Windows.Forms.DataGridView()
@@ -44,19 +49,19 @@ Partial Class FormularioStock
         Me.TBuscar = New System.Windows.Forms.TextBox()
         Me.LBuscar = New System.Windows.Forms.Label()
         Me.CBBuscar = New System.Windows.Forms.ComboBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
+        Me.TNombre = New System.Windows.Forms.Label()
+        Me.TProcesador = New System.Windows.Forms.Label()
+        Me.TPlacaMadre = New System.Windows.Forms.Label()
+        Me.TRam = New System.Windows.Forms.Label()
+        Me.TStock = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
+        Me.TPrecio = New System.Windows.Forms.Label()
+        Me.TGabinete = New System.Windows.Forms.Label()
         Me.BGenerarFactura = New System.Windows.Forms.Button()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
+        Me.TDiscoRigido = New System.Windows.Forms.Label()
+        Me.TPlacaVideo = New System.Windows.Forms.Label()
+        Me.TCategoria = New System.Windows.Forms.Label()
         Me.LTitulo = New System.Windows.Forms.Label()
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridStock, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -77,57 +82,84 @@ Partial Class FormularioStock
         '
         'DataGridStock
         '
+        Me.DataGridStock.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.DataGridStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridStock.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.codpro, Me.nombre, Me.stock, Me.precio, Me.categoria})
+        Me.DataGridStock.GridColor = System.Drawing.SystemColors.GrayText
         Me.DataGridStock.Location = New System.Drawing.Point(3, 272)
         Me.DataGridStock.Name = "DataGridStock"
+        Me.DataGridStock.ReadOnly = True
         Me.DataGridStock.RowTemplate.Height = 24
-        Me.DataGridStock.Size = New System.Drawing.Size(701, 142)
+        Me.DataGridStock.Size = New System.Drawing.Size(880, 192)
         Me.DataGridStock.TabIndex = 4
         '
         'codpro
         '
-        Me.codpro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.codpro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
+        Me.codpro.DefaultCellStyle = DataGridViewCellStyle1
         Me.codpro.HeaderText = "CodProd"
         Me.codpro.Name = "codpro"
+        Me.codpro.ReadOnly = True
+        Me.codpro.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.codpro.Width = 109
         '
         'nombre
         '
         Me.nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        Me.nombre.DefaultCellStyle = DataGridViewCellStyle2
         Me.nombre.HeaderText = "Nombre"
         Me.nombre.Name = "nombre"
+        Me.nombre.ReadOnly = True
+        Me.nombre.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         '
         'stock
         '
-        Me.stock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.stock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        Me.stock.DefaultCellStyle = DataGridViewCellStyle3
         Me.stock.HeaderText = "Stock"
         Me.stock.Name = "stock"
+        Me.stock.ReadOnly = True
+        Me.stock.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.stock.Width = 86
         '
         'precio
         '
-        Me.precio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.precio.HeaderText = "Precio"
+        Me.precio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
+        Me.precio.DefaultCellStyle = DataGridViewCellStyle4
+        Me.precio.HeaderText = "Precio (pesos $)"
         Me.precio.Name = "precio"
+        Me.precio.ReadOnly = True
+        Me.precio.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.precio.Width = 110
         '
         'categoria
         '
         Me.categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black
+        Me.categoria.DefaultCellStyle = DataGridViewCellStyle5
         Me.categoria.HeaderText = "Categoria"
         Me.categoria.Name = "categoria"
+        Me.categoria.ReadOnly = True
+        Me.categoria.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         '
         'PBImagen
         '
         Me.PBImagen.BackgroundImage = Global.pcgamer.My.Resources.Resources.gabinete2
         Me.PBImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PBImagen.Location = New System.Drawing.Point(521, 63)
+        Me.PBImagen.Location = New System.Drawing.Point(700, 63)
         Me.PBImagen.Name = "PBImagen"
-        Me.PBImagen.Size = New System.Drawing.Size(183, 171)
+        Me.PBImagen.Size = New System.Drawing.Size(183, 188)
         Me.PBImagen.TabIndex = 1
         Me.PBImagen.TabStop = False
         '
         'LNombre
         '
         Me.LNombre.AutoSize = True
+        Me.LNombre.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LNombre.Location = New System.Drawing.Point(15, 63)
         Me.LNombre.Name = "LNombre"
         Me.LNombre.Size = New System.Drawing.Size(85, 20)
@@ -137,6 +169,7 @@ Partial Class FormularioStock
         'LProcesador
         '
         Me.LProcesador.AutoSize = True
+        Me.LProcesador.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LProcesador.Location = New System.Drawing.Point(15, 101)
         Me.LProcesador.Name = "LProcesador"
         Me.LProcesador.Size = New System.Drawing.Size(110, 20)
@@ -146,6 +179,7 @@ Partial Class FormularioStock
         'LPlacaMadre
         '
         Me.LPlacaMadre.AutoSize = True
+        Me.LPlacaMadre.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LPlacaMadre.Location = New System.Drawing.Point(15, 142)
         Me.LPlacaMadre.Name = "LPlacaMadre"
         Me.LPlacaMadre.Size = New System.Drawing.Size(119, 20)
@@ -155,6 +189,7 @@ Partial Class FormularioStock
         'LRam
         '
         Me.LRam.AutoSize = True
+        Me.LRam.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LRam.Location = New System.Drawing.Point(15, 184)
         Me.LRam.Name = "LRam"
         Me.LRam.Size = New System.Drawing.Size(56, 20)
@@ -164,7 +199,8 @@ Partial Class FormularioStock
         'LPlacaVideo
         '
         Me.LPlacaVideo.AutoSize = True
-        Me.LPlacaVideo.Location = New System.Drawing.Point(268, 101)
+        Me.LPlacaVideo.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LPlacaVideo.Location = New System.Drawing.Point(378, 101)
         Me.LPlacaVideo.Name = "LPlacaVideo"
         Me.LPlacaVideo.Size = New System.Drawing.Size(115, 20)
         Me.LPlacaVideo.TabIndex = 2
@@ -173,7 +209,8 @@ Partial Class FormularioStock
         'LDiscoRigido
         '
         Me.LDiscoRigido.AutoSize = True
-        Me.LDiscoRigido.Location = New System.Drawing.Point(268, 147)
+        Me.LDiscoRigido.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LDiscoRigido.Location = New System.Drawing.Point(378, 147)
         Me.LDiscoRigido.Name = "LDiscoRigido"
         Me.LDiscoRigido.Size = New System.Drawing.Size(123, 20)
         Me.LDiscoRigido.TabIndex = 2
@@ -182,7 +219,8 @@ Partial Class FormularioStock
         'LGabinete
         '
         Me.LGabinete.AutoSize = True
-        Me.LGabinete.Location = New System.Drawing.Point(268, 189)
+        Me.LGabinete.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LGabinete.Location = New System.Drawing.Point(378, 189)
         Me.LGabinete.Name = "LGabinete"
         Me.LGabinete.Size = New System.Drawing.Size(94, 20)
         Me.LGabinete.TabIndex = 2
@@ -191,6 +229,7 @@ Partial Class FormularioStock
         'LStock
         '
         Me.LStock.AutoSize = True
+        Me.LStock.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LStock.Location = New System.Drawing.Point(18, 227)
         Me.LStock.Name = "LStock"
         Me.LStock.Size = New System.Drawing.Size(65, 20)
@@ -200,7 +239,8 @@ Partial Class FormularioStock
         'LPrecio
         '
         Me.LPrecio.AutoSize = True
-        Me.LPrecio.Location = New System.Drawing.Point(268, 227)
+        Me.LPrecio.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LPrecio.Location = New System.Drawing.Point(378, 227)
         Me.LPrecio.Name = "LPrecio"
         Me.LPrecio.Size = New System.Drawing.Size(68, 20)
         Me.LPrecio.TabIndex = 2
@@ -209,7 +249,8 @@ Partial Class FormularioStock
         'LCategoria
         '
         Me.LCategoria.AutoSize = True
-        Me.LCategoria.Location = New System.Drawing.Point(268, 63)
+        Me.LCategoria.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LCategoria.Location = New System.Drawing.Point(378, 63)
         Me.LCategoria.Name = "LCategoria"
         Me.LCategoria.Size = New System.Drawing.Size(99, 20)
         Me.LCategoria.TabIndex = 2
@@ -219,7 +260,7 @@ Partial Class FormularioStock
         '
         Me.TBuscar.Location = New System.Drawing.Point(99, 16)
         Me.TBuscar.Name = "TBuscar"
-        Me.TBuscar.Size = New System.Drawing.Size(229, 28)
+        Me.TBuscar.Size = New System.Drawing.Size(252, 28)
         Me.TBuscar.TabIndex = 0
         '
         'LBuscar
@@ -237,71 +278,76 @@ Partial Class FormularioStock
         '
         Me.CBBuscar.FormattingEnabled = True
         Me.CBBuscar.Items.AddRange(New Object() {"Nombre", "Categoria", "Id_producto", "Procesador", "Placa Madre", "Ram", "Placa Video", "Disco Rigido", "Gabinete "})
-        Me.CBBuscar.Location = New System.Drawing.Point(345, 16)
+        Me.CBBuscar.Location = New System.Drawing.Point(382, 17)
         Me.CBBuscar.Name = "CBBuscar"
-        Me.CBBuscar.Size = New System.Drawing.Size(121, 28)
+        Me.CBBuscar.Size = New System.Drawing.Size(196, 28)
         Me.CBBuscar.TabIndex = 1
         '
-        'Label11
+        'TNombre
         '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(148, 68)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(75, 20)
-        Me.Label11.TabIndex = 17
-        Me.Label11.Text = "******"
+        Me.TNombre.AutoSize = True
+        Me.TNombre.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TNombre.Location = New System.Drawing.Point(136, 69)
+        Me.TNombre.Name = "TNombre"
+        Me.TNombre.Size = New System.Drawing.Size(123, 14)
+        Me.TNombre.TabIndex = 17
+        Me.TNombre.Text = "     ************"
         '
-        'Label12
+        'TProcesador
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(148, 106)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(75, 20)
-        Me.Label12.TabIndex = 17
-        Me.Label12.Text = "******"
+        Me.TProcesador.AutoSize = True
+        Me.TProcesador.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TProcesador.Location = New System.Drawing.Point(136, 107)
+        Me.TProcesador.Name = "TProcesador"
+        Me.TProcesador.Size = New System.Drawing.Size(123, 14)
+        Me.TProcesador.TabIndex = 17
+        Me.TProcesador.Text = "     ************"
         '
-        'Label13
+        'TPlacaMadre
         '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(148, 147)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(75, 20)
-        Me.Label13.TabIndex = 17
-        Me.Label13.Text = "******"
+        Me.TPlacaMadre.AutoSize = True
+        Me.TPlacaMadre.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TPlacaMadre.Location = New System.Drawing.Point(136, 148)
+        Me.TPlacaMadre.Name = "TPlacaMadre"
+        Me.TPlacaMadre.Size = New System.Drawing.Size(123, 14)
+        Me.TPlacaMadre.TabIndex = 17
+        Me.TPlacaMadre.Text = "     ************"
         '
-        'Label14
+        'TRam
         '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(148, 189)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(75, 20)
-        Me.Label14.TabIndex = 17
-        Me.Label14.Text = "******"
+        Me.TRam.AutoSize = True
+        Me.TRam.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TRam.Location = New System.Drawing.Point(136, 190)
+        Me.TRam.Name = "TRam"
+        Me.TRam.Size = New System.Drawing.Size(123, 14)
+        Me.TRam.TabIndex = 17
+        Me.TRam.Text = "     ************"
         '
-        'Label15
+        'TStock
         '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(148, 232)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(75, 20)
-        Me.Label15.TabIndex = 17
-        Me.Label15.Text = "******"
+        Me.TStock.AutoSize = True
+        Me.TStock.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TStock.Location = New System.Drawing.Point(136, 233)
+        Me.TStock.Name = "TStock"
+        Me.TStock.Size = New System.Drawing.Size(123, 14)
+        Me.TStock.TabIndex = 17
+        Me.TStock.Text = "     ************"
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Black
         Me.Panel1.Controls.Add(Me.Button1)
-        Me.Panel1.Controls.Add(Me.Label20)
-        Me.Panel1.Controls.Add(Me.Label15)
-        Me.Panel1.Controls.Add(Me.Label19)
+        Me.Panel1.Controls.Add(Me.TPrecio)
+        Me.Panel1.Controls.Add(Me.TStock)
+        Me.Panel1.Controls.Add(Me.TGabinete)
         Me.Panel1.Controls.Add(Me.BGenerarFactura)
-        Me.Panel1.Controls.Add(Me.Label18)
-        Me.Panel1.Controls.Add(Me.Label14)
-        Me.Panel1.Controls.Add(Me.Label17)
-        Me.Panel1.Controls.Add(Me.Label13)
-        Me.Panel1.Controls.Add(Me.Label16)
-        Me.Panel1.Controls.Add(Me.Label12)
-        Me.Panel1.Controls.Add(Me.Label11)
+        Me.Panel1.Controls.Add(Me.TDiscoRigido)
+        Me.Panel1.Controls.Add(Me.TRam)
+        Me.Panel1.Controls.Add(Me.TPlacaVideo)
+        Me.Panel1.Controls.Add(Me.TPlacaMadre)
+        Me.Panel1.Controls.Add(Me.TCategoria)
+        Me.Panel1.Controls.Add(Me.TProcesador)
+        Me.Panel1.Controls.Add(Me.TNombre)
         Me.Panel1.Controls.Add(Me.CBBuscar)
         Me.Panel1.Controls.Add(Me.LBuscar)
         Me.Panel1.Controls.Add(Me.TBuscar)
@@ -317,10 +363,11 @@ Partial Class FormularioStock
         Me.Panel1.Controls.Add(Me.LNombre)
         Me.Panel1.Controls.Add(Me.PBImagen)
         Me.Panel1.Controls.Add(Me.DataGridStock)
+        Me.Panel1.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel1.ForeColor = System.Drawing.Color.White
-        Me.Panel1.Location = New System.Drawing.Point(174, 90)
+        Me.Panel1.Location = New System.Drawing.Point(78, 90)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(707, 414)
+        Me.Panel1.Size = New System.Drawing.Size(886, 471)
         Me.Panel1.TabIndex = 3
         '
         'Button1
@@ -331,72 +378,77 @@ Partial Class FormularioStock
         Me.Button1.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.White
         Me.Button1.Image = Global.pcgamer.My.Resources.Resources.oie_transparent
-        Me.Button1.Location = New System.Drawing.Point(473, 15)
+        Me.Button1.Location = New System.Drawing.Point(585, 12)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(38, 33)
         Me.Button1.TabIndex = 18
         Me.Button1.UseVisualStyleBackColor = False
         '
-        'Label20
+        'TPrecio
         '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(408, 227)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(75, 20)
-        Me.Label20.TabIndex = 17
-        Me.Label20.Text = "******"
+        Me.TPrecio.AutoSize = True
+        Me.TPrecio.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TPrecio.Location = New System.Drawing.Point(497, 233)
+        Me.TPrecio.Name = "TPrecio"
+        Me.TPrecio.Size = New System.Drawing.Size(123, 14)
+        Me.TPrecio.TabIndex = 17
+        Me.TPrecio.Text = "     ************"
         '
-        'Label19
+        'TGabinete
         '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(408, 184)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(75, 20)
-        Me.Label19.TabIndex = 17
-        Me.Label19.Text = "******"
+        Me.TGabinete.AutoSize = True
+        Me.TGabinete.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TGabinete.Location = New System.Drawing.Point(497, 190)
+        Me.TGabinete.Name = "TGabinete"
+        Me.TGabinete.Size = New System.Drawing.Size(123, 14)
+        Me.TGabinete.TabIndex = 17
+        Me.TGabinete.Text = "     ************"
         '
         'BGenerarFactura
         '
         Me.BGenerarFactura.BackColor = System.Drawing.Color.DarkRed
         Me.BGenerarFactura.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.BGenerarFactura.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BGenerarFactura.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BGenerarFactura.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BGenerarFactura.ForeColor = System.Drawing.Color.White
-        Me.BGenerarFactura.Location = New System.Drawing.Point(545, 16)
+        Me.BGenerarFactura.Location = New System.Drawing.Point(689, 16)
         Me.BGenerarFactura.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BGenerarFactura.Name = "BGenerarFactura"
-        Me.BGenerarFactura.Size = New System.Drawing.Size(159, 32)
+        Me.BGenerarFactura.Size = New System.Drawing.Size(174, 32)
         Me.BGenerarFactura.TabIndex = 3
         Me.BGenerarFactura.Text = "Generar Factura"
         Me.BGenerarFactura.UseVisualStyleBackColor = False
         '
-        'Label18
+        'TDiscoRigido
         '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(408, 142)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(75, 20)
-        Me.Label18.TabIndex = 17
-        Me.Label18.Text = "******"
+        Me.TDiscoRigido.AutoSize = True
+        Me.TDiscoRigido.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TDiscoRigido.Location = New System.Drawing.Point(497, 148)
+        Me.TDiscoRigido.Name = "TDiscoRigido"
+        Me.TDiscoRigido.Size = New System.Drawing.Size(123, 14)
+        Me.TDiscoRigido.TabIndex = 17
+        Me.TDiscoRigido.Text = "     ************"
         '
-        'Label17
+        'TPlacaVideo
         '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(408, 101)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(75, 20)
-        Me.Label17.TabIndex = 17
-        Me.Label17.Text = "******"
+        Me.TPlacaVideo.AutoSize = True
+        Me.TPlacaVideo.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TPlacaVideo.Location = New System.Drawing.Point(497, 107)
+        Me.TPlacaVideo.Name = "TPlacaVideo"
+        Me.TPlacaVideo.Size = New System.Drawing.Size(123, 14)
+        Me.TPlacaVideo.TabIndex = 17
+        Me.TPlacaVideo.Text = "     ************"
         '
-        'Label16
+        'TCategoria
         '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(408, 63)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(75, 20)
-        Me.Label16.TabIndex = 17
-        Me.Label16.Text = "******"
+        Me.TCategoria.AutoSize = True
+        Me.TCategoria.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TCategoria.Location = New System.Drawing.Point(497, 69)
+        Me.TCategoria.Name = "TCategoria"
+        Me.TCategoria.Size = New System.Drawing.Size(123, 14)
+        Me.TCategoria.TabIndex = 17
+        Me.TCategoria.Text = "     ************"
         '
         'LTitulo
         '
@@ -439,11 +491,6 @@ Partial Class FormularioStock
 
     Friend WithEvents PBLogo As PictureBox
     Friend WithEvents DataGridStock As DataGridView
-    Friend WithEvents codpro As DataGridViewTextBoxColumn
-    Friend WithEvents nombre As DataGridViewTextBoxColumn
-    Friend WithEvents stock As DataGridViewTextBoxColumn
-    Friend WithEvents precio As DataGridViewTextBoxColumn
-    Friend WithEvents categoria As DataGridViewTextBoxColumn
     Friend WithEvents PBImagen As PictureBox
     Friend WithEvents LNombre As Label
     Friend WithEvents LProcesador As Label
@@ -458,18 +505,23 @@ Partial Class FormularioStock
     Friend WithEvents TBuscar As TextBox
     Friend WithEvents LBuscar As Label
     Friend WithEvents CBBuscar As ComboBox
-    Friend WithEvents Label11 As Label
-    Friend WithEvents Label12 As Label
-    Friend WithEvents Label13 As Label
-    Friend WithEvents Label14 As Label
-    Friend WithEvents Label15 As Label
+    Friend WithEvents TNombre As Label
+    Friend WithEvents TProcesador As Label
+    Friend WithEvents TPlacaMadre As Label
+    Friend WithEvents TRam As Label
+    Friend WithEvents TStock As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents LTitulo As Label
-    Friend WithEvents Label20 As Label
-    Friend WithEvents Label19 As Label
-    Friend WithEvents Label18 As Label
-    Friend WithEvents Label17 As Label
-    Friend WithEvents Label16 As Label
+    Friend WithEvents TPrecio As Label
+    Friend WithEvents TGabinete As Label
+    Friend WithEvents TDiscoRigido As Label
+    Friend WithEvents TPlacaVideo As Label
+    Friend WithEvents TCategoria As Label
     Friend WithEvents BGenerarFactura As Button
     Friend WithEvents Button1 As Button
+    Friend WithEvents codpro As DataGridViewTextBoxColumn
+    Friend WithEvents nombre As DataGridViewTextBoxColumn
+    Friend WithEvents stock As DataGridViewTextBoxColumn
+    Friend WithEvents precio As DataGridViewTextBoxColumn
+    Friend WithEvents categoria As DataGridViewTextBoxColumn
 End Class

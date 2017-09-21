@@ -72,10 +72,22 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administrador\FormularioAdminCliente.Designer.vb">
+      <DependentUpon>FormularioAdminCliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\FormularioAdminCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Administrador\FormularioAdministrador.Designer.vb">
       <DependentUpon>FormularioAdministrador.vb</DependentUpon>
     </Compile>
     <Compile Include="Administrador\FormularioAdministrador.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\FormularioAdminStock.Designer.vb">
+      <DependentUpon>FormularioAdminStock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\FormularioAdminStock.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vendedor\FormularioCliente.Designer.vb">
@@ -127,8 +139,14 @@
     <Compile Include="Funciones.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Administrador\FormularioAdminCliente.resx">
+      <DependentUpon>FormularioAdminCliente.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administrador\FormularioAdministrador.resx">
       <DependentUpon>FormularioAdministrador.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\FormularioAdminStock.resx">
+      <DependentUpon>FormularioAdminStock.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vendedor\FormularioCliente.resx">
       <DependentUpon>FormularioCliente.vb</DependentUpon>
@@ -241,6 +259,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\oie_transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carrito_agregar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carrito_eliminar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancelar-icono.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancelar-icono1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\factura-icono.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -4,6 +4,8 @@ Public Class FormularioCliente
     Private Sub FormularioCliente_Closed(sender As Object, e As EventArgs) Handles Me.Closed
         FormularioVendedor.Show()
     End Sub
+    Dim DNIvalidate As Boolean
+    Dim Emailvalidate As Boolean
 
     Private Sub BLimpiar_Click(sender As Object, e As EventArgs) Handles BLimpiar.Click
         TNombre.Clear()
@@ -24,6 +26,10 @@ Public Class FormularioCliente
         title = "Error"
         If TNombre.Text = "" Or TApellido.Text = "" Or TDni.Text = "" Or TDomicilio.Text = "" Or TEmail.Text = "" Then
             ask = MsgBox(msg, style, title)
+        ElseIf DNIvalidate = False Then
+            MsgBox("Ingrese un DNI valido")
+        ElseIf Emailvalidate = False Then
+            MsgBox("Ingrese un Email valido")
         Else
             msg = "El Cliente se ha registrado correctamente"
             style = MsgBoxStyle.DefaultButton2 Or MsgBoxStyle.Information
@@ -56,13 +62,23 @@ Public Class FormularioCliente
             ErrorProvider1.SetError(TDni, "Porfavor ingrese solo numeros")
         End If
     End Sub
+    Private Sub TDni_Validated(sender As Object, e As EventArgs) Handles TDni.Validated
+        Dim respuesta As MsgBoxResult
+        If TDni.Text <> "" Then
+            If Long.Parse(TDni.Text) < 3000000 Or Long.Parse(TDni.Text) > 99999999 Then
+                MsgBox("Ingrese un DNI valido", MsgBoxStyle.DefaultButton2 +
+                       MsgBoxStyle.Information, "DNI invalido")
+                ErrorProvider1.SetError(TDni, "DNI invalido")
+                DNIvalidate = False
+            Else
+                DNIvalidate = True
+            End If
 
-    'Private Sub TDni_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TDni.KeyPress
-    '   SoloNumeros(e)
-    'If Integer.Parse(Me.Usuario.Text) < 0 Or Integer.Parse(Me.Usuario.Text) > 255 Then
-    '       MessageBox.Show("Numero ingresado fuera del rango")
-    'End If
-    'End Sub
+            'Dim respuesta As MsgBoxResult
+            'respuesta = MsgBox("¿Esta seguro que desea cancelar la Factura?", MsgBoxStyle.YesNo +
+            'MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Cancelar Factura")
+        End If
+    End Sub
 
     Private Sub FechaReg_ValueChanged(sender As Object, e As EventArgs) Handles FechaReg.ValueChanged
         FechaReg.Value = Now
@@ -79,4 +95,15 @@ Public Class FormularioCliente
             ErrorProvider1.SetError(TTelefono, "Porfavor ingrese solo numeros")
         End If
     End Sub
+
+    Private Sub TEmail_Validated(sender As Object, e As EventArgs) Handles TEmail.Validated
+        If Funciones.ValidarEmail(TEmail.Text) = False Then
+            ErrorProvider1.SetError(TEmail, "Porfavor ingrese un mail valido")
+            Emailvalidate = False
+            MessageBox.Show("Ingrese un Email valido")
+        Else
+            Emailvalidate = True
+        End If
+    End Sub
+
 End Class

@@ -31,7 +31,7 @@ Public Class Formulario5
             DataGridView1.CurrentRow.DefaultCellStyle.BackColor = Color.Red
         End If
 
-        'Limpiar formulario
+        'Limpiar formular 
         TNombre.Clear()
         TApellido.Clear()
         FechaNac.Value = New DateTime(1900, 1, 1)

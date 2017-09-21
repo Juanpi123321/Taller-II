@@ -32,6 +32,7 @@ Partial Class FormularioVendedor
         Me.PBStock = New System.Windows.Forms.PictureBox()
         Me.PBFactura = New System.Windows.Forms.PictureBox()
         Me.BAdmin = New System.Windows.Forms.Button()
+        Me.BCerrarSesion = New System.Windows.Forms.Button()
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PBCliente, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -159,6 +160,21 @@ Partial Class FormularioVendedor
         Me.BAdmin.Text = "Ir a Form Admin"
         Me.BAdmin.UseVisualStyleBackColor = False
         '
+        'BCerrarSesion
+        '
+        Me.BCerrarSesion.BackColor = System.Drawing.Color.DarkRed
+        Me.BCerrarSesion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BCerrarSesion.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BCerrarSesion.ForeColor = System.Drawing.Color.White
+        Me.BCerrarSesion.Location = New System.Drawing.Point(827, 72)
+        Me.BCerrarSesion.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.BCerrarSesion.Name = "BCerrarSesion"
+        Me.BCerrarSesion.Size = New System.Drawing.Size(166, 32)
+        Me.BCerrarSesion.TabIndex = 1
+        Me.BCerrarSesion.Text = "Cerrar Sesion"
+        Me.BCerrarSesion.UseVisualStyleBackColor = False
+        '
         'FormularioVendedor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 25.0!)
@@ -166,6 +182,7 @@ Partial Class FormularioVendedor
         Me.BackgroundImage = Global.pcgamer.My.Resources.Resources.hyperx_background
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1006, 593)
+        Me.Controls.Add(Me.BCerrarSesion)
         Me.Controls.Add(Me.BAdmin)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PBLogo)
@@ -194,4 +211,5 @@ Partial Class FormularioVendedor
     Friend WithEvents BStock As Button
     Friend WithEvents BCliente As Button
     Friend WithEvents BAdmin As Button
+    Friend WithEvents BCerrarSesion As Button
 End Class
