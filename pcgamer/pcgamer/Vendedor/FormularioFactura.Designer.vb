@@ -122,10 +122,9 @@ Partial Class FormularioFactura
         Me.DataGridView1.GridColor = System.Drawing.SystemColors.GrayText
         Me.DataGridView1.Location = New System.Drawing.Point(3, 309)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.Size = New System.Drawing.Size(785, 124)
-        Me.DataGridView1.TabIndex = 5
+        Me.DataGridView1.TabIndex = 0
         '
         'GroupBox2
         '
@@ -243,7 +242,7 @@ Partial Class FormularioFactura
         Me.GroupBox3.Location = New System.Drawing.Point(3, 158)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(782, 145)
-        Me.GroupBox3.TabIndex = 0
+        Me.GroupBox3.TabIndex = 13
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Cliente"
         '
@@ -292,7 +291,7 @@ Partial Class FormularioFactura
         Me.BSeleccionarCliente.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BSeleccionarCliente.Name = "BSeleccionarCliente"
         Me.BSeleccionarCliente.Size = New System.Drawing.Size(163, 32)
-        Me.BSeleccionarCliente.TabIndex = 0
+        Me.BSeleccionarCliente.TabIndex = 5
         Me.BSeleccionarCliente.Text = "Seleccionar Cliente"
         Me.BSeleccionarCliente.UseVisualStyleBackColor = False
         '
@@ -332,7 +331,7 @@ Partial Class FormularioFactura
         Me.TVendedor.Location = New System.Drawing.Point(141, 109)
         Me.TVendedor.Name = "TVendedor"
         Me.TVendedor.Size = New System.Drawing.Size(139, 18)
-        Me.TVendedor.TabIndex = 0
+        Me.TVendedor.TabIndex = 7
         Me.TVendedor.Text = "MONZON, Andrea"
         '
         'LVendedor
@@ -341,7 +340,7 @@ Partial Class FormularioFactura
         Me.LVendedor.Location = New System.Drawing.Point(6, 106)
         Me.LVendedor.Name = "LVendedor"
         Me.LVendedor.Size = New System.Drawing.Size(85, 18)
-        Me.LVendedor.TabIndex = 0
+        Me.LVendedor.TabIndex = 8
         Me.LVendedor.Text = "Vendedor:"
         '
         'LTelefono
@@ -350,7 +349,7 @@ Partial Class FormularioFactura
         Me.LTelefono.Location = New System.Drawing.Point(6, 76)
         Me.LTelefono.Name = "LTelefono"
         Me.LTelefono.Size = New System.Drawing.Size(77, 18)
-        Me.LTelefono.TabIndex = 0
+        Me.LTelefono.TabIndex = 9
         Me.LTelefono.Text = "Telefono:"
         '
         'LDireccion
@@ -359,7 +358,7 @@ Partial Class FormularioFactura
         Me.LDireccion.Location = New System.Drawing.Point(6, 58)
         Me.LDireccion.Name = "LDireccion"
         Me.LDireccion.Size = New System.Drawing.Size(82, 18)
-        Me.LDireccion.TabIndex = 0
+        Me.LDireccion.TabIndex = 10
         Me.LDireccion.Text = "Direccion:"
         '
         'LDNI
@@ -368,7 +367,7 @@ Partial Class FormularioFactura
         Me.LDNI.Location = New System.Drawing.Point(6, 40)
         Me.LDNI.Name = "LDNI"
         Me.LDNI.Size = New System.Drawing.Size(114, 18)
-        Me.LDNI.TabIndex = 0
+        Me.LDNI.TabIndex = 11
         Me.LDNI.Text = "DNI Receptor:"
         '
         'TTelefono
@@ -413,7 +412,7 @@ Partial Class FormularioFactura
         Me.LCliente.Location = New System.Drawing.Point(6, 22)
         Me.LCliente.Name = "LCliente"
         Me.LCliente.Size = New System.Drawing.Size(87, 18)
-        Me.LCliente.TabIndex = 0
+        Me.LCliente.TabIndex = 12
         Me.LCliente.Text = "Receptor: "
         '
         'GroupBox1
@@ -428,7 +427,7 @@ Partial Class FormularioFactura
         Me.GroupBox1.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(431, 153)
-        Me.GroupBox1.TabIndex = 0
+        Me.GroupBox1.TabIndex = 14
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Pc-Gamer"
         '
@@ -439,7 +438,7 @@ Partial Class FormularioFactura
         Me.LEmpresa5.Location = New System.Drawing.Point(121, 101)
         Me.LEmpresa5.Name = "LEmpresa5"
         Me.LEmpresa5.Size = New System.Drawing.Size(239, 18)
-        Me.LEmpresa5.TabIndex = 1
+        Me.LEmpresa5.TabIndex = 15
         Me.LEmpresa5.Text = "E-mail: pcgamer@hotmail.com"
         '
         'LEmpresa4
@@ -449,7 +448,7 @@ Partial Class FormularioFactura
         Me.LEmpresa4.Location = New System.Drawing.Point(120, 81)
         Me.LEmpresa4.Name = "LEmpresa4"
         Me.LEmpresa4.Size = New System.Drawing.Size(209, 18)
-        Me.LEmpresa4.TabIndex = 1
+        Me.LEmpresa4.TabIndex = 16
         Me.LEmpresa4.Text = "Telefonos: (379) 4221129"
         '
         'LEmpresa3
@@ -459,7 +458,7 @@ Partial Class FormularioFactura
         Me.LEmpresa3.Location = New System.Drawing.Point(120, 61)
         Me.LEmpresa3.Name = "LEmpresa3"
         Me.LEmpresa3.Size = New System.Drawing.Size(268, 18)
-        Me.LEmpresa3.TabIndex = 1
+        Me.LEmpresa3.TabIndex = 17
         Me.LEmpresa3.Text = "CP (3400) - Corrientes - Argentina"
         '
         'LEmpresa2
@@ -469,7 +468,7 @@ Partial Class FormularioFactura
         Me.LEmpresa2.Location = New System.Drawing.Point(120, 42)
         Me.LEmpresa2.Name = "LEmpresa2"
         Me.LEmpresa2.Size = New System.Drawing.Size(123, 18)
-        Me.LEmpresa2.TabIndex = 1
+        Me.LEmpresa2.TabIndex = 18
         Me.LEmpresa2.Text = "9 de Julio 1449"
         '
         'LEmpresa1
@@ -479,7 +478,7 @@ Partial Class FormularioFactura
         Me.LEmpresa1.Location = New System.Drawing.Point(120, 22)
         Me.LEmpresa1.Name = "LEmpresa1"
         Me.LEmpresa1.Size = New System.Drawing.Size(142, 18)
-        Me.LEmpresa1.TabIndex = 1
+        Me.LEmpresa1.TabIndex = 19
         Me.LEmpresa1.Text = "Pc-Gamer S.R.L."
         '
         'PBEmpresa
@@ -533,8 +532,8 @@ Partial Class FormularioFactura
         DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
         Me.cantidad.DefaultCellStyle = DataGridViewCellStyle1
         Me.cantidad.HeaderText = "Cantidad"
+        Me.cantidad.MaxInputLength = 3
         Me.cantidad.Name = "cantidad"
-        Me.cantidad.ReadOnly = True
         Me.cantidad.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.cantidad.Width = 123
         '

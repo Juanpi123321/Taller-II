@@ -25,16 +25,6 @@
         BSeleccionarCliente.Hide()
     End Sub
 
-    Private Sub BCancelar_Click(sender As Object, e As EventArgs) Handles BCancelar.Click
-        Dim respuesta As MsgBoxResult
-        respuesta = MsgBox("¿Esta seguro que desea cancelar la Factura?", MsgBoxStyle.YesNo +
-            MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Cancelar Factura")
-        If MsgBoxResult.Yes = respuesta Then
-            FormularioVendedor.Show()
-            Me.Close()
-        End If
-    End Sub
-
     Private Sub BImprimir_Click(sender As Object, e As EventArgs) Handles BImprimir.Click
         Dim respuesta As MsgBoxResult
 
@@ -48,8 +38,9 @@
         Else
             respuesta = MsgBox("La factura se ha generado correctamente", MsgBoxStyle.DefaultButton2 +
             MsgBoxStyle.Information, "Facturacion exitosa")
+            'lo destruye de la memoria
+            Me.Dispose()
             FormularioVendedor.Show()
-            Me.Close()
         End If
     End Sub
 
@@ -66,15 +57,91 @@
 
     Private Sub BEliminar_Click(sender As Object, e As EventArgs) Handles BEliminar.Click
         Dim respuesta As MsgBoxResult
-        Dim fila As Integer = DataGridView1.CurrentRow.Index
-        If DataGridView1.Item(1, 0).Value = "" Or DataGridView1.Item(1, fila).Value = "" Then
-            respuesta = MsgBox("Error, no hay productos seleccionados", MsgBoxStyle.DefaultButton2 +
+        Try
+            Dim fila As Integer = DataGridView1.CurrentRow.Index
+            If DataGridView1.Item(1, 0).Value = "" Or DataGridView1.Item(1, fila).Value = "" Then
+                respuesta = MsgBox("Error, no hay productos seleccionados", MsgBoxStyle.DefaultButton2 +
             MsgBoxStyle.Critical, "Eliminacion Invalida")
+            Else
+                respuesta = MsgBox("¿Esta seguro de eliminar el Producto?", MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Question, "Confirmar Eliminacion")
+                If MsgBoxResult.Yes = respuesta Then
+                    DataGridView1.Rows.Remove(DataGridView1.Rows(DataGridView1.SelectedCells.Item(0).RowIndex))
+                End If
+            End If
+        Catch ex As Exception
+            respuesta = MsgBox("Error, no hay productos seleccionados", MsgBoxStyle.DefaultButton2 +
+        MsgBoxStyle.Critical, "Modificacion Invalida")
+        End Try
+    End Sub
+
+    Private Sub DataGridView1_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellEndEdit
+        Dim fila As Integer = DataGridView1.CurrentRow.Index
+        Dim respuesta As MsgBoxResult
+        Try
+            If Integer.Parse(DataGridView1.Item(0, fila).Value) = 0 Then
+                DataGridView1.Item(0, fila).Value = 1
+                respuesta = MsgBox("La cantidad de producto no puede ser 0", MsgBoxStyle.DefaultButton2 +
+            MsgBoxStyle.Critical, "Cantidad Invalida")
+            Else
+                DataGridView1.Item(4, fila).Value = Integer.Parse(DataGridView1.Item(0, fila).Value) * Double.Parse(DataGridView1.Item(3, fila).Value)
+            End If
+        Catch ex As Exception
+            respuesta = MsgBox("Error, no hay productos seleccionados", MsgBoxStyle.DefaultButton2 +
+            MsgBoxStyle.Critical, "Modificacion Invalida")
+        End Try
+    End Sub
+
+    Private Sub FormularioFactura_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        Dim respuesta As MsgBoxResult
+        respuesta = MsgBox("¿Esta seguro que desea cancelar la Factura?", MsgBoxStyle.YesNo +
+            MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Cancelar Factura")
+        If MsgBoxResult.Yes = respuesta Then
+            Me.Hide()
         Else
-            respuesta = MsgBox("¿Esta seguro de eliminar el Producto?", MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Question, "Confirmar Eliminacion")
-            If MsgBoxResult.Yes = respuesta Then
-                DataGridView1.Rows.Remove(DataGridView1.Rows(DataGridView1.SelectedCells.Item(0).RowIndex))
+            e.Cancel = True
+        End If
+    End Sub
+
+    Private Sub BCancelar_Click(sender As Object, e As EventArgs) Handles BCancelar.Click
+        Me.Close()
+    End Sub
+
+    Private Sub DataGridView1_EditingControlShowing(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewEditingControlShowingEventArgs) Handles DataGridView1.EditingControlShowing
+        AddHandler e.Control.KeyPress, AddressOf Validar_Numeros
+        Dim fila As Integer = DataGridView1.CurrentRow.Index
+
+        'si no esta cargada la fila no deja que modifique la cantidad
+        If DataGridView1.Item(1, fila).Value = "" Then
+            AddHandler e.Control.KeyPress, AddressOf No_Modificar
+        End If
+    End Sub
+
+    Private Sub No_Modificar(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
+        Dim Celda As DataGridViewCell = Me.DataGridView1.CurrentCell()
+        e.Handled = True
+    End Sub
+
+    Private Sub Validar_Numeros(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
+        Dim Celda As DataGridViewCell = Me.DataGridView1.CurrentCell()
+        If Celda.ColumnIndex = 0 Then
+            If Len(Trim(Celda.EditedFormattedValue.ToString)) > 0 Then
+                If Char.IsNumber(e.KeyChar) Or e.KeyChar = Convert.ToChar(8) Then
+                    e.Handled = False
+                Else
+                    e.Handled = True
+                End If
+            Else
+                If e.KeyChar = "0"c Then
+                    e.Handled = True
+                Else
+                    If Char.IsNumber(e.KeyChar) Or e.KeyChar = Convert.ToChar(8) Then
+                        e.Handled = False
+                    Else
+                        e.Handled = True
+                    End If
+                End If
             End If
         End If
     End Sub
+
 End Class

@@ -4,6 +4,7 @@ Public Class FormularioCliente
     Private Sub FormularioCliente_Closed(sender As Object, e As EventArgs) Handles Me.Closed
         FormularioVendedor.Show()
     End Sub
+
     Dim DNIvalidate As Boolean
     Dim Emailvalidate As Boolean
 
@@ -17,26 +18,26 @@ Public Class FormularioCliente
     End Sub
 
     Private Sub BAgregar_Click_1(sender As Object, e As EventArgs) Handles BAgregar.Click
-        Dim msg As String
-        Dim title As String
-        Dim style As MsgBoxStyle
-        Dim ask As MsgBoxResult
-        msg = "Debe completar los campos obligatorios!"
-        style = MsgBoxStyle.DefaultButton2 Or MsgBoxStyle.Critical
-        title = "Error"
         If TNombre.Text = "" Or TApellido.Text = "" Or TDni.Text = "" Or TDomicilio.Text = "" Or TEmail.Text = "" Then
-            ask = MsgBox(msg, style, title)
+            MsgBox("Debe completar los campos obligatorios!", MsgBoxStyle.DefaultButton2 +
+        MsgBoxStyle.Critical, "Registro Incompleto")
         ElseIf DNIvalidate = False Then
             MsgBox("Ingrese un DNI valido")
         ElseIf Emailvalidate = False Then
-            MsgBox("Ingrese un Email valido")
+            MsgBox("Ingrese un Email valido", MsgBoxStyle.DefaultButton2 +
+                       MsgBoxStyle.Information, "Email invalido")
         Else
-            msg = "El Cliente se ha registrado correctamente"
-            style = MsgBoxStyle.DefaultButton2 Or MsgBoxStyle.Information
-            title = "Registro Exitoso"
-            ask = MsgBox(msg, style, title)
-            FormularioVendedor.Show()
-            Me.Close()
+            Try
+                DataGridCliente.Rows.Add("0005", TApellido.Text, TNombre.Text, TDni.Text, FechaReg.Value)
+                MsgBox("El Cliente se ha registrado correctamente", MsgBoxStyle.DefaultButton2 +
+        MsgBoxStyle.Information, "Registro Exitoso")
+                'Ir a tab2
+                'FormularioVendedor.Show()
+                'Me.Close()
+            Catch ex As Exception
+                MsgBox("Lo sentimos ha ocurrido un evento inesperado, el cliente no pudo ser registrado",
+            MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Error al registrar")
+            End Try
         End If
     End Sub
 
@@ -63,7 +64,6 @@ Public Class FormularioCliente
         End If
     End Sub
     Private Sub TDni_Validated(sender As Object, e As EventArgs) Handles TDni.Validated
-        Dim respuesta As MsgBoxResult
         If TDni.Text <> "" Then
             If Long.Parse(TDni.Text) < 3000000 Or Long.Parse(TDni.Text) > 99999999 Then
                 MsgBox("Ingrese un DNI valido", MsgBoxStyle.DefaultButton2 +
@@ -73,10 +73,6 @@ Public Class FormularioCliente
             Else
                 DNIvalidate = True
             End If
-
-            'Dim respuesta As MsgBoxResult
-            'respuesta = MsgBox("¿Esta seguro que desea cancelar la Factura?", MsgBoxStyle.YesNo +
-            'MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Cancelar Factura")
         End If
     End Sub
 
@@ -100,10 +96,126 @@ Public Class FormularioCliente
         If Funciones.ValidarEmail(TEmail.Text) = False Then
             ErrorProvider1.SetError(TEmail, "Porfavor ingrese un mail valido")
             Emailvalidate = False
-            MessageBox.Show("Ingrese un Email valido")
+            MsgBox("Ingrese un Email valido", MsgBoxStyle.DefaultButton2 +
+                       MsgBoxStyle.Information, "Email invalido")
         Else
             Emailvalidate = True
         End If
     End Sub
 
+    Private Sub BEditar_Click(sender As Object, e As EventArgs) Handles BEditar.Click
+        BAgregarFactura.Visible = False
+        BCancelar.Visible = True
+        BGuardar.Visible = True
+        TBApellido.Enabled = True
+        TBNombre.Enabled = True
+        TBDNI.Enabled = True
+        TBDomicilio.Enabled = True
+        TBTelefono.Enabled = True
+        TBEmail.Enabled = True
+    End Sub
+
+    Private Sub FormularioCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        DataGridCliente.Rows.Add("0001", "Gallardo", "Marcelo", "25332121", "21/09/2017 10:09")
+        DataGridCliente.Rows.Add("0002", "Trump", "Donald", "10123341", "21/09/2017 17:41")
+        DataGridCliente.Rows.Add("0003", "Martinez", "Pity", "40112858", "22/09/2017 11:01")
+        DataGridCliente.Rows.Add("0004", "Tinelli", "Marcelo", "15020491", "23/09/2017 09:33")
+    End Sub
+
+    Private Sub BGuardar_Click(sender As Object, e As EventArgs) Handles BGuardar.Click
+        Dim fila As Integer = DataGridCliente.CurrentRow.Index
+        DataGridCliente.Item(1, fila).Value = TBApellido.Text
+        DataGridCliente.Item(2, fila).Value = TBNombre.Text
+        DataGridCliente.Item(3, fila).Value = TBDNI.Text
+
+        If DNIvalidate Then
+
+        End If
+        BAgregarFactura.Visible = True
+        BCancelar.Visible = False
+        BGuardar.Visible = False
+        TBApellido.Enabled = False
+        TBNombre.Enabled = False
+        TBDNI.Enabled = False
+        TBDomicilio.Enabled = False
+        TBTelefono.Enabled = False
+        TBEmail.Enabled = False
+        MsgBox("Se ha modificado correctamente", MsgBoxStyle.DefaultButton2 +
+                       MsgBoxStyle.Information, "Modificacion exitosa")
+
+    End Sub
+
+    Private Sub BCancelar_Click(sender As Object, e As EventArgs) Handles BCancelar.Click
+        BAgregarFactura.Visible = True
+        BCancelar.Visible = False
+        BGuardar.Visible = False
+        TBApellido.Enabled = False
+        TBNombre.Enabled = False
+        TBDNI.Enabled = False
+        TBDomicilio.Enabled = False
+        TBTelefono.Enabled = False
+        TBEmail.Enabled = False
+    End Sub
+
+    Private Sub DataGridCliente_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridCliente.CellEnter
+        Dim fila As Integer = DataGridCliente.CurrentRow.Index
+        TBApellido.Text = DataGridCliente.Item(1, fila).Value
+        TBNombre.Text = DataGridCliente.Item(2, fila).Value
+        TBDNI.Text = DataGridCliente.Item(3, fila).Value
+        Dim domicilio As String = "-"
+        Dim telefono As String = "-"
+        Dim email As String = "-"
+        Select Case fila
+            Case 0
+                domicilio = "B° Nuñez Buenos Aires"
+                telefono = "01199850312"
+                email = "marcelitogallardo@hotmail.com"
+
+            Case 1
+                domicilio = "Queens - New York (USA)"
+                telefono = "-"
+                email = "donald-trump@outlook.com"
+            Case 2
+                domicilio = "Guaymallén Mendonza"
+                telefono = "3782123461"
+                email = "pitymartinez@gmail.com"
+            Case 3
+                domicilio = "Bolivar Buenos Aires"
+                telefono = "0112212388"
+                email = "cuervotinelli@hotmail.com"
+        End Select
+        TBDomicilio.Text = domicilio
+        TBTelefono.Text = telefono
+        TBEmail.Text = email
+
+        'Else
+        'TNombre.Text = "     ************"
+        'TProcesador.Text = "     ************"
+        'TPlacaMadre.Text = "     ************"
+    End Sub
+
+    Private Sub TBDni_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TBDNI.KeyPress
+        If Not IsNumeric(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub TBDni_Validated(sender As Object, e As EventArgs) Handles TBDNI.Validated
+        If TBDNI.Text <> "" Then
+            If Long.Parse(TBDNI.Text) < 3000000 Or Long.Parse(TBDNI.Text) > 99999999 Then
+                MsgBox("Ingrese un DNI valido", MsgBoxStyle.DefaultButton2 +
+                       MsgBoxStyle.Information, "DNI invalido")
+                DNIvalidate = False
+            Else
+                DNIvalidate = True
+            End If
+        End If
+    End Sub
+    Private Sub TBNombre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TBNombre.KeyPress
+        Dim re As New Regex("[^a-zA-Z_ \b]", RegexOptions.IgnoreCase)
+        e.Handled = re.IsMatch(e.KeyChar)
+    End Sub
+    Private Sub TBApellido_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TBApellido.KeyPress
+        Dim re As New Regex("[^a-zA-Z_ \b]", RegexOptions.IgnoreCase)
+        e.Handled = re.IsMatch(e.KeyChar)
+    End Sub
 End Class
