@@ -130,8 +130,8 @@
   <data name="63375334-representante-de-servicio-al-cliente-3d-ilustraci-n-aislado-sobre-fondo-blanco-Foto-de-archivo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\63375334-representante-de-servicio-al-cliente-3d-ilustraci-n-aislado-sobre-fondo-blanco-Foto-de-archivo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="lupa1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\lupa1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="factura-icono" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\factura-icono.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="almacen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\almacen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,9 +148,6 @@
   <data name="factura4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\factura4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cancelar-icono1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cancelar-icono1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="pcgamer-logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pcgamer-logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -160,11 +157,14 @@
   <data name="lupa" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lupa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="gabinete2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gabinete2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="cliente" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cliente.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="gabinete2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gabinete2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cancelar-icono1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancelar-icono1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pcgamer-logo-grande2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pcgamer-logo-grande2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,6 +184,9 @@
   <data name="almacen2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\almacen2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="can-stock-photo_csp13638182" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\can-stock-photo_csp13638182.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="factura2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\factura2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -196,8 +199,8 @@
   <data name="carrito_agregar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\carrito_agregar.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="can-stock-photo_csp13638182" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\can-stock-photo_csp13638182.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lupa1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lupa1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cancelar-icono" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cancelar-icono.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,7 +211,7 @@
   <data name="carrito_eliminar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\carrito_eliminar.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="factura-icono" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\factura-icono.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ok-icono" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ok-icono.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

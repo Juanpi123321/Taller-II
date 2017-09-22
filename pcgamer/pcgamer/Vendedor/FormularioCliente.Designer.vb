@@ -189,7 +189,7 @@ Partial Class FormularioCliente
         Me.Panel1.Controls.Add(Me.LTelefono)
         Me.Panel1.Controls.Add(Me.LDomicilio)
         Me.Panel1.ForeColor = System.Drawing.Color.White
-        Me.Panel1.Location = New System.Drawing.Point(125, 26)
+        Me.Panel1.Location = New System.Drawing.Point(201, 23)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(365, 286)
         Me.Panel1.TabIndex = 15
@@ -267,7 +267,7 @@ Partial Class FormularioCliente
         Me.BLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BLimpiar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BLimpiar.ForeColor = System.Drawing.Color.White
-        Me.BLimpiar.Location = New System.Drawing.Point(125, 346)
+        Me.BLimpiar.Location = New System.Drawing.Point(201, 343)
         Me.BLimpiar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BLimpiar.Name = "BLimpiar"
         Me.BLimpiar.Size = New System.Drawing.Size(166, 32)
@@ -282,7 +282,7 @@ Partial Class FormularioCliente
         Me.BAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BAgregar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BAgregar.ForeColor = System.Drawing.Color.White
-        Me.BAgregar.Location = New System.Drawing.Point(324, 346)
+        Me.BAgregar.Location = New System.Drawing.Point(400, 343)
         Me.BAgregar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BAgregar.Name = "BAgregar"
         Me.BAgregar.Size = New System.Drawing.Size(166, 32)
@@ -514,56 +514,56 @@ Partial Class FormularioCliente
         '
         'TBEmail
         '
-        Me.TBEmail.Enabled = False
         Me.TBEmail.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TBEmail.Location = New System.Drawing.Point(489, 145)
         Me.TBEmail.Name = "TBEmail"
+        Me.TBEmail.ReadOnly = True
         Me.TBEmail.Size = New System.Drawing.Size(262, 23)
         Me.TBEmail.TabIndex = 0
         '
         'TBDNI
         '
-        Me.TBDNI.Enabled = False
         Me.TBDNI.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TBDNI.Location = New System.Drawing.Point(146, 146)
         Me.TBDNI.MaxLength = 8
         Me.TBDNI.Name = "TBDNI"
+        Me.TBDNI.ReadOnly = True
         Me.TBDNI.Size = New System.Drawing.Size(216, 23)
         Me.TBDNI.TabIndex = 0
         '
         'TBTelefono
         '
-        Me.TBTelefono.Enabled = False
         Me.TBTelefono.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TBTelefono.Location = New System.Drawing.Point(489, 111)
         Me.TBTelefono.Name = "TBTelefono"
+        Me.TBTelefono.ReadOnly = True
         Me.TBTelefono.Size = New System.Drawing.Size(262, 23)
         Me.TBTelefono.TabIndex = 0
         '
         'TBNombre
         '
-        Me.TBNombre.Enabled = False
         Me.TBNombre.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TBNombre.Location = New System.Drawing.Point(146, 112)
         Me.TBNombre.Name = "TBNombre"
+        Me.TBNombre.ReadOnly = True
         Me.TBNombre.Size = New System.Drawing.Size(216, 23)
         Me.TBNombre.TabIndex = 0
         '
         'TBDomicilio
         '
-        Me.TBDomicilio.Enabled = False
         Me.TBDomicilio.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TBDomicilio.Location = New System.Drawing.Point(489, 76)
         Me.TBDomicilio.Name = "TBDomicilio"
+        Me.TBDomicilio.ReadOnly = True
         Me.TBDomicilio.Size = New System.Drawing.Size(262, 23)
         Me.TBDomicilio.TabIndex = 0
         '
         'TBApellido
         '
-        Me.TBApellido.Enabled = False
         Me.TBApellido.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TBApellido.Location = New System.Drawing.Point(146, 77)
         Me.TBApellido.Name = "TBApellido"
+        Me.TBApellido.ReadOnly = True
         Me.TBApellido.Size = New System.Drawing.Size(216, 23)
         Me.TBApellido.TabIndex = 0
         '

@@ -275,5 +275,8 @@
   <ItemGroup>
     <None Include="Resources\factura-icono.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok-icono.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -21,7 +21,7 @@
 
     Private Sub BAdmin_Click(sender As Object, e As EventArgs) Handles BAdmin.Click
         FormularioAdministrador.Show()
-        Me.Hide()
+        Me.Close()
     End Sub
 
     Private Sub BCerrarSesion_Click(sender As Object, e As EventArgs) Handles BCerrarSesion.Click

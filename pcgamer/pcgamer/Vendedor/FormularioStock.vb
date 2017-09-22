@@ -4,8 +4,13 @@
     End Sub
 
     Private Sub BGenerarFactura_Click(sender As Object, e As EventArgs) Handles BGenerarFactura.Click
-        FormularioFactura.Show()
-        Me.Hide()
+        Dim fila As Integer = DataGridStock.CurrentRow.Index
+        If DataGridStock.Item(1, fila).Value = "" Then
+            MsgBox("Seleccione un producto para agregar a la factura", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
+        Else
+            FormularioFactura.Show()
+            Me.Hide()
+        End If
     End Sub
 
     Private Sub FormularioStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load

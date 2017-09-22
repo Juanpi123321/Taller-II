@@ -22,7 +22,15 @@ Partial Class FormularioAdminCliente
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormularioAdminCliente))
+        Me.LTitulo = New System.Windows.Forms.Label()
+        Me.PBLogo = New System.Windows.Forms.PictureBox()
         Me.TabCliente = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -44,9 +52,12 @@ Partial Class FormularioAdminCliente
         Me.BAgregar = New System.Windows.Forms.Button()
         Me.BLimpiar = New System.Windows.Forms.Button()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.BCancelar = New System.Windows.Forms.Button()
+        Me.BGuardar = New System.Windows.Forms.Button()
         Me.BEditar = New System.Windows.Forms.Button()
         Me.CBBuscar = New System.Windows.Forms.ComboBox()
-        Me.BNuevo = New System.Windows.Forms.Button()
+        Me.BAlta = New System.Windows.Forms.Button()
+        Me.BEliminar = New System.Windows.Forms.Button()
         Me.BBuscar = New System.Windows.Forms.Button()
         Me.LBEmail = New System.Windows.Forms.Label()
         Me.LBTelefono = New System.Windows.Forms.Label()
@@ -68,25 +79,47 @@ Partial Class FormularioAdminCliente
         Me.nombres = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dni = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fecha_ingreso = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LTitulo = New System.Windows.Forms.Label()
-        Me.PBLogo = New System.Windows.Forms.PictureBox()
-        Me.BEliminar = New System.Windows.Forms.Button()
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabCliente.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         CType(Me.DataGridCliente, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'LTitulo
+        '
+        Me.LTitulo.AutoSize = True
+        Me.LTitulo.BackColor = System.Drawing.Color.Black
+        Me.LTitulo.Font = New System.Drawing.Font("Verdana", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LTitulo.ForeColor = System.Drawing.Color.White
+        Me.LTitulo.Location = New System.Drawing.Point(358, 14)
+        Me.LTitulo.Name = "LTitulo"
+        Me.LTitulo.Size = New System.Drawing.Size(304, 40)
+        Me.LTitulo.TabIndex = 20
+        Me.LTitulo.Text = "Gestionar Cliente"
+        '
+        'PBLogo
+        '
+        Me.PBLogo.Image = Global.pcgamer.My.Resources.Resources.pcgamer_logo
+        Me.PBLogo.Location = New System.Drawing.Point(794, 14)
+        Me.PBLogo.Margin = New System.Windows.Forms.Padding(5)
+        Me.PBLogo.Name = "PBLogo"
+        Me.PBLogo.Size = New System.Drawing.Size(198, 34)
+        Me.PBLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PBLogo.TabIndex = 19
+        Me.PBLogo.TabStop = False
         '
         'TabCliente
         '
         Me.TabCliente.Controls.Add(Me.TabPage1)
         Me.TabCliente.Controls.Add(Me.TabPage2)
-        Me.TabCliente.Location = New System.Drawing.Point(106, 82)
+        Me.TabCliente.Location = New System.Drawing.Point(113, 67)
         Me.TabCliente.Name = "TabCliente"
         Me.TabCliente.SelectedIndex = 0
-        Me.TabCliente.Size = New System.Drawing.Size(707, 453)
+        Me.TabCliente.Size = New System.Drawing.Size(791, 436)
         Me.TabCliente.TabIndex = 21
         '
         'TabPage1
@@ -98,7 +131,7 @@ Partial Class FormularioAdminCliente
         Me.TabPage1.Location = New System.Drawing.Point(4, 29)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(699, 420)
+        Me.TabPage1.Size = New System.Drawing.Size(783, 403)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Registrar"
         '
@@ -121,7 +154,7 @@ Partial Class FormularioAdminCliente
         Me.Panel1.Controls.Add(Me.LTelefono)
         Me.Panel1.Controls.Add(Me.LDomicilio)
         Me.Panel1.ForeColor = System.Drawing.Color.White
-        Me.Panel1.Location = New System.Drawing.Point(125, 26)
+        Me.Panel1.Location = New System.Drawing.Point(201, 23)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(365, 286)
         Me.Panel1.TabIndex = 15
@@ -187,6 +220,7 @@ Partial Class FormularioAdminCliente
         'TDni
         '
         Me.TDni.Location = New System.Drawing.Point(139, 88)
+        Me.TDni.MaxLength = 8
         Me.TDni.Name = "TDni"
         Me.TDni.Size = New System.Drawing.Size(193, 28)
         Me.TDni.TabIndex = 2
@@ -257,7 +291,7 @@ Partial Class FormularioAdminCliente
         Me.BAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BAgregar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BAgregar.ForeColor = System.Drawing.Color.White
-        Me.BAgregar.Location = New System.Drawing.Point(324, 346)
+        Me.BAgregar.Location = New System.Drawing.Point(400, 343)
         Me.BAgregar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BAgregar.Name = "BAgregar"
         Me.BAgregar.Size = New System.Drawing.Size(166, 32)
@@ -272,7 +306,7 @@ Partial Class FormularioAdminCliente
         Me.BLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BLimpiar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BLimpiar.ForeColor = System.Drawing.Color.White
-        Me.BLimpiar.Location = New System.Drawing.Point(125, 346)
+        Me.BLimpiar.Location = New System.Drawing.Point(201, 343)
         Me.BLimpiar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BLimpiar.Name = "BLimpiar"
         Me.BLimpiar.Size = New System.Drawing.Size(166, 32)
@@ -283,10 +317,12 @@ Partial Class FormularioAdminCliente
         'TabPage2
         '
         Me.TabPage2.BackColor = System.Drawing.Color.Black
-        Me.TabPage2.Controls.Add(Me.BEliminar)
+        Me.TabPage2.Controls.Add(Me.BCancelar)
+        Me.TabPage2.Controls.Add(Me.BGuardar)
         Me.TabPage2.Controls.Add(Me.BEditar)
         Me.TabPage2.Controls.Add(Me.CBBuscar)
-        Me.TabPage2.Controls.Add(Me.BNuevo)
+        Me.TabPage2.Controls.Add(Me.BAlta)
+        Me.TabPage2.Controls.Add(Me.BEliminar)
         Me.TabPage2.Controls.Add(Me.BBuscar)
         Me.TabPage2.Controls.Add(Me.LBEmail)
         Me.TabPage2.Controls.Add(Me.LBTelefono)
@@ -308,9 +344,41 @@ Partial Class FormularioAdminCliente
         Me.TabPage2.Location = New System.Drawing.Point(4, 29)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(699, 420)
+        Me.TabPage2.Size = New System.Drawing.Size(783, 403)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Buscar"
+        '
+        'BCancelar
+        '
+        Me.BCancelar.BackColor = System.Drawing.Color.DarkRed
+        Me.BCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BCancelar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BCancelar.ForeColor = System.Drawing.Color.White
+        Me.BCancelar.Location = New System.Drawing.Point(562, 184)
+        Me.BCancelar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.BCancelar.Name = "BCancelar"
+        Me.BCancelar.Size = New System.Drawing.Size(95, 31)
+        Me.BCancelar.TabIndex = 12
+        Me.BCancelar.Text = "Cancelar"
+        Me.BCancelar.UseVisualStyleBackColor = False
+        Me.BCancelar.Visible = False
+        '
+        'BGuardar
+        '
+        Me.BGuardar.BackColor = System.Drawing.Color.DarkRed
+        Me.BGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BGuardar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BGuardar.ForeColor = System.Drawing.Color.White
+        Me.BGuardar.Location = New System.Drawing.Point(677, 184)
+        Me.BGuardar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.BGuardar.Name = "BGuardar"
+        Me.BGuardar.Size = New System.Drawing.Size(95, 31)
+        Me.BGuardar.TabIndex = 12
+        Me.BGuardar.Text = "Guardar"
+        Me.BGuardar.UseVisualStyleBackColor = False
+        Me.BGuardar.Visible = False
         '
         'BEditar
         '
@@ -319,7 +387,7 @@ Partial Class FormularioAdminCliente
         Me.BEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BEditar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BEditar.ForeColor = System.Drawing.Color.White
-        Me.BEditar.Location = New System.Drawing.Point(471, 183)
+        Me.BEditar.Location = New System.Drawing.Point(436, 184)
         Me.BEditar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BEditar.Name = "BEditar"
         Me.BEditar.Size = New System.Drawing.Size(94, 31)
@@ -331,25 +399,46 @@ Partial Class FormularioAdminCliente
         '
         Me.CBBuscar.FormattingEnabled = True
         Me.CBBuscar.Items.AddRange(New Object() {"DNI", "Apellido y Nombre", "Id_cliente"})
-        Me.CBBuscar.Location = New System.Drawing.Point(364, 19)
+        Me.CBBuscar.Location = New System.Drawing.Point(425, 19)
         Me.CBBuscar.Name = "CBBuscar"
-        Me.CBBuscar.Size = New System.Drawing.Size(121, 28)
+        Me.CBBuscar.Size = New System.Drawing.Size(181, 28)
         Me.CBBuscar.TabIndex = 1
         '
-        'BNuevo
+        'BAlta
         '
-        Me.BNuevo.BackColor = System.Drawing.Color.DarkRed
-        Me.BNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.BNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BNuevo.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BNuevo.ForeColor = System.Drawing.Color.White
-        Me.BNuevo.Location = New System.Drawing.Point(592, 19)
-        Me.BNuevo.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
-        Me.BNuevo.Name = "BNuevo"
-        Me.BNuevo.Size = New System.Drawing.Size(100, 32)
-        Me.BNuevo.TabIndex = 3
-        Me.BNuevo.Text = "Nuevo"
-        Me.BNuevo.UseVisualStyleBackColor = False
+        Me.BAlta.BackColor = System.Drawing.Color.DarkRed
+        Me.BAlta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BAlta.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BAlta.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BAlta.ForeColor = System.Drawing.Color.White
+        Me.BAlta.Image = Global.pcgamer.My.Resources.Resources.ok_icono
+        Me.BAlta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BAlta.Location = New System.Drawing.Point(669, 13)
+        Me.BAlta.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.BAlta.Name = "BAlta"
+        Me.BAlta.Size = New System.Drawing.Size(107, 42)
+        Me.BAlta.TabIndex = 3
+        Me.BAlta.Text = "Alta "
+        Me.BAlta.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BAlta.UseVisualStyleBackColor = False
+        '
+        'BEliminar
+        '
+        Me.BEliminar.BackColor = System.Drawing.Color.DarkRed
+        Me.BEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BEliminar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BEliminar.ForeColor = System.Drawing.Color.White
+        Me.BEliminar.Image = Global.pcgamer.My.Resources.Resources.cancelar_icono1
+        Me.BEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BEliminar.Location = New System.Drawing.Point(619, 178)
+        Me.BEliminar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.BEliminar.Name = "BEliminar"
+        Me.BEliminar.Size = New System.Drawing.Size(132, 42)
+        Me.BEliminar.TabIndex = 3
+        Me.BEliminar.Text = "Eliminar"
+        Me.BEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BEliminar.UseVisualStyleBackColor = False
         '
         'BBuscar
         '
@@ -359,7 +448,7 @@ Partial Class FormularioAdminCliente
         Me.BBuscar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BBuscar.ForeColor = System.Drawing.Color.White
         Me.BBuscar.Image = Global.pcgamer.My.Resources.Resources.oie_transparent
-        Me.BBuscar.Location = New System.Drawing.Point(492, 18)
+        Me.BBuscar.Location = New System.Drawing.Point(619, 19)
         Me.BBuscar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BBuscar.Name = "BBuscar"
         Me.BBuscar.Size = New System.Drawing.Size(38, 33)
@@ -371,7 +460,7 @@ Partial Class FormularioAdminCliente
         Me.LBEmail.AutoSize = True
         Me.LBEmail.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBEmail.ForeColor = System.Drawing.Color.White
-        Me.LBEmail.Location = New System.Drawing.Point(381, 150)
+        Me.LBEmail.Location = New System.Drawing.Point(393, 150)
         Me.LBEmail.Name = "LBEmail"
         Me.LBEmail.Size = New System.Drawing.Size(54, 18)
         Me.LBEmail.TabIndex = 10
@@ -382,7 +471,7 @@ Partial Class FormularioAdminCliente
         Me.LBTelefono.AutoSize = True
         Me.LBTelefono.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBTelefono.ForeColor = System.Drawing.Color.White
-        Me.LBTelefono.Location = New System.Drawing.Point(381, 116)
+        Me.LBTelefono.Location = New System.Drawing.Point(391, 114)
         Me.LBTelefono.Name = "LBTelefono"
         Me.LBTelefono.Size = New System.Drawing.Size(77, 18)
         Me.LBTelefono.TabIndex = 10
@@ -393,7 +482,7 @@ Partial Class FormularioAdminCliente
         Me.LBDNI.AutoSize = True
         Me.LBDNI.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBDNI.ForeColor = System.Drawing.Color.White
-        Me.LBDNI.Location = New System.Drawing.Point(54, 150)
+        Me.LBDNI.Location = New System.Drawing.Point(54, 146)
         Me.LBDNI.Name = "LBDNI"
         Me.LBDNI.Size = New System.Drawing.Size(42, 18)
         Me.LBDNI.TabIndex = 10
@@ -404,7 +493,7 @@ Partial Class FormularioAdminCliente
         Me.LBDomicilio.AutoSize = True
         Me.LBDomicilio.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBDomicilio.ForeColor = System.Drawing.Color.White
-        Me.LBDomicilio.Location = New System.Drawing.Point(381, 81)
+        Me.LBDomicilio.Location = New System.Drawing.Point(391, 77)
         Me.LBDomicilio.Name = "LBDomicilio"
         Me.LBDomicilio.Size = New System.Drawing.Size(74, 18)
         Me.LBDomicilio.TabIndex = 10
@@ -415,7 +504,7 @@ Partial Class FormularioAdminCliente
         Me.LBNombre.AutoSize = True
         Me.LBNombre.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBNombre.ForeColor = System.Drawing.Color.White
-        Me.LBNombre.Location = New System.Drawing.Point(54, 116)
+        Me.LBNombre.Location = New System.Drawing.Point(54, 112)
         Me.LBNombre.Name = "LBNombre"
         Me.LBNombre.Size = New System.Drawing.Size(83, 18)
         Me.LBNombre.TabIndex = 10
@@ -426,7 +515,7 @@ Partial Class FormularioAdminCliente
         Me.LBApellido.AutoSize = True
         Me.LBApellido.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBApellido.ForeColor = System.Drawing.Color.White
-        Me.LBApellido.Location = New System.Drawing.Point(54, 81)
+        Me.LBApellido.Location = New System.Drawing.Point(54, 77)
         Me.LBApellido.Name = "LBApellido"
         Me.LBApellido.Size = New System.Drawing.Size(79, 18)
         Me.LBApellido.TabIndex = 10
@@ -444,137 +533,135 @@ Partial Class FormularioAdminCliente
         '
         'TBEmail
         '
-        Me.TBEmail.Enabled = False
-        Me.TBEmail.Location = New System.Drawing.Point(471, 140)
+        Me.TBEmail.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TBEmail.Location = New System.Drawing.Point(489, 145)
         Me.TBEmail.Name = "TBEmail"
-        Me.TBEmail.Size = New System.Drawing.Size(161, 28)
+        Me.TBEmail.ReadOnly = True
+        Me.TBEmail.Size = New System.Drawing.Size(262, 23)
         Me.TBEmail.TabIndex = 0
         '
         'TBDNI
         '
-        Me.TBDNI.Enabled = False
-        Me.TBDNI.Location = New System.Drawing.Point(146, 140)
+        Me.TBDNI.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TBDNI.Location = New System.Drawing.Point(146, 146)
+        Me.TBDNI.MaxLength = 8
         Me.TBDNI.Name = "TBDNI"
-        Me.TBDNI.Size = New System.Drawing.Size(161, 28)
+        Me.TBDNI.ReadOnly = True
+        Me.TBDNI.Size = New System.Drawing.Size(216, 23)
         Me.TBDNI.TabIndex = 0
         '
         'TBTelefono
         '
-        Me.TBTelefono.Enabled = False
-        Me.TBTelefono.Location = New System.Drawing.Point(471, 106)
+        Me.TBTelefono.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TBTelefono.Location = New System.Drawing.Point(489, 111)
         Me.TBTelefono.Name = "TBTelefono"
-        Me.TBTelefono.Size = New System.Drawing.Size(161, 28)
+        Me.TBTelefono.ReadOnly = True
+        Me.TBTelefono.Size = New System.Drawing.Size(262, 23)
         Me.TBTelefono.TabIndex = 0
         '
         'TBNombre
         '
-        Me.TBNombre.Enabled = False
-        Me.TBNombre.Location = New System.Drawing.Point(146, 106)
+        Me.TBNombre.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TBNombre.Location = New System.Drawing.Point(146, 112)
         Me.TBNombre.Name = "TBNombre"
-        Me.TBNombre.Size = New System.Drawing.Size(161, 28)
+        Me.TBNombre.ReadOnly = True
+        Me.TBNombre.Size = New System.Drawing.Size(216, 23)
         Me.TBNombre.TabIndex = 0
         '
         'TBDomicilio
         '
-        Me.TBDomicilio.Enabled = False
-        Me.TBDomicilio.Location = New System.Drawing.Point(471, 71)
+        Me.TBDomicilio.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TBDomicilio.Location = New System.Drawing.Point(489, 76)
         Me.TBDomicilio.Name = "TBDomicilio"
-        Me.TBDomicilio.Size = New System.Drawing.Size(161, 28)
+        Me.TBDomicilio.ReadOnly = True
+        Me.TBDomicilio.Size = New System.Drawing.Size(262, 23)
         Me.TBDomicilio.TabIndex = 0
         '
         'TBApellido
         '
-        Me.TBApellido.Enabled = False
-        Me.TBApellido.Location = New System.Drawing.Point(146, 71)
+        Me.TBApellido.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TBApellido.Location = New System.Drawing.Point(146, 77)
         Me.TBApellido.Name = "TBApellido"
-        Me.TBApellido.Size = New System.Drawing.Size(161, 28)
+        Me.TBApellido.ReadOnly = True
+        Me.TBApellido.Size = New System.Drawing.Size(216, 23)
         Me.TBApellido.TabIndex = 0
         '
         'TBuscar
         '
         Me.TBuscar.Location = New System.Drawing.Point(120, 19)
         Me.TBuscar.Name = "TBuscar"
-        Me.TBuscar.Size = New System.Drawing.Size(229, 28)
+        Me.TBuscar.Size = New System.Drawing.Size(281, 28)
         Me.TBuscar.TabIndex = 0
         '
         'DataGridCliente
         '
+        Me.DataGridCliente.AllowUserToDeleteRows = False
+        Me.DataGridCliente.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.DataGridCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridCliente.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id_cliente, Me.apellidos, Me.nombres, Me.dni, Me.fecha_ingreso})
+        Me.DataGridCliente.GridColor = System.Drawing.SystemColors.GrayText
         Me.DataGridCliente.Location = New System.Drawing.Point(7, 231)
         Me.DataGridCliente.Name = "DataGridCliente"
+        Me.DataGridCliente.ReadOnly = True
         Me.DataGridCliente.RowTemplate.Height = 24
-        Me.DataGridCliente.Size = New System.Drawing.Size(686, 187)
+        Me.DataGridCliente.Size = New System.Drawing.Size(776, 166)
         Me.DataGridCliente.TabIndex = 4
         '
         'Id_cliente
         '
         Me.Id_cliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
+        Me.Id_cliente.DefaultCellStyle = DataGridViewCellStyle1
         Me.Id_cliente.HeaderText = "Id_cliente"
         Me.Id_cliente.Name = "Id_cliente"
+        Me.Id_cliente.ReadOnly = True
+        Me.Id_cliente.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.Id_cliente.Width = 125
         '
         'apellidos
         '
         Me.apellidos.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        Me.apellidos.DefaultCellStyle = DataGridViewCellStyle2
         Me.apellidos.HeaderText = "Apellidos"
         Me.apellidos.Name = "apellidos"
+        Me.apellidos.ReadOnly = True
+        Me.apellidos.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         '
         'nombres
         '
         Me.nombres.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        Me.nombres.DefaultCellStyle = DataGridViewCellStyle3
         Me.nombres.HeaderText = "Nombres"
         Me.nombres.Name = "nombres"
+        Me.nombres.ReadOnly = True
+        Me.nombres.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         '
         'dni
         '
-        Me.dni.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.dni.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
+        Me.dni.DefaultCellStyle = DataGridViewCellStyle4
         Me.dni.HeaderText = "DNI"
         Me.dni.Name = "dni"
+        Me.dni.ReadOnly = True
+        Me.dni.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dni.Width = 72
         '
         'fecha_ingreso
         '
         Me.fecha_ingreso.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black
+        Me.fecha_ingreso.DefaultCellStyle = DataGridViewCellStyle5
         Me.fecha_ingreso.HeaderText = "Fecha Ingreso"
         Me.fecha_ingreso.Name = "fecha_ingreso"
+        Me.fecha_ingreso.ReadOnly = True
+        Me.fecha_ingreso.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         '
-        'LTitulo
+        'ErrorProvider1
         '
-        Me.LTitulo.AutoSize = True
-        Me.LTitulo.BackColor = System.Drawing.Color.Black
-        Me.LTitulo.Font = New System.Drawing.Font("Verdana", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LTitulo.ForeColor = System.Drawing.Color.White
-        Me.LTitulo.Location = New System.Drawing.Point(327, 39)
-        Me.LTitulo.Name = "LTitulo"
-        Me.LTitulo.Size = New System.Drawing.Size(304, 40)
-        Me.LTitulo.TabIndex = 20
-        Me.LTitulo.Text = "Gestionar Cliente"
-        '
-        'PBLogo
-        '
-        Me.PBLogo.Image = Global.pcgamer.My.Resources.Resources.pcgamer_logo
-        Me.PBLogo.Location = New System.Drawing.Point(794, 14)
-        Me.PBLogo.Margin = New System.Windows.Forms.Padding(5)
-        Me.PBLogo.Name = "PBLogo"
-        Me.PBLogo.Size = New System.Drawing.Size(198, 34)
-        Me.PBLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PBLogo.TabIndex = 19
-        Me.PBLogo.TabStop = False
-        '
-        'BEliminar
-        '
-        Me.BEliminar.BackColor = System.Drawing.Color.DarkRed
-        Me.BEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.BEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BEliminar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BEliminar.ForeColor = System.Drawing.Color.White
-        Me.BEliminar.Location = New System.Drawing.Point(585, 183)
-        Me.BEliminar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
-        Me.BEliminar.Name = "BEliminar"
-        Me.BEliminar.Size = New System.Drawing.Size(94, 31)
-        Me.BEliminar.TabIndex = 12
-        Me.BEliminar.Text = "Eliminar"
-        Me.BEliminar.UseVisualStyleBackColor = False
+        Me.ErrorProvider1.ContainerControl = Me
         '
         'FormularioAdminCliente
         '
@@ -589,10 +676,11 @@ Partial Class FormularioAdminCliente
         Me.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Location = New System.Drawing.Point(150, 40)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FormularioAdminCliente"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Formulario Admin Cliente"
+        CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabCliente.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
@@ -600,12 +688,13 @@ Partial Class FormularioAdminCliente
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         CType(Me.DataGridCliente, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
+    Friend WithEvents LTitulo As Label
+    Friend WithEvents PBLogo As PictureBox
     Friend WithEvents TabCliente As TabControl
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents Panel1 As Panel
@@ -627,9 +716,11 @@ Partial Class FormularioAdminCliente
     Friend WithEvents BAgregar As Button
     Friend WithEvents BLimpiar As Button
     Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents BCancelar As Button
+    Friend WithEvents BGuardar As Button
     Friend WithEvents BEditar As Button
     Friend WithEvents CBBuscar As ComboBox
-    Friend WithEvents BNuevo As Button
+    Friend WithEvents BEliminar As Button
     Friend WithEvents BBuscar As Button
     Friend WithEvents LBEmail As Label
     Friend WithEvents LBTelefono As Label
@@ -651,7 +742,6 @@ Partial Class FormularioAdminCliente
     Friend WithEvents nombres As DataGridViewTextBoxColumn
     Friend WithEvents dni As DataGridViewTextBoxColumn
     Friend WithEvents fecha_ingreso As DataGridViewTextBoxColumn
-    Friend WithEvents LTitulo As Label
-    Friend WithEvents PBLogo As PictureBox
-    Friend WithEvents BEliminar As Button
+    Friend WithEvents ErrorProvider1 As ErrorProvider
+    Friend WithEvents BAlta As Button
 End Class

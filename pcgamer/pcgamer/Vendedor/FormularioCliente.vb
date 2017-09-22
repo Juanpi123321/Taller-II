@@ -8,6 +8,24 @@ Public Class FormularioCliente
     Dim DNIvalidate As Boolean
     Dim Emailvalidate As Boolean
 
+    Private Sub habilitar()
+        TBApellido.ReadOnly = False
+        TBNombre.ReadOnly = False
+        TBDNI.ReadOnly = False
+        TBDomicilio.ReadOnly = False
+        TBTelefono.ReadOnly = False
+        TBEmail.ReadOnly = False
+    End Sub
+
+    Private Sub deshabilitar()
+        TBApellido.ReadOnly = True
+        TBNombre.ReadOnly = True
+        TBDNI.ReadOnly = True
+        TBDomicilio.ReadOnly = True
+        TBTelefono.ReadOnly = True
+        TBEmail.ReadOnly = True
+    End Sub
+
     Private Sub BLimpiar_Click(sender As Object, e As EventArgs) Handles BLimpiar.Click
         TNombre.Clear()
         TApellido.Clear()
@@ -81,8 +99,13 @@ Public Class FormularioCliente
     End Sub
 
     Private Sub BAgregarFactura_Click(sender As Object, e As EventArgs) Handles BAgregarFactura.Click
-        FormularioFactura.Show()
-        Me.Hide()
+        Dim fila As Integer = DataGridCliente.CurrentRow.Index
+        If DataGridCliente.Item(1, fila).Value = "" Then
+            MsgBox("Seleccione un cliente para agregar a la factura", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
+        Else
+            FormularioFactura.Show()
+            Me.Hide()
+        End If
     End Sub
 
     Private Sub TTelefono_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TTelefono.KeyPress
@@ -104,15 +127,15 @@ Public Class FormularioCliente
     End Sub
 
     Private Sub BEditar_Click(sender As Object, e As EventArgs) Handles BEditar.Click
-        BAgregarFactura.Visible = False
-        BCancelar.Visible = True
-        BGuardar.Visible = True
-        TBApellido.Enabled = True
-        TBNombre.Enabled = True
-        TBDNI.Enabled = True
-        TBDomicilio.Enabled = True
-        TBTelefono.Enabled = True
-        TBEmail.Enabled = True
+        Dim fila As Integer = DataGridCliente.CurrentRow.Index
+        If DataGridCliente.Item(1, fila).Value = "" Then
+            MsgBox("Seleccione un cliente para poder editar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Edicion Invalida")
+        Else
+            BAgregarFactura.Visible = False
+            BCancelar.Visible = True
+            BGuardar.Visible = True
+            habilitar()
+        End If
     End Sub
 
     Private Sub FormularioCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -134,12 +157,7 @@ Public Class FormularioCliente
         BAgregarFactura.Visible = True
         BCancelar.Visible = False
         BGuardar.Visible = False
-        TBApellido.Enabled = False
-        TBNombre.Enabled = False
-        TBDNI.Enabled = False
-        TBDomicilio.Enabled = False
-        TBTelefono.Enabled = False
-        TBEmail.Enabled = False
+        deshabilitar()
         MsgBox("Se ha modificado correctamente", MsgBoxStyle.DefaultButton2 +
                        MsgBoxStyle.Information, "Modificacion exitosa")
 
@@ -149,12 +167,7 @@ Public Class FormularioCliente
         BAgregarFactura.Visible = True
         BCancelar.Visible = False
         BGuardar.Visible = False
-        TBApellido.Enabled = False
-        TBNombre.Enabled = False
-        TBDNI.Enabled = False
-        TBDomicilio.Enabled = False
-        TBTelefono.Enabled = False
-        TBEmail.Enabled = False
+        deshabilitar()
     End Sub
 
     Private Sub DataGridCliente_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridCliente.CellEnter

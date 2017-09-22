@@ -55,7 +55,7 @@ Partial Class FormularioStock
         Me.TRam = New System.Windows.Forms.Label()
         Me.TStock = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.BBuscar = New System.Windows.Forms.Button()
         Me.TPrecio = New System.Windows.Forms.Label()
         Me.TGabinete = New System.Windows.Forms.Label()
         Me.BGenerarFactura = New System.Windows.Forms.Button()
@@ -336,7 +336,7 @@ Partial Class FormularioStock
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Black
-        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Controls.Add(Me.BBuscar)
         Me.Panel1.Controls.Add(Me.TPrecio)
         Me.Panel1.Controls.Add(Me.TStock)
         Me.Panel1.Controls.Add(Me.TGabinete)
@@ -370,20 +370,20 @@ Partial Class FormularioStock
         Me.Panel1.Size = New System.Drawing.Size(886, 471)
         Me.Panel1.TabIndex = 3
         '
-        'Button1
+        'BBuscar
         '
-        Me.Button1.BackColor = System.Drawing.Color.DarkRed
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Image = Global.pcgamer.My.Resources.Resources.oie_transparent
-        Me.Button1.Location = New System.Drawing.Point(585, 12)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(38, 33)
-        Me.Button1.TabIndex = 18
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.BBuscar.BackColor = System.Drawing.Color.DarkRed
+        Me.BBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BBuscar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BBuscar.ForeColor = System.Drawing.Color.White
+        Me.BBuscar.Image = Global.pcgamer.My.Resources.Resources.oie_transparent
+        Me.BBuscar.Location = New System.Drawing.Point(585, 12)
+        Me.BBuscar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.BBuscar.Name = "BBuscar"
+        Me.BBuscar.Size = New System.Drawing.Size(38, 33)
+        Me.BBuscar.TabIndex = 18
+        Me.BBuscar.UseVisualStyleBackColor = False
         '
         'TPrecio
         '
@@ -518,7 +518,7 @@ Partial Class FormularioStock
     Friend WithEvents TPlacaVideo As Label
     Friend WithEvents TCategoria As Label
     Friend WithEvents BGenerarFactura As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents BBuscar As Button
     Friend WithEvents codpro As DataGridViewTextBoxColumn
     Friend WithEvents nombre As DataGridViewTextBoxColumn
     Friend WithEvents stock As DataGridViewTextBoxColumn
