@@ -58,7 +58,6 @@ Partial Class FormularioCliente
         Me.BEditar = New System.Windows.Forms.Button()
         Me.CBBuscar = New System.Windows.Forms.ComboBox()
         Me.BAgregarFactura = New System.Windows.Forms.Button()
-        Me.BBuscar = New System.Windows.Forms.Button()
         Me.LBEmail = New System.Windows.Forms.Label()
         Me.LBTelefono = New System.Windows.Forms.Label()
         Me.LBDNI = New System.Windows.Forms.Label()
@@ -153,7 +152,7 @@ Partial Class FormularioCliente
         Me.LTitulo.Location = New System.Drawing.Point(358, 14)
         Me.LTitulo.Name = "LTitulo"
         Me.LTitulo.Size = New System.Drawing.Size(304, 40)
-        Me.LTitulo.TabIndex = 18
+        Me.LTitulo.TabIndex = 23
         Me.LTitulo.Text = "Gestionar Cliente"
         '
         'TNombre
@@ -325,7 +324,6 @@ Partial Class FormularioCliente
         Me.TabPage2.Controls.Add(Me.BEditar)
         Me.TabPage2.Controls.Add(Me.CBBuscar)
         Me.TabPage2.Controls.Add(Me.BAgregarFactura)
-        Me.TabPage2.Controls.Add(Me.BBuscar)
         Me.TabPage2.Controls.Add(Me.LBEmail)
         Me.TabPage2.Controls.Add(Me.LBTelefono)
         Me.TabPage2.Controls.Add(Me.LBDNI)
@@ -348,6 +346,7 @@ Partial Class FormularioCliente
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage2.Size = New System.Drawing.Size(783, 403)
         Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Tag = "1"
         Me.TabPage2.Text = "Buscar"
         '
         'BCancelar
@@ -361,7 +360,7 @@ Partial Class FormularioCliente
         Me.BCancelar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BCancelar.Name = "BCancelar"
         Me.BCancelar.Size = New System.Drawing.Size(95, 31)
-        Me.BCancelar.TabIndex = 12
+        Me.BCancelar.TabIndex = 9
         Me.BCancelar.Text = "Cancelar"
         Me.BCancelar.UseVisualStyleBackColor = False
         Me.BCancelar.Visible = False
@@ -377,7 +376,7 @@ Partial Class FormularioCliente
         Me.BGuardar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BGuardar.Name = "BGuardar"
         Me.BGuardar.Size = New System.Drawing.Size(95, 31)
-        Me.BGuardar.TabIndex = 12
+        Me.BGuardar.TabIndex = 10
         Me.BGuardar.Text = "Guardar"
         Me.BGuardar.UseVisualStyleBackColor = False
         Me.BGuardar.Visible = False
@@ -393,7 +392,7 @@ Partial Class FormularioCliente
         Me.BEditar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BEditar.Name = "BEditar"
         Me.BEditar.Size = New System.Drawing.Size(94, 31)
-        Me.BEditar.TabIndex = 11
+        Me.BEditar.TabIndex = 8
         Me.BEditar.Text = "Editar"
         Me.BEditar.UseVisualStyleBackColor = False
         '
@@ -417,24 +416,9 @@ Partial Class FormularioCliente
         Me.BAgregarFactura.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BAgregarFactura.Name = "BAgregarFactura"
         Me.BAgregarFactura.Size = New System.Drawing.Size(165, 31)
-        Me.BAgregarFactura.TabIndex = 3
+        Me.BAgregarFactura.TabIndex = 11
         Me.BAgregarFactura.Text = "Agregar a Factura"
         Me.BAgregarFactura.UseVisualStyleBackColor = False
-        '
-        'BBuscar
-        '
-        Me.BBuscar.BackColor = System.Drawing.Color.DarkRed
-        Me.BBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.BBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BBuscar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BBuscar.ForeColor = System.Drawing.Color.White
-        Me.BBuscar.Image = Global.pcgamer.My.Resources.Resources.oie_transparent
-        Me.BBuscar.Location = New System.Drawing.Point(619, 19)
-        Me.BBuscar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
-        Me.BBuscar.Name = "BBuscar"
-        Me.BBuscar.Size = New System.Drawing.Size(38, 33)
-        Me.BBuscar.TabIndex = 2
-        Me.BBuscar.UseVisualStyleBackColor = False
         '
         'LBEmail
         '
@@ -444,7 +428,7 @@ Partial Class FormularioCliente
         Me.LBEmail.Location = New System.Drawing.Point(393, 150)
         Me.LBEmail.Name = "LBEmail"
         Me.LBEmail.Size = New System.Drawing.Size(54, 18)
-        Me.LBEmail.TabIndex = 10
+        Me.LBEmail.TabIndex = 19
         Me.LBEmail.Text = "Email:"
         '
         'LBTelefono
@@ -455,7 +439,7 @@ Partial Class FormularioCliente
         Me.LBTelefono.Location = New System.Drawing.Point(391, 114)
         Me.LBTelefono.Name = "LBTelefono"
         Me.LBTelefono.Size = New System.Drawing.Size(77, 18)
-        Me.LBTelefono.TabIndex = 10
+        Me.LBTelefono.TabIndex = 17
         Me.LBTelefono.Text = "Telefono:"
         '
         'LBDNI
@@ -466,7 +450,7 @@ Partial Class FormularioCliente
         Me.LBDNI.Location = New System.Drawing.Point(54, 146)
         Me.LBDNI.Name = "LBDNI"
         Me.LBDNI.Size = New System.Drawing.Size(42, 18)
-        Me.LBDNI.TabIndex = 10
+        Me.LBDNI.TabIndex = 15
         Me.LBDNI.Text = "DNI:"
         '
         'LBDomicilio
@@ -477,7 +461,7 @@ Partial Class FormularioCliente
         Me.LBDomicilio.Location = New System.Drawing.Point(391, 77)
         Me.LBDomicilio.Name = "LBDomicilio"
         Me.LBDomicilio.Size = New System.Drawing.Size(74, 18)
-        Me.LBDomicilio.TabIndex = 10
+        Me.LBDomicilio.TabIndex = 16
         Me.LBDomicilio.Text = "Domicilio"
         '
         'LBNombre
@@ -488,7 +472,7 @@ Partial Class FormularioCliente
         Me.LBNombre.Location = New System.Drawing.Point(54, 112)
         Me.LBNombre.Name = "LBNombre"
         Me.LBNombre.Size = New System.Drawing.Size(83, 18)
-        Me.LBNombre.TabIndex = 10
+        Me.LBNombre.TabIndex = 14
         Me.LBNombre.Text = "Nombres:"
         '
         'LBApellido
@@ -499,7 +483,7 @@ Partial Class FormularioCliente
         Me.LBApellido.Location = New System.Drawing.Point(54, 77)
         Me.LBApellido.Name = "LBApellido"
         Me.LBApellido.Size = New System.Drawing.Size(79, 18)
-        Me.LBApellido.TabIndex = 10
+        Me.LBApellido.TabIndex = 13
         Me.LBApellido.Text = "Apellidos:"
         '
         'LBuscar
@@ -509,7 +493,7 @@ Partial Class FormularioCliente
         Me.LBuscar.Location = New System.Drawing.Point(39, 22)
         Me.LBuscar.Name = "LBuscar"
         Me.LBuscar.Size = New System.Drawing.Size(75, 20)
-        Me.LBuscar.TabIndex = 10
+        Me.LBuscar.TabIndex = 20
         Me.LBuscar.Text = "Buscar:"
         '
         'TBEmail
@@ -519,7 +503,7 @@ Partial Class FormularioCliente
         Me.TBEmail.Name = "TBEmail"
         Me.TBEmail.ReadOnly = True
         Me.TBEmail.Size = New System.Drawing.Size(262, 23)
-        Me.TBEmail.TabIndex = 0
+        Me.TBEmail.TabIndex = 7
         '
         'TBDNI
         '
@@ -529,7 +513,7 @@ Partial Class FormularioCliente
         Me.TBDNI.Name = "TBDNI"
         Me.TBDNI.ReadOnly = True
         Me.TBDNI.Size = New System.Drawing.Size(216, 23)
-        Me.TBDNI.TabIndex = 0
+        Me.TBDNI.TabIndex = 4
         '
         'TBTelefono
         '
@@ -538,7 +522,7 @@ Partial Class FormularioCliente
         Me.TBTelefono.Name = "TBTelefono"
         Me.TBTelefono.ReadOnly = True
         Me.TBTelefono.Size = New System.Drawing.Size(262, 23)
-        Me.TBTelefono.TabIndex = 0
+        Me.TBTelefono.TabIndex = 6
         '
         'TBNombre
         '
@@ -547,7 +531,7 @@ Partial Class FormularioCliente
         Me.TBNombre.Name = "TBNombre"
         Me.TBNombre.ReadOnly = True
         Me.TBNombre.Size = New System.Drawing.Size(216, 23)
-        Me.TBNombre.TabIndex = 0
+        Me.TBNombre.TabIndex = 3
         '
         'TBDomicilio
         '
@@ -556,7 +540,7 @@ Partial Class FormularioCliente
         Me.TBDomicilio.Name = "TBDomicilio"
         Me.TBDomicilio.ReadOnly = True
         Me.TBDomicilio.Size = New System.Drawing.Size(262, 23)
-        Me.TBDomicilio.TabIndex = 0
+        Me.TBDomicilio.TabIndex = 5
         '
         'TBApellido
         '
@@ -565,7 +549,7 @@ Partial Class FormularioCliente
         Me.TBApellido.Name = "TBApellido"
         Me.TBApellido.ReadOnly = True
         Me.TBApellido.Size = New System.Drawing.Size(216, 23)
-        Me.TBApellido.TabIndex = 0
+        Me.TBApellido.TabIndex = 2
         '
         'TBuscar
         '
@@ -586,7 +570,8 @@ Partial Class FormularioCliente
         Me.DataGridCliente.ReadOnly = True
         Me.DataGridCliente.RowTemplate.Height = 24
         Me.DataGridCliente.Size = New System.Drawing.Size(776, 166)
-        Me.DataGridCliente.TabIndex = 4
+        Me.DataGridCliente.TabIndex = 12
+        Me.DataGridCliente.TabStop = False
         '
         'Id_cliente
         '
@@ -646,13 +631,13 @@ Partial Class FormularioCliente
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.pcgamer.My.Resources.Resources.hyperx_background
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1006, 593)
+        Me.ClientSize = New System.Drawing.Size(1006, 673)
         Me.Controls.Add(Me.TabCliente)
         Me.Controls.Add(Me.LTitulo)
         Me.Controls.Add(Me.PBLogo)
         Me.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Location = New System.Drawing.Point(150, 40)
+        Me.Location = New System.Drawing.Point(150, 0)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FormularioCliente"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
@@ -694,7 +679,6 @@ Partial Class FormularioCliente
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents DataGridCliente As DataGridView
-    Friend WithEvents BBuscar As Button
     Friend WithEvents LBuscar As Label
     Friend WithEvents TBuscar As TextBox
     Friend WithEvents FechaReg As DateTimePicker

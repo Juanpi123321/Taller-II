@@ -92,7 +92,7 @@ Partial Class FormularioVendedor
         Me.BCliente.Location = New System.Drawing.Point(207, 208)
         Me.BCliente.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BCliente.Name = "BCliente"
-        Me.BCliente.Size = New System.Drawing.Size(166, 32)
+        Me.BCliente.Size = New System.Drawing.Size(177, 32)
         Me.BCliente.TabIndex = 1
         Me.BCliente.Text = "&2-Registrar/Consultar"
         Me.BCliente.UseVisualStyleBackColor = False
@@ -181,14 +181,14 @@ Partial Class FormularioVendedor
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.pcgamer.My.Resources.Resources.hyperx_background
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1006, 593)
+        Me.ClientSize = New System.Drawing.Size(1006, 673)
         Me.Controls.Add(Me.BCerrarSesion)
         Me.Controls.Add(Me.BAdmin)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PBLogo)
         Me.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Location = New System.Drawing.Point(150, 40)
+        Me.Location = New System.Drawing.Point(150, 0)
         Me.Margin = New System.Windows.Forms.Padding(5)
         Me.Name = "FormularioVendedor"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual

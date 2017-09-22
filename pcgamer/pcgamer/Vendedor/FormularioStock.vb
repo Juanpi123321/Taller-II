@@ -3,11 +3,17 @@
         FormularioVendedor.Show()
     End Sub
 
-    Private Sub BGenerarFactura_Click(sender As Object, e As EventArgs) Handles BGenerarFactura.Click
+    Private Sub BAgregarFactura_Click(sender As Object, e As EventArgs) Handles BAgregarFactura.Click
         Dim fila As Integer = DataGridStock.CurrentRow.Index
         If DataGridStock.Item(1, fila).Value = "" Then
             MsgBox("Seleccione un producto para agregar a la factura", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
         Else
+            Dim categoria As String = DataGridStock.Item(4, fila).Value
+            Dim descripcion As String = DataGridStock.Item(1, fila).Value
+            Dim precio As Integer = Integer.Parse(DataGridStock.Item(3, fila).Value)
+            Dim cantidad As Integer = 1
+            Dim importe As Double = precio * cantidad
+            FormularioFactura.DataGridFactura.Rows.Add(cantidad, categoria, descripcion, precio, importe)
             FormularioFactura.Show()
             Me.Hide()
         End If
@@ -15,16 +21,16 @@
 
     Private Sub FormularioStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Agrego todo manualmente hasta que tenga Base de Datos
-        DataGridStock.Rows.Add("0001", "Pc Bronze Ultra", "10", "8999.99", "Desktop-Escritorio")
-        DataGridStock.Rows.Add("0002", "Pc Bronze", "4", "7999.99", "Desktop-Escritorio")
-        DataGridStock.Rows.Add("0003", "Pc RaidMax Viper", "24", "9499.99", "Desktop-Escritorio")
-        DataGridStock.Rows.Add("0004", "Pc RaidMax Cobra", "30", "9999.99", "Desktop-Escritorio")
-        DataGridStock.Rows.Add("0005", "Acer Aspire E 15", "45", "20499.99", "Notebook")
-        DataGridStock.Rows.Add("0006", "Hp Gamer Omen", "12", "27999.99", "Notebook")
-        DataGridStock.Rows.Add("0007", "Pc Bangho Gamer", "20", "17999.99", "Desktop-Escritorio")
-        DataGridStock.Rows.Add("0008", "Pc Master Race", "10", "13799.99", "Desktop-Escritorio")
-        DataGridStock.Rows.Add("0009", "Pc NZXT Guardian", "25", "9999.99", "Desktop-Escritorio")
-        DataGridStock.Rows.Add("0010", "Pc Circuit Planet", "15", "8999.99", "Desktop-Escritorio")
+        DataGridStock.Rows.Add("0001", "Pc Bronze Ultra", "10", "9000", "Desktop-Escritorio")
+        DataGridStock.Rows.Add("0002", "Pc Bronze", "4", "8000", "Desktop-Escritorio")
+        DataGridStock.Rows.Add("0003", "Pc RaidMax Viper", "24", "9500", "Desktop-Escritorio")
+        DataGridStock.Rows.Add("0004", "Pc RaidMax Cobra", "30", "10000", "Desktop-Escritorio")
+        DataGridStock.Rows.Add("0005", "Acer Aspire E 15", "45", "20500", "Notebook")
+        DataGridStock.Rows.Add("0006", "Hp Gamer Omen", "12", "28000", "Notebook")
+        DataGridStock.Rows.Add("0007", "Pc Bangho Gamer", "20", "18000", "Desktop-Escritorio")
+        DataGridStock.Rows.Add("0008", "Pc Master Race", "10", "13800", "Desktop-Escritorio")
+        DataGridStock.Rows.Add("0009", "Pc NZXT Guardian", "25", "10000", "Desktop-Escritorio")
+        DataGridStock.Rows.Add("0010", "Pc Circuit Planet", "15", "9000", "Desktop-Escritorio")
     End Sub
 
     Private Sub DataGridStock_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridStock.CellEnter

@@ -55,10 +55,9 @@ Partial Class FormularioStock
         Me.TRam = New System.Windows.Forms.Label()
         Me.TStock = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.BBuscar = New System.Windows.Forms.Button()
         Me.TPrecio = New System.Windows.Forms.Label()
         Me.TGabinete = New System.Windows.Forms.Label()
-        Me.BGenerarFactura = New System.Windows.Forms.Button()
+        Me.BAgregarFactura = New System.Windows.Forms.Button()
         Me.TDiscoRigido = New System.Windows.Forms.Label()
         Me.TPlacaVideo = New System.Windows.Forms.Label()
         Me.TCategoria = New System.Windows.Forms.Label()
@@ -130,11 +129,11 @@ Partial Class FormularioStock
         Me.precio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
         DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
         Me.precio.DefaultCellStyle = DataGridViewCellStyle4
-        Me.precio.HeaderText = "Precio (pesos $)"
+        Me.precio.HeaderText = "Precio  $"
         Me.precio.Name = "precio"
         Me.precio.ReadOnly = True
         Me.precio.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.precio.Width = 110
+        Me.precio.Width = 93
         '
         'categoria
         '
@@ -336,11 +335,10 @@ Partial Class FormularioStock
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Black
-        Me.Panel1.Controls.Add(Me.BBuscar)
         Me.Panel1.Controls.Add(Me.TPrecio)
         Me.Panel1.Controls.Add(Me.TStock)
         Me.Panel1.Controls.Add(Me.TGabinete)
-        Me.Panel1.Controls.Add(Me.BGenerarFactura)
+        Me.Panel1.Controls.Add(Me.BAgregarFactura)
         Me.Panel1.Controls.Add(Me.TDiscoRigido)
         Me.Panel1.Controls.Add(Me.TRam)
         Me.Panel1.Controls.Add(Me.TPlacaVideo)
@@ -370,21 +368,6 @@ Partial Class FormularioStock
         Me.Panel1.Size = New System.Drawing.Size(886, 471)
         Me.Panel1.TabIndex = 3
         '
-        'BBuscar
-        '
-        Me.BBuscar.BackColor = System.Drawing.Color.DarkRed
-        Me.BBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.BBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BBuscar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BBuscar.ForeColor = System.Drawing.Color.White
-        Me.BBuscar.Image = Global.pcgamer.My.Resources.Resources.oie_transparent
-        Me.BBuscar.Location = New System.Drawing.Point(585, 12)
-        Me.BBuscar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
-        Me.BBuscar.Name = "BBuscar"
-        Me.BBuscar.Size = New System.Drawing.Size(38, 33)
-        Me.BBuscar.TabIndex = 18
-        Me.BBuscar.UseVisualStyleBackColor = False
-        '
         'TPrecio
         '
         Me.TPrecio.AutoSize = True
@@ -405,20 +388,20 @@ Partial Class FormularioStock
         Me.TGabinete.TabIndex = 17
         Me.TGabinete.Text = "     ************"
         '
-        'BGenerarFactura
+        'BAgregarFactura
         '
-        Me.BGenerarFactura.BackColor = System.Drawing.Color.DarkRed
-        Me.BGenerarFactura.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.BGenerarFactura.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BGenerarFactura.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BGenerarFactura.ForeColor = System.Drawing.Color.White
-        Me.BGenerarFactura.Location = New System.Drawing.Point(689, 16)
-        Me.BGenerarFactura.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
-        Me.BGenerarFactura.Name = "BGenerarFactura"
-        Me.BGenerarFactura.Size = New System.Drawing.Size(174, 32)
-        Me.BGenerarFactura.TabIndex = 3
-        Me.BGenerarFactura.Text = "Generar Factura"
-        Me.BGenerarFactura.UseVisualStyleBackColor = False
+        Me.BAgregarFactura.BackColor = System.Drawing.Color.DarkRed
+        Me.BAgregarFactura.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BAgregarFactura.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BAgregarFactura.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BAgregarFactura.ForeColor = System.Drawing.Color.White
+        Me.BAgregarFactura.Location = New System.Drawing.Point(689, 16)
+        Me.BAgregarFactura.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.BAgregarFactura.Name = "BAgregarFactura"
+        Me.BAgregarFactura.Size = New System.Drawing.Size(174, 32)
+        Me.BAgregarFactura.TabIndex = 3
+        Me.BAgregarFactura.Text = "Agregar a Factura"
+        Me.BAgregarFactura.UseVisualStyleBackColor = False
         '
         'TDiscoRigido
         '
@@ -468,13 +451,13 @@ Partial Class FormularioStock
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.pcgamer.My.Resources.Resources.hyperx_background
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1006, 593)
+        Me.ClientSize = New System.Drawing.Size(1006, 673)
         Me.Controls.Add(Me.LTitulo)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PBLogo)
         Me.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Location = New System.Drawing.Point(150, 40)
+        Me.Location = New System.Drawing.Point(150, 0)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FormularioStock"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
@@ -517,8 +500,7 @@ Partial Class FormularioStock
     Friend WithEvents TDiscoRigido As Label
     Friend WithEvents TPlacaVideo As Label
     Friend WithEvents TCategoria As Label
-    Friend WithEvents BGenerarFactura As Button
-    Friend WithEvents BBuscar As Button
+    Friend WithEvents BAgregarFactura As Button
     Friend WithEvents codpro As DataGridViewTextBoxColumn
     Friend WithEvents nombre As DataGridViewTextBoxColumn
     Friend WithEvents stock As DataGridViewTextBoxColumn

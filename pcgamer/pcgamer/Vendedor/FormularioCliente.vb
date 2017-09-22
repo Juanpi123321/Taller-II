@@ -147,19 +147,22 @@ Public Class FormularioCliente
 
     Private Sub BGuardar_Click(sender As Object, e As EventArgs) Handles BGuardar.Click
         Dim fila As Integer = DataGridCliente.CurrentRow.Index
-        DataGridCliente.Item(1, fila).Value = TBApellido.Text
-        DataGridCliente.Item(2, fila).Value = TBNombre.Text
-        DataGridCliente.Item(3, fila).Value = TBDNI.Text
+        Dim respuesta As MsgBoxResult
+        respuesta = MsgBox("¿Esta seguro de modificar el Producto?", MsgBoxStyle.YesNo +
+          MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Question, "Confirmar Modificacion")
+            If MsgBoxResult.Yes = respuesta Then
+                DataGridCliente.Item(1, fila).Value = TBApellido.Text
+                DataGridCliente.Item(2, fila).Value = TBNombre.Text
+                DataGridCliente.Item(3, fila).Value = TBDNI.Text
+                BAgregarFactura.Visible = True
+                BCancelar.Visible = False
+                BGuardar.Visible = False
+                deshabilitar()
+                MsgBox("Se ha modificado correctamente", MsgBoxStyle.DefaultButton2 +
+                               MsgBoxStyle.Information, "Modificacion exitosa")
+            End If
 
-        If DNIvalidate Then
 
-        End If
-        BAgregarFactura.Visible = True
-        BCancelar.Visible = False
-        BGuardar.Visible = False
-        deshabilitar()
-        MsgBox("Se ha modificado correctamente", MsgBoxStyle.DefaultButton2 +
-                       MsgBoxStyle.Information, "Modificacion exitosa")
 
     End Sub
 
@@ -201,10 +204,14 @@ Public Class FormularioCliente
         TBTelefono.Text = telefono
         TBEmail.Text = email
 
-        'Else
-        'TNombre.Text = "     ************"
-        'TProcesador.Text = "     ************"
-        'TPlacaMadre.Text = "     ************"
+        If BCancelar.Visible = True Or BGuardar.Visible = True Then
+            MsgBox("Debe finalizar la edicion antes de continuar", MsgBoxStyle.DefaultButton2 +
+                       MsgBoxStyle.Exclamation, "Edicion Producto")
+            BAgregarFactura.Visible = True
+            BGuardar.Visible = False
+            BCancelar.Visible = False
+            deshabilitar()
+        End If
     End Sub
 
     Private Sub TBDni_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TBDNI.KeyPress
@@ -231,4 +238,16 @@ Public Class FormularioCliente
         Dim re As New Regex("[^a-zA-Z_ \b]", RegexOptions.IgnoreCase)
         e.Handled = re.IsMatch(e.KeyChar)
     End Sub
+
+    Private Sub TBuscar_TextChanged(sender As Object, e As EventArgs) Handles TBuscar.TextChanged, CBBuscar.SelectedIndexChanged
+        If BCancelar.Visible = True Or BGuardar.Visible = True Then
+            MsgBox("Debe finalizar la edicion antes de continuar", MsgBoxStyle.DefaultButton2 +
+                       MsgBoxStyle.Exclamation, "Edicion Producto")
+            BAgregarFactura.Visible = True
+            BGuardar.Visible = False
+            BCancelar.Visible = False
+            deshabilitar()
+        End If
+    End Sub
+
 End Class

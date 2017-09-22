@@ -669,13 +669,13 @@ Partial Class FormularioAdminCliente
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.pcgamer.My.Resources.Resources.hyperx_background
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1006, 593)
+        Me.ClientSize = New System.Drawing.Size(1006, 673)
         Me.Controls.Add(Me.TabCliente)
         Me.Controls.Add(Me.LTitulo)
         Me.Controls.Add(Me.PBLogo)
         Me.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Location = New System.Drawing.Point(150, 40)
+        Me.Location = New System.Drawing.Point(150, 0)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FormularioAdminCliente"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual

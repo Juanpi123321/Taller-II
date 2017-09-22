@@ -31,7 +31,12 @@ Partial Class FormularioFactura
         Me.PBLogo = New System.Windows.Forms.PictureBox()
         Me.LTitulo = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DataGridFactura = New System.Windows.Forms.DataGridView()
+        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.unidadmedida = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.punitario = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.importe = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.LFactura4 = New System.Windows.Forms.Label()
         Me.LFactura6 = New System.Windows.Forms.Label()
@@ -66,14 +71,9 @@ Partial Class FormularioFactura
         Me.PBEmpresa = New System.Windows.Forms.PictureBox()
         Me.BImprimir = New System.Windows.Forms.Button()
         Me.BCancelar = New System.Windows.Forms.Button()
-        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.unidadmedida = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.punitario = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.importe = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridFactura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -105,7 +105,7 @@ Partial Class FormularioFactura
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.DataGridView1)
+        Me.Panel1.Controls.Add(Me.DataGridFactura)
         Me.Panel1.Controls.Add(Me.GroupBox2)
         Me.Panel1.Controls.Add(Me.GroupBox3)
         Me.Panel1.Controls.Add(Me.GroupBox1)
@@ -114,17 +114,77 @@ Partial Class FormularioFactura
         Me.Panel1.Size = New System.Drawing.Size(791, 436)
         Me.Panel1.TabIndex = 14
         '
-        'DataGridView1
+        'DataGridFactura
         '
-        Me.DataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cantidad, Me.unidadmedida, Me.descripcion, Me.punitario, Me.importe})
-        Me.DataGridView1.GridColor = System.Drawing.SystemColors.GrayText
-        Me.DataGridView1.Location = New System.Drawing.Point(3, 309)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(785, 124)
-        Me.DataGridView1.TabIndex = 0
+        Me.DataGridFactura.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.DataGridFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridFactura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cantidad, Me.unidadmedida, Me.descripcion, Me.punitario, Me.importe})
+        Me.DataGridFactura.GridColor = System.Drawing.SystemColors.GrayText
+        Me.DataGridFactura.Location = New System.Drawing.Point(3, 309)
+        Me.DataGridFactura.Name = "DataGridFactura"
+        Me.DataGridFactura.RowTemplate.Height = 24
+        Me.DataGridFactura.Size = New System.Drawing.Size(785, 124)
+        Me.DataGridFactura.TabIndex = 0
+        '
+        'cantidad
+        '
+        Me.cantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
+        Me.cantidad.DefaultCellStyle = DataGridViewCellStyle1
+        Me.cantidad.HeaderText = "Cantidad"
+        Me.cantidad.MaxInputLength = 3
+        Me.cantidad.Name = "cantidad"
+        Me.cantidad.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.cantidad.Width = 123
+        '
+        'unidadmedida
+        '
+        Me.unidadmedida.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        Me.unidadmedida.DefaultCellStyle = DataGridViewCellStyle2
+        Me.unidadmedida.HeaderText = "Unidad de medida"
+        Me.unidadmedida.Name = "unidadmedida"
+        Me.unidadmedida.ReadOnly = True
+        Me.unidadmedida.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'descripcion
+        '
+        Me.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        Me.descripcion.DefaultCellStyle = DataGridViewCellStyle3
+        Me.descripcion.HeaderText = "Descripcion"
+        Me.descripcion.Name = "descripcion"
+        Me.descripcion.ReadOnly = True
+        Me.descripcion.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'punitario
+        '
+        Me.punitario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
+        Me.punitario.DefaultCellStyle = DataGridViewCellStyle4
+        Me.punitario.HeaderText = "P. Unitario"
+        Me.punitario.MaxInputLength = 99999
+        Me.punitario.Name = "punitario"
+        Me.punitario.ReadOnly = True
+        Me.punitario.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.punitario.Width = 126
+        '
+        'importe
+        '
+        Me.importe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black
+        Me.importe.DefaultCellStyle = DataGridViewCellStyle5
+        Me.importe.HeaderText = "Importe"
+        Me.importe.MaxInputLength = 9999999
+        Me.importe.Name = "importe"
+        Me.importe.ReadOnly = True
+        Me.importe.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.importe.Width = 115
         '
         'GroupBox2
         '
@@ -287,10 +347,10 @@ Partial Class FormularioFactura
         Me.BSeleccionarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BSeleccionarCliente.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BSeleccionarCliente.ForeColor = System.Drawing.Color.White
-        Me.BSeleccionarCliente.Location = New System.Drawing.Point(185, 52)
+        Me.BSeleccionarCliente.Location = New System.Drawing.Point(167, 6)
         Me.BSeleccionarCliente.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BSeleccionarCliente.Name = "BSeleccionarCliente"
-        Me.BSeleccionarCliente.Size = New System.Drawing.Size(163, 32)
+        Me.BSeleccionarCliente.Size = New System.Drawing.Size(95, 42)
         Me.BSeleccionarCliente.TabIndex = 5
         Me.BSeleccionarCliente.Text = "Seleccionar Cliente"
         Me.BSeleccionarCliente.UseVisualStyleBackColor = False
@@ -324,6 +384,7 @@ Partial Class FormularioFactura
         Me.BEditar.TabIndex = 1
         Me.BEditar.Text = "Editar"
         Me.BEditar.UseVisualStyleBackColor = False
+        Me.BEditar.Visible = False
         '
         'TVendedor
         '
@@ -525,73 +586,13 @@ Partial Class FormularioFactura
         Me.BCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.BCancelar.UseVisualStyleBackColor = False
         '
-        'cantidad
-        '
-        Me.cantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
-        Me.cantidad.DefaultCellStyle = DataGridViewCellStyle1
-        Me.cantidad.HeaderText = "Cantidad"
-        Me.cantidad.MaxInputLength = 3
-        Me.cantidad.Name = "cantidad"
-        Me.cantidad.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.cantidad.Width = 123
-        '
-        'unidadmedida
-        '
-        Me.unidadmedida.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        Me.unidadmedida.DefaultCellStyle = DataGridViewCellStyle2
-        Me.unidadmedida.HeaderText = "Unidad de medida"
-        Me.unidadmedida.Name = "unidadmedida"
-        Me.unidadmedida.ReadOnly = True
-        Me.unidadmedida.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        '
-        'descripcion
-        '
-        Me.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
-        Me.descripcion.DefaultCellStyle = DataGridViewCellStyle3
-        Me.descripcion.HeaderText = "Descripcion"
-        Me.descripcion.Name = "descripcion"
-        Me.descripcion.ReadOnly = True
-        Me.descripcion.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        '
-        'punitario
-        '
-        Me.punitario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
-        Me.punitario.DefaultCellStyle = DataGridViewCellStyle4
-        Me.punitario.HeaderText = "P. Unitario"
-        Me.punitario.MaxInputLength = 99999
-        Me.punitario.Name = "punitario"
-        Me.punitario.ReadOnly = True
-        Me.punitario.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.punitario.Width = 137
-        '
-        'importe
-        '
-        Me.importe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black
-        Me.importe.DefaultCellStyle = DataGridViewCellStyle5
-        Me.importe.HeaderText = "Importe"
-        Me.importe.MaxInputLength = 9999999
-        Me.importe.Name = "importe"
-        Me.importe.ReadOnly = True
-        Me.importe.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.importe.Width = 115
-        '
         'FormularioFactura
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 22.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.pcgamer.My.Resources.Resources.hyperx_background
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1006, 593)
+        Me.ClientSize = New System.Drawing.Size(1006, 673)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.BCancelar)
         Me.Controls.Add(Me.BImprimir)
@@ -599,14 +600,14 @@ Partial Class FormularioFactura
         Me.Controls.Add(Me.PBLogo)
         Me.Font = New System.Drawing.Font("Verdana", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Location = New System.Drawing.Point(150, 40)
+        Me.Location = New System.Drawing.Point(150, 0)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FormularioFactura"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Formulario Factura"
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridFactura, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
@@ -622,7 +623,7 @@ Partial Class FormularioFactura
     Friend WithEvents PBLogo As PictureBox
     Friend WithEvents LTitulo As Label
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents DataGridFactura As DataGridView
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents GroupBox1 As GroupBox

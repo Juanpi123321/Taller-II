@@ -2,6 +2,7 @@
     Private Sub FormularioVendedor_Closed(sender As Object, e As EventArgs) Handles Me.Closed
         FormularioCliente.Close()
         FormularioFactura.Close()
+        FormularioStock.Close()
     End Sub
 
     Private Sub BFactura_Click(sender As Object, e As EventArgs) Handles BFactura.Click

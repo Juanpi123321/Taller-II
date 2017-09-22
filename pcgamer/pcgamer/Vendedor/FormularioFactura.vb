@@ -21,8 +21,9 @@
         TDNI.Text = "11324123"
         TDireccion.Text = "9 de Julio 2781 Corrientes Capital"
         TTelefono.Text = "-"
-        BCargar.Hide()
-        BSeleccionarCliente.Hide()
+        BCargar.Visible = False
+        BSeleccionarCliente.Visible = False
+        BEditar.Visible = True
     End Sub
 
     Private Sub BImprimir_Click(sender As Object, e As EventArgs) Handles BImprimir.Click
@@ -32,7 +33,7 @@
             respuesta = MsgBox("Debe agregar un Cliente", MsgBoxStyle.DefaultButton2 +
             MsgBoxStyle.Information, "Cliente Invalido")
             'Pregunta si la primera fila esta vacia
-        ElseIf DataGridView1.Item(1, 0).Value = "" Then
+        ElseIf DataGridFactura.Item(1, 0).Value = "" Then
             respuesta = MsgBox("Debe agregar un Producto", MsgBoxStyle.DefaultButton2 +
             MsgBoxStyle.Information, "Producto Invalido")
         Else
@@ -45,27 +46,21 @@
     End Sub
 
     Private Sub BAgregar_Click(sender As Object, e As EventArgs) Handles BAgregar.Click
-        Dim cantidad1 As Integer = 1
-        Dim precio1 As Double = 7999.99
-        Dim importe1 As Double = precio1 * cantidad1
-        Dim cantidad2 As Integer = 3
-        Dim precio2 As Double = 9999.99
-        Dim importe2 As Double = precio2 * cantidad2
-        DataGridView1.Rows.Add(cantidad1, "Desktop-Escritorio", "Pc Bronze", precio1, importe1)
-        DataGridView1.Rows.Add(cantidad2, "Desktop-Escritorio", "Pc RaidMax Cobra", precio2, importe2)
+        FormularioStock.Show()
+        Me.Hide()
     End Sub
 
     Private Sub BEliminar_Click(sender As Object, e As EventArgs) Handles BEliminar.Click
         Dim respuesta As MsgBoxResult
         Try
-            Dim fila As Integer = DataGridView1.CurrentRow.Index
-            If DataGridView1.Item(1, 0).Value = "" Or DataGridView1.Item(1, fila).Value = "" Then
+            Dim fila As Integer = DataGridFactura.CurrentRow.Index
+            If DataGridFactura.Item(1, 0).Value = "" Or DataGridFactura.Item(1, fila).Value = "" Then
                 respuesta = MsgBox("Error, no hay productos seleccionados", MsgBoxStyle.DefaultButton2 +
             MsgBoxStyle.Critical, "Eliminacion Invalida")
             Else
                 respuesta = MsgBox("¿Esta seguro de eliminar el Producto?", MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Question, "Confirmar Eliminacion")
                 If MsgBoxResult.Yes = respuesta Then
-                    DataGridView1.Rows.Remove(DataGridView1.Rows(DataGridView1.SelectedCells.Item(0).RowIndex))
+                    DataGridFactura.Rows.Remove(DataGridFactura.Rows(DataGridFactura.SelectedCells.Item(0).RowIndex))
                 End If
             End If
         Catch ex As Exception
@@ -74,21 +69,24 @@
         End Try
     End Sub
 
-    Private Sub DataGridView1_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellEndEdit
-        Dim fila As Integer = DataGridView1.CurrentRow.Index
-        Dim respuesta As MsgBoxResult
+    Private Sub DataGridFactura_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridFactura.CellEndEdit
+        Dim fila As Integer = DataGridFactura.CurrentRow.Index
         Try
-            If Integer.Parse(DataGridView1.Item(0, fila).Value) = 0 Then
-                DataGridView1.Item(0, fila).Value = 1
-                respuesta = MsgBox("La cantidad de producto no puede ser 0", MsgBoxStyle.DefaultButton2 +
+            If Integer.Parse(DataGridFactura.Item(0, fila).Value) = 0 Or DataGridFactura.Item(0, fila).Value = "" Then
+                MsgBox("La cantidad de producto debe ser como minimo 1", MsgBoxStyle.DefaultButton2 +
             MsgBoxStyle.Critical, "Cantidad Invalida")
+                DataGridFactura.Item(0, fila).Value = 1
             Else
-                DataGridView1.Item(4, fila).Value = Integer.Parse(DataGridView1.Item(0, fila).Value) * Double.Parse(DataGridView1.Item(3, fila).Value)
+                DataGridFactura.Item(4, fila).Value = Integer.Parse(DataGridFactura.Item(0, fila).Value) * Double.Parse(DataGridFactura.Item(3, fila).Value)
+            End If
+            If DataGridFactura.Item(0, fila).Value = "" And DataGridFactura.Item(1, fila).Value <> "" Then
+                DataGridFactura.Item(0, fila).Value = 1
             End If
         Catch ex As Exception
-            respuesta = MsgBox("Error, no hay productos seleccionados", MsgBoxStyle.DefaultButton2 +
+            MsgBox("Error, no hay productos seleccionados", MsgBoxStyle.DefaultButton2 +
             MsgBoxStyle.Critical, "Modificacion Invalida")
         End Try
+
     End Sub
 
     Private Sub FormularioFactura_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
@@ -106,23 +104,23 @@
         Me.Close()
     End Sub
 
-    Private Sub DataGridView1_EditingControlShowing(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewEditingControlShowingEventArgs) Handles DataGridView1.EditingControlShowing
+    Private Sub DataGridFactura_EditingControlShowing(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewEditingControlShowingEventArgs) Handles DataGridFactura.EditingControlShowing
         AddHandler e.Control.KeyPress, AddressOf Validar_Numeros
-        Dim fila As Integer = DataGridView1.CurrentRow.Index
+        Dim fila As Integer = DataGridFactura.CurrentRow.Index
 
         'si no esta cargada la fila no deja que modifique la cantidad
-        If DataGridView1.Item(1, fila).Value = "" Then
+        If DataGridFactura.Item(1, fila).Value = "" Then
             AddHandler e.Control.KeyPress, AddressOf No_Modificar
         End If
     End Sub
 
     Private Sub No_Modificar(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
-        Dim Celda As DataGridViewCell = Me.DataGridView1.CurrentCell()
+        Dim Celda As DataGridViewCell = Me.DataGridFactura.CurrentCell()
         e.Handled = True
     End Sub
 
     Private Sub Validar_Numeros(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
-        Dim Celda As DataGridViewCell = Me.DataGridView1.CurrentCell()
+        Dim Celda As DataGridViewCell = Me.DataGridFactura.CurrentCell()
         If Celda.ColumnIndex = 0 Then
             If Len(Trim(Celda.EditedFormattedValue.ToString)) > 0 Then
                 If Char.IsNumber(e.KeyChar) Or e.KeyChar = Convert.ToChar(8) Then

@@ -72,9 +72,9 @@ Partial Class FormularioAdministrador
         Me.BStock.Location = New System.Drawing.Point(321, 204)
         Me.BStock.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BStock.Name = "BStock"
-        Me.BStock.Size = New System.Drawing.Size(166, 32)
+        Me.BStock.Size = New System.Drawing.Size(180, 32)
         Me.BStock.TabIndex = 1
-        Me.BStock.Text = "&2-Gestionar Stock"
+        Me.BStock.Text = "&2-Gestionar Productos"
         Me.BStock.UseVisualStyleBackColor = False
         '
         'BClientes
@@ -84,10 +84,10 @@ Partial Class FormularioAdministrador
         Me.BClientes.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BClientes.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BClientes.ForeColor = System.Drawing.Color.White
-        Me.BClientes.Location = New System.Drawing.Point(135, 204)
+        Me.BClientes.Location = New System.Drawing.Point(120, 204)
         Me.BClientes.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BClientes.Name = "BClientes"
-        Me.BClientes.Size = New System.Drawing.Size(166, 32)
+        Me.BClientes.Size = New System.Drawing.Size(180, 32)
         Me.BClientes.TabIndex = 0
         Me.BClientes.Text = "&1-Gestionar Clientes"
         Me.BClientes.UseVisualStyleBackColor = False
@@ -98,7 +98,7 @@ Partial Class FormularioAdministrador
         Me.PBStock.Location = New System.Drawing.Point(321, 21)
         Me.PBStock.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.PBStock.Name = "PBStock"
-        Me.PBStock.Size = New System.Drawing.Size(166, 154)
+        Me.PBStock.Size = New System.Drawing.Size(180, 154)
         Me.PBStock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PBStock.TabIndex = 0
         Me.PBStock.TabStop = False
@@ -106,10 +106,10 @@ Partial Class FormularioAdministrador
         'PBClientes
         '
         Me.PBClientes.Image = Global.pcgamer.My.Resources.Resources.Client_Service
-        Me.PBClientes.Location = New System.Drawing.Point(135, 21)
+        Me.PBClientes.Location = New System.Drawing.Point(120, 21)
         Me.PBClientes.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.PBClientes.Name = "PBClientes"
-        Me.PBClientes.Size = New System.Drawing.Size(166, 154)
+        Me.PBClientes.Size = New System.Drawing.Size(180, 154)
         Me.PBClientes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PBClientes.TabIndex = 0
         Me.PBClientes.TabStop = False
@@ -150,14 +150,14 @@ Partial Class FormularioAdministrador
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.pcgamer.My.Resources.Resources.hyperx_background
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1006, 593)
+        Me.ClientSize = New System.Drawing.Size(1006, 673)
         Me.Controls.Add(Me.BCerrarSesion)
         Me.Controls.Add(Me.BVendedor)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PBLogo)
         Me.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Location = New System.Drawing.Point(150, 40)
+        Me.Location = New System.Drawing.Point(150, 0)
         Me.Margin = New System.Windows.Forms.Padding(5)
         Me.Name = "FormularioAdministrador"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual

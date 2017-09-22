@@ -31,6 +31,7 @@ Partial Class FormularioAdminStock
         Me.LTitulo = New System.Windows.Forms.Label()
         Me.PBLogo = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.TCategoria = New System.Windows.Forms.ComboBox()
         Me.TPrecio = New System.Windows.Forms.TextBox()
         Me.TStock = New System.Windows.Forms.TextBox()
         Me.TGabinete = New System.Windows.Forms.TextBox()
@@ -69,7 +70,6 @@ Partial Class FormularioAdminStock
         Me.categoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BBaja = New System.Windows.Forms.Button()
         Me.BAlta = New System.Windows.Forms.Button()
-        Me.TCategoria = New System.Windows.Forms.ComboBox()
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PBImagen, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -84,9 +84,9 @@ Partial Class FormularioAdminStock
         Me.LTitulo.ForeColor = System.Drawing.Color.White
         Me.LTitulo.Location = New System.Drawing.Point(336, 26)
         Me.LTitulo.Name = "LTitulo"
-        Me.LTitulo.Size = New System.Drawing.Size(282, 40)
+        Me.LTitulo.Size = New System.Drawing.Size(352, 40)
         Me.LTitulo.TabIndex = 22
-        Me.LTitulo.Text = "Gestionar Stock"
+        Me.LTitulo.Text = "Gestionar Productos"
         '
         'PBLogo
         '
@@ -141,6 +141,16 @@ Partial Class FormularioAdminStock
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(886, 442)
         Me.Panel1.TabIndex = 18
+        '
+        'TCategoria
+        '
+        Me.TCategoria.Enabled = False
+        Me.TCategoria.FormattingEnabled = True
+        Me.TCategoria.Items.AddRange(New Object() {"Desktop-Escritorio", "Notebook"})
+        Me.TCategoria.Location = New System.Drawing.Point(473, 57)
+        Me.TCategoria.Name = "TCategoria"
+        Me.TCategoria.Size = New System.Drawing.Size(207, 28)
+        Me.TCategoria.TabIndex = 13
         '
         'TPrecio
         '
@@ -262,7 +272,7 @@ Partial Class FormularioAdminStock
         Me.BGuardar.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BGuardar.ForeColor = System.Drawing.Color.White
         Me.BGuardar.Image = Global.pcgamer.My.Resources.Resources.ok_icono
-        Me.BGuardar.Location = New System.Drawing.Point(818, 12)
+        Me.BGuardar.Location = New System.Drawing.Point(818, 11)
         Me.BGuardar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BGuardar.Name = "BGuardar"
         Me.BGuardar.Size = New System.Drawing.Size(52, 47)
@@ -571,23 +581,13 @@ Partial Class FormularioAdminStock
         Me.BAlta.UseVisualStyleBackColor = False
         Me.BAlta.Visible = False
         '
-        'TCategoria
-        '
-        Me.TCategoria.Enabled = False
-        Me.TCategoria.FormattingEnabled = True
-        Me.TCategoria.Items.AddRange(New Object() {"Desktop-Escritorio", "Notebook"})
-        Me.TCategoria.Location = New System.Drawing.Point(473, 57)
-        Me.TCategoria.Name = "TCategoria"
-        Me.TCategoria.Size = New System.Drawing.Size(207, 28)
-        Me.TCategoria.TabIndex = 13
-        '
         'FormularioAdminStock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.pcgamer.My.Resources.Resources.hyperx_background
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1006, 593)
+        Me.ClientSize = New System.Drawing.Size(1006, 673)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.LTitulo)
         Me.Controls.Add(Me.PBLogo)
@@ -595,7 +595,7 @@ Partial Class FormularioAdminStock
         Me.Controls.Add(Me.BBaja)
         Me.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Location = New System.Drawing.Point(150, 40)
+        Me.Location = New System.Drawing.Point(150, 0)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FormularioAdminStock"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
