@@ -20,7 +20,7 @@
         Me.Hide()
     End Sub
 
-    Private Sub BAdmin_Click(sender As Object, e As EventArgs) Handles BAdmin.Click
+    Private Sub BAdmin_Click(sender As Object, e As EventArgs)
         FormularioAdministrador.Show()
         Me.Close()
     End Sub

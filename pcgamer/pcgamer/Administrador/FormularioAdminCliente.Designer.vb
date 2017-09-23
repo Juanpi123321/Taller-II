@@ -58,7 +58,6 @@ Partial Class FormularioAdminCliente
         Me.CBBuscar = New System.Windows.Forms.ComboBox()
         Me.BAlta = New System.Windows.Forms.Button()
         Me.BEliminar = New System.Windows.Forms.Button()
-        Me.BBuscar = New System.Windows.Forms.Button()
         Me.LBEmail = New System.Windows.Forms.Label()
         Me.LBTelefono = New System.Windows.Forms.Label()
         Me.LBDNI = New System.Windows.Forms.Label()
@@ -95,7 +94,7 @@ Partial Class FormularioAdminCliente
         Me.LTitulo.BackColor = System.Drawing.Color.Black
         Me.LTitulo.Font = New System.Drawing.Font("Verdana", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LTitulo.ForeColor = System.Drawing.Color.White
-        Me.LTitulo.Location = New System.Drawing.Point(358, 14)
+        Me.LTitulo.Location = New System.Drawing.Point(376, 51)
         Me.LTitulo.Name = "LTitulo"
         Me.LTitulo.Size = New System.Drawing.Size(304, 40)
         Me.LTitulo.TabIndex = 20
@@ -116,10 +115,10 @@ Partial Class FormularioAdminCliente
         '
         Me.TabCliente.Controls.Add(Me.TabPage1)
         Me.TabCliente.Controls.Add(Me.TabPage2)
-        Me.TabCliente.Location = New System.Drawing.Point(113, 67)
+        Me.TabCliente.Location = New System.Drawing.Point(78, 118)
         Me.TabCliente.Name = "TabCliente"
         Me.TabCliente.SelectedIndex = 0
-        Me.TabCliente.Size = New System.Drawing.Size(791, 436)
+        Me.TabCliente.Size = New System.Drawing.Size(886, 518)
         Me.TabCliente.TabIndex = 21
         '
         'TabPage1
@@ -131,7 +130,7 @@ Partial Class FormularioAdminCliente
         Me.TabPage1.Location = New System.Drawing.Point(4, 29)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(783, 403)
+        Me.TabPage1.Size = New System.Drawing.Size(878, 485)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Registrar"
         '
@@ -154,16 +153,16 @@ Partial Class FormularioAdminCliente
         Me.Panel1.Controls.Add(Me.LTelefono)
         Me.Panel1.Controls.Add(Me.LDomicilio)
         Me.Panel1.ForeColor = System.Drawing.Color.White
-        Me.Panel1.Location = New System.Drawing.Point(201, 23)
+        Me.Panel1.Location = New System.Drawing.Point(257, 19)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(365, 286)
+        Me.Panel1.Size = New System.Drawing.Size(365, 332)
         Me.Panel1.TabIndex = 15
         '
         'FechaReg
         '
         Me.FechaReg.Enabled = False
         Me.FechaReg.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.FechaReg.Location = New System.Drawing.Point(138, 227)
+        Me.FechaReg.Location = New System.Drawing.Point(138, 263)
         Me.FechaReg.Name = "FechaReg"
         Me.FechaReg.Size = New System.Drawing.Size(193, 28)
         Me.FechaReg.TabIndex = 6
@@ -171,7 +170,7 @@ Partial Class FormularioAdminCliente
         'LFechaReg
         '
         Me.LFechaReg.AutoSize = True
-        Me.LFechaReg.Location = New System.Drawing.Point(23, 227)
+        Me.LFechaReg.Location = New System.Drawing.Point(23, 263)
         Me.LFechaReg.Name = "LFechaReg"
         Me.LFechaReg.Size = New System.Drawing.Size(106, 20)
         Me.LFechaReg.TabIndex = 13
@@ -179,7 +178,7 @@ Partial Class FormularioAdminCliente
         '
         'TEmail
         '
-        Me.TEmail.Location = New System.Drawing.Point(138, 190)
+        Me.TEmail.Location = New System.Drawing.Point(138, 220)
         Me.TEmail.Name = "TEmail"
         Me.TEmail.Size = New System.Drawing.Size(193, 28)
         Me.TEmail.TabIndex = 5
@@ -187,7 +186,7 @@ Partial Class FormularioAdminCliente
         'LEmail
         '
         Me.LEmail.AutoSize = True
-        Me.LEmail.Location = New System.Drawing.Point(23, 193)
+        Me.LEmail.Location = New System.Drawing.Point(23, 223)
         Me.LEmail.Name = "LEmail"
         Me.LEmail.Size = New System.Drawing.Size(76, 20)
         Me.LEmail.TabIndex = 12
@@ -197,7 +196,7 @@ Partial Class FormularioAdminCliente
         '
         Me.LObligatorio.AutoSize = True
         Me.LObligatorio.Font = New System.Drawing.Font("Verdana", 4.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LObligatorio.Location = New System.Drawing.Point(315, 269)
+        Me.LObligatorio.Location = New System.Drawing.Point(315, 315)
         Me.LObligatorio.Name = "LObligatorio"
         Me.LObligatorio.Size = New System.Drawing.Size(47, 8)
         Me.LObligatorio.TabIndex = 14
@@ -205,21 +204,21 @@ Partial Class FormularioAdminCliente
         '
         'TTelefono
         '
-        Me.TTelefono.Location = New System.Drawing.Point(138, 156)
+        Me.TTelefono.Location = New System.Drawing.Point(138, 180)
         Me.TTelefono.Name = "TTelefono"
         Me.TTelefono.Size = New System.Drawing.Size(193, 28)
         Me.TTelefono.TabIndex = 4
         '
         'TDomicilio
         '
-        Me.TDomicilio.Location = New System.Drawing.Point(138, 122)
+        Me.TDomicilio.Location = New System.Drawing.Point(138, 140)
         Me.TDomicilio.Name = "TDomicilio"
         Me.TDomicilio.Size = New System.Drawing.Size(193, 28)
         Me.TDomicilio.TabIndex = 3
         '
         'TDni
         '
-        Me.TDni.Location = New System.Drawing.Point(139, 88)
+        Me.TDni.Location = New System.Drawing.Point(138, 100)
         Me.TDni.MaxLength = 8
         Me.TDni.Name = "TDni"
         Me.TDni.Size = New System.Drawing.Size(193, 28)
@@ -228,7 +227,7 @@ Partial Class FormularioAdminCliente
         'LDni
         '
         Me.LDni.AutoSize = True
-        Me.LDni.Location = New System.Drawing.Point(23, 91)
+        Me.LDni.Location = New System.Drawing.Point(23, 103)
         Me.LDni.Name = "LDni"
         Me.LDni.Size = New System.Drawing.Size(62, 20)
         Me.LDni.TabIndex = 9
@@ -236,7 +235,7 @@ Partial Class FormularioAdminCliente
         '
         'TApellido
         '
-        Me.TApellido.Location = New System.Drawing.Point(139, 54)
+        Me.TApellido.Location = New System.Drawing.Point(138, 60)
         Me.TApellido.Name = "TApellido"
         Me.TApellido.Size = New System.Drawing.Size(193, 28)
         Me.TApellido.TabIndex = 1
@@ -244,7 +243,7 @@ Partial Class FormularioAdminCliente
         'LNombre
         '
         Me.LNombre.AutoSize = True
-        Me.LNombre.Location = New System.Drawing.Point(22, 23)
+        Me.LNombre.Location = New System.Drawing.Point(23, 23)
         Me.LNombre.Name = "LNombre"
         Me.LNombre.Size = New System.Drawing.Size(96, 20)
         Me.LNombre.TabIndex = 7
@@ -252,7 +251,7 @@ Partial Class FormularioAdminCliente
         '
         'TNombre
         '
-        Me.TNombre.Location = New System.Drawing.Point(139, 20)
+        Me.TNombre.Location = New System.Drawing.Point(138, 20)
         Me.TNombre.Name = "TNombre"
         Me.TNombre.Size = New System.Drawing.Size(193, 28)
         Me.TNombre.TabIndex = 0
@@ -260,7 +259,7 @@ Partial Class FormularioAdminCliente
         'LApellido
         '
         Me.LApellido.AutoSize = True
-        Me.LApellido.Location = New System.Drawing.Point(22, 57)
+        Me.LApellido.Location = New System.Drawing.Point(23, 63)
         Me.LApellido.Name = "LApellido"
         Me.LApellido.Size = New System.Drawing.Size(97, 20)
         Me.LApellido.TabIndex = 8
@@ -269,7 +268,7 @@ Partial Class FormularioAdminCliente
         'LTelefono
         '
         Me.LTelefono.AutoSize = True
-        Me.LTelefono.Location = New System.Drawing.Point(23, 159)
+        Me.LTelefono.Location = New System.Drawing.Point(23, 183)
         Me.LTelefono.Name = "LTelefono"
         Me.LTelefono.Size = New System.Drawing.Size(87, 20)
         Me.LTelefono.TabIndex = 11
@@ -278,7 +277,7 @@ Partial Class FormularioAdminCliente
         'LDomicilio
         '
         Me.LDomicilio.AutoSize = True
-        Me.LDomicilio.Location = New System.Drawing.Point(23, 125)
+        Me.LDomicilio.Location = New System.Drawing.Point(23, 143)
         Me.LDomicilio.Name = "LDomicilio"
         Me.LDomicilio.Size = New System.Drawing.Size(107, 20)
         Me.LDomicilio.TabIndex = 10
@@ -291,7 +290,7 @@ Partial Class FormularioAdminCliente
         Me.BAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BAgregar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BAgregar.ForeColor = System.Drawing.Color.White
-        Me.BAgregar.Location = New System.Drawing.Point(400, 343)
+        Me.BAgregar.Location = New System.Drawing.Point(456, 372)
         Me.BAgregar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BAgregar.Name = "BAgregar"
         Me.BAgregar.Size = New System.Drawing.Size(166, 32)
@@ -306,7 +305,7 @@ Partial Class FormularioAdminCliente
         Me.BLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BLimpiar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BLimpiar.ForeColor = System.Drawing.Color.White
-        Me.BLimpiar.Location = New System.Drawing.Point(201, 343)
+        Me.BLimpiar.Location = New System.Drawing.Point(257, 372)
         Me.BLimpiar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BLimpiar.Name = "BLimpiar"
         Me.BLimpiar.Size = New System.Drawing.Size(166, 32)
@@ -323,7 +322,6 @@ Partial Class FormularioAdminCliente
         Me.TabPage2.Controls.Add(Me.CBBuscar)
         Me.TabPage2.Controls.Add(Me.BAlta)
         Me.TabPage2.Controls.Add(Me.BEliminar)
-        Me.TabPage2.Controls.Add(Me.BBuscar)
         Me.TabPage2.Controls.Add(Me.LBEmail)
         Me.TabPage2.Controls.Add(Me.LBTelefono)
         Me.TabPage2.Controls.Add(Me.LBDNI)
@@ -344,7 +342,7 @@ Partial Class FormularioAdminCliente
         Me.TabPage2.Location = New System.Drawing.Point(4, 29)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(783, 403)
+        Me.TabPage2.Size = New System.Drawing.Size(878, 485)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Buscar"
         '
@@ -355,7 +353,7 @@ Partial Class FormularioAdminCliente
         Me.BCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BCancelar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BCancelar.ForeColor = System.Drawing.Color.White
-        Me.BCancelar.Location = New System.Drawing.Point(562, 184)
+        Me.BCancelar.Location = New System.Drawing.Point(638, 220)
         Me.BCancelar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BCancelar.Name = "BCancelar"
         Me.BCancelar.Size = New System.Drawing.Size(95, 31)
@@ -371,7 +369,7 @@ Partial Class FormularioAdminCliente
         Me.BGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BGuardar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BGuardar.ForeColor = System.Drawing.Color.White
-        Me.BGuardar.Location = New System.Drawing.Point(677, 184)
+        Me.BGuardar.Location = New System.Drawing.Point(753, 220)
         Me.BGuardar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BGuardar.Name = "BGuardar"
         Me.BGuardar.Size = New System.Drawing.Size(95, 31)
@@ -387,7 +385,7 @@ Partial Class FormularioAdminCliente
         Me.BEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BEditar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BEditar.ForeColor = System.Drawing.Color.White
-        Me.BEditar.Location = New System.Drawing.Point(436, 184)
+        Me.BEditar.Location = New System.Drawing.Point(512, 220)
         Me.BEditar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BEditar.Name = "BEditar"
         Me.BEditar.Size = New System.Drawing.Size(94, 31)
@@ -413,7 +411,7 @@ Partial Class FormularioAdminCliente
         Me.BAlta.ForeColor = System.Drawing.Color.White
         Me.BAlta.Image = Global.pcgamer.My.Resources.Resources.ok_icono
         Me.BAlta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BAlta.Location = New System.Drawing.Point(669, 13)
+        Me.BAlta.Location = New System.Drawing.Point(753, 13)
         Me.BAlta.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BAlta.Name = "BAlta"
         Me.BAlta.Size = New System.Drawing.Size(107, 42)
@@ -431,7 +429,7 @@ Partial Class FormularioAdminCliente
         Me.BEliminar.ForeColor = System.Drawing.Color.White
         Me.BEliminar.Image = Global.pcgamer.My.Resources.Resources.cancelar_icono1
         Me.BEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BEliminar.Location = New System.Drawing.Point(619, 178)
+        Me.BEliminar.Location = New System.Drawing.Point(695, 214)
         Me.BEliminar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BEliminar.Name = "BEliminar"
         Me.BEliminar.Size = New System.Drawing.Size(132, 42)
@@ -440,27 +438,12 @@ Partial Class FormularioAdminCliente
         Me.BEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.BEliminar.UseVisualStyleBackColor = False
         '
-        'BBuscar
-        '
-        Me.BBuscar.BackColor = System.Drawing.Color.DarkRed
-        Me.BBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.BBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BBuscar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BBuscar.ForeColor = System.Drawing.Color.White
-        Me.BBuscar.Image = Global.pcgamer.My.Resources.Resources.oie_transparent
-        Me.BBuscar.Location = New System.Drawing.Point(619, 19)
-        Me.BBuscar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
-        Me.BBuscar.Name = "BBuscar"
-        Me.BBuscar.Size = New System.Drawing.Size(38, 33)
-        Me.BBuscar.TabIndex = 2
-        Me.BBuscar.UseVisualStyleBackColor = False
-        '
         'LBEmail
         '
         Me.LBEmail.AutoSize = True
         Me.LBEmail.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBEmail.ForeColor = System.Drawing.Color.White
-        Me.LBEmail.Location = New System.Drawing.Point(393, 150)
+        Me.LBEmail.Location = New System.Drawing.Point(481, 158)
         Me.LBEmail.Name = "LBEmail"
         Me.LBEmail.Size = New System.Drawing.Size(54, 18)
         Me.LBEmail.TabIndex = 10
@@ -471,7 +454,7 @@ Partial Class FormularioAdminCliente
         Me.LBTelefono.AutoSize = True
         Me.LBTelefono.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBTelefono.ForeColor = System.Drawing.Color.White
-        Me.LBTelefono.Location = New System.Drawing.Point(391, 114)
+        Me.LBTelefono.Location = New System.Drawing.Point(479, 118)
         Me.LBTelefono.Name = "LBTelefono"
         Me.LBTelefono.Size = New System.Drawing.Size(77, 18)
         Me.LBTelefono.TabIndex = 10
@@ -482,7 +465,7 @@ Partial Class FormularioAdminCliente
         Me.LBDNI.AutoSize = True
         Me.LBDNI.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBDNI.ForeColor = System.Drawing.Color.White
-        Me.LBDNI.Location = New System.Drawing.Point(54, 146)
+        Me.LBDNI.Location = New System.Drawing.Point(54, 154)
         Me.LBDNI.Name = "LBDNI"
         Me.LBDNI.Size = New System.Drawing.Size(42, 18)
         Me.LBDNI.TabIndex = 10
@@ -493,7 +476,7 @@ Partial Class FormularioAdminCliente
         Me.LBDomicilio.AutoSize = True
         Me.LBDomicilio.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBDomicilio.ForeColor = System.Drawing.Color.White
-        Me.LBDomicilio.Location = New System.Drawing.Point(391, 77)
+        Me.LBDomicilio.Location = New System.Drawing.Point(479, 77)
         Me.LBDomicilio.Name = "LBDomicilio"
         Me.LBDomicilio.Size = New System.Drawing.Size(74, 18)
         Me.LBDomicilio.TabIndex = 10
@@ -504,7 +487,7 @@ Partial Class FormularioAdminCliente
         Me.LBNombre.AutoSize = True
         Me.LBNombre.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBNombre.ForeColor = System.Drawing.Color.White
-        Me.LBNombre.Location = New System.Drawing.Point(54, 112)
+        Me.LBNombre.Location = New System.Drawing.Point(54, 116)
         Me.LBNombre.Name = "LBNombre"
         Me.LBNombre.Size = New System.Drawing.Size(83, 18)
         Me.LBNombre.TabIndex = 10
@@ -534,7 +517,7 @@ Partial Class FormularioAdminCliente
         'TBEmail
         '
         Me.TBEmail.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TBEmail.Location = New System.Drawing.Point(489, 145)
+        Me.TBEmail.Location = New System.Drawing.Point(577, 153)
         Me.TBEmail.Name = "TBEmail"
         Me.TBEmail.ReadOnly = True
         Me.TBEmail.Size = New System.Drawing.Size(262, 23)
@@ -543,17 +526,17 @@ Partial Class FormularioAdminCliente
         'TBDNI
         '
         Me.TBDNI.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TBDNI.Location = New System.Drawing.Point(146, 146)
+        Me.TBDNI.Location = New System.Drawing.Point(146, 154)
         Me.TBDNI.MaxLength = 8
         Me.TBDNI.Name = "TBDNI"
         Me.TBDNI.ReadOnly = True
-        Me.TBDNI.Size = New System.Drawing.Size(216, 23)
+        Me.TBDNI.Size = New System.Drawing.Size(255, 23)
         Me.TBDNI.TabIndex = 0
         '
         'TBTelefono
         '
         Me.TBTelefono.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TBTelefono.Location = New System.Drawing.Point(489, 111)
+        Me.TBTelefono.Location = New System.Drawing.Point(577, 115)
         Me.TBTelefono.Name = "TBTelefono"
         Me.TBTelefono.ReadOnly = True
         Me.TBTelefono.Size = New System.Drawing.Size(262, 23)
@@ -562,16 +545,16 @@ Partial Class FormularioAdminCliente
         'TBNombre
         '
         Me.TBNombre.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TBNombre.Location = New System.Drawing.Point(146, 112)
+        Me.TBNombre.Location = New System.Drawing.Point(146, 116)
         Me.TBNombre.Name = "TBNombre"
         Me.TBNombre.ReadOnly = True
-        Me.TBNombre.Size = New System.Drawing.Size(216, 23)
+        Me.TBNombre.Size = New System.Drawing.Size(255, 23)
         Me.TBNombre.TabIndex = 0
         '
         'TBDomicilio
         '
         Me.TBDomicilio.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TBDomicilio.Location = New System.Drawing.Point(489, 76)
+        Me.TBDomicilio.Location = New System.Drawing.Point(577, 76)
         Me.TBDomicilio.Name = "TBDomicilio"
         Me.TBDomicilio.ReadOnly = True
         Me.TBDomicilio.Size = New System.Drawing.Size(262, 23)
@@ -583,7 +566,7 @@ Partial Class FormularioAdminCliente
         Me.TBApellido.Location = New System.Drawing.Point(146, 77)
         Me.TBApellido.Name = "TBApellido"
         Me.TBApellido.ReadOnly = True
-        Me.TBApellido.Size = New System.Drawing.Size(216, 23)
+        Me.TBApellido.Size = New System.Drawing.Size(255, 23)
         Me.TBApellido.TabIndex = 0
         '
         'TBuscar
@@ -600,11 +583,11 @@ Partial Class FormularioAdminCliente
         Me.DataGridCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridCliente.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id_cliente, Me.apellidos, Me.nombres, Me.dni, Me.fecha_ingreso})
         Me.DataGridCliente.GridColor = System.Drawing.SystemColors.GrayText
-        Me.DataGridCliente.Location = New System.Drawing.Point(7, 231)
+        Me.DataGridCliente.Location = New System.Drawing.Point(1, 274)
         Me.DataGridCliente.Name = "DataGridCliente"
         Me.DataGridCliente.ReadOnly = True
         Me.DataGridCliente.RowTemplate.Height = 24
-        Me.DataGridCliente.Size = New System.Drawing.Size(776, 166)
+        Me.DataGridCliente.Size = New System.Drawing.Size(875, 215)
         Me.DataGridCliente.TabIndex = 4
         '
         'Id_cliente
@@ -721,7 +704,6 @@ Partial Class FormularioAdminCliente
     Friend WithEvents BEditar As Button
     Friend WithEvents CBBuscar As ComboBox
     Friend WithEvents BEliminar As Button
-    Friend WithEvents BBuscar As Button
     Friend WithEvents LBEmail As Label
     Friend WithEvents LBTelefono As Label
     Friend WithEvents LBDNI As Label

@@ -90,6 +90,18 @@
     <Compile Include="Administrador\FormularioAdminStock.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SuperAdministrador\FormularioSuperAdmin.Designer.vb">
+      <DependentUpon>FormularioSuperAdmin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SuperAdministrador\FormularioSuperAdmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SuperAdministrador\FormularioSuperUsuario.Designer.vb">
+      <DependentUpon>FormularioSuperUsuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SuperAdministrador\FormularioSuperUsuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Vendedor\FormularioCliente.Designer.vb">
       <DependentUpon>FormularioCliente.vb</DependentUpon>
     </Compile>
@@ -147,6 +159,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\FormularioAdminStock.resx">
       <DependentUpon>FormularioAdminStock.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SuperAdministrador\FormularioSuperAdmin.resx">
+      <DependentUpon>FormularioSuperAdmin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SuperAdministrador\FormularioSuperUsuario.resx">
+      <DependentUpon>FormularioSuperUsuario.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vendedor\FormularioCliente.resx">
       <DependentUpon>FormularioCliente.vb</DependentUpon>
@@ -277,6 +295,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ok-icono.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\informes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\superadmin-background3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\superadmin-background2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\superadmin-background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\superadmin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\superadmin2..jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\super-admin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\super-admin1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

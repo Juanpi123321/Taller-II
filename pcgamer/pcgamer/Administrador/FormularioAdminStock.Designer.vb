@@ -41,7 +41,6 @@ Partial Class FormularioAdminStock
         Me.TPlacaMadre = New System.Windows.Forms.TextBox()
         Me.TProcesador = New System.Windows.Forms.TextBox()
         Me.TNombre = New System.Windows.Forms.TextBox()
-        Me.BBuscar = New System.Windows.Forms.Button()
         Me.BCancelar = New System.Windows.Forms.Button()
         Me.BGuardar = New System.Windows.Forms.Button()
         Me.BNuevo = New System.Windows.Forms.Button()
@@ -82,7 +81,7 @@ Partial Class FormularioAdminStock
         Me.LTitulo.BackColor = System.Drawing.Color.Black
         Me.LTitulo.Font = New System.Drawing.Font("Verdana", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LTitulo.ForeColor = System.Drawing.Color.White
-        Me.LTitulo.Location = New System.Drawing.Point(336, 26)
+        Me.LTitulo.Location = New System.Drawing.Point(376, 51)
         Me.LTitulo.Name = "LTitulo"
         Me.LTitulo.Size = New System.Drawing.Size(352, 40)
         Me.LTitulo.TabIndex = 22
@@ -113,7 +112,6 @@ Partial Class FormularioAdminStock
         Me.Panel1.Controls.Add(Me.TPlacaMadre)
         Me.Panel1.Controls.Add(Me.TProcesador)
         Me.Panel1.Controls.Add(Me.TNombre)
-        Me.Panel1.Controls.Add(Me.BBuscar)
         Me.Panel1.Controls.Add(Me.BCancelar)
         Me.Panel1.Controls.Add(Me.BGuardar)
         Me.Panel1.Controls.Add(Me.BNuevo)
@@ -137,9 +135,9 @@ Partial Class FormularioAdminStock
         Me.Panel1.Controls.Add(Me.DataGridStock)
         Me.Panel1.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel1.ForeColor = System.Drawing.Color.White
-        Me.Panel1.Location = New System.Drawing.Point(78, 90)
+        Me.Panel1.Location = New System.Drawing.Point(78, 118)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(886, 442)
+        Me.Panel1.Size = New System.Drawing.Size(886, 518)
         Me.Panel1.TabIndex = 18
         '
         'TCategoria
@@ -232,21 +230,6 @@ Partial Class FormularioAdminStock
         Me.TNombre.ReadOnly = True
         Me.TNombre.Size = New System.Drawing.Size(216, 22)
         Me.TNombre.TabIndex = 8
-        '
-        'BBuscar
-        '
-        Me.BBuscar.BackColor = System.Drawing.Color.DarkRed
-        Me.BBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.BBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BBuscar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BBuscar.ForeColor = System.Drawing.Color.White
-        Me.BBuscar.Image = Global.pcgamer.My.Resources.Resources.oie_transparent
-        Me.BBuscar.Location = New System.Drawing.Point(585, 12)
-        Me.BBuscar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
-        Me.BBuscar.Name = "BBuscar"
-        Me.BBuscar.Size = New System.Drawing.Size(38, 33)
-        Me.BBuscar.TabIndex = 7
-        Me.BBuscar.UseVisualStyleBackColor = False
         '
         'BCancelar
         '
@@ -614,7 +597,6 @@ Partial Class FormularioAdminStock
     Friend WithEvents LTitulo As Label
     Friend WithEvents PBLogo As PictureBox
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents BBuscar As Button
     Friend WithEvents BEditar As Button
     Friend WithEvents CBBuscar As ComboBox
     Friend WithEvents LBuscar As Label

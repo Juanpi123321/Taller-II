@@ -139,10 +139,10 @@ Public Class FormularioCliente
     End Sub
 
     Private Sub FormularioCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        DataGridCliente.Rows.Add("0001", "Gallardo", "Marcelo", "25332121", "21/09/2017 10:09")
-        DataGridCliente.Rows.Add("0002", "Trump", "Donald", "10123341", "21/09/2017 17:41")
-        DataGridCliente.Rows.Add("0003", "Martinez", "Pity", "40112858", "22/09/2017 11:01")
-        DataGridCliente.Rows.Add("0004", "Tinelli", "Marcelo", "15020491", "23/09/2017 09:33")
+        DataGridCliente.Rows.Add("0001", "Gimenez", "Susana", "20932571", "21/09/2017 10:09")
+        DataGridCliente.Rows.Add("0002", "Casan", "Moria", "22826341", "21/09/2017 17:41")
+        DataGridCliente.Rows.Add("0003", "Rial", "Jorge", "40219352", "22/09/2017 11:01")
+        DataGridCliente.Rows.Add("0004", "Lobato", "Zulma", "15946471", "23/09/2017 09:33")
     End Sub
 
     Private Sub BGuardar_Click(sender As Object, e As EventArgs) Handles BGuardar.Click
@@ -183,22 +183,21 @@ Public Class FormularioCliente
         Dim email As String = "-"
         Select Case fila
             Case 0
-                domicilio = "B° Nuñez Buenos Aires"
-                telefono = "01199850312"
-                email = "marcelitogallardo@hotmail.com"
-
+                domicilio = "Palermo Buenos Aires"
+                telefono = "01191234312"
+                email = "sugimenez@hotmail.com"
             Case 1
-                domicilio = "Queens - New York (USA)"
+                domicilio = "Parque Leloir Buenos Aires"
                 telefono = "-"
-                email = "donald-trump@outlook.com"
+                email = "moria-casan@outlook.com"
             Case 2
-                domicilio = "Guaymallén Mendonza"
-                telefono = "3782123461"
-                email = "pitymartinez@gmail.com"
+                domicilio = "Munro Buenos Aires"
+                telefono = "0112234142"
+                email = "jorgericardorial@gmail.com"
             Case 3
-                domicilio = "Bolivar Buenos Aires"
-                telefono = "0112212388"
-                email = "cuervotinelli@hotmail.com"
+                domicilio = "Barrio Serantes Corrientes"
+                telefono = "3795129043"
+                email = "zulmita@hotmail.com"
         End Select
         TBDomicilio.Text = domicilio
         TBTelefono.Text = telefono

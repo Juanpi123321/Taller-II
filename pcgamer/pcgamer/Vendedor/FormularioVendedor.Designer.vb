@@ -31,8 +31,10 @@ Partial Class FormularioVendedor
         Me.PBCliente = New System.Windows.Forms.PictureBox()
         Me.PBStock = New System.Windows.Forms.PictureBox()
         Me.PBFactura = New System.Windows.Forms.PictureBox()
-        Me.BAdmin = New System.Windows.Forms.Button()
         Me.BCerrarSesion = New System.Windows.Forms.Button()
+        Me.LTitulo = New System.Windows.Forms.Label()
+        Me.LCuenta = New System.Windows.Forms.Label()
+        Me.LApeyNom = New System.Windows.Forms.Label()
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PBCliente, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -61,10 +63,10 @@ Partial Class FormularioVendedor
         Me.Panel1.Controls.Add(Me.PBCliente)
         Me.Panel1.Controls.Add(Me.PBStock)
         Me.Panel1.Controls.Add(Me.PBFactura)
-        Me.Panel1.Location = New System.Drawing.Point(206, 132)
+        Me.Panel1.Location = New System.Drawing.Point(205, 203)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(580, 277)
+        Me.Panel1.Size = New System.Drawing.Size(606, 277)
         Me.Panel1.TabIndex = 1
         '
         'BStock
@@ -74,10 +76,10 @@ Partial Class FormularioVendedor
         Me.BStock.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BStock.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BStock.ForeColor = System.Drawing.Color.White
-        Me.BStock.Location = New System.Drawing.Point(392, 208)
+        Me.BStock.Location = New System.Drawing.Point(412, 203)
         Me.BStock.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BStock.Name = "BStock"
-        Me.BStock.Size = New System.Drawing.Size(166, 32)
+        Me.BStock.Size = New System.Drawing.Size(180, 32)
         Me.BStock.TabIndex = 1
         Me.BStock.Text = "&3-Consultar Stock"
         Me.BStock.UseVisualStyleBackColor = False
@@ -89,10 +91,10 @@ Partial Class FormularioVendedor
         Me.BCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BCliente.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BCliente.ForeColor = System.Drawing.Color.White
-        Me.BCliente.Location = New System.Drawing.Point(207, 208)
+        Me.BCliente.Location = New System.Drawing.Point(212, 203)
         Me.BCliente.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BCliente.Name = "BCliente"
-        Me.BCliente.Size = New System.Drawing.Size(177, 32)
+        Me.BCliente.Size = New System.Drawing.Size(180, 32)
         Me.BCliente.TabIndex = 1
         Me.BCliente.Text = "&2-Registrar/Consultar"
         Me.BCliente.UseVisualStyleBackColor = False
@@ -104,10 +106,10 @@ Partial Class FormularioVendedor
         Me.BFactura.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BFactura.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BFactura.ForeColor = System.Drawing.Color.White
-        Me.BFactura.Location = New System.Drawing.Point(21, 208)
+        Me.BFactura.Location = New System.Drawing.Point(11, 203)
         Me.BFactura.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BFactura.Name = "BFactura"
-        Me.BFactura.Size = New System.Drawing.Size(166, 32)
+        Me.BFactura.Size = New System.Drawing.Size(180, 32)
         Me.BFactura.TabIndex = 1
         Me.BFactura.Text = "&1-Generar Factura"
         Me.BFactura.UseVisualStyleBackColor = False
@@ -115,10 +117,10 @@ Partial Class FormularioVendedor
         'PBCliente
         '
         Me.PBCliente.Image = Global.pcgamer.My.Resources.Resources.cliente
-        Me.PBCliente.Location = New System.Drawing.Point(207, 25)
+        Me.PBCliente.Location = New System.Drawing.Point(212, 20)
         Me.PBCliente.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.PBCliente.Name = "PBCliente"
-        Me.PBCliente.Size = New System.Drawing.Size(166, 154)
+        Me.PBCliente.Size = New System.Drawing.Size(180, 154)
         Me.PBCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PBCliente.TabIndex = 0
         Me.PBCliente.TabStop = False
@@ -126,10 +128,10 @@ Partial Class FormularioVendedor
         'PBStock
         '
         Me.PBStock.Image = Global.pcgamer.My.Resources.Resources.stock
-        Me.PBStock.Location = New System.Drawing.Point(392, 25)
+        Me.PBStock.Location = New System.Drawing.Point(412, 20)
         Me.PBStock.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.PBStock.Name = "PBStock"
-        Me.PBStock.Size = New System.Drawing.Size(166, 154)
+        Me.PBStock.Size = New System.Drawing.Size(180, 154)
         Me.PBStock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PBStock.TabIndex = 0
         Me.PBStock.TabStop = False
@@ -137,28 +139,13 @@ Partial Class FormularioVendedor
         'PBFactura
         '
         Me.PBFactura.Image = Global.pcgamer.My.Resources.Resources.factura4
-        Me.PBFactura.Location = New System.Drawing.Point(21, 25)
+        Me.PBFactura.Location = New System.Drawing.Point(11, 20)
         Me.PBFactura.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.PBFactura.Name = "PBFactura"
-        Me.PBFactura.Size = New System.Drawing.Size(166, 154)
+        Me.PBFactura.Size = New System.Drawing.Size(180, 154)
         Me.PBFactura.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PBFactura.TabIndex = 0
         Me.PBFactura.TabStop = False
-        '
-        'BAdmin
-        '
-        Me.BAdmin.BackColor = System.Drawing.Color.Black
-        Me.BAdmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.BAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BAdmin.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BAdmin.ForeColor = System.Drawing.Color.White
-        Me.BAdmin.Location = New System.Drawing.Point(794, 529)
-        Me.BAdmin.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
-        Me.BAdmin.Name = "BAdmin"
-        Me.BAdmin.Size = New System.Drawing.Size(166, 32)
-        Me.BAdmin.TabIndex = 2
-        Me.BAdmin.Text = "Ir a Form Admin"
-        Me.BAdmin.UseVisualStyleBackColor = False
         '
         'BCerrarSesion
         '
@@ -175,6 +162,42 @@ Partial Class FormularioVendedor
         Me.BCerrarSesion.Text = "Cerrar Sesion"
         Me.BCerrarSesion.UseVisualStyleBackColor = False
         '
+        'LTitulo
+        '
+        Me.LTitulo.AutoSize = True
+        Me.LTitulo.BackColor = System.Drawing.Color.Black
+        Me.LTitulo.Font = New System.Drawing.Font("Verdana", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LTitulo.ForeColor = System.Drawing.Color.White
+        Me.LTitulo.Location = New System.Drawing.Point(385, 83)
+        Me.LTitulo.Name = "LTitulo"
+        Me.LTitulo.Size = New System.Drawing.Size(248, 48)
+        Me.LTitulo.TabIndex = 24
+        Me.LTitulo.Text = "VENDEDOR"
+        '
+        'LCuenta
+        '
+        Me.LCuenta.AutoSize = True
+        Me.LCuenta.BackColor = System.Drawing.Color.Transparent
+        Me.LCuenta.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LCuenta.ForeColor = System.Drawing.SystemColors.ActiveCaption
+        Me.LCuenta.Location = New System.Drawing.Point(713, 641)
+        Me.LCuenta.Name = "LCuenta"
+        Me.LCuenta.Size = New System.Drawing.Size(98, 20)
+        Me.LCuenta.TabIndex = 25
+        Me.LCuenta.Text = "Vendedor:"
+        '
+        'LApeyNom
+        '
+        Me.LApeyNom.AutoSize = True
+        Me.LApeyNom.BackColor = System.Drawing.Color.Transparent
+        Me.LApeyNom.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LApeyNom.ForeColor = System.Drawing.SystemColors.ActiveCaption
+        Me.LApeyNom.Location = New System.Drawing.Point(817, 643)
+        Me.LApeyNom.Name = "LApeyNom"
+        Me.LApeyNom.Size = New System.Drawing.Size(125, 18)
+        Me.LApeyNom.TabIndex = 26
+        Me.LApeyNom.Text = "Monzon Andrea"
+        '
         'FormularioVendedor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 25.0!)
@@ -182,8 +205,10 @@ Partial Class FormularioVendedor
         Me.BackgroundImage = Global.pcgamer.My.Resources.Resources.hyperx_background
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1006, 673)
+        Me.Controls.Add(Me.LApeyNom)
+        Me.Controls.Add(Me.LCuenta)
+        Me.Controls.Add(Me.LTitulo)
         Me.Controls.Add(Me.BCerrarSesion)
-        Me.Controls.Add(Me.BAdmin)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PBLogo)
         Me.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -199,6 +224,7 @@ Partial Class FormularioVendedor
         CType(Me.PBStock, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PBFactura, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -210,6 +236,8 @@ Partial Class FormularioVendedor
     Friend WithEvents PBFactura As PictureBox
     Friend WithEvents BStock As Button
     Friend WithEvents BCliente As Button
-    Friend WithEvents BAdmin As Button
     Friend WithEvents BCerrarSesion As Button
+    Friend WithEvents LTitulo As Label
+    Friend WithEvents LCuenta As Label
+    Friend WithEvents LApeyNom As Label
 End Class

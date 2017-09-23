@@ -89,7 +89,7 @@ Partial Class FormularioStock
         Me.DataGridStock.Name = "DataGridStock"
         Me.DataGridStock.ReadOnly = True
         Me.DataGridStock.RowTemplate.Height = 24
-        Me.DataGridStock.Size = New System.Drawing.Size(880, 192)
+        Me.DataGridStock.Size = New System.Drawing.Size(880, 244)
         Me.DataGridStock.TabIndex = 4
         '
         'codpro
@@ -363,9 +363,9 @@ Partial Class FormularioStock
         Me.Panel1.Controls.Add(Me.DataGridStock)
         Me.Panel1.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel1.ForeColor = System.Drawing.Color.White
-        Me.Panel1.Location = New System.Drawing.Point(78, 90)
+        Me.Panel1.Location = New System.Drawing.Point(78, 118)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(886, 471)
+        Me.Panel1.Size = New System.Drawing.Size(886, 518)
         Me.Panel1.TabIndex = 3
         '
         'TPrecio
@@ -439,7 +439,7 @@ Partial Class FormularioStock
         Me.LTitulo.BackColor = System.Drawing.Color.Black
         Me.LTitulo.Font = New System.Drawing.Font("Verdana", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LTitulo.ForeColor = System.Drawing.Color.White
-        Me.LTitulo.Location = New System.Drawing.Point(336, 26)
+        Me.LTitulo.Location = New System.Drawing.Point(376, 51)
         Me.LTitulo.Name = "LTitulo"
         Me.LTitulo.Size = New System.Drawing.Size(280, 40)
         Me.LTitulo.TabIndex = 13

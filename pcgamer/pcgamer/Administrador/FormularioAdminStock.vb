@@ -192,17 +192,27 @@
 
     Private Sub BGuardar_Click(sender As Object, e As EventArgs) Handles BGuardar.Click
         Dim fila As Integer = DataGridStock.CurrentRow.Index
-        DataGridStock.Item(1, fila).Value = TNombre.Text
-        DataGridStock.Item(2, fila).Value = TStock.Text
-        DataGridStock.Item(3, fila).Value = TPrecio.Text
-        DataGridStock.Item(4, fila).Value = TCategoria.Text
+        Dim respuesta As MsgBoxResult
+        respuesta = MsgBox("¿Esta seguro que desea Editar al producto " + TNombre.Text + "??",
+                           MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Editar Producto")
+        If MsgBoxResult.Yes = respuesta Then
+            DataGridStock.Item(1, fila).Value = TNombre.Text
+            DataGridStock.Item(2, fila).Value = TStock.Text
+            DataGridStock.Item(3, fila).Value = TPrecio.Text
+            DataGridStock.Item(4, fila).Value = TCategoria.Text
 
-        BNuevo.Visible = True
-        BGuardar.Visible = False
-        BCancelar.Visible = False
-        deshabilitar()
-        MsgBox("Se ha modificado correctamente", MsgBoxStyle.DefaultButton2 +
-                       MsgBoxStyle.Information, "Modificacion exitosa")
+            BNuevo.Visible = True
+            BGuardar.Visible = False
+            BCancelar.Visible = False
+            deshabilitar()
+            MsgBox("Se ha modificado correctamente", MsgBoxStyle.DefaultButton2 +
+                           MsgBoxStyle.Information, "Modificacion exitosa")
+        Else
+            BNuevo.Visible = True
+            BGuardar.Visible = False
+            BCancelar.Visible = False
+            deshabilitar()
+        End If
     End Sub
 
     Private Sub BCancelar_Click(sender As Object, e As EventArgs) Handles BCancelar.Click
@@ -218,7 +228,7 @@
         If DataGridStock.CurrentRow.DefaultCellStyle.BackColor = Color.Gray Then
             MsgBox("El producto ya esta dado de baja", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Baja invalida")
         Else
-            respuesta = MsgBox("¿Esta seguro que desea Eliminar al producto " + TNombre.Text + " ??",
+            respuesta = MsgBox("¿Esta seguro que desea Eliminar al producto " + TNombre.Text + "??",
                            MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Baja Producto")
             If MsgBoxResult.Yes = respuesta Then
                 Try
