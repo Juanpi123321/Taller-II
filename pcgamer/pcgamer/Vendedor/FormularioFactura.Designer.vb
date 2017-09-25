@@ -31,6 +31,8 @@ Partial Class FormularioFactura
         Me.PBLogo = New System.Windows.Forms.PictureBox()
         Me.LTitulo = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.LTotal = New System.Windows.Forms.Label()
+        Me.TTotal = New System.Windows.Forms.Label()
         Me.DataGridFactura = New System.Windows.Forms.DataGridView()
         Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.unidadmedida = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -105,14 +107,40 @@ Partial Class FormularioFactura
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.LTotal)
+        Me.Panel1.Controls.Add(Me.TTotal)
         Me.Panel1.Controls.Add(Me.DataGridFactura)
         Me.Panel1.Controls.Add(Me.GroupBox2)
         Me.Panel1.Controls.Add(Me.GroupBox3)
         Me.Panel1.Controls.Add(Me.GroupBox1)
         Me.Panel1.Location = New System.Drawing.Point(113, 67)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(791, 436)
+        Me.Panel1.Size = New System.Drawing.Size(791, 520)
         Me.Panel1.TabIndex = 14
+        '
+        'LTotal
+        '
+        Me.LTotal.AutoSize = True
+        Me.LTotal.BackColor = System.Drawing.Color.White
+        Me.LTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.LTotal.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LTotal.Location = New System.Drawing.Point(554, 476)
+        Me.LTotal.Name = "LTotal"
+        Me.LTotal.Size = New System.Drawing.Size(113, 31)
+        Me.LTotal.TabIndex = 15
+        Me.LTotal.Text = "TOTAL $"
+        '
+        'TTotal
+        '
+        Me.TTotal.AutoSize = True
+        Me.TTotal.BackColor = System.Drawing.Color.White
+        Me.TTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TTotal.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TTotal.Location = New System.Drawing.Point(661, 476)
+        Me.TTotal.Name = "TTotal"
+        Me.TTotal.Size = New System.Drawing.Size(30, 31)
+        Me.TTotal.TabIndex = 16
+        Me.TTotal.Text = "0"
         '
         'DataGridFactura
         '
@@ -123,7 +151,7 @@ Partial Class FormularioFactura
         Me.DataGridFactura.Location = New System.Drawing.Point(3, 309)
         Me.DataGridFactura.Name = "DataGridFactura"
         Me.DataGridFactura.RowTemplate.Height = 24
-        Me.DataGridFactura.Size = New System.Drawing.Size(785, 124)
+        Me.DataGridFactura.Size = New System.Drawing.Size(785, 152)
         Me.DataGridFactura.TabIndex = 0
         '
         'cantidad
@@ -561,7 +589,7 @@ Partial Class FormularioFactura
         Me.BImprimir.ForeColor = System.Drawing.Color.White
         Me.BImprimir.Image = Global.pcgamer.My.Resources.Resources.factura_icono
         Me.BImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BImprimir.Location = New System.Drawing.Point(764, 509)
+        Me.BImprimir.Location = New System.Drawing.Point(755, 612)
         Me.BImprimir.Name = "BImprimir"
         Me.BImprimir.Size = New System.Drawing.Size(137, 49)
         Me.BImprimir.TabIndex = 6
@@ -578,7 +606,7 @@ Partial Class FormularioFactura
         Me.BCancelar.ForeColor = System.Drawing.Color.White
         Me.BCancelar.Image = Global.pcgamer.My.Resources.Resources.cancelar_icono1
         Me.BCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BCancelar.Location = New System.Drawing.Point(612, 509)
+        Me.BCancelar.Location = New System.Drawing.Point(603, 612)
         Me.BCancelar.Name = "BCancelar"
         Me.BCancelar.Size = New System.Drawing.Size(137, 49)
         Me.BCancelar.TabIndex = 7
@@ -607,6 +635,7 @@ Partial Class FormularioFactura
         Me.Text = "Formulario Factura"
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         CType(Me.DataGridFactura, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
@@ -663,4 +692,6 @@ Partial Class FormularioFactura
     Friend WithEvents descripcion As DataGridViewTextBoxColumn
     Friend WithEvents punitario As DataGridViewTextBoxColumn
     Friend WithEvents importe As DataGridViewTextBoxColumn
+    Friend WithEvents LTotal As Label
+    Friend WithEvents TTotal As Label
 End Class

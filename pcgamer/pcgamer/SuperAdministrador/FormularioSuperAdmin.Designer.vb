@@ -100,7 +100,7 @@ Partial Class FormularioSuperAdmin
         Me.BRoles.Name = "BRoles"
         Me.BRoles.Size = New System.Drawing.Size(180, 32)
         Me.BRoles.TabIndex = 1
-        Me.BRoles.Text = "&2-Gestionar Roles"
+        Me.BRoles.Text = "&2-Roles y Permisos"
         Me.BRoles.UseVisualStyleBackColor = False
         '
         'BUsuarios
@@ -120,7 +120,7 @@ Partial Class FormularioSuperAdmin
         '
         'PBInformes
         '
-        Me.PBInformes.Image = Global.pcgamer.My.Resources.Resources.informes
+        Me.PBInformes.Image = Global.pcgamer.My.Resources.Resources.database_backup_icons2
         Me.PBInformes.Location = New System.Drawing.Point(412, 20)
         Me.PBInformes.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.PBInformes.Name = "PBInformes"
@@ -131,7 +131,7 @@ Partial Class FormularioSuperAdmin
         '
         'PBStock
         '
-        Me.PBStock.Image = Global.pcgamer.My.Resources.Resources.people_work_metaphor_separated_white_29812042
+        Me.PBStock.Image = Global.pcgamer.My.Resources.Resources.candado_3d_8714068
         Me.PBStock.Location = New System.Drawing.Point(212, 20)
         Me.PBStock.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.PBStock.Name = "PBStock"
@@ -142,7 +142,8 @@ Partial Class FormularioSuperAdmin
         '
         'PBClientes
         '
-        Me.PBClientes.Image = Global.pcgamer.My.Resources.Resources.Client_Service
+        Me.PBClientes.BackColor = System.Drawing.Color.White
+        Me.PBClientes.Image = Global.pcgamer.My.Resources.Resources.c69234e64fceb53934dd5c54b822075c
         Me.PBClientes.Location = New System.Drawing.Point(11, 20)
         Me.PBClientes.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.PBClientes.Name = "PBClientes"

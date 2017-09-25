@@ -323,5 +323,17 @@
   <ItemGroup>
     <None Include="Resources\usuario.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database-backup-icons.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database-backup-icons2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\candado-3d-8714068.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\c69234e64fceb53934dd5c54b822075c.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

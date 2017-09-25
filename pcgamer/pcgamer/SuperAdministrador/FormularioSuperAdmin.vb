@@ -16,4 +16,8 @@
         FormularioSuperUsuario.Show()
         Me.Hide()
     End Sub
+
+    Private Sub BRoles_Click(sender As Object, e As EventArgs) Handles BRoles.Click
+        MsgBox("Disponible para la segunda entrega, disculpe las molestias", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "No disponible")
+    End Sub
 End Class

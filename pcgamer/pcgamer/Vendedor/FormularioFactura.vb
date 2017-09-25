@@ -9,6 +9,10 @@
             BSeleccionarCliente.Hide()
         End If
         TFechaHora.Text = String.Format("{0:G}", DateTime.Now)
+
+
+
+
     End Sub
 
     Private Sub BEditar_Click(sender As Object, e As EventArgs) Handles BEditar.Click, BSeleccionarCliente.Click
@@ -39,7 +43,7 @@
         Else
             respuesta = MsgBox("La factura se ha generado correctamente", MsgBoxStyle.DefaultButton2 +
             MsgBoxStyle.Information, "Facturacion exitosa")
-            'lo destruye de la memoria
+            'destruye de la memoria
             Me.Dispose()
             FormularioVendedor.Show()
         End If
@@ -76,17 +80,23 @@
                 MsgBox("La cantidad de producto debe ser como minimo 1", MsgBoxStyle.DefaultButton2 +
             MsgBoxStyle.Critical, "Cantidad Invalida")
                 DataGridFactura.Item(0, fila).Value = 1
-            Else
-                DataGridFactura.Item(4, fila).Value = Integer.Parse(DataGridFactura.Item(0, fila).Value) * Double.Parse(DataGridFactura.Item(3, fila).Value)
             End If
+            DataGridFactura.Item(4, fila).Value = Integer.Parse(DataGridFactura.Item(0, fila).Value) * Double.Parse(DataGridFactura.Item(3, fila).Value)
+
             If DataGridFactura.Item(0, fila).Value = "" And DataGridFactura.Item(1, fila).Value <> "" Then
                 DataGridFactura.Item(0, fila).Value = 1
             End If
         Catch ex As Exception
-            MsgBox("Error, no hay productos seleccionados", MsgBoxStyle.DefaultButton2 +
-            MsgBoxStyle.Critical, "Modificacion Invalida")
+            'MsgBox("Error, no hay productos seleccionados", MsgBoxStyle.DefaultButton2 +
+            'MsgBoxStyle.Critical, "Modificacion Invalida")
         End Try
 
+        Dim total As Double = 0
+        Dim fila2 As DataGridViewRow = New DataGridViewRow
+        For Each fila2 In DataGridFactura.Rows
+            total = total + Convert.ToDouble(fila2.Cells(3).Value)
+        Next
+        TTotal.Text = Convert.ToString(total)
     End Sub
 
     Private Sub FormularioFactura_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
@@ -140,6 +150,15 @@
                 End If
             End If
         End If
+    End Sub
+
+    Private Sub DataGridFactura_CellValidated(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridFactura.CellValidated
+        Dim total As Double = 0
+        Dim fila2 As DataGridViewRow = New DataGridViewRow
+        For Each fila2 In DataGridFactura.Rows
+            total = total + Convert.ToDouble(fila2.Cells(3).Value)
+        Next
+        TTotal.Text = Convert.ToString(total)
     End Sub
 
 End Class
