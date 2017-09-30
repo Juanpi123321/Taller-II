@@ -94,7 +94,7 @@
         Dim total As Double = 0
         Dim fila2 As DataGridViewRow = New DataGridViewRow
         For Each fila2 In DataGridFactura.Rows
-            total = total + Convert.ToDouble(fila2.Cells(3).Value)
+            total = total + Convert.ToDouble(fila2.Cells(4).Value)
         Next
         TTotal.Text = Convert.ToString(total)
     End Sub

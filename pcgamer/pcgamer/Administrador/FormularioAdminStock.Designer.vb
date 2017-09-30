@@ -137,7 +137,7 @@ Partial Class FormularioAdminStock
         Me.Panel1.ForeColor = System.Drawing.Color.White
         Me.Panel1.Location = New System.Drawing.Point(78, 118)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(886, 518)
+        Me.Panel1.Size = New System.Drawing.Size(886, 464)
         Me.Panel1.TabIndex = 18
         '
         'TCategoria
@@ -472,7 +472,7 @@ Partial Class FormularioAdminStock
         Me.DataGridStock.Name = "DataGridStock"
         Me.DataGridStock.ReadOnly = True
         Me.DataGridStock.RowTemplate.Height = 24
-        Me.DataGridStock.Size = New System.Drawing.Size(880, 167)
+        Me.DataGridStock.Size = New System.Drawing.Size(880, 189)
         Me.DataGridStock.TabIndex = 22
         '
         'codpro
@@ -536,11 +536,12 @@ Partial Class FormularioAdminStock
         Me.BBaja.ForeColor = System.Drawing.Color.White
         Me.BBaja.Image = Global.pcgamer.My.Resources.Resources.cancelar_icono1
         Me.BBaja.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BBaja.Location = New System.Drawing.Point(808, 534)
+        Me.BBaja.Location = New System.Drawing.Point(784, 587)
         Me.BBaja.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BBaja.Name = "BBaja"
-        Me.BBaja.Size = New System.Drawing.Size(156, 48)
-        Me.BBaja.TabIndex = 34
+        Me.BBaja.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.BBaja.Size = New System.Drawing.Size(164, 48)
+        Me.BBaja.TabIndex = 42
         Me.BBaja.Text = "Baja Prod"
         Me.BBaja.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.BBaja.UseVisualStyleBackColor = False
@@ -554,11 +555,11 @@ Partial Class FormularioAdminStock
         Me.BAlta.ForeColor = System.Drawing.Color.White
         Me.BAlta.Image = Global.pcgamer.My.Resources.Resources.ok_icono
         Me.BAlta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BAlta.Location = New System.Drawing.Point(808, 534)
+        Me.BAlta.Location = New System.Drawing.Point(784, 587)
         Me.BAlta.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BAlta.Name = "BAlta"
-        Me.BAlta.Size = New System.Drawing.Size(156, 48)
-        Me.BAlta.TabIndex = 33
+        Me.BAlta.Size = New System.Drawing.Size(164, 48)
+        Me.BAlta.TabIndex = 41
         Me.BAlta.Text = "Alta Prod"
         Me.BAlta.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.BAlta.UseVisualStyleBackColor = False

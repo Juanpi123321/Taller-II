@@ -43,7 +43,7 @@ Public Class FormularioSuperUsuario
 
     'Si estan habilitados los campos para modificar y hace click en otro lado
     Private Sub cancelarAgregarEditar()
-        If BCancelar.Visible = True Or BGuardar.Visible = True Then
+        If BCancelar.Visible = True Then
             MsgBox("Debe finalizar la edicion antes de continuar", MsgBoxStyle.DefaultButton2 +
                    MsgBoxStyle.Exclamation, "Operacion cancelada")
             limpiar()
@@ -59,18 +59,6 @@ Public Class FormularioSuperUsuario
 
     Private Sub FechaReg_ValueChanged(sender As Object, e As EventArgs) Handles FechaReg.ValueChanged
         FechaReg.Value = Now
-    End Sub
-
-    Private Sub BLimpiar_Click(sender As Object, e As EventArgs) Handles BLimpiar.Click
-        TNombre.Clear()
-        TApellido.Clear()
-        TDNI.Clear()
-        TDomicilio.Clear()
-        TTelefono.Clear()
-        TEmail.Clear()
-        RRolVendedor.Checked = True
-        RRolAdmin.Checked = False
-        RRolSuper.Checked = False
     End Sub
 
     Private Sub FormularioSuperUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -238,16 +226,6 @@ Public Class FormularioSuperUsuario
         PBImagen.Image = Image.FromFile(imagen)
         Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
 
-        cancelarAgregarEditar()
-
-        If DataGridUsuario.CurrentRow.DefaultCellStyle.BackColor = Color.Gray Then
-            BAlta.Visible = True
-            BEliminar.Visible = False
-        Else
-            BAlta.Visible = False
-            BEliminar.Visible = True
-        End If
-
         If TApellido.Text = "" Then
             TNombre.Text = "        *********************      "
             TApellido.Text = "        *********************      "
@@ -259,6 +237,17 @@ Public Class FormularioSuperUsuario
             PBImagen.Image = Image.FromFile(imagen)
             Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
         End If
+
+        If DataGridUsuario.CurrentRow.DefaultCellStyle.BackColor = Color.Gray Then
+            BAlta.Visible = True
+            BEliminar.Visible = False
+        Else
+            BAlta.Visible = False
+            BEliminar.Visible = True
+        End If
+
+        cancelarAgregarEditar()
+
     End Sub
 
 

@@ -39,7 +39,6 @@ Partial Class FormularioSuperUsuario
         Me.FechaReg = New System.Windows.Forms.DateTimePicker()
         Me.BNuevo = New System.Windows.Forms.Button()
         Me.PBImagen = New System.Windows.Forms.PictureBox()
-        Me.BLimpiar = New System.Windows.Forms.Button()
         Me.BCancelar = New System.Windows.Forms.Button()
         Me.BAgregar = New System.Windows.Forms.Button()
         Me.BGuardar = New System.Windows.Forms.Button()
@@ -108,7 +107,6 @@ Partial Class FormularioSuperUsuario
         Me.Panel1.Controls.Add(Me.FechaReg)
         Me.Panel1.Controls.Add(Me.BNuevo)
         Me.Panel1.Controls.Add(Me.PBImagen)
-        Me.Panel1.Controls.Add(Me.BLimpiar)
         Me.Panel1.Controls.Add(Me.BCancelar)
         Me.Panel1.Controls.Add(Me.BAgregar)
         Me.Panel1.Controls.Add(Me.BGuardar)
@@ -232,22 +230,6 @@ Partial Class FormularioSuperUsuario
         Me.PBImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PBImagen.TabIndex = 34
         Me.PBImagen.TabStop = False
-        '
-        'BLimpiar
-        '
-        Me.BLimpiar.BackColor = System.Drawing.Color.DarkRed
-        Me.BLimpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.BLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BLimpiar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BLimpiar.ForeColor = System.Drawing.Color.White
-        Me.BLimpiar.Location = New System.Drawing.Point(211, 322)
-        Me.BLimpiar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
-        Me.BLimpiar.Name = "BLimpiar"
-        Me.BLimpiar.Size = New System.Drawing.Size(95, 31)
-        Me.BLimpiar.TabIndex = 26
-        Me.BLimpiar.Text = "Limpiar"
-        Me.BLimpiar.UseVisualStyleBackColor = False
-        Me.BLimpiar.Visible = False
         '
         'BCancelar
         '
@@ -625,7 +607,6 @@ Partial Class FormularioSuperUsuario
     Friend WithEvents LRol As Label
     Friend WithEvents LFechaIng As Label
     Friend WithEvents FechaReg As DateTimePicker
-    Friend WithEvents BLimpiar As Button
     Friend WithEvents BAgregar As Button
     Friend WithEvents Id_usuario As DataGridViewTextBoxColumn
     Friend WithEvents apellidos As DataGridViewTextBoxColumn

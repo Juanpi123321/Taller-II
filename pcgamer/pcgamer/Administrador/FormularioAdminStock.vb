@@ -155,6 +155,7 @@
         TDiscoRigido.Text = discorigido
         TGabinete.Text = gabinete
         TPrecio.Text = DataGridStock.Item(3, fila).Value
+
         PBImagen.Image = Image.FromFile(imagen)
         Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
 
@@ -174,9 +175,10 @@
             TDiscoRigido.Text = "     ************"
             TGabinete.Text = "     ************"
             TPrecio.Text = "     ************"
+            imagen = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\gabinete.jpg"
+            PBImagen.Image = Image.FromFile(imagen)
+            Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
         End If
-
-        cancelarAgregarEditar()
 
         If DataGridStock.CurrentRow.DefaultCellStyle.BackColor = Color.Gray Then
             BAlta.Visible = True
@@ -186,6 +188,7 @@
             BBaja.Visible = True
         End If
 
+        cancelarAgregarEditar()
     End Sub
 
     Private Sub BEditar_Click(sender As Object, e As EventArgs) Handles BEditar.Click

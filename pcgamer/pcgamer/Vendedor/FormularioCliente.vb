@@ -150,23 +150,26 @@ Public Class FormularioCliente
         Dim respuesta As MsgBoxResult
         respuesta = MsgBox("¿Esta seguro de modificar el Producto?", MsgBoxStyle.YesNo +
           MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Question, "Confirmar Modificacion")
-            If MsgBoxResult.Yes = respuesta Then
-                DataGridCliente.Item(1, fila).Value = TBApellido.Text
-                DataGridCliente.Item(2, fila).Value = TBNombre.Text
-                DataGridCliente.Item(3, fila).Value = TBDNI.Text
-                BAgregarFactura.Visible = True
-                BCancelar.Visible = False
-                BGuardar.Visible = False
-                deshabilitar()
-                MsgBox("Se ha modificado correctamente", MsgBoxStyle.DefaultButton2 +
-                               MsgBoxStyle.Information, "Modificacion exitosa")
-            End If
-
-
+        If MsgBoxResult.Yes = respuesta Then
+            DataGridCliente.Item(1, fila).Value = TBApellido.Text
+            DataGridCliente.Item(2, fila).Value = TBNombre.Text
+            DataGridCliente.Item(3, fila).Value = TBDNI.Text
+            MsgBox("Se ha modificado correctamente", MsgBoxStyle.DefaultButton2 +
+                           MsgBoxStyle.Information, "Modificacion exitosa")
+        Else
+            MsgBox("No se han realizado cambios", MsgBoxStyle.DefaultButton2 +
+                           MsgBoxStyle.Information, "Operacion Cancelada")
+        End If
+        BAgregarFactura.Visible = True
+        BCancelar.Visible = False
+        BGuardar.Visible = False
+        deshabilitar()
 
     End Sub
 
     Private Sub BCancelar_Click(sender As Object, e As EventArgs) Handles BCancelar.Click
+        MsgBox("No se han realizado cambios", MsgBoxStyle.DefaultButton2 +
+                           MsgBoxStyle.Information, "Operacion Cancelada")
         BAgregarFactura.Visible = True
         BCancelar.Visible = False
         BGuardar.Visible = False

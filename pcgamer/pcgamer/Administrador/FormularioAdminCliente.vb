@@ -8,6 +8,15 @@ Public Class FormularioAdminCliente
     Dim DNIvalidate As Boolean
     Dim Emailvalidate As Boolean
 
+    Private Sub limpiar()
+        TNombre.Clear()
+        TApellido.Clear()
+        TDni.Clear()
+        TDomicilio.Clear()
+        TTelefono.Clear()
+        TEmail.Clear()
+    End Sub
+
     Private Sub habilitar()
         TBApellido.ReadOnly = False
         TBNombre.ReadOnly = False
@@ -26,13 +35,21 @@ Public Class FormularioAdminCliente
         TBEmail.ReadOnly = True
     End Sub
 
+    'Si estan habilitados los campos para modificar y hace click en otro lado
+    Private Sub cancelarAgregarEditar()
+        If BCancelar.Visible = True Or BGuardar.Visible = True Then
+            MsgBox("Debe finalizar la edicion antes de continuar", MsgBoxStyle.DefaultButton2 +
+                       MsgBoxStyle.Exclamation, "Operacion cancelada")
+            BEliminar.Visible = True
+            BCancelar.Visible = False
+            BGuardar.Visible = False
+            deshabilitar()
+        End If
+
+    End Sub
+
     Private Sub BLimpiar_Click(sender As Object, e As EventArgs) Handles BLimpiar.Click
-        TNombre.Clear()
-        TApellido.Clear()
-        TDni.Clear()
-        TDomicilio.Clear()
-        TTelefono.Clear()
-        TEmail.Clear()
+        limpiar()
     End Sub
 
     Private Sub BAgregar_Click_1(sender As Object, e As EventArgs) Handles BAgregar.Click
@@ -46,9 +63,18 @@ Public Class FormularioAdminCliente
                        MsgBoxStyle.Information, "Email invalido")
         Else
             Try
-                DataGridCliente.Rows.Add("0005", TApellido.Text, TNombre.Text, TDni.Text, FechaReg.Value)
-                MsgBox("El Cliente se ha registrado correctamente", MsgBoxStyle.DefaultButton2 +
-        MsgBoxStyle.Information, "Registro Exitoso")
+                Dim respuesta As MsgBoxResult
+                respuesta = MsgBox("¿Esta seguro que desea Dar de agregar al cliente??",
+                           MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Alta Cliente")
+                If MsgBoxResult.Yes = respuesta Then
+                    DataGridCliente.Rows.Add("0005", TApellido.Text, TNombre.Text, TDni.Text, FechaReg.Value)
+                    limpiar()
+                    MsgBox("El Cliente se ha registrado correctamente", MsgBoxStyle.DefaultButton2 +
+            MsgBoxStyle.Information, "Registro Exitoso")
+                Else
+                    MsgBox("No se ha agregado el cliente", MsgBoxStyle.DefaultButton2 +
+                           MsgBoxStyle.Information, "Operacion Cancelada")
+                End If
             Catch ex As Exception
                 MsgBox("Lo sentimos ha ocurrido un evento inesperado, el cliente no pudo ser registrado",
             MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Error al registrar")
@@ -196,15 +222,7 @@ Public Class FormularioAdminCliente
             BAlta.Visible = False
         End If
 
-        If BCancelar.Visible = True Or BGuardar.Visible = True Then
-            MsgBox("Debe finalizar la edicion antes de continuar", MsgBoxStyle.DefaultButton2 +
-                       MsgBoxStyle.Exclamation, "Edicion Cliente")
-            BEliminar.Visible = True
-            BCancelar.Visible = False
-            BGuardar.Visible = False
-            deshabilitar()
-        End If
-
+        cancelarAgregarEditar()
 
     End Sub
 
@@ -272,5 +290,13 @@ Public Class FormularioAdminCliente
             MsgBox("El cliente ya esta dado de Alta", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Alta Invalida")
         End If
 
+    End Sub
+
+    Private Sub TBuscar_TextChanged(sender As Object, e As EventArgs) Handles TBuscar.TextChanged
+        cancelarAgregarEditar()
+    End Sub
+
+    Private Sub CBBuscar_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBBuscar.SelectedIndexChanged
+        cancelarAgregarEditar()
     End Sub
 End Class
