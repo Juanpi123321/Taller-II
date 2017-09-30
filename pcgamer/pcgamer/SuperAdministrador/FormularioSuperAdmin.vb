@@ -20,6 +20,7 @@ Public Class FormularioSuperAdmin
     End Sub
 
     Private Sub verificarAcceso()
+        Me.Opacity = 0.6
         Dim fuente As New System.Drawing.Font("Verdana", 10)
         Dim dialog As New Form With {
             .FormBorderStyle = FormBorderStyle.None,
@@ -88,12 +89,12 @@ Public Class FormularioSuperAdmin
         dialog.Controls.Add(TUsuario)
         dialog.Controls.Add(TContrasena)
         dialog.ShowDialog()
+        Me.Opacity = 1
     End Sub
 
     Private Sub BRoles_Click(sender As Object, e As EventArgs) Handles BRoles.Click
         'MsgBox("Disponible para la segunda entrega, disculpe las molestias", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "No disponible")
         verificarAcceso()
     End Sub
-
 
 End Class
