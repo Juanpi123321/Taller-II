@@ -243,7 +243,7 @@ Partial Class FormularioAdminStock
         Me.BCancelar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BCancelar.Name = "BCancelar"
         Me.BCancelar.Size = New System.Drawing.Size(54, 48)
-        Me.BCancelar.TabIndex = 3
+        Me.BCancelar.TabIndex = 36
         Me.BCancelar.UseVisualStyleBackColor = False
         Me.BCancelar.Visible = False
         '
@@ -274,7 +274,7 @@ Partial Class FormularioAdminStock
         Me.BNuevo.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BNuevo.Name = "BNuevo"
         Me.BNuevo.Size = New System.Drawing.Size(129, 32)
-        Me.BNuevo.TabIndex = 2
+        Me.BNuevo.TabIndex = 35
         Me.BNuevo.Text = "Nuevo"
         Me.BNuevo.UseVisualStyleBackColor = False
         '
@@ -305,7 +305,7 @@ Partial Class FormularioAdminStock
         Me.BCancelarAgregar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BCancelarAgregar.Name = "BCancelarAgregar"
         Me.BCancelarAgregar.Size = New System.Drawing.Size(96, 32)
-        Me.BCancelarAgregar.TabIndex = 24
+        Me.BCancelarAgregar.TabIndex = 34
         Me.BCancelarAgregar.Text = "Cancelar"
         Me.BCancelarAgregar.UseVisualStyleBackColor = False
         Me.BCancelarAgregar.Visible = False
@@ -321,7 +321,7 @@ Partial Class FormularioAdminStock
         Me.BEditar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BEditar.Name = "BEditar"
         Me.BEditar.Size = New System.Drawing.Size(82, 32)
-        Me.BEditar.TabIndex = 1
+        Me.BEditar.TabIndex = 33
         Me.BEditar.Text = "Editar"
         Me.BEditar.UseVisualStyleBackColor = False
         '
@@ -332,7 +332,7 @@ Partial Class FormularioAdminStock
         Me.CBBuscar.Location = New System.Drawing.Point(371, 17)
         Me.CBBuscar.Name = "CBBuscar"
         Me.CBBuscar.Size = New System.Drawing.Size(207, 28)
-        Me.CBBuscar.TabIndex = 6
+        Me.CBBuscar.TabIndex = 1
         '
         'LBuscar
         '
@@ -342,7 +342,7 @@ Partial Class FormularioAdminStock
         Me.LBuscar.Location = New System.Drawing.Point(18, 19)
         Me.LBuscar.Name = "LBuscar"
         Me.LBuscar.Size = New System.Drawing.Size(75, 20)
-        Me.LBuscar.TabIndex = 14
+        Me.LBuscar.TabIndex = 21
         Me.LBuscar.Text = "Buscar:"
         '
         'TBuscar
@@ -350,7 +350,7 @@ Partial Class FormularioAdminStock
         Me.TBuscar.Location = New System.Drawing.Point(99, 16)
         Me.TBuscar.Name = "TBuscar"
         Me.TBuscar.Size = New System.Drawing.Size(250, 28)
-        Me.TBuscar.TabIndex = 5
+        Me.TBuscar.TabIndex = 0
         '
         'LCategoria
         '
@@ -473,7 +473,7 @@ Partial Class FormularioAdminStock
         Me.DataGridStock.ReadOnly = True
         Me.DataGridStock.RowTemplate.Height = 24
         Me.DataGridStock.Size = New System.Drawing.Size(880, 167)
-        Me.DataGridStock.TabIndex = 0
+        Me.DataGridStock.TabIndex = 22
         '
         'codpro
         '

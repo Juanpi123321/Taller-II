@@ -41,6 +41,22 @@
         TPrecio.ReadOnly = True
     End Sub
 
+    'Si estan habilitados los campos para modificar y hace click en otro lado
+    Private Sub cancelarAgregarEditar()
+        If BCancelar.Visible = True Or BGuardar.Visible = True Or BCancelarAgregar.Visible = True Or BAgregar.Visible = True Then
+            MsgBox("Debe finalizar la edicion antes de continuar", MsgBoxStyle.DefaultButton2 +
+                       MsgBoxStyle.Exclamation, "Operacion Cancelada")
+            BNuevo.Visible = True
+            BGuardar.Visible = False
+            BCancelar.Visible = False
+            BCancelarAgregar.Visible = False
+            BAgregar.Visible = False
+            BEditar.Visible = True
+            deshabilitar()
+        End If
+
+    End Sub
+
     Private Sub FormularioStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Agrego todo manualmente hasta que tenga Base de Datos
         DataGridStock.Rows.Add("0001", "Pc Bronze Ultra", "10", "8999.99", "Desktop-Escritorio")
@@ -53,6 +69,20 @@
         DataGridStock.Rows.Add("0008", "Pc Master Race", "10", "13799.99", "Desktop-Escritorio")
         DataGridStock.Rows.Add("0009", "Pc NZXT Guardian", "25", "9999.99", "Desktop-Escritorio")
         DataGridStock.Rows.Add("0010", "Pc Circuit Planet", "15", "8999.99", "Desktop-Escritorio")
+
+        TNombre.Text = "     ************"
+        TProcesador.Text = "     ************"
+        TPlacaMadre.Text = "     ************"
+        TRam.Text = "     ************"
+        TStock.Text = "     ************"
+        TCategoria.Text = "     ************"
+        TPlacaVideo.Text = "     ************"
+        TDiscoRigido.Text = "     ************"
+        TGabinete.Text = "     ************"
+        TPrecio.Text = "     ************"
+        Dim imagen As String = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\gabinete.jpg"
+        PBImagen.Image = Image.FromFile(imagen)
+        Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
     End Sub
 
     Private Sub DataGridStock_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridStock.CellEnter
@@ -146,24 +176,7 @@
             TPrecio.Text = "     ************"
         End If
 
-        If BCancelar.Visible = True Or BGuardar.Visible = True Then
-            MsgBox("Debe finalizar la edicion antes de continuar", MsgBoxStyle.DefaultButton2 +
-                       MsgBoxStyle.Exclamation, "Edicion Producto")
-            BNuevo.Visible = True
-            BGuardar.Visible = False
-            BCancelar.Visible = False
-            deshabilitar()
-        End If
-
-        If BCancelarAgregar.Visible = True Or BAgregar.Visible = True Then
-            MsgBox("Debe finalizar la actualizacion antes de continuar", MsgBoxStyle.DefaultButton2 +
-                       MsgBoxStyle.Exclamation, "Edicion Producto")
-            BNuevo.Visible = True
-            BEditar.Visible = True
-            BCancelarAgregar.Visible = False
-            BAgregar.Visible = False
-            deshabilitar()
-        End If
+        cancelarAgregarEditar()
 
         If DataGridStock.CurrentRow.DefaultCellStyle.BackColor = Color.Gray Then
             BAlta.Visible = True
@@ -212,6 +225,8 @@
             BGuardar.Visible = False
             BCancelar.Visible = False
             deshabilitar()
+            MsgBox("No se han realizado cambios", MsgBoxStyle.DefaultButton2 +
+                           MsgBoxStyle.Information, "Operacion Cancelada")
         End If
     End Sub
 
@@ -220,6 +235,8 @@
         BGuardar.Visible = False
         BCancelar.Visible = False
         deshabilitar()
+        MsgBox("No se han realizado cambios", MsgBoxStyle.DefaultButton2 +
+                           MsgBoxStyle.Information, "Operacion Cancelada")
     End Sub
 
     Private Sub BBaja_Click(sender As Object, e As EventArgs) Handles BBaja.Click
@@ -277,6 +294,8 @@
         BEditar.Visible = True
         BNuevo.Visible = True
         deshabilitar()
+        MsgBox("No se ha agregado ningun producto", MsgBoxStyle.DefaultButton2 +
+                           MsgBoxStyle.Information, "Operacion Cancelada")
     End Sub
 
     Private Sub BAgregar_Click(sender As Object, e As EventArgs) Handles BAgregar.Click
@@ -284,22 +303,35 @@
             If TNombre.Text = "" Or TStock.Text = "" Or TPrecio.Text = "" Or TCategoria.Text = "" Then
                 MsgBox("Debe completar todos los campos", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Campos incompletos")
             Else
-                Dim fila As Integer = DataGridStock.CurrentRow.Index
-                Dim nombre As String = TNombre.Text
-                Dim stock As String = TStock.Text
-                Dim precio As String = TPrecio.Text
-                Dim categoria As String = TCategoria.Text
-                DataGridStock.Rows.Add("0011", nombre, stock, precio, categoria)
+                Dim respuesta As MsgBoxResult
+                respuesta = MsgBox("¿Esta seguro que desea agregar el producto??",
+                           MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Agregar Producto")
+                If MsgBoxResult.Yes = respuesta Then
+                    Dim fila As Integer = DataGridStock.CurrentRow.Index
+                    Dim nombre As String = TNombre.Text
+                    Dim stock As String = TStock.Text
+                    Dim precio As String = TPrecio.Text
+                    Dim categoria As String = TCategoria.Text
+                    DataGridStock.Rows.Add("0011", nombre, stock, precio, categoria)
+                    MsgBox("El producto se ha agregado correctamente", MsgBoxStyle.DefaultButton2 +
+                           MsgBoxStyle.Information, "Operacion exitosa")
+                Else
+                    MsgBox("El producto no se ha agregado", MsgBoxStyle.DefaultButton2 +
+                           MsgBoxStyle.Information, "Operacion Cancelada")
+                End If
                 BAgregar.Visible = False
                 BCancelarAgregar.Visible = False
                 BEditar.Visible = True
                 BNuevo.Visible = True
                 deshabilitar()
-                MsgBox("El producto se ha agregado correctamente", MsgBoxStyle.DefaultButton2 +
-                           MsgBoxStyle.Information, "Operacion exitosa")
             End If
         Catch ex As Exception
             MsgBox("Ha ocurrido un problema, el producto no se pudo agregar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Fallo al Agregar")
+            BAgregar.Visible = False
+            BCancelarAgregar.Visible = False
+            BEditar.Visible = True
+            BNuevo.Visible = True
+            deshabilitar()
         End Try
     End Sub
 
@@ -313,5 +345,13 @@
         If Not IsNumeric(e.KeyChar) Then
             e.Handled = True
         End If
+    End Sub
+
+    Private Sub TBuscar_TextChanged(sender As Object, e As EventArgs) Handles TBuscar.TextChanged
+        cancelarAgregarEditar()
+    End Sub
+
+    Private Sub CBBuscar_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBBuscar.SelectedIndexChanged
+        cancelarAgregarEditar()
     End Sub
 End Class

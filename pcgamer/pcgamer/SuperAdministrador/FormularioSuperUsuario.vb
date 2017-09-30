@@ -8,6 +8,15 @@ Public Class FormularioSuperUsuario
     Dim DNIvalidate As Boolean = True
     Dim Emailvalidate As Boolean
 
+    Private Sub limpiar()
+        TApellido.Clear()
+        TNombre.Clear()
+        TDNI.Clear()
+        TDomicilio.Clear()
+        TTelefono.Clear()
+        TEmail.Clear()
+    End Sub
+
     Private Sub habilitar()
         TApellido.ReadOnly = False
         TNombre.ReadOnly = False
@@ -32,6 +41,22 @@ Public Class FormularioSuperUsuario
         RRolSuper.Enabled = False
     End Sub
 
+    'Si estan habilitados los campos para modificar y hace click en otro lado
+    Private Sub cancelarAgregarEditar()
+        If BCancelar.Visible = True Or BGuardar.Visible = True Then
+            MsgBox("Debe finalizar la edicion antes de continuar", MsgBoxStyle.DefaultButton2 +
+                   MsgBoxStyle.Exclamation, "Operacion cancelada")
+            limpiar()
+            BNuevo.Visible = True
+            BEditar.Visible = True
+            BEliminar.Visible = True
+            BCancelar.Visible = False
+            BAgregar.Visible = False
+            BGuardar.Visible = False
+            deshabilitar()
+        End If
+    End Sub
+
     Private Sub FechaReg_ValueChanged(sender As Object, e As EventArgs) Handles FechaReg.ValueChanged
         FechaReg.Value = Now
     End Sub
@@ -53,6 +78,16 @@ Public Class FormularioSuperUsuario
         DataGridUsuario.Rows.Add("0002", "Trump", "Donald", "10123341", "Vendedor", "21/09/2017 17:41")
         DataGridUsuario.Rows.Add("0003", "Martinez", "Pity", "40112858", "Vendedor", "22/09/2017 11:01")
         DataGridUsuario.Rows.Add("0004", "Tinelli", "Marcelo", "15020491", "Vendedor", "23/09/2017 09:33")
+        TNombre.Text = "        *********************      "
+        TApellido.Text = "        *********************      "
+        TDNI.Text = "        *********************      "
+        TDomicilio.Text = "        *********************      "
+        TTelefono.Text = "        *********************      "
+        TEmail.Text = "        *********************      "
+        Dim imagen As String = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\usuarios\usuario.jpg"
+        PBImagen.Image = Image.FromFile(imagen)
+        Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
+
     End Sub
 
     Private Sub BEditar_Click(sender As Object, e As EventArgs) Handles BEditar.Click
@@ -63,6 +98,7 @@ Public Class FormularioSuperUsuario
         ElseIf DataGridUsuario.Item(1, fila).Value = "" Then
             MsgBox("Seleccione un usuario para editar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
         Else
+            BNuevo.Visible = False
             BEditar.Visible = False
             BEliminar.Visible = False
             BCancelar.Visible = True
@@ -97,12 +133,15 @@ Public Class FormularioSuperUsuario
                     DataGridUsuario.Item(4, fila).Value = rol
                     MsgBox("Se ha modificado correctamente", MsgBoxStyle.DefaultButton2 +
                                    MsgBoxStyle.Information, "Modificacion exitosa")
+                Else
+                    MsgBox("No se han realizado cambios", MsgBoxStyle.DefaultButton2 +
+                           MsgBoxStyle.Information, "Operacion Cancelada")
                 End If
-
-                BEditar.Visible = True
-                BEliminar.Visible = True
+                BNuevo.Visible = True
                 BCancelar.Visible = False
                 BGuardar.Visible = False
+                BEditar.Visible = True
+                BEliminar.Visible = True
                 deshabilitar()
             Else
                 MsgBox("Ingrese un DNI valido", MsgBoxStyle.DefaultButton2 +
@@ -114,10 +153,12 @@ Public Class FormularioSuperUsuario
     End Sub
 
     Private Sub BCancelar_Click(sender As Object, e As EventArgs) Handles BCancelar.Click
+        BNuevo.Visible = True
+        BCancelar.Visible = False
+        BAgregar.Visible = False
+        BGuardar.Visible = False
         BEditar.Visible = True
         BEliminar.Visible = True
-        BCancelar.Visible = False
-        BGuardar.Visible = False
         deshabilitar()
         MsgBox("No se han realizado cambios", MsgBoxStyle.DefaultButton2 +
                            MsgBoxStyle.Information, "Operacion Cancelada")
@@ -197,6 +238,8 @@ Public Class FormularioSuperUsuario
         PBImagen.Image = Image.FromFile(imagen)
         Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
 
+        cancelarAgregarEditar()
+
         If DataGridUsuario.CurrentRow.DefaultCellStyle.BackColor = Color.Gray Then
             BAlta.Visible = True
             BEliminar.Visible = False
@@ -205,14 +248,16 @@ Public Class FormularioSuperUsuario
             BEliminar.Visible = True
         End If
 
-        If BCancelar.Visible = True Or BGuardar.Visible = True Then
-            MsgBox("Debe finalizar la edicion antes de continuar", MsgBoxStyle.DefaultButton2 +
-                       MsgBoxStyle.Exclamation, "Edicion Usuario")
-            BEditar.Visible = True
-            BEliminar.Visible = True
-            BCancelar.Visible = False
-            BGuardar.Visible = False
-            deshabilitar()
+        If TApellido.Text = "" Then
+            TNombre.Text = "        *********************      "
+            TApellido.Text = "        *********************      "
+            TDNI.Text = "        *********************      "
+            TDomicilio.Text = "        *********************      "
+            TTelefono.Text = "        *********************      "
+            TEmail.Text = "        *********************      "
+            imagen = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\usuarios\usuario.jpg"
+            PBImagen.Image = Image.FromFile(imagen)
+            Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
         End If
     End Sub
 
@@ -256,5 +301,59 @@ Public Class FormularioSuperUsuario
             MsgBox("El usuario ya esta dado de Alta", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Alta Invalida")
         End If
     End Sub
+
+    Private Sub CBBuscar_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBBuscar.SelectedIndexChanged
+        cancelarAgregarEditar()
+    End Sub
+
+    Private Sub TBuscar_TextChanged(sender As Object, e As EventArgs) Handles TBuscar.TextChanged
+        cancelarAgregarEditar()
+    End Sub
+
+    Private Sub BNuevo_Click(sender As Object, e As EventArgs) Handles BNuevo.Click
+        limpiar()
+        Dim imagen As String = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\usuarios\usuario.jpg"
+        PBImagen.Image = Image.FromFile(imagen)
+        Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
+        habilitar()
+
+        BAgregar.Visible = True
+        BCancelar.Visible = True
+        BEditar.Visible = False
+        BNuevo.Visible = False
+        BEliminar.Visible = False
+    End Sub
+
+    Private Sub BAgregar_Click(sender As Object, e As EventArgs) Handles BAgregar.Click
+        If TNombre.Text = "" Or TApellido.Text = "" Or TDNI.Text = "" Or TDomicilio.Text = "" Or TEmail.Text = "" Then
+            MsgBox("Debe completar los campos obligatorios!", MsgBoxStyle.DefaultButton2 +
+        MsgBoxStyle.Critical, "Registro Incompleto")
+        ElseIf DNIvalidate = False Then
+            MsgBox("Ingrese un DNI valido")
+        ElseIf Emailvalidate = False Then
+            MsgBox("Ingrese un Email valido", MsgBoxStyle.DefaultButton2 +
+                       MsgBoxStyle.Information, "Email invalido")
+        Else
+            Try
+                DataGridUsuario.Rows.Add("0005", TApellido.Text, TNombre.Text, TDNI.Text, FechaReg.Value)
+                MsgBox("El Cliente se ha registrado correctamente", MsgBoxStyle.DefaultButton2 +
+        MsgBoxStyle.Information, "Registro Exitoso")
+            Catch ex As Exception
+                MsgBox("Lo sentimos ha ocurrido un evento inesperado, el cliente no pudo ser registrado",
+            MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Error al registrar")
+            End Try
+        End If
+    End Sub
+
+    Private Sub TEmail_Validated(sender As Object, e As EventArgs) Handles TEmail.Validated
+        If Funciones.ValidarEmail(TEmail.Text) = False Then
+            Emailvalidate = False
+            MsgBox("Ingrese un Email valido", MsgBoxStyle.DefaultButton2 +
+                       MsgBoxStyle.Information, "Email invalido")
+        Else
+            Emailvalidate = True
+        End If
+    End Sub
+
 
 End Class
