@@ -40,6 +40,7 @@ Partial Class FormularioSuperUsuario
         Me.BNuevo = New System.Windows.Forms.Button()
         Me.PBImagen = New System.Windows.Forms.PictureBox()
         Me.BCancelar = New System.Windows.Forms.Button()
+        Me.BImagen = New System.Windows.Forms.Button()
         Me.BAgregar = New System.Windows.Forms.Button()
         Me.BGuardar = New System.Windows.Forms.Button()
         Me.BEditar = New System.Windows.Forms.Button()
@@ -67,6 +68,7 @@ Partial Class FormularioSuperUsuario
         Me.dni = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Rol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fecha_ingreso = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PBImagen, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -108,6 +110,7 @@ Partial Class FormularioSuperUsuario
         Me.Panel1.Controls.Add(Me.BNuevo)
         Me.Panel1.Controls.Add(Me.PBImagen)
         Me.Panel1.Controls.Add(Me.BCancelar)
+        Me.Panel1.Controls.Add(Me.BImagen)
         Me.Panel1.Controls.Add(Me.BAgregar)
         Me.Panel1.Controls.Add(Me.BGuardar)
         Me.Panel1.Controls.Add(Me.BEditar)
@@ -137,6 +140,7 @@ Partial Class FormularioSuperUsuario
         'RRolSuper
         '
         Me.RRolSuper.AutoSize = True
+        Me.RRolSuper.BackColor = System.Drawing.Color.Transparent
         Me.RRolSuper.Enabled = False
         Me.RRolSuper.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RRolSuper.ForeColor = System.Drawing.SystemColors.ActiveCaption
@@ -145,11 +149,12 @@ Partial Class FormularioSuperUsuario
         Me.RRolSuper.Size = New System.Drawing.Size(175, 21)
         Me.RRolSuper.TabIndex = 21
         Me.RRolSuper.Text = "Super Administrador"
-        Me.RRolSuper.UseVisualStyleBackColor = True
+        Me.RRolSuper.UseVisualStyleBackColor = False
         '
         'RRolAdmin
         '
         Me.RRolAdmin.AutoSize = True
+        Me.RRolAdmin.BackColor = System.Drawing.Color.Transparent
         Me.RRolAdmin.Enabled = False
         Me.RRolAdmin.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RRolAdmin.ForeColor = System.Drawing.SystemColors.ActiveCaption
@@ -158,11 +163,12 @@ Partial Class FormularioSuperUsuario
         Me.RRolAdmin.Size = New System.Drawing.Size(128, 21)
         Me.RRolAdmin.TabIndex = 20
         Me.RRolAdmin.Text = "Administrador"
-        Me.RRolAdmin.UseVisualStyleBackColor = True
+        Me.RRolAdmin.UseVisualStyleBackColor = False
         '
         'RRolVendedor
         '
         Me.RRolVendedor.AutoSize = True
+        Me.RRolVendedor.BackColor = System.Drawing.Color.Transparent
         Me.RRolVendedor.Checked = True
         Me.RRolVendedor.Enabled = False
         Me.RRolVendedor.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -173,7 +179,7 @@ Partial Class FormularioSuperUsuario
         Me.RRolVendedor.TabIndex = 19
         Me.RRolVendedor.TabStop = True
         Me.RRolVendedor.Text = "Vendedor"
-        Me.RRolVendedor.UseVisualStyleBackColor = True
+        Me.RRolVendedor.UseVisualStyleBackColor = False
         '
         'LRol
         '
@@ -224,7 +230,7 @@ Partial Class FormularioSuperUsuario
         'PBImagen
         '
         Me.PBImagen.Image = Global.pcgamer.My.Resources.Resources.usuario
-        Me.PBImagen.Location = New System.Drawing.Point(522, 60)
+        Me.PBImagen.Location = New System.Drawing.Point(544, 60)
         Me.PBImagen.Name = "PBImagen"
         Me.PBImagen.Size = New System.Drawing.Size(172, 163)
         Me.PBImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -246,6 +252,22 @@ Partial Class FormularioSuperUsuario
         Me.BCancelar.Text = "Cancelar"
         Me.BCancelar.UseVisualStyleBackColor = False
         Me.BCancelar.Visible = False
+        '
+        'BImagen
+        '
+        Me.BImagen.BackColor = System.Drawing.Color.DarkRed
+        Me.BImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BImagen.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BImagen.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BImagen.ForeColor = System.Drawing.Color.White
+        Me.BImagen.Location = New System.Drawing.Point(467, 195)
+        Me.BImagen.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
+        Me.BImagen.Name = "BImagen"
+        Me.BImagen.Size = New System.Drawing.Size(72, 28)
+        Me.BImagen.TabIndex = 31
+        Me.BImagen.Text = "Imagen"
+        Me.BImagen.UseVisualStyleBackColor = False
+        Me.BImagen.Visible = False
         '
         'BAgregar
         '
@@ -549,6 +571,10 @@ Partial Class FormularioSuperUsuario
         Me.fecha_ingreso.ReadOnly = True
         Me.fecha_ingreso.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
         'FormularioSuperUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 20.0!)
@@ -614,4 +640,6 @@ Partial Class FormularioSuperUsuario
     Friend WithEvents dni As DataGridViewTextBoxColumn
     Friend WithEvents Rol As DataGridViewTextBoxColumn
     Friend WithEvents fecha_ingreso As DataGridViewTextBoxColumn
+    Friend WithEvents BImagen As Button
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
 End Class

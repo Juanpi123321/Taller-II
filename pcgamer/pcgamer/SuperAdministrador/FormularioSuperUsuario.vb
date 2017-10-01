@@ -1,4 +1,5 @@
 ﻿Imports System.Text.RegularExpressions
+Imports System.IO
 
 Public Class FormularioSuperUsuario
     Private Sub FormularioSuperUsuario_Closed(sender As Object, e As EventArgs) Handles Me.Closed
@@ -47,6 +48,7 @@ Public Class FormularioSuperUsuario
             MsgBox("Debe finalizar la edicion antes de continuar", MsgBoxStyle.DefaultButton2 +
                    MsgBoxStyle.Exclamation, "Operacion cancelada")
             limpiar()
+            BImagen.Visible = False
             BNuevo.Visible = True
             BEditar.Visible = True
             BEliminar.Visible = True
@@ -86,6 +88,7 @@ Public Class FormularioSuperUsuario
         ElseIf DataGridUsuario.Item(1, fila).Value = "" Then
             MsgBox("Seleccione un usuario para editar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
         Else
+            BImagen.Visible = True
             BNuevo.Visible = False
             BEditar.Visible = False
             BEliminar.Visible = False
@@ -125,6 +128,7 @@ Public Class FormularioSuperUsuario
                     MsgBox("No se han realizado cambios", MsgBoxStyle.DefaultButton2 +
                            MsgBoxStyle.Information, "Operacion Cancelada")
                 End If
+                BImagen.Visible = False
                 BNuevo.Visible = True
                 BCancelar.Visible = False
                 BGuardar.Visible = False
@@ -142,6 +146,7 @@ Public Class FormularioSuperUsuario
 
     Private Sub BCancelar_Click(sender As Object, e As EventArgs) Handles BCancelar.Click
         BNuevo.Visible = True
+        BImagen.Visible = False
         BCancelar.Visible = False
         BAgregar.Visible = False
         BGuardar.Visible = False
@@ -306,6 +311,7 @@ Public Class FormularioSuperUsuario
         Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
         habilitar()
 
+        BImagen.Visible = True
         BAgregar.Visible = True
         BCancelar.Visible = True
         BEditar.Visible = False
@@ -317,21 +323,54 @@ Public Class FormularioSuperUsuario
         If TNombre.Text = "" Or TApellido.Text = "" Or TDNI.Text = "" Or TDomicilio.Text = "" Or TEmail.Text = "" Then
             MsgBox("Debe completar los campos obligatorios!", MsgBoxStyle.DefaultButton2 +
         MsgBoxStyle.Critical, "Registro Incompleto")
-        ElseIf DNIvalidate = False Then
-            MsgBox("Ingrese un DNI valido")
+
         ElseIf Emailvalidate = False Then
             MsgBox("Ingrese un Email valido", MsgBoxStyle.DefaultButton2 +
                        MsgBoxStyle.Information, "Email invalido")
         Else
-            Try
-                DataGridUsuario.Rows.Add("0005", TApellido.Text, TNombre.Text, TDNI.Text, FechaReg.Value)
-                MsgBox("El Cliente se ha registrado correctamente", MsgBoxStyle.DefaultButton2 +
-        MsgBoxStyle.Information, "Registro Exitoso")
-            Catch ex As Exception
-                MsgBox("Lo sentimos ha ocurrido un evento inesperado, el cliente no pudo ser registrado",
+            Dim dni As Long = Long.Parse(TDNI.Text)
+            Dim rol As String = "Vendedor"
+            If ValidarDNI(dni) Then
+                Try
+                    Dim respuesta As MsgBoxResult
+                    respuesta = MsgBox("¿Esta seguro que desea agregar al usuario??",
+                                   MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Agregar Usuario")
+                    If MsgBoxResult.Yes = respuesta Then
+                        If RRolVendedor.Checked = True Then
+                            rol = "Vendedor"
+                        ElseIf RRolAdmin.Checked = True Then
+                            rol = "Administrador"
+                        Else
+                            rol = "Super Administrador"
+                        End If
+                        MsgBox("El Usuario se ha registrado correctamente", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Registro Exitoso")
+                        DataGridUsuario.Rows.Add("0005", TApellido.Text, TNombre.Text, TDNI.Text, rol, FechaReg.Value)
+                    Else
+                        MsgBox("No se han realizado cambios", MsgBoxStyle.DefaultButton2 +
+                           MsgBoxStyle.Information, "Operacion Cancelada")
+                    End If
+                Catch ex As Exception
+                    MsgBox("Lo sentimos ha ocurrido un evento inesperado, el usuario no pudo ser registrado",
             MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Error al registrar")
-            End Try
+                End Try
+                BCancelar.Visible = False
+                BAgregar.Visible = False
+                BImagen.Visible = False
+                BNuevo.Visible = True
+
+                BGuardar.Visible = False
+                BEditar.Visible = True
+                BEliminar.Visible = True
+                limpiar()
+                deshabilitar()
+            Else
+                MsgBox("Ingrese un DNI valido", MsgBoxStyle.DefaultButton2 +
+                           MsgBoxStyle.Information, "DNI invalido")
+                DNIvalidate = False
+            End If
         End If
+
+
     End Sub
 
     Private Sub TEmail_Validated(sender As Object, e As EventArgs) Handles TEmail.Validated
@@ -344,5 +383,17 @@ Public Class FormularioSuperUsuario
         End If
     End Sub
 
+    Private Sub BImagen_Click(sender As Object, e As EventArgs) Handles BImagen.Click
+        OpenFileDialog1.InitialDirectory = "D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\pcgamer\usuarios"
+        OpenFileDialog1.Filter = "Archivos Imagenes|*.jpg|Archivos Imagenes|*.bmp|Archivos Imagenes|*.png"
+        OpenFileDialog1.FilterIndex = 1
+        OpenFileDialog1.RestoreDirectory = True
 
+        If OpenFileDialog1.ShowDialog() = Windows.Forms.DialogResult.OK Then
+            PBImagen.Image = Image.FromFile(OpenFileDialog1.FileName)
+            'Dim ruta As String
+            'ruta = Directory.GetCurrentDirectory()
+            'TFoto.Text = ruta
+        End If
+    End Sub
 End Class

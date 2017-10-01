@@ -90,6 +90,12 @@
     <Compile Include="Administrador\FormularioAdminStock.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SuperAdministrador\FormularioSuperRoles.Designer.vb">
+      <DependentUpon>FormularioSuperRoles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SuperAdministrador\FormularioSuperRoles.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SuperAdministrador\FormularioSuperAdmin.Designer.vb">
       <DependentUpon>FormularioSuperAdmin.vb</DependentUpon>
     </Compile>
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SuperAdministrador\FormularioSuperAdmin.resx">
       <DependentUpon>FormularioSuperAdmin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SuperAdministrador\FormularioSuperRoles.resx">
+      <DependentUpon>FormularioSuperRoles.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SuperAdministrador\FormularioSuperUsuario.resx">
       <DependentUpon>FormularioSuperUsuario.vb</DependentUpon>
