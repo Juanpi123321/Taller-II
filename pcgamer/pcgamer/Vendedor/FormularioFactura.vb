@@ -11,23 +11,11 @@
         TFechaHora.Text = String.Format("{0:G}", DateTime.Now)
 
 
-
-
     End Sub
 
-    Private Sub BEditar_Click(sender As Object, e As EventArgs) Handles BEditar.Click, BSeleccionarCliente.Click
+    Private Sub BSeleccionarCliente_Click(sender As Object, e As EventArgs) Handles BSeleccionarCliente.Click
         FormularioCliente.Show()
         Me.Hide()
-    End Sub
-
-    Private Sub BCargar_Click(sender As Object, e As EventArgs) Handles BCargar.Click
-        TCliente.Text = "ALFONSO, Pedro"
-        TDNI.Text = "11324123"
-        TDireccion.Text = "9 de Julio 2781 Corrientes Capital"
-        TTelefono.Text = "-"
-        BCargar.Visible = False
-        BSeleccionarCliente.Visible = False
-        BEditar.Visible = True
     End Sub
 
     Private Sub BImprimir_Click(sender As Object, e As EventArgs) Handles BImprimir.Click
@@ -41,11 +29,15 @@
             respuesta = MsgBox("Debe agregar un Producto", MsgBoxStyle.DefaultButton2 +
             MsgBoxStyle.Information, "Producto Invalido")
         Else
-            respuesta = MsgBox("La factura se ha generado correctamente", MsgBoxStyle.DefaultButton2 +
+            respuesta = MsgBox("¿Esta seguro que desea imprimir la Factura?", MsgBoxStyle.YesNo +
+            MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Generar Factura")
+            If MsgBoxResult.Yes = respuesta Then
+                respuesta = MsgBox("La factura se ha generado correctamente", MsgBoxStyle.DefaultButton2 +
             MsgBoxStyle.Information, "Facturacion exitosa")
-            'destruye de la memoria
-            Me.Dispose()
-            FormularioVendedor.Show()
+                'destruye de la memoria
+                Me.Dispose()
+                FormularioVendedor.Show()
+            End If
         End If
     End Sub
 

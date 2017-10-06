@@ -41,7 +41,7 @@ Partial Class Login
         Me.LUsuario.Location = New System.Drawing.Point(19, 20)
         Me.LUsuario.Name = "LUsuario"
         Me.LUsuario.Size = New System.Drawing.Size(215, 25)
-        Me.LUsuario.TabIndex = 5
+        Me.LUsuario.TabIndex = 1
         Me.LUsuario.Text = "Nombre de Usuario:"
         '
         'LContrasena
@@ -50,7 +50,7 @@ Partial Class Login
         Me.LContrasena.Location = New System.Drawing.Point(19, 117)
         Me.LContrasena.Name = "LContrasena"
         Me.LContrasena.Size = New System.Drawing.Size(136, 25)
-        Me.LContrasena.TabIndex = 6
+        Me.LContrasena.TabIndex = 3
         Me.LContrasena.Text = "Contraseña:"
         '
         'TUsuario
@@ -58,7 +58,7 @@ Partial Class Login
         Me.TUsuario.Location = New System.Drawing.Point(24, 69)
         Me.TUsuario.Name = "TUsuario"
         Me.TUsuario.Size = New System.Drawing.Size(229, 32)
-        Me.TUsuario.TabIndex = 0
+        Me.TUsuario.TabIndex = 2
         '
         'TContrasena
         '
@@ -66,7 +66,7 @@ Partial Class Login
         Me.TContrasena.Name = "TContrasena"
         Me.TContrasena.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TContrasena.Size = New System.Drawing.Size(229, 32)
-        Me.TContrasena.TabIndex = 1
+        Me.TContrasena.TabIndex = 4
         '
         'LTitulo
         '
@@ -77,7 +77,7 @@ Partial Class Login
         Me.LTitulo.Location = New System.Drawing.Point(213, 105)
         Me.LTitulo.Name = "LTitulo"
         Me.LTitulo.Size = New System.Drawing.Size(409, 40)
-        Me.LTitulo.TabIndex = 4
+        Me.LTitulo.TabIndex = 6
         Me.LTitulo.Text = "Bienvenido a Pc-Gamer"
         '
         'BIngresar
@@ -92,7 +92,7 @@ Partial Class Login
         Me.BIngresar.Location = New System.Drawing.Point(668, 271)
         Me.BIngresar.Name = "BIngresar"
         Me.BIngresar.Size = New System.Drawing.Size(152, 55)
-        Me.BIngresar.TabIndex = 3
+        Me.BIngresar.TabIndex = 5
         Me.BIngresar.Text = "Ingresar"
         Me.BIngresar.UseVisualStyleBackColor = False
         '
@@ -107,7 +107,7 @@ Partial Class Login
         Me.Panel1.Location = New System.Drawing.Point(281, 184)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(295, 221)
-        Me.Panel1.TabIndex = 4
+        Me.Panel1.TabIndex = 0
         '
         'PBLogo
         '

@@ -26,11 +26,9 @@ Partial Class FormularioStock
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormularioStock))
         Me.PBLogo = New System.Windows.Forms.PictureBox()
         Me.DataGridStock = New System.Windows.Forms.DataGridView()
-        Me.codpro = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.stock = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -83,7 +81,7 @@ Partial Class FormularioStock
         '
         Me.DataGridStock.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.DataGridStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridStock.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.codpro, Me.nombre, Me.stock, Me.precio, Me.categoria})
+        Me.DataGridStock.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nombre, Me.stock, Me.precio, Me.categoria})
         Me.DataGridStock.GridColor = System.Drawing.SystemColors.GrayText
         Me.DataGridStock.Location = New System.Drawing.Point(3, 272)
         Me.DataGridStock.Name = "DataGridStock"
@@ -92,22 +90,11 @@ Partial Class FormularioStock
         Me.DataGridStock.Size = New System.Drawing.Size(880, 244)
         Me.DataGridStock.TabIndex = 4
         '
-        'codpro
-        '
-        Me.codpro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
-        Me.codpro.DefaultCellStyle = DataGridViewCellStyle1
-        Me.codpro.HeaderText = "CodProd"
-        Me.codpro.Name = "codpro"
-        Me.codpro.ReadOnly = True
-        Me.codpro.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.codpro.Width = 109
-        '
         'nombre
         '
         Me.nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        Me.nombre.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
+        Me.nombre.DefaultCellStyle = DataGridViewCellStyle1
         Me.nombre.HeaderText = "Nombre"
         Me.nombre.Name = "nombre"
         Me.nombre.ReadOnly = True
@@ -116,8 +103,8 @@ Partial Class FormularioStock
         'stock
         '
         Me.stock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
-        Me.stock.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        Me.stock.DefaultCellStyle = DataGridViewCellStyle2
         Me.stock.HeaderText = "Stock"
         Me.stock.Name = "stock"
         Me.stock.ReadOnly = True
@@ -127,8 +114,8 @@ Partial Class FormularioStock
         'precio
         '
         Me.precio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
-        Me.precio.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        Me.precio.DefaultCellStyle = DataGridViewCellStyle3
         Me.precio.HeaderText = "Precio  $"
         Me.precio.Name = "precio"
         Me.precio.ReadOnly = True
@@ -138,8 +125,8 @@ Partial Class FormularioStock
         'categoria
         '
         Me.categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black
-        Me.categoria.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
+        Me.categoria.DefaultCellStyle = DataGridViewCellStyle4
         Me.categoria.HeaderText = "Categoria"
         Me.categoria.Name = "categoria"
         Me.categoria.ReadOnly = True
@@ -276,7 +263,7 @@ Partial Class FormularioStock
         'CBBuscar
         '
         Me.CBBuscar.FormattingEnabled = True
-        Me.CBBuscar.Items.AddRange(New Object() {"Nombre", "Categoria", "Id_producto", "Procesador", "Placa Madre", "Ram", "Placa Video", "Disco Rigido", "Gabinete "})
+        Me.CBBuscar.Items.AddRange(New Object() {"Nombre Producto", "Categoria", "Procesador", "Placa Madre", "Ram", "Placa Video", "Disco Rigido", "Gabinete "})
         Me.CBBuscar.Location = New System.Drawing.Point(382, 17)
         Me.CBBuscar.Name = "CBBuscar"
         Me.CBBuscar.Size = New System.Drawing.Size(196, 28)
@@ -501,7 +488,6 @@ Partial Class FormularioStock
     Friend WithEvents TPlacaVideo As Label
     Friend WithEvents TCategoria As Label
     Friend WithEvents BAgregarFactura As Button
-    Friend WithEvents codpro As DataGridViewTextBoxColumn
     Friend WithEvents nombre As DataGridViewTextBoxColumn
     Friend WithEvents stock As DataGridViewTextBoxColumn
     Friend WithEvents precio As DataGridViewTextBoxColumn

@@ -57,7 +57,8 @@ Public Class FormularioAdminCliente
             MsgBox("Debe completar los campos obligatorios!", MsgBoxStyle.DefaultButton2 +
         MsgBoxStyle.Critical, "Registro Incompleto")
         ElseIf DNIvalidate = False Then
-            MsgBox("Ingrese un DNI valido")
+            MsgBox("Ingrese un DNI valido", MsgBoxStyle.DefaultButton2 +
+                       MsgBoxStyle.Information, "DNI invalido")
         ElseIf Emailvalidate = False Then
             MsgBox("Ingrese un Email valido", MsgBoxStyle.DefaultButton2 +
                        MsgBoxStyle.Information, "Email invalido")
@@ -67,7 +68,7 @@ Public Class FormularioAdminCliente
                 respuesta = MsgBox("¿Esta seguro que desea Dar de agregar al cliente??",
                            MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Alta Cliente")
                 If MsgBoxResult.Yes = respuesta Then
-                    DataGridCliente.Rows.Add("0005", TApellido.Text, TNombre.Text, TDni.Text, FechaReg.Value)
+                    DataGridCliente.Rows.Add(TApellido.Text, TNombre.Text, TDni.Text, FechaReg.Value)
                     limpiar()
                     MsgBox("El Cliente se ha registrado correctamente", MsgBoxStyle.DefaultButton2 +
             MsgBoxStyle.Information, "Registro Exitoso")
@@ -80,6 +81,7 @@ Public Class FormularioAdminCliente
             MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Error al registrar")
             End Try
         End If
+
     End Sub
 
     Private Sub TNombre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TNombre.KeyPress
@@ -144,7 +146,7 @@ Public Class FormularioAdminCliente
         If DataGridCliente.CurrentRow.DefaultCellStyle.BackColor = Color.Gray Then
             MsgBox("No es posible editar, el cliente esta dado de baja", MsgBoxStyle.DefaultButton2 +
                        MsgBoxStyle.Exclamation, "Operacion invalida")
-        ElseIf DataGridCliente.Item(1, fila).Value = "" Then
+        ElseIf DataGridCliente.Item(0, fila).Value = "" Or TBApellido.Text = "       ********************" Then
             MsgBox("Seleccione un cliente para editar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
         Else
             BEliminar.Visible = False
@@ -155,31 +157,50 @@ Public Class FormularioAdminCliente
     End Sub
 
     Private Sub FormularioCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        DataGridCliente.Rows.Add("0001", "Gimenez", "Susana", "20932571", "21/09/2017 10:09")
-        DataGridCliente.Rows.Add("0002", "Casan", "Moria", "22826341", "21/09/2017 17:41")
-        DataGridCliente.Rows.Add("0003", "Rial", "Jorge", "40219352", "22/09/2017 11:01")
-        DataGridCliente.Rows.Add("0004", "Lobato", "Zulma", "15946471", "23/09/2017 09:33")
+        DataGridCliente.Rows.Add("Gimenez", "Susana", "20932571", "21/09/2017 10:09")
+        DataGridCliente.Rows.Add("Casan", "Moria", "22826341", "21/09/2017 17:41")
+        DataGridCliente.Rows.Add("Rial", "Jorge", "40219352", "22/09/2017 11:01")
+        DataGridCliente.Rows.Add("Lobato", "Zulma", "15946471", "23/09/2017 09:33")
+
+        TBApellido.Text = "       ********************"
+        TBNombre.Text = "       ********************"
+        TBDNI.Text = "       ********************"
+        TBDomicilio.Text = "       ********************"
+        TBTelefono.Text = "       ********************"
+        TBEmail.Text = "       ********************"
+
+        CBBuscar.SelectedIndex = 0
     End Sub
 
     Private Sub BGuardar_Click(sender As Object, e As EventArgs) Handles BGuardar.Click
-        Dim respuesta As MsgBoxResult
-        respuesta = MsgBox("¿Esta seguro que desea guardar los cambios realizados??",
+        If TBDNI.Text = "" Or DNIvalidate = False Then
+            MsgBox("El DNI es un campo obligatorio", MsgBoxStyle.DefaultButton2 +
+                       MsgBoxStyle.Information, "DNI invalido")
+        Else
+            Dim respuesta As MsgBoxResult
+            respuesta = MsgBox("¿Esta seguro que desea guardar los cambios realizados??",
                            MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Editar Cliente")
-        If MsgBoxResult.Yes = respuesta Then
-            Dim fila As Integer = DataGridCliente.CurrentRow.Index
-            DataGridCliente.Item(1, fila).Value = TBApellido.Text
-            DataGridCliente.Item(2, fila).Value = TBNombre.Text
-            DataGridCliente.Item(3, fila).Value = TBDNI.Text
-            MsgBox("Se ha modificado correctamente", MsgBoxStyle.DefaultButton2 +
-                           MsgBoxStyle.Information, "Modificacion exitosa")
+            If MsgBoxResult.Yes = respuesta Then
+                Dim fila As Integer = DataGridCliente.CurrentRow.Index
+                DataGridCliente.Item(0, fila).Value = TBApellido.Text
+                DataGridCliente.Item(1, fila).Value = TBNombre.Text
+                DataGridCliente.Item(2, fila).Value = TBDNI.Text
+                MsgBox("Se ha modificado correctamente", MsgBoxStyle.DefaultButton2 +
+                               MsgBoxStyle.Information, "Modificacion exitosa")
+            Else
+                MsgBox("No se han realizado cambios", MsgBoxStyle.DefaultButton2 +
+                                   MsgBoxStyle.Information, "Operacion Cancelada")
+            End If
+            BEliminar.Visible = True
+            BCancelar.Visible = False
+            BGuardar.Visible = False
+            deshabilitar()
         End If
-        BEliminar.Visible = True
-        BCancelar.Visible = False
-        BGuardar.Visible = False
-        deshabilitar()
     End Sub
 
     Private Sub BCancelar_Click(sender As Object, e As EventArgs) Handles BCancelar.Click
+        MsgBox("No se han realizado cambios", MsgBoxStyle.DefaultButton2 +
+                           MsgBoxStyle.Information, "Operacion Cancelada")
         BEliminar.Visible = True
         BCancelar.Visible = False
         BGuardar.Visible = False
@@ -188,9 +209,9 @@ Public Class FormularioAdminCliente
 
     Private Sub DataGridCliente_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridCliente.CellEnter
         Dim fila As Integer = DataGridCliente.CurrentRow.Index
-        TBApellido.Text = DataGridCliente.Item(1, fila).Value
-        TBNombre.Text = DataGridCliente.Item(2, fila).Value
-        TBDNI.Text = DataGridCliente.Item(3, fila).Value
+        TBApellido.Text = DataGridCliente.Item(0, fila).Value
+        TBNombre.Text = DataGridCliente.Item(1, fila).Value
+        TBDNI.Text = DataGridCliente.Item(2, fila).Value
         Dim domicilio As String = "-"
         Dim telefono As String = "-"
         Dim email As String = "-"
@@ -256,7 +277,7 @@ Public Class FormularioAdminCliente
         Dim fila As Integer = DataGridCliente.CurrentRow.Index
         If DataGridCliente.CurrentRow.DefaultCellStyle.BackColor = Color.Gray Then
             MsgBox("El cliente ya esta dado de baja", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Eliminacion invalida")
-        ElseIf DataGridCliente.Item(1, fila).Value = "" Then
+        ElseIf DataGridCliente.Item(0, fila).Value = "" Or TBApellido.Text = "       ********************" Then
             MsgBox("Seleccione un cliente para eliminar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
         Else
             respuesta = MsgBox("¿Esta seguro que desea Eliminar al cliente " + TBNombre.Text + " " + TBApellido.Text + "??",

@@ -27,7 +27,6 @@ Partial Class FormularioCliente
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormularioCliente))
         Me.PBLogo = New System.Windows.Forms.PictureBox()
         Me.LNombre = New System.Windows.Forms.Label()
@@ -73,7 +72,6 @@ Partial Class FormularioCliente
         Me.TBApellido = New System.Windows.Forms.TextBox()
         Me.TBuscar = New System.Windows.Forms.TextBox()
         Me.DataGridCliente = New System.Windows.Forms.DataGridView()
-        Me.Id_cliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.apellidos = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nombres = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dni = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -295,8 +293,8 @@ Partial Class FormularioCliente
         '
         'TabCliente
         '
-        Me.TabCliente.Controls.Add(Me.TabPage1)
         Me.TabCliente.Controls.Add(Me.TabPage2)
+        Me.TabCliente.Controls.Add(Me.TabPage1)
         Me.TabCliente.Location = New System.Drawing.Point(78, 118)
         Me.TabCliente.Name = "TabCliente"
         Me.TabCliente.SelectedIndex = 0
@@ -399,10 +397,10 @@ Partial Class FormularioCliente
         'CBBuscar
         '
         Me.CBBuscar.FormattingEnabled = True
-        Me.CBBuscar.Items.AddRange(New Object() {"DNI", "Apellido y Nombre", "Id_cliente"})
+        Me.CBBuscar.Items.AddRange(New Object() {"Apellido y Nombre", "DNI"})
         Me.CBBuscar.Location = New System.Drawing.Point(425, 19)
         Me.CBBuscar.Name = "CBBuscar"
-        Me.CBBuscar.Size = New System.Drawing.Size(181, 28)
+        Me.CBBuscar.Size = New System.Drawing.Size(204, 28)
         Me.CBBuscar.TabIndex = 1
         '
         'BAgregarFactura
@@ -563,7 +561,7 @@ Partial Class FormularioCliente
         Me.DataGridCliente.AllowUserToDeleteRows = False
         Me.DataGridCliente.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.DataGridCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridCliente.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id_cliente, Me.apellidos, Me.nombres, Me.dni, Me.fecha_ingreso})
+        Me.DataGridCliente.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.apellidos, Me.nombres, Me.dni, Me.fecha_ingreso})
         Me.DataGridCliente.GridColor = System.Drawing.SystemColors.GrayText
         Me.DataGridCliente.Location = New System.Drawing.Point(1, 274)
         Me.DataGridCliente.Name = "DataGridCliente"
@@ -573,22 +571,11 @@ Partial Class FormularioCliente
         Me.DataGridCliente.TabIndex = 12
         Me.DataGridCliente.TabStop = False
         '
-        'Id_cliente
-        '
-        Me.Id_cliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
-        Me.Id_cliente.DefaultCellStyle = DataGridViewCellStyle1
-        Me.Id_cliente.HeaderText = "Id_cliente"
-        Me.Id_cliente.Name = "Id_cliente"
-        Me.Id_cliente.ReadOnly = True
-        Me.Id_cliente.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Id_cliente.Width = 125
-        '
         'apellidos
         '
         Me.apellidos.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        Me.apellidos.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
+        Me.apellidos.DefaultCellStyle = DataGridViewCellStyle1
         Me.apellidos.HeaderText = "Apellidos"
         Me.apellidos.Name = "apellidos"
         Me.apellidos.ReadOnly = True
@@ -597,8 +584,8 @@ Partial Class FormularioCliente
         'nombres
         '
         Me.nombres.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
-        Me.nombres.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        Me.nombres.DefaultCellStyle = DataGridViewCellStyle2
         Me.nombres.HeaderText = "Nombres"
         Me.nombres.Name = "nombres"
         Me.nombres.ReadOnly = True
@@ -607,8 +594,8 @@ Partial Class FormularioCliente
         'dni
         '
         Me.dni.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
-        Me.dni.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        Me.dni.DefaultCellStyle = DataGridViewCellStyle3
         Me.dni.HeaderText = "DNI"
         Me.dni.Name = "dni"
         Me.dni.ReadOnly = True
@@ -618,8 +605,8 @@ Partial Class FormularioCliente
         'fecha_ingreso
         '
         Me.fecha_ingreso.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black
-        Me.fecha_ingreso.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
+        Me.fecha_ingreso.DefaultCellStyle = DataGridViewCellStyle4
         Me.fecha_ingreso.HeaderText = "Fecha Ingreso"
         Me.fecha_ingreso.Name = "fecha_ingreso"
         Me.fecha_ingreso.ReadOnly = True
@@ -700,7 +687,6 @@ Partial Class FormularioCliente
     Friend WithEvents BEditar As Button
     Friend WithEvents BCancelar As Button
     Friend WithEvents BGuardar As Button
-    Friend WithEvents Id_cliente As DataGridViewTextBoxColumn
     Friend WithEvents apellidos As DataGridViewTextBoxColumn
     Friend WithEvents nombres As DataGridViewTextBoxColumn
     Friend WithEvents dni As DataGridViewTextBoxColumn

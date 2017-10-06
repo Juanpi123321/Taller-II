@@ -52,15 +52,14 @@ Partial Class FormularioFactura
         Me.BEliminar = New System.Windows.Forms.Button()
         Me.BAgregar = New System.Windows.Forms.Button()
         Me.BSeleccionarCliente = New System.Windows.Forms.Button()
-        Me.BCargar = New System.Windows.Forms.Button()
         Me.BEditar = New System.Windows.Forms.Button()
         Me.TVendedor = New System.Windows.Forms.Label()
         Me.LVendedor = New System.Windows.Forms.Label()
         Me.LTelefono = New System.Windows.Forms.Label()
-        Me.LDireccion = New System.Windows.Forms.Label()
+        Me.LDomicilio = New System.Windows.Forms.Label()
         Me.LDNI = New System.Windows.Forms.Label()
         Me.TTelefono = New System.Windows.Forms.Label()
-        Me.TDireccion = New System.Windows.Forms.Label()
+        Me.TDomicilio = New System.Windows.Forms.Label()
         Me.TDNI = New System.Windows.Forms.Label()
         Me.TCliente = New System.Windows.Forms.Label()
         Me.LCliente = New System.Windows.Forms.Label()
@@ -314,15 +313,14 @@ Partial Class FormularioFactura
         Me.GroupBox3.Controls.Add(Me.BEliminar)
         Me.GroupBox3.Controls.Add(Me.BAgregar)
         Me.GroupBox3.Controls.Add(Me.BSeleccionarCliente)
-        Me.GroupBox3.Controls.Add(Me.BCargar)
         Me.GroupBox3.Controls.Add(Me.BEditar)
         Me.GroupBox3.Controls.Add(Me.TVendedor)
         Me.GroupBox3.Controls.Add(Me.LVendedor)
         Me.GroupBox3.Controls.Add(Me.LTelefono)
-        Me.GroupBox3.Controls.Add(Me.LDireccion)
+        Me.GroupBox3.Controls.Add(Me.LDomicilio)
         Me.GroupBox3.Controls.Add(Me.LDNI)
         Me.GroupBox3.Controls.Add(Me.TTelefono)
-        Me.GroupBox3.Controls.Add(Me.TDireccion)
+        Me.GroupBox3.Controls.Add(Me.TDomicilio)
         Me.GroupBox3.Controls.Add(Me.TDNI)
         Me.GroupBox3.Controls.Add(Me.TCliente)
         Me.GroupBox3.Controls.Add(Me.LCliente)
@@ -375,28 +373,13 @@ Partial Class FormularioFactura
         Me.BSeleccionarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BSeleccionarCliente.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BSeleccionarCliente.ForeColor = System.Drawing.Color.White
-        Me.BSeleccionarCliente.Location = New System.Drawing.Point(167, 6)
+        Me.BSeleccionarCliente.Location = New System.Drawing.Point(437, 22)
         Me.BSeleccionarCliente.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BSeleccionarCliente.Name = "BSeleccionarCliente"
-        Me.BSeleccionarCliente.Size = New System.Drawing.Size(95, 42)
+        Me.BSeleccionarCliente.Size = New System.Drawing.Size(161, 32)
         Me.BSeleccionarCliente.TabIndex = 5
         Me.BSeleccionarCliente.Text = "Seleccionar Cliente"
         Me.BSeleccionarCliente.UseVisualStyleBackColor = False
-        '
-        'BCargar
-        '
-        Me.BCargar.BackColor = System.Drawing.Color.DarkRed
-        Me.BCargar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.BCargar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BCargar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BCargar.ForeColor = System.Drawing.Color.White
-        Me.BCargar.Location = New System.Drawing.Point(437, 76)
-        Me.BCargar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
-        Me.BCargar.Name = "BCargar"
-        Me.BCargar.Size = New System.Drawing.Size(176, 32)
-        Me.BCargar.TabIndex = 2
-        Me.BCargar.Text = "Cargar Cliente Ficticio"
-        Me.BCargar.UseVisualStyleBackColor = False
         '
         'BEditar
         '
@@ -405,7 +388,7 @@ Partial Class FormularioFactura
         Me.BEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BEditar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BEditar.ForeColor = System.Drawing.Color.White
-        Me.BEditar.Location = New System.Drawing.Point(437, 16)
+        Me.BEditar.Location = New System.Drawing.Point(437, 62)
         Me.BEditar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BEditar.Name = "BEditar"
         Me.BEditar.Size = New System.Drawing.Size(83, 32)
@@ -441,14 +424,14 @@ Partial Class FormularioFactura
         Me.LTelefono.TabIndex = 9
         Me.LTelefono.Text = "Telefono:"
         '
-        'LDireccion
+        'LDomicilio
         '
-        Me.LDireccion.AutoSize = True
-        Me.LDireccion.Location = New System.Drawing.Point(6, 58)
-        Me.LDireccion.Name = "LDireccion"
-        Me.LDireccion.Size = New System.Drawing.Size(82, 18)
-        Me.LDireccion.TabIndex = 10
-        Me.LDireccion.Text = "Direccion:"
+        Me.LDomicilio.AutoSize = True
+        Me.LDomicilio.Location = New System.Drawing.Point(6, 58)
+        Me.LDomicilio.Name = "LDomicilio"
+        Me.LDomicilio.Size = New System.Drawing.Size(81, 18)
+        Me.LDomicilio.TabIndex = 10
+        Me.LDomicilio.Text = "Domicilio:"
         '
         'LDNI
         '
@@ -468,14 +451,14 @@ Partial Class FormularioFactura
         Me.TTelefono.Size = New System.Drawing.Size(0, 18)
         Me.TTelefono.TabIndex = 0
         '
-        'TDireccion
+        'TDomicilio
         '
-        Me.TDireccion.AutoSize = True
-        Me.TDireccion.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TDireccion.Location = New System.Drawing.Point(141, 58)
-        Me.TDireccion.Name = "TDireccion"
-        Me.TDireccion.Size = New System.Drawing.Size(0, 18)
-        Me.TDireccion.TabIndex = 0
+        Me.TDomicilio.AutoSize = True
+        Me.TDomicilio.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TDomicilio.Location = New System.Drawing.Point(141, 58)
+        Me.TDomicilio.Name = "TDomicilio"
+        Me.TDomicilio.Size = New System.Drawing.Size(0, 18)
+        Me.TDomicilio.TabIndex = 0
         '
         'TDNI
         '
@@ -670,19 +653,18 @@ Partial Class FormularioFactura
     Friend WithEvents LFactura5 As Label
     Friend WithEvents LFactura3 As Label
     Friend WithEvents LTelefono As Label
-    Friend WithEvents LDireccion As Label
+    Friend WithEvents LDomicilio As Label
     Friend WithEvents LDNI As Label
     Friend WithEvents LCliente As Label
     Friend WithEvents TVendedor As Label
     Friend WithEvents LVendedor As Label
     Friend WithEvents TTelefono As Label
-    Friend WithEvents TDireccion As Label
+    Friend WithEvents TDomicilio As Label
     Friend WithEvents TDNI As Label
     Friend WithEvents TCliente As Label
     Friend WithEvents TFechaHora As Label
     Friend WithEvents BEditar As Button
     Friend WithEvents BSeleccionarCliente As Button
-    Friend WithEvents BCargar As Button
     Friend WithEvents BAgregar As Button
     Friend WithEvents BEliminar As Button
     Friend WithEvents BImprimir As Button
