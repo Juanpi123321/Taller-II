@@ -1,0 +1,988 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="pcgamerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="c1_procesador">
+          <Key>
+            <PropertyRef Name="c1_procesador" />
+          </Key>
+          <Property Name="c1_procesador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="c1_descripcion" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="c2_placamadre">
+          <Key>
+            <PropertyRef Name="c2_placamadre" />
+          </Key>
+          <Property Name="c2_placamadre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="c2_descripcion" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="c3_ram">
+          <Key>
+            <PropertyRef Name="c3_ram" />
+          </Key>
+          <Property Name="c3_ram" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="c3_descripcion" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="c4_placavideo">
+          <Key>
+            <PropertyRef Name="c4_placavideo" />
+          </Key>
+          <Property Name="c4_placavideo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="c4_descripcion" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="c5_discorigido">
+          <Key>
+            <PropertyRef Name="c5_discorigido" />
+          </Key>
+          <Property Name="c5_discorigido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="c5_descripcion" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="c6_gabinete">
+          <Key>
+            <PropertyRef Name="c6_gabinete" />
+          </Key>
+          <Property Name="c6_gabinete" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="c6_descripcion" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="categoria">
+          <Key>
+            <PropertyRef Name="Id_categoria" />
+          </Key>
+          <Property Name="Id_categoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion_categoria" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="clientes">
+          <Key>
+            <PropertyRef Name="Id_cliente" />
+          </Key>
+          <Property Name="Id_cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombres" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellidos" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dni" Type="int" Nullable="false" />
+          <Property Name="domicilio" Type="text" Nullable="false" />
+          <Property Name="telefono" Type="text" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="fechaingreso" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="factura">
+          <Key>
+            <PropertyRef Name="Id_factura" />
+          </Key>
+          <Property Name="Id_factura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cliente_id" Type="int" Nullable="false" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="hora" Type="time" Precision="7" Nullable="false" />
+          <Property Name="vendedor_id" Type="int" Nullable="false" />
+          <Property Name="forma_pago_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="factura_detalle">
+          <Key>
+            <PropertyRef Name="Id_factura" />
+            <PropertyRef Name="Id_factura_detalle" />
+          </Key>
+          <Property Name="Id_factura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_factura_detalle" Type="int" Nullable="false" />
+          <Property Name="producto_id" Type="int" Nullable="false" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="precio_unit" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="forma_pago">
+          <Key>
+            <PropertyRef Name="Id_forma_pago" />
+          </Key>
+          <Property Name="Id_forma_pago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion_formapago" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="personas">
+          <Key>
+            <PropertyRef Name="Id_persona" />
+          </Key>
+          <Property Name="Id_persona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombres" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellidos" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="domicilio" Type="text" Nullable="false" />
+          <Property Name="dni" Type="int" Nullable="false" />
+          <Property Name="imagen" Type="text" Nullable="false" />
+          <Property Name="rol_id" Type="int" Nullable="false" />
+          <Property Name="telefono" Type="text" />
+        </EntityType>
+        <EntityType Name="productos">
+          <Key>
+            <PropertyRef Name="Id_producto" />
+          </Key>
+          <Property Name="Id_producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="c1_procesador_id" Type="int" Nullable="false" />
+          <Property Name="c2_placamadre_id" Type="int" Nullable="false" />
+          <Property Name="c3_ram_id" Type="int" Nullable="false" />
+          <Property Name="c4_placavideo_id" Type="int" Nullable="false" />
+          <Property Name="c5_discorigido_id" Type="int" Nullable="false" />
+          <Property Name="c6_gabinete_id" Type="int" Nullable="false" />
+          <Property Name="precio" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="stock" Type="int" Nullable="false" />
+          <Property Name="categoria_id" Type="int" Nullable="false" />
+          <Property Name="imagen" Type="text" />
+          <Property Name="estado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rol">
+          <Key>
+            <PropertyRef Name="Id_rol" />
+          </Key>
+          <Property Name="Id_rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipo_rol" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="Id_usuario" />
+          </Key>
+          <Property Name="Id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usuario" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="contrasena" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="persona_id" Type="int" Nullable="false" />
+          <Property Name="estado" Type="int" Nullable="false" />
+          <Property Name="fechaingreso" Type="date" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_factura_clientes">
+          <End Role="clientes" Type="Self.clientes" Multiplicity="1" />
+          <End Role="factura" Type="Self.factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clientes">
+              <PropertyRef Name="Id_cliente" />
+            </Principal>
+            <Dependent Role="factura">
+              <PropertyRef Name="cliente_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_factura_detalle_factura">
+          <End Role="factura" Type="Self.factura" Multiplicity="1" />
+          <End Role="factura_detalle" Type="Self.factura_detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="factura">
+              <PropertyRef Name="Id_factura" />
+            </Principal>
+            <Dependent Role="factura_detalle">
+              <PropertyRef Name="Id_factura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_factura_forma_pago">
+          <End Role="forma_pago" Type="Self.forma_pago" Multiplicity="1" />
+          <End Role="factura" Type="Self.factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="forma_pago">
+              <PropertyRef Name="Id_forma_pago" />
+            </Principal>
+            <Dependent Role="factura">
+              <PropertyRef Name="forma_pago_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_factura_usuarios">
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
+          <End Role="factura" Type="Self.factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="Id_usuario" />
+            </Principal>
+            <Dependent Role="factura">
+              <PropertyRef Name="vendedor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personas_rol">
+          <End Role="rol" Type="Self.rol" Multiplicity="1" />
+          <End Role="personas" Type="Self.personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol">
+              <PropertyRef Name="Id_rol" />
+            </Principal>
+            <Dependent Role="personas">
+              <PropertyRef Name="rol_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productos_c1_procesador">
+          <End Role="c1_procesador" Type="Self.c1_procesador" Multiplicity="1" />
+          <End Role="productos" Type="Self.productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="c1_procesador">
+              <PropertyRef Name="c1_procesador" />
+            </Principal>
+            <Dependent Role="productos">
+              <PropertyRef Name="c1_procesador_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productos_c2_placamadre">
+          <End Role="c2_placamadre" Type="Self.c2_placamadre" Multiplicity="1" />
+          <End Role="productos" Type="Self.productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="c2_placamadre">
+              <PropertyRef Name="c2_placamadre" />
+            </Principal>
+            <Dependent Role="productos">
+              <PropertyRef Name="c2_placamadre_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productos_c3_ram">
+          <End Role="c3_ram" Type="Self.c3_ram" Multiplicity="1" />
+          <End Role="productos" Type="Self.productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="c3_ram">
+              <PropertyRef Name="c3_ram" />
+            </Principal>
+            <Dependent Role="productos">
+              <PropertyRef Name="c3_ram_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productos_c4_placavideo">
+          <End Role="c4_placavideo" Type="Self.c4_placavideo" Multiplicity="1" />
+          <End Role="productos" Type="Self.productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="c4_placavideo">
+              <PropertyRef Name="c4_placavideo" />
+            </Principal>
+            <Dependent Role="productos">
+              <PropertyRef Name="c4_placavideo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productos_c5_discorigido">
+          <End Role="c5_discorigido" Type="Self.c5_discorigido" Multiplicity="1" />
+          <End Role="productos" Type="Self.productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="c5_discorigido">
+              <PropertyRef Name="c5_discorigido" />
+            </Principal>
+            <Dependent Role="productos">
+              <PropertyRef Name="c5_discorigido_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productos_c6_gabinete">
+          <End Role="c6_gabinete" Type="Self.c6_gabinete" Multiplicity="1" />
+          <End Role="productos" Type="Self.productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="c6_gabinete">
+              <PropertyRef Name="c6_gabinete" />
+            </Principal>
+            <Dependent Role="productos">
+              <PropertyRef Name="c6_gabinete_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productos_categoria">
+          <End Role="categoria" Type="Self.categoria" Multiplicity="1" />
+          <End Role="productos" Type="Self.productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categoria">
+              <PropertyRef Name="Id_categoria" />
+            </Principal>
+            <Dependent Role="productos">
+              <PropertyRef Name="categoria_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuarios_personas">
+          <End Role="personas" Type="Self.personas" Multiplicity="1" />
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personas">
+              <PropertyRef Name="Id_persona" />
+            </Principal>
+            <Dependent Role="usuarios">
+              <PropertyRef Name="persona_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="pcgamerModelStoreContainer">
+          <EntitySet Name="c1_procesador" EntityType="Self.c1_procesador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="c2_placamadre" EntityType="Self.c2_placamadre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="c3_ram" EntityType="Self.c3_ram" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="c4_placavideo" EntityType="Self.c4_placavideo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="c5_discorigido" EntityType="Self.c5_discorigido" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="c6_gabinete" EntityType="Self.c6_gabinete" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="categoria" EntityType="Self.categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="clientes" EntityType="Self.clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="factura" EntityType="Self.factura" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="factura_detalle" EntityType="Self.factura_detalle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="forma_pago" EntityType="Self.forma_pago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="personas" EntityType="Self.personas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="productos" EntityType="Self.productos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rol" EntityType="Self.rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_factura_clientes" Association="Self.FK_factura_clientes">
+            <End Role="clientes" EntitySet="clientes" />
+            <End Role="factura" EntitySet="factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_factura_detalle_factura" Association="Self.FK_factura_detalle_factura">
+            <End Role="factura" EntitySet="factura" />
+            <End Role="factura_detalle" EntitySet="factura_detalle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_factura_forma_pago" Association="Self.FK_factura_forma_pago">
+            <End Role="forma_pago" EntitySet="forma_pago" />
+            <End Role="factura" EntitySet="factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_factura_usuarios" Association="Self.FK_factura_usuarios">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="factura" EntitySet="factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personas_rol" Association="Self.FK_personas_rol">
+            <End Role="rol" EntitySet="rol" />
+            <End Role="personas" EntitySet="personas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productos_c1_procesador" Association="Self.FK_productos_c1_procesador">
+            <End Role="c1_procesador" EntitySet="c1_procesador" />
+            <End Role="productos" EntitySet="productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productos_c2_placamadre" Association="Self.FK_productos_c2_placamadre">
+            <End Role="c2_placamadre" EntitySet="c2_placamadre" />
+            <End Role="productos" EntitySet="productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productos_c3_ram" Association="Self.FK_productos_c3_ram">
+            <End Role="c3_ram" EntitySet="c3_ram" />
+            <End Role="productos" EntitySet="productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productos_c4_placavideo" Association="Self.FK_productos_c4_placavideo">
+            <End Role="c4_placavideo" EntitySet="c4_placavideo" />
+            <End Role="productos" EntitySet="productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productos_c5_discorigido" Association="Self.FK_productos_c5_discorigido">
+            <End Role="c5_discorigido" EntitySet="c5_discorigido" />
+            <End Role="productos" EntitySet="productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productos_c6_gabinete" Association="Self.FK_productos_c6_gabinete">
+            <End Role="c6_gabinete" EntitySet="c6_gabinete" />
+            <End Role="productos" EntitySet="productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productos_categoria" Association="Self.FK_productos_categoria">
+            <End Role="categoria" EntitySet="categoria" />
+            <End Role="productos" EntitySet="productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuarios_personas" Association="Self.FK_usuarios_personas">
+            <End Role="personas" EntitySet="personas" />
+            <End Role="usuarios" EntitySet="usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="pcgamerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="c1_procesador">
+          <Key>
+            <PropertyRef Name="c1_procesador1" />
+          </Key>
+          <Property Name="c1_procesador1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="c1_descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="productos" Relationship="Self.FK_productos_c1_procesador" FromRole="c1_procesador" ToRole="productos" />
+        </EntityType>
+        <EntityType Name="c2_placamadre">
+          <Key>
+            <PropertyRef Name="c2_placamadre1" />
+          </Key>
+          <Property Name="c2_placamadre1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="c2_descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="productos" Relationship="Self.FK_productos_c2_placamadre" FromRole="c2_placamadre" ToRole="productos" />
+        </EntityType>
+        <EntityType Name="c3_ram">
+          <Key>
+            <PropertyRef Name="c3_ram1" />
+          </Key>
+          <Property Name="c3_ram1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="c3_descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="productos" Relationship="Self.FK_productos_c3_ram" FromRole="c3_ram" ToRole="productos" />
+        </EntityType>
+        <EntityType Name="c4_placavideo">
+          <Key>
+            <PropertyRef Name="c4_placavideo1" />
+          </Key>
+          <Property Name="c4_placavideo1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="c4_descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="productos" Relationship="Self.FK_productos_c4_placavideo" FromRole="c4_placavideo" ToRole="productos" />
+        </EntityType>
+        <EntityType Name="c5_discorigido">
+          <Key>
+            <PropertyRef Name="c5_discorigido1" />
+          </Key>
+          <Property Name="c5_discorigido1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="c5_descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="productos" Relationship="Self.FK_productos_c5_discorigido" FromRole="c5_discorigido" ToRole="productos" />
+        </EntityType>
+        <EntityType Name="c6_gabinete">
+          <Key>
+            <PropertyRef Name="c6_gabinete1" />
+          </Key>
+          <Property Name="c6_gabinete1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="c6_descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="productos" Relationship="Self.FK_productos_c6_gabinete" FromRole="c6_gabinete" ToRole="productos" />
+        </EntityType>
+        <EntityType Name="categoria">
+          <Key>
+            <PropertyRef Name="Id_categoria" />
+          </Key>
+          <Property Name="Id_categoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion_categoria" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="productos" Relationship="Self.FK_productos_categoria" FromRole="categoria" ToRole="productos" />
+        </EntityType>
+        <EntityType Name="clientes">
+          <Key>
+            <PropertyRef Name="Id_cliente" />
+          </Key>
+          <Property Name="Id_cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dni" Type="Int32" Nullable="false" />
+          <Property Name="domicilio" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaingreso" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="factura" Relationship="Self.FK_factura_clientes" FromRole="clientes" ToRole="factura" />
+        </EntityType>
+        <EntityType Name="factura">
+          <Key>
+            <PropertyRef Name="Id_factura" />
+          </Key>
+          <Property Name="Id_factura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cliente_id" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="hora" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="vendedor_id" Type="Int32" Nullable="false" />
+          <Property Name="forma_pago_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="clientes" Relationship="Self.FK_factura_clientes" FromRole="factura" ToRole="clientes" />
+          <NavigationProperty Name="factura_detalle" Relationship="Self.FK_factura_detalle_factura" FromRole="factura" ToRole="factura_detalle" />
+          <NavigationProperty Name="forma_pago" Relationship="Self.FK_factura_forma_pago" FromRole="factura" ToRole="forma_pago" />
+          <NavigationProperty Name="usuarios" Relationship="Self.FK_factura_usuarios" FromRole="factura" ToRole="usuarios" />
+        </EntityType>
+        <EntityType Name="factura_detalle">
+          <Key>
+            <PropertyRef Name="Id_factura" />
+            <PropertyRef Name="Id_factura_detalle" />
+          </Key>
+          <Property Name="Id_factura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_factura_detalle" Type="Int32" Nullable="false" />
+          <Property Name="producto_id" Type="Int32" Nullable="false" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="precio_unit" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="factura" Relationship="Self.FK_factura_detalle_factura" FromRole="factura_detalle" ToRole="factura" />
+        </EntityType>
+        <EntityType Name="forma_pago">
+          <Key>
+            <PropertyRef Name="Id_forma_pago" />
+          </Key>
+          <Property Name="Id_forma_pago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion_formapago" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="factura" Relationship="Self.FK_factura_forma_pago" FromRole="forma_pago" ToRole="factura" />
+        </EntityType>
+        <EntityType Name="personas">
+          <Key>
+            <PropertyRef Name="Id_persona" />
+          </Key>
+          <Property Name="Id_persona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="domicilio" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dni" Type="Int32" Nullable="false" />
+          <Property Name="imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rol_id" Type="Int32" Nullable="false" />
+          <Property Name="telefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="rol" Relationship="Self.FK_personas_rol" FromRole="personas" ToRole="rol" />
+          <NavigationProperty Name="usuarios" Relationship="Self.FK_usuarios_personas" FromRole="personas" ToRole="usuarios" />
+        </EntityType>
+        <EntityType Name="productos">
+          <Key>
+            <PropertyRef Name="Id_producto" />
+          </Key>
+          <Property Name="Id_producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="c1_procesador_id" Type="Int32" Nullable="false" />
+          <Property Name="c2_placamadre_id" Type="Int32" Nullable="false" />
+          <Property Name="c3_ram_id" Type="Int32" Nullable="false" />
+          <Property Name="c4_placavideo_id" Type="Int32" Nullable="false" />
+          <Property Name="c5_discorigido_id" Type="Int32" Nullable="false" />
+          <Property Name="c6_gabinete_id" Type="Int32" Nullable="false" />
+          <Property Name="precio" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="stock" Type="Int32" Nullable="false" />
+          <Property Name="categoria_id" Type="Int32" Nullable="false" />
+          <Property Name="imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="c1_procesador" Relationship="Self.FK_productos_c1_procesador" FromRole="productos" ToRole="c1_procesador" />
+          <NavigationProperty Name="c2_placamadre" Relationship="Self.FK_productos_c2_placamadre" FromRole="productos" ToRole="c2_placamadre" />
+          <NavigationProperty Name="c3_ram" Relationship="Self.FK_productos_c3_ram" FromRole="productos" ToRole="c3_ram" />
+          <NavigationProperty Name="c4_placavideo" Relationship="Self.FK_productos_c4_placavideo" FromRole="productos" ToRole="c4_placavideo" />
+          <NavigationProperty Name="c5_discorigido" Relationship="Self.FK_productos_c5_discorigido" FromRole="productos" ToRole="c5_discorigido" />
+          <NavigationProperty Name="c6_gabinete" Relationship="Self.FK_productos_c6_gabinete" FromRole="productos" ToRole="c6_gabinete" />
+          <NavigationProperty Name="categoria" Relationship="Self.FK_productos_categoria" FromRole="productos" ToRole="categoria" />
+        </EntityType>
+        <EntityType Name="rol">
+          <Key>
+            <PropertyRef Name="Id_rol" />
+          </Key>
+          <Property Name="Id_rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipo_rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="personas" Relationship="Self.FK_personas_rol" FromRole="rol" ToRole="personas" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="Id_usuario" />
+          </Key>
+          <Property Name="Id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contrasena" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="persona_id" Type="Int32" Nullable="false" />
+          <Property Name="estado" Type="Int32" Nullable="false" />
+          <Property Name="fechaingreso" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="factura" Relationship="Self.FK_factura_usuarios" FromRole="usuarios" ToRole="factura" />
+          <NavigationProperty Name="personas" Relationship="Self.FK_usuarios_personas" FromRole="usuarios" ToRole="personas" />
+        </EntityType>
+        <Association Name="FK_productos_c1_procesador">
+          <End Role="c1_procesador" Type="Self.c1_procesador" Multiplicity="1" />
+          <End Role="productos" Type="Self.productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="c1_procesador">
+              <PropertyRef Name="c1_procesador1" />
+            </Principal>
+            <Dependent Role="productos">
+              <PropertyRef Name="c1_procesador_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productos_c2_placamadre">
+          <End Role="c2_placamadre" Type="Self.c2_placamadre" Multiplicity="1" />
+          <End Role="productos" Type="Self.productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="c2_placamadre">
+              <PropertyRef Name="c2_placamadre1" />
+            </Principal>
+            <Dependent Role="productos">
+              <PropertyRef Name="c2_placamadre_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productos_c3_ram">
+          <End Role="c3_ram" Type="Self.c3_ram" Multiplicity="1" />
+          <End Role="productos" Type="Self.productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="c3_ram">
+              <PropertyRef Name="c3_ram1" />
+            </Principal>
+            <Dependent Role="productos">
+              <PropertyRef Name="c3_ram_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productos_c4_placavideo">
+          <End Role="c4_placavideo" Type="Self.c4_placavideo" Multiplicity="1" />
+          <End Role="productos" Type="Self.productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="c4_placavideo">
+              <PropertyRef Name="c4_placavideo1" />
+            </Principal>
+            <Dependent Role="productos">
+              <PropertyRef Name="c4_placavideo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productos_c5_discorigido">
+          <End Role="c5_discorigido" Type="Self.c5_discorigido" Multiplicity="1" />
+          <End Role="productos" Type="Self.productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="c5_discorigido">
+              <PropertyRef Name="c5_discorigido1" />
+            </Principal>
+            <Dependent Role="productos">
+              <PropertyRef Name="c5_discorigido_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productos_c6_gabinete">
+          <End Role="c6_gabinete" Type="Self.c6_gabinete" Multiplicity="1" />
+          <End Role="productos" Type="Self.productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="c6_gabinete">
+              <PropertyRef Name="c6_gabinete1" />
+            </Principal>
+            <Dependent Role="productos">
+              <PropertyRef Name="c6_gabinete_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productos_categoria">
+          <End Role="categoria" Type="Self.categoria" Multiplicity="1" />
+          <End Role="productos" Type="Self.productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categoria">
+              <PropertyRef Name="Id_categoria" />
+            </Principal>
+            <Dependent Role="productos">
+              <PropertyRef Name="categoria_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_factura_clientes">
+          <End Role="clientes" Type="Self.clientes" Multiplicity="1" />
+          <End Role="factura" Type="Self.factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clientes">
+              <PropertyRef Name="Id_cliente" />
+            </Principal>
+            <Dependent Role="factura">
+              <PropertyRef Name="cliente_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_factura_detalle_factura">
+          <End Role="factura" Type="Self.factura" Multiplicity="1" />
+          <End Role="factura_detalle" Type="Self.factura_detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="factura">
+              <PropertyRef Name="Id_factura" />
+            </Principal>
+            <Dependent Role="factura_detalle">
+              <PropertyRef Name="Id_factura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_factura_forma_pago">
+          <End Role="forma_pago" Type="Self.forma_pago" Multiplicity="1" />
+          <End Role="factura" Type="Self.factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="forma_pago">
+              <PropertyRef Name="Id_forma_pago" />
+            </Principal>
+            <Dependent Role="factura">
+              <PropertyRef Name="forma_pago_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_factura_usuarios">
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
+          <End Role="factura" Type="Self.factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="Id_usuario" />
+            </Principal>
+            <Dependent Role="factura">
+              <PropertyRef Name="vendedor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personas_rol">
+          <End Role="rol" Type="Self.rol" Multiplicity="1" />
+          <End Role="personas" Type="Self.personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol">
+              <PropertyRef Name="Id_rol" />
+            </Principal>
+            <Dependent Role="personas">
+              <PropertyRef Name="rol_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuarios_personas">
+          <End Role="personas" Type="Self.personas" Multiplicity="1" />
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personas">
+              <PropertyRef Name="Id_persona" />
+            </Principal>
+            <Dependent Role="usuarios">
+              <PropertyRef Name="persona_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="pcgamerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="c1_procesador" EntityType="Self.c1_procesador" />
+          <EntitySet Name="c2_placamadre" EntityType="Self.c2_placamadre" />
+          <EntitySet Name="c3_ram" EntityType="Self.c3_ram" />
+          <EntitySet Name="c4_placavideo" EntityType="Self.c4_placavideo" />
+          <EntitySet Name="c5_discorigido" EntityType="Self.c5_discorigido" />
+          <EntitySet Name="c6_gabinete" EntityType="Self.c6_gabinete" />
+          <EntitySet Name="categoria" EntityType="Self.categoria" />
+          <EntitySet Name="clientes" EntityType="Self.clientes" />
+          <EntitySet Name="factura" EntityType="Self.factura" />
+          <EntitySet Name="factura_detalle" EntityType="Self.factura_detalle" />
+          <EntitySet Name="forma_pago" EntityType="Self.forma_pago" />
+          <EntitySet Name="personas" EntityType="Self.personas" />
+          <EntitySet Name="productos" EntityType="Self.productos" />
+          <EntitySet Name="rol" EntityType="Self.rol" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" />
+          <AssociationSet Name="FK_productos_c1_procesador" Association="Self.FK_productos_c1_procesador">
+            <End Role="c1_procesador" EntitySet="c1_procesador" />
+            <End Role="productos" EntitySet="productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productos_c2_placamadre" Association="Self.FK_productos_c2_placamadre">
+            <End Role="c2_placamadre" EntitySet="c2_placamadre" />
+            <End Role="productos" EntitySet="productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productos_c3_ram" Association="Self.FK_productos_c3_ram">
+            <End Role="c3_ram" EntitySet="c3_ram" />
+            <End Role="productos" EntitySet="productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productos_c4_placavideo" Association="Self.FK_productos_c4_placavideo">
+            <End Role="c4_placavideo" EntitySet="c4_placavideo" />
+            <End Role="productos" EntitySet="productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productos_c5_discorigido" Association="Self.FK_productos_c5_discorigido">
+            <End Role="c5_discorigido" EntitySet="c5_discorigido" />
+            <End Role="productos" EntitySet="productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productos_c6_gabinete" Association="Self.FK_productos_c6_gabinete">
+            <End Role="c6_gabinete" EntitySet="c6_gabinete" />
+            <End Role="productos" EntitySet="productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productos_categoria" Association="Self.FK_productos_categoria">
+            <End Role="categoria" EntitySet="categoria" />
+            <End Role="productos" EntitySet="productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_factura_clientes" Association="Self.FK_factura_clientes">
+            <End Role="clientes" EntitySet="clientes" />
+            <End Role="factura" EntitySet="factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_factura_detalle_factura" Association="Self.FK_factura_detalle_factura">
+            <End Role="factura" EntitySet="factura" />
+            <End Role="factura_detalle" EntitySet="factura_detalle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_factura_forma_pago" Association="Self.FK_factura_forma_pago">
+            <End Role="forma_pago" EntitySet="forma_pago" />
+            <End Role="factura" EntitySet="factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_factura_usuarios" Association="Self.FK_factura_usuarios">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="factura" EntitySet="factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personas_rol" Association="Self.FK_personas_rol">
+            <End Role="rol" EntitySet="rol" />
+            <End Role="personas" EntitySet="personas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuarios_personas" Association="Self.FK_usuarios_personas">
+            <End Role="personas" EntitySet="personas" />
+            <End Role="usuarios" EntitySet="usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="pcgamerModelStoreContainer" CdmEntityContainer="pcgamerEntities">
+          <EntitySetMapping Name="c1_procesador">
+            <EntityTypeMapping TypeName="pcgamerModel.c1_procesador">
+              <MappingFragment StoreEntitySet="c1_procesador">
+                <ScalarProperty Name="c1_procesador1" ColumnName="c1_procesador" />
+                <ScalarProperty Name="c1_descripcion" ColumnName="c1_descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="c2_placamadre">
+            <EntityTypeMapping TypeName="pcgamerModel.c2_placamadre">
+              <MappingFragment StoreEntitySet="c2_placamadre">
+                <ScalarProperty Name="c2_placamadre1" ColumnName="c2_placamadre" />
+                <ScalarProperty Name="c2_descripcion" ColumnName="c2_descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="c3_ram">
+            <EntityTypeMapping TypeName="pcgamerModel.c3_ram">
+              <MappingFragment StoreEntitySet="c3_ram">
+                <ScalarProperty Name="c3_ram1" ColumnName="c3_ram" />
+                <ScalarProperty Name="c3_descripcion" ColumnName="c3_descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="c4_placavideo">
+            <EntityTypeMapping TypeName="pcgamerModel.c4_placavideo">
+              <MappingFragment StoreEntitySet="c4_placavideo">
+                <ScalarProperty Name="c4_placavideo1" ColumnName="c4_placavideo" />
+                <ScalarProperty Name="c4_descripcion" ColumnName="c4_descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="c5_discorigido">
+            <EntityTypeMapping TypeName="pcgamerModel.c5_discorigido">
+              <MappingFragment StoreEntitySet="c5_discorigido">
+                <ScalarProperty Name="c5_discorigido1" ColumnName="c5_discorigido" />
+                <ScalarProperty Name="c5_descripcion" ColumnName="c5_descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="c6_gabinete">
+            <EntityTypeMapping TypeName="pcgamerModel.c6_gabinete">
+              <MappingFragment StoreEntitySet="c6_gabinete">
+                <ScalarProperty Name="c6_gabinete1" ColumnName="c6_gabinete" />
+                <ScalarProperty Name="c6_descripcion" ColumnName="c6_descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="categoria">
+            <EntityTypeMapping TypeName="pcgamerModel.categoria">
+              <MappingFragment StoreEntitySet="categoria">
+                <ScalarProperty Name="Id_categoria" ColumnName="Id_categoria" />
+                <ScalarProperty Name="descripcion_categoria" ColumnName="descripcion_categoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clientes">
+            <EntityTypeMapping TypeName="pcgamerModel.clientes">
+              <MappingFragment StoreEntitySet="clientes">
+                <ScalarProperty Name="Id_cliente" ColumnName="Id_cliente" />
+                <ScalarProperty Name="nombres" ColumnName="nombres" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="dni" ColumnName="dni" />
+                <ScalarProperty Name="domicilio" ColumnName="domicilio" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="fechaingreso" ColumnName="fechaingreso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="factura">
+            <EntityTypeMapping TypeName="pcgamerModel.factura">
+              <MappingFragment StoreEntitySet="factura">
+                <ScalarProperty Name="Id_factura" ColumnName="Id_factura" />
+                <ScalarProperty Name="cliente_id" ColumnName="cliente_id" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="hora" ColumnName="hora" />
+                <ScalarProperty Name="vendedor_id" ColumnName="vendedor_id" />
+                <ScalarProperty Name="forma_pago_id" ColumnName="forma_pago_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="factura_detalle">
+            <EntityTypeMapping TypeName="pcgamerModel.factura_detalle">
+              <MappingFragment StoreEntitySet="factura_detalle">
+                <ScalarProperty Name="Id_factura" ColumnName="Id_factura" />
+                <ScalarProperty Name="Id_factura_detalle" ColumnName="Id_factura_detalle" />
+                <ScalarProperty Name="producto_id" ColumnName="producto_id" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="precio_unit" ColumnName="precio_unit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="forma_pago">
+            <EntityTypeMapping TypeName="pcgamerModel.forma_pago">
+              <MappingFragment StoreEntitySet="forma_pago">
+                <ScalarProperty Name="Id_forma_pago" ColumnName="Id_forma_pago" />
+                <ScalarProperty Name="descripcion_formapago" ColumnName="descripcion_formapago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="personas">
+            <EntityTypeMapping TypeName="pcgamerModel.personas">
+              <MappingFragment StoreEntitySet="personas">
+                <ScalarProperty Name="Id_persona" ColumnName="Id_persona" />
+                <ScalarProperty Name="nombres" ColumnName="nombres" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="domicilio" ColumnName="domicilio" />
+                <ScalarProperty Name="dni" ColumnName="dni" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="rol_id" ColumnName="rol_id" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="productos">
+            <EntityTypeMapping TypeName="pcgamerModel.productos">
+              <MappingFragment StoreEntitySet="productos">
+                <ScalarProperty Name="Id_producto" ColumnName="Id_producto" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="c1_procesador_id" ColumnName="c1_procesador_id" />
+                <ScalarProperty Name="c2_placamadre_id" ColumnName="c2_placamadre_id" />
+                <ScalarProperty Name="c3_ram_id" ColumnName="c3_ram_id" />
+                <ScalarProperty Name="c4_placavideo_id" ColumnName="c4_placavideo_id" />
+                <ScalarProperty Name="c5_discorigido_id" ColumnName="c5_discorigido_id" />
+                <ScalarProperty Name="c6_gabinete_id" ColumnName="c6_gabinete_id" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="stock" ColumnName="stock" />
+                <ScalarProperty Name="categoria_id" ColumnName="categoria_id" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rol">
+            <EntityTypeMapping TypeName="pcgamerModel.rol">
+              <MappingFragment StoreEntitySet="rol">
+                <ScalarProperty Name="Id_rol" ColumnName="Id_rol" />
+                <ScalarProperty Name="tipo_rol" ColumnName="tipo_rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="pcgamerModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuarios">
+            <EntityTypeMapping TypeName="pcgamerModel.usuarios">
+              <MappingFragment StoreEntitySet="usuarios">
+                <ScalarProperty Name="Id_usuario" ColumnName="Id_usuario" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="persona_id" ColumnName="persona_id" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="fechaingreso" ColumnName="fechaingreso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

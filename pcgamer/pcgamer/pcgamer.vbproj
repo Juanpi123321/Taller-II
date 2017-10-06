@@ -47,12 +47,40 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -74,6 +102,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccesoDatos.vb" />
     <Compile Include="Administrador\FormularioAdminCliente.Designer.vb">
       <DependentUpon>FormularioAdminCliente.vb</DependentUpon>
     </Compile>
@@ -92,6 +121,63 @@
     <Compile Include="Administrador\FormularioAdminStock.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="c1_procesador.vb">
+      <DependentUpon>ModeloPcgamer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="c2_placamadre.vb">
+      <DependentUpon>ModeloPcgamer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="c3_ram.vb">
+      <DependentUpon>ModeloPcgamer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="c4_placavideo.vb">
+      <DependentUpon>ModeloPcgamer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="c5_discorigido.vb">
+      <DependentUpon>ModeloPcgamer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="c6_gabinete.vb">
+      <DependentUpon>ModeloPcgamer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="categoria.vb">
+      <DependentUpon>ModeloPcgamer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="clientes.vb">
+      <DependentUpon>ModeloPcgamer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="factura.vb">
+      <DependentUpon>ModeloPcgamer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="factura_detalle.vb">
+      <DependentUpon>ModeloPcgamer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="forma_pago.vb">
+      <DependentUpon>ModeloPcgamer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloPcgamer.Context.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloPcgamer.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloPcgamer.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloPcgamer.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloPcgamer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloPcgamer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="personas.vb">
+      <DependentUpon>ModeloPcgamer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="productos.vb">
+      <DependentUpon>ModeloPcgamer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rol.vb">
+      <DependentUpon>ModeloPcgamer.tt</DependentUpon>
+    </Compile>
     <Compile Include="SuperAdministrador\FormularioSuperRoles.Designer.vb">
       <DependentUpon>FormularioSuperRoles.vb</DependentUpon>
     </Compile>
@@ -109,6 +195,12 @@
     </Compile>
     <Compile Include="SuperAdministrador\FormularioSuperUsuario.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sysdiagrams.vb">
+      <DependentUpon>ModeloPcgamer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usuarios.vb">
+      <DependentUpon>ModeloPcgamer.tt</DependentUpon>
     </Compile>
     <Compile Include="Vendedor\FormularioCliente.Designer.vb">
       <DependentUpon>FormularioCliente.vb</DependentUpon>
@@ -200,6 +292,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="ModeloPcgamer.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModeloPcgamer.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModeloPcgamer.edmx.diagram">
+      <DependentUpon>ModeloPcgamer.edmx</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -209,9 +308,12 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\asus-background.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -348,6 +450,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModeloPcgamer.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloPcgamer.edmx</DependentUpon>
+      <LastGenOutput>ModeloPcgamer.Context.vb</LastGenOutput>
+    </Content>
+    <Content Include="ModeloPcgamer.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloPcgamer.edmx</DependentUpon>
+      <LastGenOutput>ModeloPcgamer.vb</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

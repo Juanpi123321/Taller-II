@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6785d79737d24629938fe5daf6c03b60" Name="Diagram1">
+        <EntityTypeShape EntityType="pcgamerModel.c1_procesador" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pcgamerModel.c2_placamadre" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pcgamerModel.c3_ram" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="pcgamerModel.c4_placavideo" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pcgamerModel.c5_discorigido" Width="1.5" PointX="0.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pcgamerModel.c6_gabinete" Width="1.5" PointX="0.75" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="pcgamerModel.categoria" Width="1.5" PointX="0.75" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="pcgamerModel.clientes" Width="1.5" PointX="10.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="pcgamerModel.factura" Width="1.5" PointX="12.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="pcgamerModel.factura_detalle" Width="1.5" PointX="14.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pcgamerModel.forma_pago" Width="1.5" PointX="10.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pcgamerModel.personas" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="pcgamerModel.productos" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="pcgamerModel.rol" Width="1.5" PointX="5.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pcgamerModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pcgamerModel.usuarios" Width="1.5" PointX="10.25" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="pcgamerModel.FK_productos_c1_procesador" ManuallyRouted="false" />
+        <AssociationConnector Association="pcgamerModel.FK_productos_c2_placamadre" ManuallyRouted="false" />
+        <AssociationConnector Association="pcgamerModel.FK_productos_c3_ram" ManuallyRouted="false" />
+        <AssociationConnector Association="pcgamerModel.FK_productos_c4_placavideo" ManuallyRouted="false" />
+        <AssociationConnector Association="pcgamerModel.FK_productos_c5_discorigido" ManuallyRouted="false" />
+        <AssociationConnector Association="pcgamerModel.FK_productos_c6_gabinete" ManuallyRouted="false" />
+        <AssociationConnector Association="pcgamerModel.FK_productos_categoria" ManuallyRouted="false" />
+        <AssociationConnector Association="pcgamerModel.FK_factura_clientes" ManuallyRouted="false" />
+        <AssociationConnector Association="pcgamerModel.FK_factura_detalle_factura" ManuallyRouted="false" />
+        <AssociationConnector Association="pcgamerModel.FK_factura_forma_pago" ManuallyRouted="false" />
+        <AssociationConnector Association="pcgamerModel.FK_factura_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="pcgamerModel.FK_personas_rol" ManuallyRouted="false" />
+        <AssociationConnector Association="pcgamerModel.FK_usuarios_personas" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
