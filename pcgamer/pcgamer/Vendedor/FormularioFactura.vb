@@ -1,4 +1,42 @@
-﻿Public Class FormularioFactura
+﻿Imports System.ComponentModel
+
+Public Class FormularioFactura
+
+    Private Sub Validar_Numeros(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
+        Dim Celda As DataGridViewCell = Me.DataGridFactura.CurrentCell()
+        If Celda.ColumnIndex = 1 Then
+            If Len(Trim(Celda.EditedFormattedValue.ToString)) > 0 Then
+                If Char.IsNumber(e.KeyChar) Or e.KeyChar = Convert.ToChar(8) Then
+                    e.Handled = False
+                Else
+                    e.Handled = True
+                End If
+            Else
+                If e.KeyChar = "0"c Then
+                    e.Handled = True
+                Else
+                    If Char.IsNumber(e.KeyChar) Or e.KeyChar = Convert.ToChar(8) Then
+                        e.Handled = False
+                    Else
+                        e.Handled = True
+                    End If
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub calcularTotal()
+        Dim total As Decimal = 0
+        If DataGridFactura.CurrentRow Is Nothing Then
+            total = 0
+        Else
+            Dim fila As DataGridViewRow = New DataGridViewRow
+            For Each fila In DataGridFactura.Rows
+                total = total + fila.Cells(5).Value
+            Next
+        End If
+        TTotal.Text = Convert.ToString(total)
+    End Sub
 
     Private Sub FormularioFactura_Closed(sender As Object, e As EventArgs) Handles Me.Closed
         FormularioVendedor.Show()
@@ -9,7 +47,6 @@
             BSeleccionarCliente.Hide()
         End If
         TFechaHora.Text = String.Format("{0:G}", DateTime.Now)
-
 
     End Sub
 
@@ -25,7 +62,7 @@
             respuesta = MsgBox("Debe agregar un Cliente", MsgBoxStyle.DefaultButton2 +
             MsgBoxStyle.Information, "Cliente Invalido")
             'Pregunta si la primera fila esta vacia
-        ElseIf DataGridFactura.Item(1, 0).Value = "" Then
+        ElseIf DataGridFactura.CurrentRow Is Nothing Then
             respuesta = MsgBox("Debe agregar un Producto", MsgBoxStyle.DefaultButton2 +
             MsgBoxStyle.Information, "Producto Invalido")
         Else
@@ -48,47 +85,16 @@
 
     Private Sub BEliminar_Click(sender As Object, e As EventArgs) Handles BEliminar.Click
         Dim respuesta As MsgBoxResult
-        Try
-            Dim fila As Integer = DataGridFactura.CurrentRow.Index
-            If DataGridFactura.Item(1, 0).Value = "" Or DataGridFactura.Item(1, fila).Value = "" Then
-                respuesta = MsgBox("Error, no hay productos seleccionados", MsgBoxStyle.DefaultButton2 +
-            MsgBoxStyle.Critical, "Eliminacion Invalida")
-            Else
-                respuesta = MsgBox("¿Esta seguro de eliminar el Producto?", MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Question, "Confirmar Eliminacion")
-                If MsgBoxResult.Yes = respuesta Then
-                    DataGridFactura.Rows.Remove(DataGridFactura.Rows(DataGridFactura.SelectedCells.Item(0).RowIndex))
-                End If
-            End If
-        Catch ex As Exception
+        If DataGridFactura.CurrentRow Is Nothing Then
             respuesta = MsgBox("Error, no hay productos seleccionados", MsgBoxStyle.DefaultButton2 +
-        MsgBoxStyle.Critical, "Modificacion Invalida")
-        End Try
-    End Sub
-
-    Private Sub DataGridFactura_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridFactura.CellEndEdit
-        Dim fila As Integer = DataGridFactura.CurrentRow.Index
-        Try
-            If Integer.Parse(DataGridFactura.Item(0, fila).Value) = 0 Or DataGridFactura.Item(0, fila).Value = "" Then
-                MsgBox("La cantidad de producto debe ser como minimo 1", MsgBoxStyle.DefaultButton2 +
-            MsgBoxStyle.Critical, "Cantidad Invalida")
-                DataGridFactura.Item(0, fila).Value = 1
+                               MsgBoxStyle.Critical, "Eliminacion Invalida")
+        Else
+            Dim fila As Integer = DataGridFactura.CurrentRow.Index
+            respuesta = MsgBox("¿Esta seguro de eliminar el Producto?", MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Question, "Confirmar Eliminacion")
+            If MsgBoxResult.Yes = respuesta Then
+                DataGridFactura.Rows.Remove(DataGridFactura.Rows(DataGridFactura.SelectedCells.Item(0).RowIndex))
             End If
-            DataGridFactura.Item(4, fila).Value = Integer.Parse(DataGridFactura.Item(0, fila).Value) * Double.Parse(DataGridFactura.Item(3, fila).Value)
-
-            If DataGridFactura.Item(0, fila).Value = "" And DataGridFactura.Item(1, fila).Value <> "" Then
-                DataGridFactura.Item(0, fila).Value = 1
-            End If
-        Catch ex As Exception
-            'MsgBox("Error, no hay productos seleccionados", MsgBoxStyle.DefaultButton2 +
-            'MsgBoxStyle.Critical, "Modificacion Invalida")
-        End Try
-
-        Dim total As Double = 0
-        Dim fila2 As DataGridViewRow = New DataGridViewRow
-        For Each fila2 In DataGridFactura.Rows
-            total = total + Convert.ToDouble(fila2.Cells(4).Value)
-        Next
-        TTotal.Text = Convert.ToString(total)
+        End If
     End Sub
 
     Private Sub FormularioFactura_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
@@ -106,51 +112,23 @@
         Me.Close()
     End Sub
 
+    Private Sub DataGridFactura_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridFactura.CellEndEdit
+        Dim fila As Integer = DataGridFactura.CurrentRow.Index
+        If DataGridFactura.Item(1, fila).Value = 0 Then
+            MsgBox("La cantidad de producto debe ser como minimo 1", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Cantidad Invalida")
+            DataGridFactura.Item(1, fila).Value = 1
+        End If
+        Dim importe As Decimal = DataGridFactura.Item(1, fila).Value * DataGridFactura.Item(4, fila).Value
+        DataGridFactura.Item(5, fila).Value = importe
+
+        calcularTotal()
+    End Sub
+
     Private Sub DataGridFactura_EditingControlShowing(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewEditingControlShowingEventArgs) Handles DataGridFactura.EditingControlShowing
         AddHandler e.Control.KeyPress, AddressOf Validar_Numeros
-        Dim fila As Integer = DataGridFactura.CurrentRow.Index
-
-        'si no esta cargada la fila no deja que modifique la cantidad
-        If DataGridFactura.Item(1, fila).Value = "" Then
-            AddHandler e.Control.KeyPress, AddressOf No_Modificar
-        End If
     End Sub
 
-    Private Sub No_Modificar(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
-        Dim Celda As DataGridViewCell = Me.DataGridFactura.CurrentCell()
-        e.Handled = True
+    Private Sub DataGridFactura_RowStateChanged(sender As Object, e As DataGridViewRowStateChangedEventArgs) Handles DataGridFactura.RowStateChanged
+        calcularTotal()
     End Sub
-
-    Private Sub Validar_Numeros(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
-        Dim Celda As DataGridViewCell = Me.DataGridFactura.CurrentCell()
-        If Celda.ColumnIndex = 0 Then
-            If Len(Trim(Celda.EditedFormattedValue.ToString)) > 0 Then
-                If Char.IsNumber(e.KeyChar) Or e.KeyChar = Convert.ToChar(8) Then
-                    e.Handled = False
-                Else
-                    e.Handled = True
-                End If
-            Else
-                If e.KeyChar = "0"c Then
-                    e.Handled = True
-                Else
-                    If Char.IsNumber(e.KeyChar) Or e.KeyChar = Convert.ToChar(8) Then
-                        e.Handled = False
-                    Else
-                        e.Handled = True
-                    End If
-                End If
-            End If
-        End If
-    End Sub
-
-    Private Sub DataGridFactura_CellValidated(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridFactura.CellValidated
-        Dim total As Double = 0
-        Dim fila2 As DataGridViewRow = New DataGridViewRow
-        For Each fila2 In DataGridFactura.Rows
-            total = total + Convert.ToDouble(fila2.Cells(3).Value)
-        Next
-        TTotal.Text = Convert.ToString(total)
-    End Sub
-
 End Class

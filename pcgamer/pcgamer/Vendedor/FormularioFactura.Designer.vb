@@ -34,6 +34,7 @@ Partial Class FormularioFactura
         Me.LTotal = New System.Windows.Forms.Label()
         Me.TTotal = New System.Windows.Forms.Label()
         Me.DataGridFactura = New System.Windows.Forms.DataGridView()
+        Me.Id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.unidadmedida = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -123,7 +124,7 @@ Partial Class FormularioFactura
         Me.LTotal.BackColor = System.Drawing.Color.White
         Me.LTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.LTotal.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LTotal.Location = New System.Drawing.Point(554, 476)
+        Me.LTotal.Location = New System.Drawing.Point(528, 476)
         Me.LTotal.Name = "LTotal"
         Me.LTotal.Size = New System.Drawing.Size(113, 31)
         Me.LTotal.TabIndex = 15
@@ -135,7 +136,7 @@ Partial Class FormularioFactura
         Me.TTotal.BackColor = System.Drawing.Color.White
         Me.TTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TTotal.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TTotal.Location = New System.Drawing.Point(661, 476)
+        Me.TTotal.Location = New System.Drawing.Point(635, 476)
         Me.TTotal.Name = "TTotal"
         Me.TTotal.Size = New System.Drawing.Size(30, 31)
         Me.TTotal.TabIndex = 16
@@ -143,15 +144,22 @@ Partial Class FormularioFactura
         '
         'DataGridFactura
         '
+        Me.DataGridFactura.AllowUserToAddRows = False
         Me.DataGridFactura.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.DataGridFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridFactura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cantidad, Me.unidadmedida, Me.descripcion, Me.punitario, Me.importe})
+        Me.DataGridFactura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id_producto, Me.cantidad, Me.unidadmedida, Me.descripcion, Me.punitario, Me.importe})
         Me.DataGridFactura.GridColor = System.Drawing.SystemColors.GrayText
         Me.DataGridFactura.Location = New System.Drawing.Point(3, 309)
         Me.DataGridFactura.Name = "DataGridFactura"
         Me.DataGridFactura.RowTemplate.Height = 24
         Me.DataGridFactura.Size = New System.Drawing.Size(785, 152)
         Me.DataGridFactura.TabIndex = 0
+        '
+        'Id_producto
+        '
+        Me.Id_producto.HeaderText = "Id_producto"
+        Me.Id_producto.Name = "Id_producto"
+        Me.Id_producto.Visible = False
         '
         'cantidad
         '
@@ -669,11 +677,12 @@ Partial Class FormularioFactura
     Friend WithEvents BEliminar As Button
     Friend WithEvents BImprimir As Button
     Friend WithEvents BCancelar As Button
+    Friend WithEvents LTotal As Label
+    Friend WithEvents TTotal As Label
+    Friend WithEvents Id_producto As DataGridViewTextBoxColumn
     Friend WithEvents cantidad As DataGridViewTextBoxColumn
     Friend WithEvents unidadmedida As DataGridViewTextBoxColumn
     Friend WithEvents descripcion As DataGridViewTextBoxColumn
     Friend WithEvents punitario As DataGridViewTextBoxColumn
     Friend WithEvents importe As DataGridViewTextBoxColumn
-    Friend WithEvents LTotal As Label
-    Friend WithEvents TTotal As Label
 End Class

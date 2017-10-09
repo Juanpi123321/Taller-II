@@ -72,6 +72,7 @@ Partial Class FormularioStock
         'DataGridStock
         '
         Me.DataGridStock.AllowUserToOrderColumns = True
+        Me.DataGridStock.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridStock.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.DataGridStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridStock.GridColor = System.Drawing.SystemColors.GrayText
@@ -79,6 +80,7 @@ Partial Class FormularioStock
         Me.DataGridStock.Name = "DataGridStock"
         Me.DataGridStock.ReadOnly = True
         Me.DataGridStock.RowTemplate.Height = 24
+        Me.DataGridStock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridStock.Size = New System.Drawing.Size(880, 244)
         Me.DataGridStock.TabIndex = 4
         '

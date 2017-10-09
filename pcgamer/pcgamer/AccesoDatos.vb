@@ -8,13 +8,20 @@
         'stock = p.stock, categoria = p.categoria_id, imagen = p.imagen, estado = p.estado).ToList
 
         Dim datos = (From p In ctx.productos
-                     Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio,
-Stock = p.stock, Categoria = p.categoria_id, Estado = p.estado).ToList
+                     Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+                         Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
 
         grid.DataSource = datos
-
+        'oculta el Id_producto
         grid.Columns(0).Visible = False
         grid.Columns(5).Visible = False
-
     End Sub
+
+    Shared Function capturarProducto(id As Integer) As productos
+        Dim producto = (From p In ctx.productos
+                        Where p.Id_producto = id
+                        Select p).SingleOrDefault
+        Return producto
+    End Function
+
 End Class

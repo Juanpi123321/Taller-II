@@ -1,96 +1,50 @@
 ﻿Public Class FormularioStock
     Private Sub FormularioStock_Closed(sender As Object, e As EventArgs) Handles Me.Closed
-        FormularioVendedor.Show()
+        'Si desde factura se dirigio al formulario de stock y cerro esa ventana, redirige hacia la factura
+        If FormularioFactura.DataGridFactura.CurrentRow Is Nothing Then
+            FormularioVendedor.Show()
+        Else
+            FormularioFactura.Show()
+        End If
+
     End Sub
 
-    Private Sub BAgregarFactura_Click(sender As Object, e As EventArgs) Handles BAgregarFactura.Click
-        Dim fila As Integer = DataGridStock.CurrentRow.Index
-        If DataGridStock.Item(0, fila).Value = "" Or TNombre.Text = "     ************" Then
-            MsgBox("Seleccione un producto para agregar a la factura", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
-        Else
-            Dim categoria As String = DataGridStock.Item(3, fila).Value
-            Dim descripcion As String = DataGridStock.Item(0, fila).Value
-            Dim precio As Integer = Integer.Parse(DataGridStock.Item(2, fila).Value)
-            Dim cantidad As Integer = 1
-            Dim importe As Double = precio * cantidad
-            FormularioFactura.DataGridFactura.Rows.Add(cantidad, categoria, descripcion, precio, importe)
-            FormularioFactura.Show()
-            Me.Dispose()
+    Private Sub cargarDetalle(producto As productos)
+
+        TNombre.Text = producto.nombre
+        TProcesador.Text = producto.c1_procesador.c1_descripcion
+        TPlacaMadre.Text = producto.c2_placamadre.c2_descripcion
+        TRam.Text = producto.c3_ram.c3_descripcion
+        TStock.Text = producto.stock
+        TCategoria.Text = producto.categoria.descripcion_categoria
+        TPlacaVideo.Text = producto.c4_placavideo.c4_descripcion
+        TDiscoRigido.Text = producto.c5_discorigido.c5_descripcion
+        TGabinete.Text = producto.c6_gabinete.c6_descripcion
+        TPrecio.Text = "$ " + System.Convert.ToString(producto.precio)
+
+        'Cambiar por direccion del producto
+        Dim imagen As String = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\gabinete.jpg"
+        PBImagen.Image = Image.FromFile(imagen)
+        Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
+
+    End Sub
+
+    'si el estado es 0 (esta dado de baja) entonces lo marca en gris, sino esta dado de baja y el stock es menor a 10 lo marca de rojo
+    Private Sub verificarEstado(producto As productos)
+        If producto.estado = 0 Then
+            DataGridStock.CurrentRow.DefaultCellStyle.BackColor = Color.Gray
+        ElseIf Integer.Parse(TStock.Text) <= 10 Then
+            DataGridStock.CurrentRow.DefaultCellStyle.BackColor = Color.Red
         End If
     End Sub
 
     Private Sub FormularioStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Agrego todo manualmente hasta que tenga Base de Datos
-        'DataGridStock.Rows.Add("Pc Bronze Ultra", "10", "9000", "Desktop-Escritorio")
-        'DataGridStock.Rows.Add("Pc Bronze", "4", "8000", "Desktop-Escritorio")
-        'DataGridStock.Rows.Add("Pc RaidMax Viper", "24", "9500", "Desktop-Escritorio")
-        'DataGridStock.Rows.Add("Pc RaidMax Cobra", "30", "10000", "Desktop-Escritorio")
-        'DataGridStock.Rows.Add("Acer Aspire E 15", "45", "20500", "Notebook")
-        'DataGridStock.Rows.Add("Hp Gamer Omen", "12", "28000", "Notebook")
-        'DataGridStock.Rows.Add("Pc Bangho Gamer", "20", "18000", "Desktop-Escritorio")
-        'DataGridStock.Rows.Add("Pc Master Race", "10", "13800", "Desktop-Escritorio")
-        'DataGridStock.Rows.Add("Pc NZXT Guardian", "25", "10000", "Desktop-Escritorio")
-        'DataGridStock.Rows.Add("Pc Circuit Planet", "15", "9000", "Desktop-Escritorio")
+        Try
 
-        AccesoDatos.cargarProductos(DataGridStock)
+            AccesoDatos.cargarProductos(DataGridStock)
+            DataGridStock.ClearSelection()
 
-
-        TNombre.Text = "     ************"
-        TProcesador.Text = "     ************"
-        TPlacaMadre.Text = "     ************"
-        TRam.Text = "     ************"
-        TStock.Text = "     ************"
-        TCategoria.Text = "     ************"
-        TPlacaVideo.Text = "     ************"
-        TDiscoRigido.Text = "     ************"
-        TGabinete.Text = "     ************"
-        TPrecio.Text = "     ************"
-        Dim imagen As String = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\gabinete.jpg"
-        PBImagen.Image = Image.FromFile(imagen)
-        Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
-
-        CBBuscar.SelectedIndex = 0
-    End Sub
-
-    Private Sub DataGridStock_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridStock.CellEnter
-        Dim fila As Integer = DataGridStock.CurrentRow.Index
-        TNombre.Text = DataGridStock.Item(1, fila).Value
-        Dim procesador As String = ""
-        Dim placamadre As String = ""
-        Dim ram As String = ""
-        Dim placavideo As String = ""
-        Dim discorigido As String = ""
-        Dim gabinete As String = ""
-        Dim imagen As String = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\gabinete.jpg"
-        'Select Case fila
-        'Case 0
-        ' procesador = "Intel Core i5 3.0GHz"
-        '  placamadre = "Asus (1151) Z170-e"
-        '   ram = "HyperX 8GB DDR3 1866Mhz"
-        '    placavideo = "MSI GTX 1060 GAMING GDDR5"
-        '     discorigido = "Seagate BarraCuda 3.5 1TB"
-        '      gabinete = "Sentey Kron Gs-6005"
-        '       imagen = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\pc-bronze-ultra.jpg"
-        'End Select
-        TProcesador.Text = procesador
-        TPlacaMadre.Text = placamadre
-        TRam.Text = ram
-        TStock.Text = DataGridStock.Item(3, fila).Value
-        TCategoria.Text = DataGridStock.Item(4, fila).Value
-        TPlacaVideo.Text = placavideo
-        TDiscoRigido.Text = discorigido
-        TGabinete.Text = gabinete
-        TPrecio.Text = "$ " + System.Convert.ToString(DataGridStock.Item(2, fila).Value)
-        'TPrecio.Text = "$ " + ToString(DataGridStock.Item(2, fila).Value)
-        PBImagen.Image = Image.FromFile(imagen)
-        Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
-
-        'Hago esto xq sino cuando llega a la ultima fila me da error
-        If TStock.Text <> "" Then
-            If Integer.Parse(TStock.Text) <= 10 Then
-                DataGridStock.CurrentRow.DefaultCellStyle.BackColor = Color.Red
-            End If
-        Else
+            'Cuando abro que no aparezca ningun valor
             TNombre.Text = "     ************"
             TProcesador.Text = "     ************"
             TPlacaMadre.Text = "     ************"
@@ -101,8 +55,44 @@
             TDiscoRigido.Text = "     ************"
             TGabinete.Text = "     ************"
             TPrecio.Text = "     ************"
-        End If
+            Dim imagen As String = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\gabinete.jpg"
+            PBImagen.Image = Image.FromFile(imagen)
+            Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
 
+            CBBuscar.SelectedIndex = 0
+
+        Catch ex As Exception
+            MsgBox("Ha ocurrido un error, la lista de producto no se pudo cargar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Error al cargar Datagrid")
+        End Try
+
+    End Sub
+
+    Private Sub DataGridStock_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridStock.CellEnter
+        Dim fila As Integer = DataGridStock.CurrentRow.Index
+        Dim id_producto As Integer = DataGridStock.Item(0, fila).Value
+        Dim producto As productos = AccesoDatos.capturarProducto(id_producto)
+
+        cargarDetalle(producto)
+        verificarEstado(producto)
+    End Sub
+
+    Private Sub BAgregarFactura_Click(sender As Object, e As EventArgs) Handles BAgregarFactura.Click
+        If DataGridStock.CurrentRow Is Nothing Or TNombre.Text = "     ************" Then
+            MsgBox("Seleccione un producto para agregar a la factura", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
+        Else
+            Dim fila As Integer = DataGridStock.CurrentRow.Index
+            Dim id_producto As Integer = DataGridStock.Item(0, fila).Value
+            Dim producto As productos = AccesoDatos.capturarProducto(id_producto)
+
+            Dim categoria As String = producto.categoria.descripcion_categoria
+            Dim nombre As String = producto.nombre
+            Dim precio As Decimal = producto.precio
+            Dim cantidad As Integer = 1
+            Dim importe As Decimal = precio * cantidad
+            FormularioFactura.DataGridFactura.Rows.Add(id_producto, cantidad, categoria, nombre, precio, importe)
+            FormularioFactura.Show()
+            Me.Dispose()
+        End If
     End Sub
 
 End Class
