@@ -107,4 +107,8 @@
         End If
     End Sub
 
+    Private Sub TBuscar_TextChanged(sender As Object, e As EventArgs) Handles TBuscar.TextChanged
+        'le paso lo qe se escribe, el numero del combobox buscar seleccionado y el datagrid
+        AccesoDatos.buscarProducto(sender.text, CBBuscar.SelectedIndex, DataGridStock)
+    End Sub
 End Class

@@ -67,4 +67,80 @@
         ctx.clientes.Add(cliente)
         ctx.SaveChanges()
     End Sub
+
+    Shared Sub buscarProducto(busqueda As String, filtro As Integer, grid As DataGridView)
+        Dim datos = (From p In ctx.productos
+                     Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+                                 Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
+        Select Case filtro
+            Case 0
+                datos = (From p In ctx.productos
+                         Where p.nombre.Contains(busqueda)
+                         Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+                                 Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
+            Case 1
+                datos = (From p In ctx.productos
+                         Where p.categoria.descripcion_categoria.Contains(busqueda)
+                         Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+                                 Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
+            Case 2
+                datos = (From p In ctx.productos
+                         Where p.c1_procesador.c1_descripcion.Contains(busqueda)
+                         Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+                                 Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
+            Case 3
+                datos = (From p In ctx.productos
+                         Where p.c2_placamadre.c2_descripcion.Contains(busqueda)
+                         Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+                                 Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
+            Case 4
+                datos = (From p In ctx.productos
+                         Where p.c3_ram.c3_descripcion.Contains(busqueda)
+                         Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+                                 Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
+            Case 5
+                datos = (From p In ctx.productos
+                         Where p.c4_placavideo.c4_descripcion.Contains(busqueda)
+                         Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+                                 Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
+            Case 6
+                datos = (From p In ctx.productos
+                         Where p.c5_discorigido.c5_descripcion.Contains(busqueda)
+                         Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+                                 Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
+            Case 7
+                datos = (From p In ctx.productos
+                         Where p.c6_gabinete.c6_descripcion.Contains(busqueda)
+                         Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+                                 Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
+
+        End Select
+
+        grid.DataSource = datos
+        grid.Columns(0).Visible = False
+        grid.Columns(5).Visible = False
+    End Sub
+
+    Shared Sub buscarCliente(busqueda As String, filtro As Integer, grid As DataGridView)
+        Dim datos = (From c In ctx.clientes
+                     Select Id = c.Id_cliente, Apellidos = c.apellidos, Nombres = c.nombres, DNI = c.dni,
+                         Fecha_Registro = c.fecharegistro).ToList
+        Select Case filtro
+            Case 0
+                datos = (From c In ctx.clientes
+                         Where c.nombres.Contains(busqueda) Or c.apellidos.Contains(busqueda)
+                         Select Id = c.Id_cliente, Apellidos = c.apellidos, Nombres = c.nombres, DNI = c.dni,
+                         Fecha_Registro = c.fecharegistro).ToList
+            Case 1
+                datos = (From c In ctx.clientes
+                         Where c.dni.ToString.Contains(busqueda)
+                         Select Id = c.Id_cliente, Apellidos = c.apellidos, Nombres = c.nombres, DNI = c.dni,
+                         Fecha_Registro = c.fecharegistro).ToList
+        End Select
+
+        grid.DataSource = datos
+        'oculta el Id_producto
+        grid.Columns(0).Visible = False
+    End Sub
+
 End Class

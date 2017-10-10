@@ -289,5 +289,8 @@ Public Class FormularioCliente
         e.Handled = re.IsMatch(e.KeyChar)
     End Sub
 
-
+    Private Sub TBuscar_TextChanged(sender As Object, e As EventArgs) Handles TBuscar.TextChanged
+        'le paso lo qe se escribe, el numero del combobox buscar seleccionado y el datagrid
+        AccesoDatos.buscarCliente(sender.text, CBBuscar.SelectedIndex, DataGridCliente)
+    End Sub
 End Class

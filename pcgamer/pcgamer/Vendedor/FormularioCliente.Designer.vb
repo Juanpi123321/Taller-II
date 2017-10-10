@@ -94,7 +94,7 @@ Partial Class FormularioCliente
         Me.LNombre.Location = New System.Drawing.Point(23, 23)
         Me.LNombre.Name = "LNombre"
         Me.LNombre.Size = New System.Drawing.Size(96, 20)
-        Me.LNombre.TabIndex = 7
+        Me.LNombre.TabIndex = 33
         Me.LNombre.Text = "*Nombre:"
         '
         'LDni
@@ -103,7 +103,7 @@ Partial Class FormularioCliente
         Me.LDni.Location = New System.Drawing.Point(23, 103)
         Me.LDni.Name = "LDni"
         Me.LDni.Size = New System.Drawing.Size(62, 20)
-        Me.LDni.TabIndex = 9
+        Me.LDni.TabIndex = 35
         Me.LDni.Text = "*DNI:"
         '
         'LApellido
@@ -112,7 +112,7 @@ Partial Class FormularioCliente
         Me.LApellido.Location = New System.Drawing.Point(23, 63)
         Me.LApellido.Name = "LApellido"
         Me.LApellido.Size = New System.Drawing.Size(97, 20)
-        Me.LApellido.TabIndex = 8
+        Me.LApellido.TabIndex = 34
         Me.LApellido.Text = "*Apellido:"
         '
         'LTelefono
@@ -121,7 +121,7 @@ Partial Class FormularioCliente
         Me.LTelefono.Location = New System.Drawing.Point(23, 183)
         Me.LTelefono.Name = "LTelefono"
         Me.LTelefono.Size = New System.Drawing.Size(87, 20)
-        Me.LTelefono.TabIndex = 11
+        Me.LTelefono.TabIndex = 37
         Me.LTelefono.Text = "Telefono:"
         '
         'LDomicilio
@@ -130,7 +130,7 @@ Partial Class FormularioCliente
         Me.LDomicilio.Location = New System.Drawing.Point(23, 143)
         Me.LDomicilio.Name = "LDomicilio"
         Me.LDomicilio.Size = New System.Drawing.Size(107, 20)
-        Me.LDomicilio.TabIndex = 10
+        Me.LDomicilio.TabIndex = 36
         Me.LDomicilio.Text = "*Domicilio:"
         '
         'LTitulo
@@ -142,7 +142,7 @@ Partial Class FormularioCliente
         Me.LTitulo.Location = New System.Drawing.Point(376, 51)
         Me.LTitulo.Name = "LTitulo"
         Me.LTitulo.Size = New System.Drawing.Size(304, 40)
-        Me.LTitulo.TabIndex = 23
+        Me.LTitulo.TabIndex = 20
         Me.LTitulo.Text = "Gestionar Cliente"
         '
         'TNombre
@@ -150,14 +150,14 @@ Partial Class FormularioCliente
         Me.TNombre.Location = New System.Drawing.Point(138, 20)
         Me.TNombre.Name = "TNombre"
         Me.TNombre.Size = New System.Drawing.Size(193, 28)
-        Me.TNombre.TabIndex = 0
+        Me.TNombre.TabIndex = 24
         '
         'TApellido
         '
         Me.TApellido.Location = New System.Drawing.Point(138, 60)
         Me.TApellido.Name = "TApellido"
         Me.TApellido.Size = New System.Drawing.Size(193, 28)
-        Me.TApellido.TabIndex = 1
+        Me.TApellido.TabIndex = 25
         '
         'Panel1
         '
@@ -181,7 +181,7 @@ Partial Class FormularioCliente
         Me.Panel1.Location = New System.Drawing.Point(257, 19)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(365, 332)
-        Me.Panel1.TabIndex = 15
+        Me.Panel1.TabIndex = 23
         '
         'FechaReg
         '
@@ -190,7 +190,7 @@ Partial Class FormularioCliente
         Me.FechaReg.Location = New System.Drawing.Point(138, 263)
         Me.FechaReg.Name = "FechaReg"
         Me.FechaReg.Size = New System.Drawing.Size(193, 28)
-        Me.FechaReg.TabIndex = 6
+        Me.FechaReg.TabIndex = 30
         '
         'LFechaReg
         '
@@ -198,7 +198,7 @@ Partial Class FormularioCliente
         Me.LFechaReg.Location = New System.Drawing.Point(23, 263)
         Me.LFechaReg.Name = "LFechaReg"
         Me.LFechaReg.Size = New System.Drawing.Size(106, 20)
-        Me.LFechaReg.TabIndex = 13
+        Me.LFechaReg.TabIndex = 39
         Me.LFechaReg.Text = "Fecha Reg:"
         '
         'TEmail
@@ -206,7 +206,7 @@ Partial Class FormularioCliente
         Me.TEmail.Location = New System.Drawing.Point(138, 220)
         Me.TEmail.Name = "TEmail"
         Me.TEmail.Size = New System.Drawing.Size(193, 28)
-        Me.TEmail.TabIndex = 5
+        Me.TEmail.TabIndex = 29
         '
         'LEmail
         '
@@ -214,7 +214,7 @@ Partial Class FormularioCliente
         Me.LEmail.Location = New System.Drawing.Point(23, 223)
         Me.LEmail.Name = "LEmail"
         Me.LEmail.Size = New System.Drawing.Size(76, 20)
-        Me.LEmail.TabIndex = 12
+        Me.LEmail.TabIndex = 38
         Me.LEmail.Text = "*Email:"
         '
         'LObligatorio
@@ -224,7 +224,7 @@ Partial Class FormularioCliente
         Me.LObligatorio.Location = New System.Drawing.Point(315, 315)
         Me.LObligatorio.Name = "LObligatorio"
         Me.LObligatorio.Size = New System.Drawing.Size(47, 8)
-        Me.LObligatorio.TabIndex = 14
+        Me.LObligatorio.TabIndex = 40
         Me.LObligatorio.Text = "*Obligatorio"
         '
         'TTelefono
@@ -232,14 +232,14 @@ Partial Class FormularioCliente
         Me.TTelefono.Location = New System.Drawing.Point(138, 180)
         Me.TTelefono.Name = "TTelefono"
         Me.TTelefono.Size = New System.Drawing.Size(193, 28)
-        Me.TTelefono.TabIndex = 4
+        Me.TTelefono.TabIndex = 28
         '
         'TDomicilio
         '
         Me.TDomicilio.Location = New System.Drawing.Point(138, 140)
         Me.TDomicilio.Name = "TDomicilio"
         Me.TDomicilio.Size = New System.Drawing.Size(193, 28)
-        Me.TDomicilio.TabIndex = 3
+        Me.TDomicilio.TabIndex = 27
         '
         'TDni
         '
@@ -247,7 +247,7 @@ Partial Class FormularioCliente
         Me.TDni.MaxLength = 8
         Me.TDni.Name = "TDni"
         Me.TDni.Size = New System.Drawing.Size(193, 28)
-        Me.TDni.TabIndex = 2
+        Me.TDni.TabIndex = 26
         '
         'BLimpiar
         '
@@ -260,7 +260,7 @@ Partial Class FormularioCliente
         Me.BLimpiar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BLimpiar.Name = "BLimpiar"
         Me.BLimpiar.Size = New System.Drawing.Size(166, 32)
-        Me.BLimpiar.TabIndex = 16
+        Me.BLimpiar.TabIndex = 31
         Me.BLimpiar.Text = "Limpiar Registro"
         Me.BLimpiar.UseVisualStyleBackColor = False
         '
@@ -275,7 +275,7 @@ Partial Class FormularioCliente
         Me.BAgregar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BAgregar.Name = "BAgregar"
         Me.BAgregar.Size = New System.Drawing.Size(166, 32)
-        Me.BAgregar.TabIndex = 17
+        Me.BAgregar.TabIndex = 32
         Me.BAgregar.Text = "Agregar Cliente"
         Me.BAgregar.UseVisualStyleBackColor = False
         '
@@ -291,7 +291,7 @@ Partial Class FormularioCliente
         Me.TabCliente.Name = "TabCliente"
         Me.TabCliente.SelectedIndex = 0
         Me.TabCliente.Size = New System.Drawing.Size(886, 518)
-        Me.TabCliente.TabIndex = 18
+        Me.TabCliente.TabIndex = 39
         '
         'TabPage2
         '
@@ -323,7 +323,7 @@ Partial Class FormularioCliente
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage2.Size = New System.Drawing.Size(878, 485)
         Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Tag = "1"
+        Me.TabPage2.Tag = "45"
         Me.TabPage2.Text = "Buscar"
         '
         'BCancelar
@@ -405,7 +405,7 @@ Partial Class FormularioCliente
         Me.LBEmail.Location = New System.Drawing.Point(481, 158)
         Me.LBEmail.Name = "LBEmail"
         Me.LBEmail.Size = New System.Drawing.Size(54, 18)
-        Me.LBEmail.TabIndex = 19
+        Me.LBEmail.TabIndex = 18
         Me.LBEmail.Text = "Email:"
         '
         'LBTelefono
@@ -470,7 +470,7 @@ Partial Class FormularioCliente
         Me.LBuscar.Location = New System.Drawing.Point(39, 22)
         Me.LBuscar.Name = "LBuscar"
         Me.LBuscar.Size = New System.Drawing.Size(75, 20)
-        Me.LBuscar.TabIndex = 20
+        Me.LBuscar.TabIndex = 19
         Me.LBuscar.Text = "Buscar:"
         '
         'TBEmail
