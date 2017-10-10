@@ -66,6 +66,7 @@
           <Property Name="telefono" Type="text" />
           <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="fecharegistro" Type="date" Nullable="false" />
+          <Property Name="estado" Type="char" MaxLength="1" Nullable="false" />
         </EntityType>
         <EntityType Name="factura">
           <Key>
@@ -456,6 +457,7 @@
           <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="factura" Relationship="Self.FK_factura_clientes" FromRole="clientes" ToRole="factura" />
           <Property Name="fecharegistro" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="estado" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="factura">
           <Key>
@@ -856,6 +858,7 @@
           <EntitySetMapping Name="clientes">
             <EntityTypeMapping TypeName="pcgamerModel.clientes">
               <MappingFragment StoreEntitySet="clientes">
+                <ScalarProperty Name="estado" ColumnName="estado" />
                 <ScalarProperty Name="fecharegistro" ColumnName="fecharegistro" />
                 <ScalarProperty Name="Id_cliente" ColumnName="Id_cliente" />
                 <ScalarProperty Name="nombres" ColumnName="nombres" />

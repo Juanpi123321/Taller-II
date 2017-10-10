@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormularioAdminCliente
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,13 +20,9 @@ Partial Class FormularioAdminCliente
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormularioAdminCliente))
         Me.LTitulo = New System.Windows.Forms.Label()
         Me.PBLogo = New System.Windows.Forms.PictureBox()
@@ -73,10 +69,6 @@ Partial Class FormularioAdminCliente
         Me.BAgregar = New System.Windows.Forms.Button()
         Me.BLimpiar = New System.Windows.Forms.Button()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.apellidos = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombres = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dni = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fecha_ingreso = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabCliente.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -95,7 +87,7 @@ Partial Class FormularioAdminCliente
         Me.LTitulo.Location = New System.Drawing.Point(376, 51)
         Me.LTitulo.Name = "LTitulo"
         Me.LTitulo.Size = New System.Drawing.Size(304, 40)
-        Me.LTitulo.TabIndex = 20
+        Me.LTitulo.TabIndex = 19
         Me.LTitulo.Text = "Gestionar Cliente"
         '
         'PBLogo
@@ -117,7 +109,7 @@ Partial Class FormularioAdminCliente
         Me.TabCliente.Name = "TabCliente"
         Me.TabCliente.SelectedIndex = 0
         Me.TabCliente.Size = New System.Drawing.Size(886, 518)
-        Me.TabCliente.TabIndex = 21
+        Me.TabCliente.TabIndex = 20
         '
         'TabPage2
         '
@@ -163,7 +155,7 @@ Partial Class FormularioAdminCliente
         Me.BCancelar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BCancelar.Name = "BCancelar"
         Me.BCancelar.Size = New System.Drawing.Size(95, 31)
-        Me.BCancelar.TabIndex = 12
+        Me.BCancelar.TabIndex = 3
         Me.BCancelar.Text = "Cancelar"
         Me.BCancelar.UseVisualStyleBackColor = False
         Me.BCancelar.Visible = False
@@ -179,7 +171,7 @@ Partial Class FormularioAdminCliente
         Me.BGuardar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BGuardar.Name = "BGuardar"
         Me.BGuardar.Size = New System.Drawing.Size(95, 31)
-        Me.BGuardar.TabIndex = 12
+        Me.BGuardar.TabIndex = 4
         Me.BGuardar.Text = "Guardar"
         Me.BGuardar.UseVisualStyleBackColor = False
         Me.BGuardar.Visible = False
@@ -195,7 +187,7 @@ Partial Class FormularioAdminCliente
         Me.BEditar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BEditar.Name = "BEditar"
         Me.BEditar.Size = New System.Drawing.Size(94, 31)
-        Me.BEditar.TabIndex = 11
+        Me.BEditar.TabIndex = 2
         Me.BEditar.Text = "Editar"
         Me.BEditar.UseVisualStyleBackColor = False
         '
@@ -239,7 +231,7 @@ Partial Class FormularioAdminCliente
         Me.BEliminar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BEliminar.Name = "BEliminar"
         Me.BEliminar.Size = New System.Drawing.Size(132, 42)
-        Me.BEliminar.TabIndex = 3
+        Me.BEliminar.TabIndex = 5
         Me.BEliminar.Text = "Eliminar"
         Me.BEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.BEliminar.UseVisualStyleBackColor = False
@@ -252,7 +244,7 @@ Partial Class FormularioAdminCliente
         Me.LBEmail.Location = New System.Drawing.Point(481, 158)
         Me.LBEmail.Name = "LBEmail"
         Me.LBEmail.Size = New System.Drawing.Size(54, 18)
-        Me.LBEmail.TabIndex = 10
+        Me.LBEmail.TabIndex = 18
         Me.LBEmail.Text = "Email:"
         '
         'LBTelefono
@@ -263,7 +255,7 @@ Partial Class FormularioAdminCliente
         Me.LBTelefono.Location = New System.Drawing.Point(479, 118)
         Me.LBTelefono.Name = "LBTelefono"
         Me.LBTelefono.Size = New System.Drawing.Size(77, 18)
-        Me.LBTelefono.TabIndex = 10
+        Me.LBTelefono.TabIndex = 17
         Me.LBTelefono.Text = "Telefono:"
         '
         'LBDNI
@@ -274,7 +266,7 @@ Partial Class FormularioAdminCliente
         Me.LBDNI.Location = New System.Drawing.Point(54, 154)
         Me.LBDNI.Name = "LBDNI"
         Me.LBDNI.Size = New System.Drawing.Size(42, 18)
-        Me.LBDNI.TabIndex = 10
+        Me.LBDNI.TabIndex = 15
         Me.LBDNI.Text = "DNI:"
         '
         'LBDomicilio
@@ -285,7 +277,7 @@ Partial Class FormularioAdminCliente
         Me.LBDomicilio.Location = New System.Drawing.Point(479, 77)
         Me.LBDomicilio.Name = "LBDomicilio"
         Me.LBDomicilio.Size = New System.Drawing.Size(74, 18)
-        Me.LBDomicilio.TabIndex = 10
+        Me.LBDomicilio.TabIndex = 16
         Me.LBDomicilio.Text = "Domicilio"
         '
         'LBNombre
@@ -296,7 +288,7 @@ Partial Class FormularioAdminCliente
         Me.LBNombre.Location = New System.Drawing.Point(54, 116)
         Me.LBNombre.Name = "LBNombre"
         Me.LBNombre.Size = New System.Drawing.Size(83, 18)
-        Me.LBNombre.TabIndex = 10
+        Me.LBNombre.TabIndex = 14
         Me.LBNombre.Text = "Nombres:"
         '
         'LBApellido
@@ -307,7 +299,7 @@ Partial Class FormularioAdminCliente
         Me.LBApellido.Location = New System.Drawing.Point(54, 77)
         Me.LBApellido.Name = "LBApellido"
         Me.LBApellido.Size = New System.Drawing.Size(79, 18)
-        Me.LBApellido.TabIndex = 10
+        Me.LBApellido.TabIndex = 13
         Me.LBApellido.Text = "Apellidos:"
         '
         'LBuscar
@@ -327,7 +319,7 @@ Partial Class FormularioAdminCliente
         Me.TBEmail.Name = "TBEmail"
         Me.TBEmail.ReadOnly = True
         Me.TBEmail.Size = New System.Drawing.Size(262, 23)
-        Me.TBEmail.TabIndex = 0
+        Me.TBEmail.TabIndex = 12
         '
         'TBDNI
         '
@@ -337,7 +329,7 @@ Partial Class FormularioAdminCliente
         Me.TBDNI.Name = "TBDNI"
         Me.TBDNI.ReadOnly = True
         Me.TBDNI.Size = New System.Drawing.Size(255, 23)
-        Me.TBDNI.TabIndex = 0
+        Me.TBDNI.TabIndex = 9
         '
         'TBTelefono
         '
@@ -346,7 +338,7 @@ Partial Class FormularioAdminCliente
         Me.TBTelefono.Name = "TBTelefono"
         Me.TBTelefono.ReadOnly = True
         Me.TBTelefono.Size = New System.Drawing.Size(262, 23)
-        Me.TBTelefono.TabIndex = 0
+        Me.TBTelefono.TabIndex = 11
         '
         'TBNombre
         '
@@ -355,7 +347,7 @@ Partial Class FormularioAdminCliente
         Me.TBNombre.Name = "TBNombre"
         Me.TBNombre.ReadOnly = True
         Me.TBNombre.Size = New System.Drawing.Size(255, 23)
-        Me.TBNombre.TabIndex = 0
+        Me.TBNombre.TabIndex = 8
         '
         'TBDomicilio
         '
@@ -364,7 +356,7 @@ Partial Class FormularioAdminCliente
         Me.TBDomicilio.Name = "TBDomicilio"
         Me.TBDomicilio.ReadOnly = True
         Me.TBDomicilio.Size = New System.Drawing.Size(262, 23)
-        Me.TBDomicilio.TabIndex = 0
+        Me.TBDomicilio.TabIndex = 10
         '
         'TBApellido
         '
@@ -373,7 +365,7 @@ Partial Class FormularioAdminCliente
         Me.TBApellido.Name = "TBApellido"
         Me.TBApellido.ReadOnly = True
         Me.TBApellido.Size = New System.Drawing.Size(255, 23)
-        Me.TBApellido.TabIndex = 0
+        Me.TBApellido.TabIndex = 7
         '
         'TBuscar
         '
@@ -384,17 +376,19 @@ Partial Class FormularioAdminCliente
         '
         'DataGridCliente
         '
+        Me.DataGridCliente.AllowUserToAddRows = False
         Me.DataGridCliente.AllowUserToDeleteRows = False
+        Me.DataGridCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridCliente.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.DataGridCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridCliente.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.apellidos, Me.nombres, Me.dni, Me.fecha_ingreso})
         Me.DataGridCliente.GridColor = System.Drawing.SystemColors.GrayText
         Me.DataGridCliente.Location = New System.Drawing.Point(1, 274)
         Me.DataGridCliente.Name = "DataGridCliente"
         Me.DataGridCliente.ReadOnly = True
         Me.DataGridCliente.RowTemplate.Height = 24
+        Me.DataGridCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridCliente.Size = New System.Drawing.Size(875, 215)
-        Me.DataGridCliente.TabIndex = 4
+        Me.DataGridCliente.TabIndex = 6
         '
         'TabPage1
         '
@@ -431,7 +425,7 @@ Partial Class FormularioAdminCliente
         Me.Panel1.Location = New System.Drawing.Point(257, 19)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(365, 332)
-        Me.Panel1.TabIndex = 15
+        Me.Panel1.TabIndex = 21
         '
         'FechaReg
         '
@@ -440,7 +434,7 @@ Partial Class FormularioAdminCliente
         Me.FechaReg.Location = New System.Drawing.Point(138, 263)
         Me.FechaReg.Name = "FechaReg"
         Me.FechaReg.Size = New System.Drawing.Size(193, 28)
-        Me.FechaReg.TabIndex = 6
+        Me.FechaReg.TabIndex = 28
         '
         'LFechaReg
         '
@@ -448,7 +442,7 @@ Partial Class FormularioAdminCliente
         Me.LFechaReg.Location = New System.Drawing.Point(23, 263)
         Me.LFechaReg.Name = "LFechaReg"
         Me.LFechaReg.Size = New System.Drawing.Size(106, 20)
-        Me.LFechaReg.TabIndex = 13
+        Me.LFechaReg.TabIndex = 35
         Me.LFechaReg.Text = "Fecha Reg:"
         '
         'TEmail
@@ -456,7 +450,7 @@ Partial Class FormularioAdminCliente
         Me.TEmail.Location = New System.Drawing.Point(138, 220)
         Me.TEmail.Name = "TEmail"
         Me.TEmail.Size = New System.Drawing.Size(193, 28)
-        Me.TEmail.TabIndex = 5
+        Me.TEmail.TabIndex = 27
         '
         'LEmail
         '
@@ -464,7 +458,7 @@ Partial Class FormularioAdminCliente
         Me.LEmail.Location = New System.Drawing.Point(23, 223)
         Me.LEmail.Name = "LEmail"
         Me.LEmail.Size = New System.Drawing.Size(76, 20)
-        Me.LEmail.TabIndex = 12
+        Me.LEmail.TabIndex = 34
         Me.LEmail.Text = "*Email:"
         '
         'LObligatorio
@@ -474,7 +468,7 @@ Partial Class FormularioAdminCliente
         Me.LObligatorio.Location = New System.Drawing.Point(315, 315)
         Me.LObligatorio.Name = "LObligatorio"
         Me.LObligatorio.Size = New System.Drawing.Size(47, 8)
-        Me.LObligatorio.TabIndex = 14
+        Me.LObligatorio.TabIndex = 36
         Me.LObligatorio.Text = "*Obligatorio"
         '
         'TTelefono
@@ -482,14 +476,14 @@ Partial Class FormularioAdminCliente
         Me.TTelefono.Location = New System.Drawing.Point(138, 180)
         Me.TTelefono.Name = "TTelefono"
         Me.TTelefono.Size = New System.Drawing.Size(193, 28)
-        Me.TTelefono.TabIndex = 4
+        Me.TTelefono.TabIndex = 26
         '
         'TDomicilio
         '
         Me.TDomicilio.Location = New System.Drawing.Point(138, 140)
         Me.TDomicilio.Name = "TDomicilio"
         Me.TDomicilio.Size = New System.Drawing.Size(193, 28)
-        Me.TDomicilio.TabIndex = 3
+        Me.TDomicilio.TabIndex = 25
         '
         'TDni
         '
@@ -497,7 +491,7 @@ Partial Class FormularioAdminCliente
         Me.TDni.MaxLength = 8
         Me.TDni.Name = "TDni"
         Me.TDni.Size = New System.Drawing.Size(193, 28)
-        Me.TDni.TabIndex = 2
+        Me.TDni.TabIndex = 24
         '
         'LDni
         '
@@ -505,7 +499,7 @@ Partial Class FormularioAdminCliente
         Me.LDni.Location = New System.Drawing.Point(23, 103)
         Me.LDni.Name = "LDni"
         Me.LDni.Size = New System.Drawing.Size(62, 20)
-        Me.LDni.TabIndex = 9
+        Me.LDni.TabIndex = 31
         Me.LDni.Text = "*DNI:"
         '
         'TApellido
@@ -513,7 +507,7 @@ Partial Class FormularioAdminCliente
         Me.TApellido.Location = New System.Drawing.Point(138, 60)
         Me.TApellido.Name = "TApellido"
         Me.TApellido.Size = New System.Drawing.Size(193, 28)
-        Me.TApellido.TabIndex = 1
+        Me.TApellido.TabIndex = 23
         '
         'LNombre
         '
@@ -521,7 +515,7 @@ Partial Class FormularioAdminCliente
         Me.LNombre.Location = New System.Drawing.Point(23, 23)
         Me.LNombre.Name = "LNombre"
         Me.LNombre.Size = New System.Drawing.Size(96, 20)
-        Me.LNombre.TabIndex = 7
+        Me.LNombre.TabIndex = 29
         Me.LNombre.Text = "*Nombre:"
         '
         'TNombre
@@ -529,7 +523,7 @@ Partial Class FormularioAdminCliente
         Me.TNombre.Location = New System.Drawing.Point(138, 20)
         Me.TNombre.Name = "TNombre"
         Me.TNombre.Size = New System.Drawing.Size(193, 28)
-        Me.TNombre.TabIndex = 0
+        Me.TNombre.TabIndex = 22
         '
         'LApellido
         '
@@ -537,7 +531,7 @@ Partial Class FormularioAdminCliente
         Me.LApellido.Location = New System.Drawing.Point(23, 63)
         Me.LApellido.Name = "LApellido"
         Me.LApellido.Size = New System.Drawing.Size(97, 20)
-        Me.LApellido.TabIndex = 8
+        Me.LApellido.TabIndex = 30
         Me.LApellido.Text = "*Apellido:"
         '
         'LTelefono
@@ -546,7 +540,7 @@ Partial Class FormularioAdminCliente
         Me.LTelefono.Location = New System.Drawing.Point(23, 183)
         Me.LTelefono.Name = "LTelefono"
         Me.LTelefono.Size = New System.Drawing.Size(87, 20)
-        Me.LTelefono.TabIndex = 11
+        Me.LTelefono.TabIndex = 33
         Me.LTelefono.Text = "Telefono:"
         '
         'LDomicilio
@@ -555,7 +549,7 @@ Partial Class FormularioAdminCliente
         Me.LDomicilio.Location = New System.Drawing.Point(23, 143)
         Me.LDomicilio.Name = "LDomicilio"
         Me.LDomicilio.Size = New System.Drawing.Size(107, 20)
-        Me.LDomicilio.TabIndex = 10
+        Me.LDomicilio.TabIndex = 32
         Me.LDomicilio.Text = "*Domicilio:"
         '
         'BAgregar
@@ -569,7 +563,7 @@ Partial Class FormularioAdminCliente
         Me.BAgregar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BAgregar.Name = "BAgregar"
         Me.BAgregar.Size = New System.Drawing.Size(166, 32)
-        Me.BAgregar.TabIndex = 17
+        Me.BAgregar.TabIndex = 38
         Me.BAgregar.Text = "Agregar Cliente"
         Me.BAgregar.UseVisualStyleBackColor = False
         '
@@ -584,54 +578,13 @@ Partial Class FormularioAdminCliente
         Me.BLimpiar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BLimpiar.Name = "BLimpiar"
         Me.BLimpiar.Size = New System.Drawing.Size(166, 32)
-        Me.BLimpiar.TabIndex = 16
+        Me.BLimpiar.TabIndex = 37
         Me.BLimpiar.Text = "Limpiar Registro"
         Me.BLimpiar.UseVisualStyleBackColor = False
         '
         'ErrorProvider1
         '
         Me.ErrorProvider1.ContainerControl = Me
-        '
-        'apellidos
-        '
-        Me.apellidos.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
-        Me.apellidos.DefaultCellStyle = DataGridViewCellStyle1
-        Me.apellidos.HeaderText = "Apellidos"
-        Me.apellidos.Name = "apellidos"
-        Me.apellidos.ReadOnly = True
-        Me.apellidos.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        '
-        'nombres
-        '
-        Me.nombres.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        Me.nombres.DefaultCellStyle = DataGridViewCellStyle2
-        Me.nombres.HeaderText = "Nombres"
-        Me.nombres.Name = "nombres"
-        Me.nombres.ReadOnly = True
-        Me.nombres.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        '
-        'dni
-        '
-        Me.dni.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
-        Me.dni.DefaultCellStyle = DataGridViewCellStyle3
-        Me.dni.HeaderText = "DNI"
-        Me.dni.Name = "dni"
-        Me.dni.ReadOnly = True
-        Me.dni.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dni.Width = 72
-        '
-        'fecha_ingreso
-        '
-        Me.fecha_ingreso.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
-        Me.fecha_ingreso.DefaultCellStyle = DataGridViewCellStyle4
-        Me.fecha_ingreso.HeaderText = "Fecha Ingreso"
-        Me.fecha_ingreso.Name = "fecha_ingreso"
-        Me.fecha_ingreso.ReadOnly = True
-        Me.fecha_ingreso.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         '
         'FormularioAdminCliente
         '
@@ -708,8 +661,4 @@ Partial Class FormularioAdminCliente
     Friend WithEvents DataGridCliente As DataGridView
     Friend WithEvents ErrorProvider1 As ErrorProvider
     Friend WithEvents BAlta As Button
-    Friend WithEvents apellidos As DataGridViewTextBoxColumn
-    Friend WithEvents nombres As DataGridViewTextBoxColumn
-    Friend WithEvents dni As DataGridViewTextBoxColumn
-    Friend WithEvents fecha_ingreso As DataGridViewTextBoxColumn
 End Class

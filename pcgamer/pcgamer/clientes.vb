@@ -19,6 +19,7 @@ Partial Public Class clientes
     Public Property telefono As String
     Public Property email As String
     Public Property fecharegistro As Date
+    Public Property estado As String
 
     Public Overridable Property factura As ICollection(Of factura) = New HashSet(Of factura)
 

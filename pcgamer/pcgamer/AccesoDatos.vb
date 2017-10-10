@@ -27,10 +27,11 @@
     Shared Sub cargarClientes(grid As DataGridView)
         Dim datos = (From c In ctx.clientes
                      Select Id = c.Id_cliente, Apellidos = c.apellidos, Nombres = c.nombres, DNI = c.dni,
-                         Fecha_Registro = c.fecharegistro).ToList
+                         Fecha_Registro = c.fecharegistro, Estado = c.estado).ToList
         grid.DataSource = datos
         'oculta el Id_producto
         grid.Columns(0).Visible = False
+        grid.Columns(5).Visible = False
     End Sub
 
     Shared Function capturarCliente(id As Integer) As clientes
@@ -124,23 +125,33 @@
     Shared Sub buscarCliente(busqueda As String, filtro As Integer, grid As DataGridView)
         Dim datos = (From c In ctx.clientes
                      Select Id = c.Id_cliente, Apellidos = c.apellidos, Nombres = c.nombres, DNI = c.dni,
-                         Fecha_Registro = c.fecharegistro).ToList
+                         Fecha_Registro = c.fecharegistro, Estado = c.estado).ToList
         Select Case filtro
             Case 0
                 datos = (From c In ctx.clientes
                          Where c.nombres.Contains(busqueda) Or c.apellidos.Contains(busqueda)
                          Select Id = c.Id_cliente, Apellidos = c.apellidos, Nombres = c.nombres, DNI = c.dni,
-                         Fecha_Registro = c.fecharegistro).ToList
+                         Fecha_Registro = c.fecharegistro, Estado = c.estado).ToList
             Case 1
                 datos = (From c In ctx.clientes
                          Where c.dni.ToString.Contains(busqueda)
                          Select Id = c.Id_cliente, Apellidos = c.apellidos, Nombres = c.nombres, DNI = c.dni,
-                         Fecha_Registro = c.fecharegistro).ToList
+                         Fecha_Registro = c.fecharegistro, Estado = c.estado).ToList
         End Select
 
         grid.DataSource = datos
         'oculta el Id_producto
         grid.Columns(0).Visible = False
+        grid.Columns(5).Visible = False
+    End Sub
+
+    Shared Sub EliminarCliente(id_cliente As Integer, estado As Integer)
+        Dim cliente = (From c In ctx.clientes
+                       Where c.Id_cliente = id_cliente
+                       Select c
+                  ).SingleOrDefault
+        cliente.estado = estado
+        ctx.SaveChanges()
     End Sub
 
 End Class

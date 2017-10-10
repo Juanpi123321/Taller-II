@@ -81,14 +81,14 @@ Partial Class FormularioStock
         Me.DataGridStock.ReadOnly = True
         Me.DataGridStock.RowTemplate.Height = 24
         Me.DataGridStock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridStock.Size = New System.Drawing.Size(880, 244)
+        Me.DataGridStock.Size = New System.Drawing.Size(910, 244)
         Me.DataGridStock.TabIndex = 4
         '
         'PBImagen
         '
         Me.PBImagen.BackgroundImage = Global.pcgamer.My.Resources.Resources.gabinete2
         Me.PBImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PBImagen.Location = New System.Drawing.Point(700, 63)
+        Me.PBImagen.Location = New System.Drawing.Point(716, 59)
         Me.PBImagen.Name = "PBImagen"
         Me.PBImagen.Size = New System.Drawing.Size(183, 188)
         Me.PBImagen.TabIndex = 1
@@ -226,6 +226,7 @@ Partial Class FormularioStock
         Me.TNombre.AutoSize = True
         Me.TNombre.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TNombre.Location = New System.Drawing.Point(136, 69)
+        Me.TNombre.MaximumSize = New System.Drawing.Size(240, 0)
         Me.TNombre.Name = "TNombre"
         Me.TNombre.Size = New System.Drawing.Size(123, 14)
         Me.TNombre.TabIndex = 17
@@ -236,6 +237,7 @@ Partial Class FormularioStock
         Me.TProcesador.AutoSize = True
         Me.TProcesador.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TProcesador.Location = New System.Drawing.Point(136, 107)
+        Me.TProcesador.MaximumSize = New System.Drawing.Size(240, 0)
         Me.TProcesador.Name = "TProcesador"
         Me.TProcesador.Size = New System.Drawing.Size(123, 14)
         Me.TProcesador.TabIndex = 17
@@ -246,6 +248,7 @@ Partial Class FormularioStock
         Me.TPlacaMadre.AutoSize = True
         Me.TPlacaMadre.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TPlacaMadre.Location = New System.Drawing.Point(136, 148)
+        Me.TPlacaMadre.MaximumSize = New System.Drawing.Size(240, 0)
         Me.TPlacaMadre.Name = "TPlacaMadre"
         Me.TPlacaMadre.Size = New System.Drawing.Size(123, 14)
         Me.TPlacaMadre.TabIndex = 17
@@ -256,6 +259,7 @@ Partial Class FormularioStock
         Me.TRam.AutoSize = True
         Me.TRam.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TRam.Location = New System.Drawing.Point(136, 190)
+        Me.TRam.MaximumSize = New System.Drawing.Size(240, 0)
         Me.TRam.Name = "TRam"
         Me.TRam.Size = New System.Drawing.Size(123, 14)
         Me.TRam.TabIndex = 17
@@ -266,6 +270,7 @@ Partial Class FormularioStock
         Me.TStock.AutoSize = True
         Me.TStock.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TStock.Location = New System.Drawing.Point(136, 233)
+        Me.TStock.MaximumSize = New System.Drawing.Size(240, 0)
         Me.TStock.Name = "TStock"
         Me.TStock.Size = New System.Drawing.Size(123, 14)
         Me.TStock.TabIndex = 17
@@ -302,9 +307,9 @@ Partial Class FormularioStock
         Me.Panel1.Controls.Add(Me.DataGridStock)
         Me.Panel1.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel1.ForeColor = System.Drawing.Color.White
-        Me.Panel1.Location = New System.Drawing.Point(78, 118)
+        Me.Panel1.Location = New System.Drawing.Point(57, 118)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(886, 518)
+        Me.Panel1.Size = New System.Drawing.Size(916, 518)
         Me.Panel1.TabIndex = 3
         '
         'TPrecio
@@ -312,6 +317,7 @@ Partial Class FormularioStock
         Me.TPrecio.AutoSize = True
         Me.TPrecio.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TPrecio.Location = New System.Drawing.Point(497, 233)
+        Me.TPrecio.MaximumSize = New System.Drawing.Size(210, 0)
         Me.TPrecio.Name = "TPrecio"
         Me.TPrecio.Size = New System.Drawing.Size(123, 14)
         Me.TPrecio.TabIndex = 17
@@ -322,6 +328,7 @@ Partial Class FormularioStock
         Me.TGabinete.AutoSize = True
         Me.TGabinete.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TGabinete.Location = New System.Drawing.Point(497, 190)
+        Me.TGabinete.MaximumSize = New System.Drawing.Size(210, 0)
         Me.TGabinete.Name = "TGabinete"
         Me.TGabinete.Size = New System.Drawing.Size(123, 14)
         Me.TGabinete.TabIndex = 17
@@ -347,6 +354,7 @@ Partial Class FormularioStock
         Me.TDiscoRigido.AutoSize = True
         Me.TDiscoRigido.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TDiscoRigido.Location = New System.Drawing.Point(497, 148)
+        Me.TDiscoRigido.MaximumSize = New System.Drawing.Size(210, 0)
         Me.TDiscoRigido.Name = "TDiscoRigido"
         Me.TDiscoRigido.Size = New System.Drawing.Size(123, 14)
         Me.TDiscoRigido.TabIndex = 17
@@ -357,6 +365,7 @@ Partial Class FormularioStock
         Me.TPlacaVideo.AutoSize = True
         Me.TPlacaVideo.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TPlacaVideo.Location = New System.Drawing.Point(497, 107)
+        Me.TPlacaVideo.MaximumSize = New System.Drawing.Size(210, 0)
         Me.TPlacaVideo.Name = "TPlacaVideo"
         Me.TPlacaVideo.Size = New System.Drawing.Size(123, 14)
         Me.TPlacaVideo.TabIndex = 17
@@ -367,6 +376,7 @@ Partial Class FormularioStock
         Me.TCategoria.AutoSize = True
         Me.TCategoria.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TCategoria.Location = New System.Drawing.Point(497, 69)
+        Me.TCategoria.MaximumSize = New System.Drawing.Size(210, 0)
         Me.TCategoria.Name = "TCategoria"
         Me.TCategoria.Size = New System.Drawing.Size(123, 14)
         Me.TCategoria.TabIndex = 17

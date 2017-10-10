@@ -108,7 +108,8 @@ Public Class FormularioCliente
                                                .domicilio = TDomicilio.Text,
                                                .telefono = TTelefono.Text,
                                                .email = TEmail.Text,
-                                               .fecharegistro = FechaReg.Value
+                                               .fecharegistro = FechaReg.Value,
+                                               .estado = 1
                                                })
                     limpiar()
                     cargarClientes()
@@ -180,28 +181,38 @@ Public Class FormularioCliente
     End Sub
 
     Private Sub BAgregarFactura_Click(sender As Object, e As EventArgs) Handles BAgregarFactura.Click
-        If DataGridCliente.CurrentRow Is Nothing Or TNombre.Text = "     ************" Then
+        If DataGridCliente.CurrentRow Is Nothing Or TBNombre.Text = "     ************" Then
             MsgBox("Seleccione un cliente para agregar a la factura", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
         Else
-            FormularioFactura.TCliente.Text = TBApellido.Text + " " + TBNombre.Text
-            FormularioFactura.TDNI.Text = TBDNI.Text
-            FormularioFactura.TDomicilio.Text = TBDomicilio.Text
-            FormularioFactura.TTelefono.Text = TBTelefono.Text
-            FormularioFactura.Show()
-            Me.Dispose()
+            Dim fila As Integer = DataGridCliente.CurrentRow.Index
+            If DataGridCliente.Item(5, fila).Value = 0 Then
+                MsgBox("El cliente seleccionado no puede agregarse a la factura porque ha sido dado de baja. Contactese con el Administrador", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
+            Else
+                FormularioFactura.TCliente.Text = TBApellido.Text + " " + TBNombre.Text
+                FormularioFactura.TDNI.Text = TBDNI.Text
+                FormularioFactura.TDomicilio.Text = TBDomicilio.Text
+                FormularioFactura.TTelefono.Text = TBTelefono.Text
+                FormularioFactura.Show()
+                Me.Dispose()
             End If
+        End If
     End Sub
 
     Private Sub BEditar_Click(sender As Object, e As EventArgs) Handles BEditar.Click
         If DataGridCliente.CurrentRow Is Nothing Or TBApellido.Text = "       ********************" Then
             MsgBox("Seleccione un cliente para poder editar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Edicion Invalida")
         Else
-            BAgregarFactura.Visible = False
-            BCancelar.Visible = True
-            BGuardar.Visible = True
-            bloquear()
-            habilitar()
-            TBDni_Validated(sender, e)
+            Dim fila As Integer = DataGridCliente.CurrentRow.Index
+            If DataGridCliente.Item(5, fila).Value = 0 Then
+                MsgBox("El cliente seleccionado no se puede editar porque ha sido dado de baja. Contactese con el Administrador", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
+            Else
+                BAgregarFactura.Visible = False
+                BCancelar.Visible = True
+                BGuardar.Visible = True
+                bloquear()
+                habilitar()
+                TBDni_Validated(sender, e)
+            End If
         End If
     End Sub
 
@@ -293,4 +304,13 @@ Public Class FormularioCliente
         'le paso lo qe se escribe, el numero del combobox buscar seleccionado y el datagrid
         AccesoDatos.buscarCliente(sender.text, CBBuscar.SelectedIndex, DataGridCliente)
     End Sub
+
+    Private Sub DataGridCliente_RowStateChanged(sender As Object, e As DataGridViewRowStateChangedEventArgs) Handles DataGridCliente.RowStateChanged
+        For Each Row As DataGridViewRow In DataGridCliente.Rows
+            If Row.Cells(5).Value = "0" Then
+                Row.DefaultCellStyle.BackColor = Color.Gray
+            End If
+        Next
+    End Sub
+
 End Class

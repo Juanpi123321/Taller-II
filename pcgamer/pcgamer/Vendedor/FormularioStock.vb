@@ -29,15 +29,6 @@
 
     End Sub
 
-    'si el estado es 0 (esta dado de baja) entonces lo marca en gris, sino esta dado de baja y el stock es menor a 10 lo marca de rojo
-    Private Sub verificarEstado(producto As productos)
-        If producto.estado = 0 Then
-            DataGridStock.CurrentRow.DefaultCellStyle.BackColor = Color.Gray
-        ElseIf producto.stock <= 10 Then
-            DataGridStock.CurrentRow.DefaultCellStyle.BackColor = Color.Red
-        End If
-    End Sub
-
     Private Sub FormularioStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
 
@@ -71,7 +62,6 @@
         Dim fila As Integer = DataGridStock.CurrentRow.Index
         Dim id_producto As Integer = DataGridStock.Item(0, fila).Value
         Dim producto As productos = AccesoDatos.capturarProducto(id_producto)
-        verificarEstado(producto)
         cargarDetalle(producto)
     End Sub
 
@@ -111,4 +101,16 @@
         'le paso lo qe se escribe, el numero del combobox buscar seleccionado y el datagrid
         AccesoDatos.buscarProducto(sender.text, CBBuscar.SelectedIndex, DataGridStock)
     End Sub
+
+    'si el estado es 0 (esta dado de baja) entonces lo marca en gris, sino esta dado de baja y el stock es menor a 10 lo marca de rojo
+    Private Sub DataGridStock_RowStateChanged(sender As Object, e As DataGridViewRowStateChangedEventArgs) Handles DataGridStock.RowStateChanged
+        For Each Row As DataGridViewRow In DataGridStock.Rows
+            If Row.Cells(5).Value = "0" Then
+                Row.DefaultCellStyle.BackColor = Color.Gray
+            ElseIf Row.Cells(3).Value < 11 Then
+                Row.DefaultCellStyle.BackColor = Color.Red
+            End If
+        Next
+    End Sub
+
 End Class
