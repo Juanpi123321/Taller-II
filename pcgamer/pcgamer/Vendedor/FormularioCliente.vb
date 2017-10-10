@@ -2,7 +2,12 @@
 
 Public Class FormularioCliente
     Private Sub FormularioCliente_Closed(sender As Object, e As EventArgs) Handles Me.Closed
-        FormularioVendedor.Show()
+        'Si desde factura se dirigio al formulario de cliente y cerro esa ventana, redirige hacia la factura
+        If FormularioFactura.DataGridFactura.CurrentRow Is Nothing And FormularioFactura.TCliente.Text = "" Then
+            FormularioVendedor.Show()
+        Else
+            FormularioFactura.Show()
+        End If
     End Sub
 
     Dim DNIvalidate As Boolean
@@ -35,6 +40,43 @@ Public Class FormularioCliente
         TEmail.Clear()
     End Sub
 
+    Private Sub bloquear()
+        TBuscar.Enabled = False
+        CBBuscar.Enabled = False
+        DataGridCliente.Enabled = False
+        TabPage1.Enabled = False
+    End Sub
+
+    Private Sub desbloquear()
+        TBuscar.Enabled = True
+        CBBuscar.Enabled = True
+        DataGridCliente.Enabled = True
+        TabPage1.Enabled = True
+    End Sub
+
+    Private Sub cargarDetalle(cliente As clientes)
+        TBApellido.Text = cliente.apellidos
+        TBNombre.Text = cliente.nombres
+        TBDNI.Text = cliente.dni
+        TBDomicilio.Text = cliente.domicilio
+        TBTelefono.Text = cliente.telefono
+        TBEmail.Text = cliente.email
+    End Sub
+
+    Private Sub cargarClientes()
+        AccesoDatos.cargarClientes(DataGridCliente)
+        DataGridCliente.ClearSelection()
+
+        TBApellido.Text = "       ********************"
+        TBNombre.Text = "       ********************"
+        TBDNI.Text = "       ********************"
+        TBDomicilio.Text = "       ********************"
+        TBTelefono.Text = "       ********************"
+        TBEmail.Text = "       ********************"
+
+        CBBuscar.SelectedIndex = 0
+    End Sub
+
     Private Sub BLimpiar_Click(sender As Object, e As EventArgs) Handles BLimpiar.Click
         TNombre.Clear()
         TApellido.Clear()
@@ -59,8 +101,18 @@ Public Class FormularioCliente
                 respuesta = MsgBox("¿Esta seguro que desea Dar de agregar al cliente??",
                            MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Alta Cliente")
                 If MsgBoxResult.Yes = respuesta Then
-                    DataGridCliente.Rows.Add(TApellido.Text, TNombre.Text, TDni.Text, FechaReg.Value)
+                    AccesoDatos.AgregarCliente(New clientes() With
+                                               {.nombres = TNombre.Text,
+                                               .apellidos = TApellido.Text,
+                                               .dni = TDni.Text,
+                                               .domicilio = TDomicilio.Text,
+                                               .telefono = TTelefono.Text,
+                                               .email = TEmail.Text,
+                                               .fecharegistro = FechaReg.Value
+                                               })
                     limpiar()
+                    cargarClientes()
+
                     MsgBox("El Cliente se ha registrado correctamente", MsgBoxStyle.DefaultButton2 +
             MsgBoxStyle.Information, "Registro Exitoso")
                 Else
@@ -82,7 +134,6 @@ Public Class FormularioCliente
             ErrorProvider1.SetError(TNombre, "Porfavor ingrese solo letras")
         End If
     End Sub
-
     Private Sub TApellido_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TApellido.KeyPress
         Dim re As New Regex("[^a-zA-Z_ \b]", RegexOptions.IgnoreCase)
         e.Handled = re.IsMatch(e.KeyChar)
@@ -90,7 +141,6 @@ Public Class FormularioCliente
             ErrorProvider1.SetError(TApellido, "Porfavor ingrese solo letras")
         End If
     End Sub
-
     Private Sub TDni_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TDni.KeyPress
         If Not IsNumeric(e.KeyChar) Then
             e.Handled = True
@@ -109,32 +159,15 @@ Public Class FormularioCliente
             End If
         End If
     End Sub
-
     Private Sub FechaReg_ValueChanged(sender As Object, e As EventArgs) Handles FechaReg.ValueChanged
         FechaReg.Value = Now
     End Sub
-
-    Private Sub BAgregarFactura_Click(sender As Object, e As EventArgs) Handles BAgregarFactura.Click
-        Dim fila As Integer = DataGridCliente.CurrentRow.Index
-        If DataGridCliente.Item(0, fila).Value = "" Or TBApellido.Text = "       ********************" Then
-            MsgBox("Seleccione un cliente para agregar a la factura", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
-        Else
-            FormularioFactura.TCliente.Text = TBApellido.Text + " " + TBNombre.Text
-            FormularioFactura.TDNI.Text = TBDNI.Text
-            FormularioFactura.TDomicilio.Text = TBDomicilio.Text
-            FormularioFactura.TTelefono.Text = TBTelefono.Text
-            FormularioFactura.Show()
-            Me.Dispose()
-        End If
-    End Sub
-
     Private Sub TTelefono_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TTelefono.KeyPress
         If Not IsNumeric(e.KeyChar) Then
             e.Handled = True
             ErrorProvider1.SetError(TTelefono, "Porfavor ingrese solo numeros")
         End If
     End Sub
-
     Private Sub TEmail_Validated(sender As Object, e As EventArgs) Handles TEmail.Validated
         If Funciones.ValidarEmail(TEmail.Text) = False Then
             ErrorProvider1.SetError(TEmail, "Porfavor ingrese un mail valido")
@@ -146,33 +179,39 @@ Public Class FormularioCliente
         End If
     End Sub
 
+    Private Sub BAgregarFactura_Click(sender As Object, e As EventArgs) Handles BAgregarFactura.Click
+        If DataGridCliente.CurrentRow Is Nothing Or TNombre.Text = "     ************" Then
+            MsgBox("Seleccione un cliente para agregar a la factura", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
+        Else
+            FormularioFactura.TCliente.Text = TBApellido.Text + " " + TBNombre.Text
+            FormularioFactura.TDNI.Text = TBDNI.Text
+            FormularioFactura.TDomicilio.Text = TBDomicilio.Text
+            FormularioFactura.TTelefono.Text = TBTelefono.Text
+            FormularioFactura.Show()
+            Me.Dispose()
+            End If
+    End Sub
+
     Private Sub BEditar_Click(sender As Object, e As EventArgs) Handles BEditar.Click
-        Dim fila As Integer = DataGridCliente.CurrentRow.Index
-        If DataGridCliente.Item(0, fila).Value = "" Or TBApellido.Text = "       ********************" Then
+        If DataGridCliente.CurrentRow Is Nothing Or TBApellido.Text = "       ********************" Then
             MsgBox("Seleccione un cliente para poder editar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Edicion Invalida")
         Else
             BAgregarFactura.Visible = False
             BCancelar.Visible = True
             BGuardar.Visible = True
+            bloquear()
             habilitar()
+            TBDni_Validated(sender, e)
         End If
     End Sub
 
     Private Sub FormularioCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        DataGridCliente.Rows.Add("Gimenez", "Susana", "20932571", "21/09/2017 10:09")
-        DataGridCliente.Rows.Add("Casan", "Moria", "22826341", "21/09/2017 17:41")
-        DataGridCliente.Rows.Add("Rial", "Jorge", "40219352", "22/09/2017 11:01")
-        DataGridCliente.Rows.Add("Lobato", "Zulma", "15946471", "23/09/2017 09:33")
+        Try
+            cargarClientes()
 
-        TBApellido.Text = "       ********************"
-        TBNombre.Text = "       ********************"
-        TBDNI.Text = "       ********************"
-        TBDomicilio.Text = "       ********************"
-        TBTelefono.Text = "       ********************"
-        TBEmail.Text = "       ********************"
-
-        CBBuscar.SelectedIndex = 0
-
+        Catch ex As Exception
+            MsgBox("Ha ocurrido un error, la lista de clientes no se pudo cargar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Error al cargar Datagrid")
+        End Try
     End Sub
 
     Private Sub BGuardar_Click(sender As Object, e As EventArgs) Handles BGuardar.Click
@@ -180,14 +219,15 @@ Public Class FormularioCliente
             MsgBox("El DNI es un campo obligatorio", MsgBoxStyle.DefaultButton2 +
                        MsgBoxStyle.Information, "DNI invalido")
         Else
-            Dim fila As Integer = DataGridCliente.CurrentRow.Index
             Dim respuesta As MsgBoxResult
             respuesta = MsgBox("¿Esta seguro de modificar el Cliente?", MsgBoxStyle.YesNo +
               MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Question, "Confirmar Modificacion")
             If MsgBoxResult.Yes = respuesta Then
-                DataGridCliente.Item(0, fila).Value = TBApellido.Text
-                DataGridCliente.Item(1, fila).Value = TBNombre.Text
-                DataGridCliente.Item(2, fila).Value = TBDNI.Text
+                Dim id_cliente As Integer = DataGridCliente.CurrentRow().Cells(0).Value
+                Dim fecharegistro As Date = DataGridCliente.CurrentRow.Cells(4).Value
+                AccesoDatos.ActualizarCliente(id_cliente, TBNombre.Text, TBApellido.Text, TBDNI.Text,
+                                 TBDomicilio.Text, TBTelefono.Text, TBEmail.Text, fecharegistro)
+                AccesoDatos.cargarClientes(DataGridCliente)
                 MsgBox("Se ha modificado correctamente", MsgBoxStyle.DefaultButton2 +
                                MsgBoxStyle.Information, "Modificacion exitosa")
             Else
@@ -197,6 +237,7 @@ Public Class FormularioCliente
             BAgregarFactura.Visible = True
             BCancelar.Visible = False
             BGuardar.Visible = False
+            desbloquear()
             deshabilitar()
         End If
 
@@ -208,47 +249,15 @@ Public Class FormularioCliente
         BAgregarFactura.Visible = True
         BCancelar.Visible = False
         BGuardar.Visible = False
+        desbloquear()
         deshabilitar()
     End Sub
 
     Private Sub DataGridCliente_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridCliente.CellEnter
         Dim fila As Integer = DataGridCliente.CurrentRow.Index
-        TBApellido.Text = DataGridCliente.Item(0, fila).Value
-        TBNombre.Text = DataGridCliente.Item(1, fila).Value
-        TBDNI.Text = DataGridCliente.Item(2, fila).Value
-        Dim domicilio As String = "-"
-        Dim telefono As String = "-"
-        Dim email As String = "-"
-        Select Case fila
-            Case 0
-                domicilio = "Palermo Buenos Aires"
-                telefono = "01191234312"
-                email = "sugimenez@hotmail.com"
-            Case 1
-                domicilio = "Parque Leloir Buenos Aires"
-                telefono = "-"
-                email = "moria-casan@outlook.com"
-            Case 2
-                domicilio = "Munro Buenos Aires"
-                telefono = "0112234142"
-                email = "jorgericardorial@gmail.com"
-            Case 3
-                domicilio = "Barrio Serantes Corrientes"
-                telefono = "3795129043"
-                email = "zulmita@hotmail.com"
-        End Select
-        TBDomicilio.Text = domicilio
-        TBTelefono.Text = telefono
-        TBEmail.Text = email
-
-        If BCancelar.Visible = True Or BGuardar.Visible = True Then
-            MsgBox("Debe finalizar la edicion antes de continuar", MsgBoxStyle.DefaultButton2 +
-                       MsgBoxStyle.Exclamation, "Edicion Cliente")
-            BAgregarFactura.Visible = True
-            BGuardar.Visible = False
-            BCancelar.Visible = False
-            deshabilitar()
-        End If
+        Dim id_cliente As Integer = DataGridCliente.Item(0, fila).Value
+        Dim cliente As clientes = AccesoDatos.capturarCliente(id_cliente)
+        cargarDetalle(cliente)
     End Sub
 
     Private Sub TBDni_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TBDNI.KeyPress
@@ -280,15 +289,5 @@ Public Class FormularioCliente
         e.Handled = re.IsMatch(e.KeyChar)
     End Sub
 
-    Private Sub TBuscar_TextChanged(sender As Object, e As EventArgs) Handles TBuscar.TextChanged, CBBuscar.SelectedIndexChanged
-        If BCancelar.Visible = True Or BGuardar.Visible = True Then
-            MsgBox("Debe finalizar la edicion antes de continuar", MsgBoxStyle.DefaultButton2 +
-                       MsgBoxStyle.Exclamation, "Edicion Cliente")
-            BAgregarFactura.Visible = True
-            BGuardar.Visible = False
-            BCancelar.Visible = False
-            deshabilitar()
-        End If
-    End Sub
 
 End Class

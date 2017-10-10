@@ -1,7 +1,7 @@
 ﻿Public Class FormularioStock
     Private Sub FormularioStock_Closed(sender As Object, e As EventArgs) Handles Me.Closed
         'Si desde factura se dirigio al formulario de stock y cerro esa ventana, redirige hacia la factura
-        If FormularioFactura.DataGridFactura.CurrentRow Is Nothing Then
+        If FormularioFactura.DataGridFactura.CurrentRow Is Nothing And FormularioFactura.TCliente.Text = "" Then
             FormularioVendedor.Show()
         Else
             FormularioFactura.Show()
@@ -33,7 +33,7 @@
     Private Sub verificarEstado(producto As productos)
         If producto.estado = 0 Then
             DataGridStock.CurrentRow.DefaultCellStyle.BackColor = Color.Gray
-        ElseIf Integer.Parse(TStock.Text) <= 10 Then
+        ElseIf producto.stock <= 10 Then
             DataGridStock.CurrentRow.DefaultCellStyle.BackColor = Color.Red
         End If
     End Sub
@@ -71,27 +71,39 @@
         Dim fila As Integer = DataGridStock.CurrentRow.Index
         Dim id_producto As Integer = DataGridStock.Item(0, fila).Value
         Dim producto As productos = AccesoDatos.capturarProducto(id_producto)
-
-        cargarDetalle(producto)
         verificarEstado(producto)
+        cargarDetalle(producto)
     End Sub
 
     Private Sub BAgregarFactura_Click(sender As Object, e As EventArgs) Handles BAgregarFactura.Click
         If DataGridStock.CurrentRow Is Nothing Or TNombre.Text = "     ************" Then
             MsgBox("Seleccione un producto para agregar a la factura", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
         Else
-            Dim fila As Integer = DataGridStock.CurrentRow.Index
-            Dim id_producto As Integer = DataGridStock.Item(0, fila).Value
-            Dim producto As productos = AccesoDatos.capturarProducto(id_producto)
+            If Integer.Parse(TStock.Text) = 0 Then
+                MsgBox("El producto no puede cargarse a la factura, no existe stock disponible",
+                       MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Stock no disponible")
+            Else
+                Dim fila As Integer = DataGridStock.CurrentRow.Index
+                Dim id_producto As Integer = DataGridStock.Item(0, fila).Value
 
-            Dim categoria As String = producto.categoria.descripcion_categoria
-            Dim nombre As String = producto.nombre
-            Dim precio As Decimal = producto.precio
-            Dim cantidad As Integer = 1
-            Dim importe As Decimal = precio * cantidad
-            FormularioFactura.DataGridFactura.Rows.Add(id_producto, cantidad, categoria, nombre, precio, importe)
-            FormularioFactura.Show()
-            Me.Dispose()
+                'Verifica si existe el producto en la grilla de factura
+                Dim existe As Boolean = FormularioFactura.DataGridFactura.Rows.Cast(Of DataGridViewRow).Any(Function(x) CInt(x.Cells(0).Value) = id_producto)
+                If existe Then
+                    MsgBox("El producto ya se encuentra cargado en la factura, para agregar mas de uno, modifique el valor del campo 'Cantidad'",
+                           MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Producto existente en Factura")
+                Else
+                    Dim producto As productos = AccesoDatos.capturarProducto(id_producto)
+                    Dim categoria As String = producto.categoria.descripcion_categoria
+                    Dim nombre As String = producto.nombre
+                    Dim precio As Decimal = producto.precio
+                    Dim cantidad As Integer = 1
+                    Dim importe As Decimal = precio * cantidad
+                    Dim stock As Integer = producto.stock
+                    FormularioFactura.DataGridFactura.Rows.Add(id_producto, cantidad, categoria, nombre, precio, importe, stock)
+                End If
+                FormularioFactura.Show()
+                Me.Dispose()
+            End If
         End If
     End Sub
 

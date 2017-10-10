@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="pcgamerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="pcgamerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="c1_procesador">
           <Key>
             <PropertyRef Name="c1_procesador" />
@@ -65,7 +65,7 @@
           <Property Name="domicilio" Type="text" Nullable="false" />
           <Property Name="telefono" Type="text" />
           <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="fechaingreso" Type="date" Nullable="false" />
+          <Property Name="fecharegistro" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="factura">
           <Key>
@@ -109,6 +109,7 @@
           <Property Name="imagen" Type="text" Nullable="false" />
           <Property Name="rol_id" Type="int" Nullable="false" />
           <Property Name="telefono" Type="text" />
+          <Property Name="sexo" Type="varchar" MaxLength="1" Nullable="false" />
         </EntityType>
         <EntityType Name="productos">
           <Key>
@@ -382,8 +383,7 @@
             <End Role="usuarios" EntitySet="usuarios" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="pcgamerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -454,8 +454,8 @@
           <Property Name="domicilio" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="telefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="fechaingreso" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="factura" Relationship="Self.FK_factura_clientes" FromRole="clientes" ToRole="factura" />
+          <Property Name="fecharegistro" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
         <EntityType Name="factura">
           <Key>
@@ -507,6 +507,7 @@
           <Property Name="telefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="rol" Relationship="Self.FK_personas_rol" FromRole="personas" ToRole="rol" />
           <NavigationProperty Name="usuarios" Relationship="Self.FK_usuarios_personas" FromRole="personas" ToRole="usuarios" />
+          <Property Name="sexo" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="productos">
           <Key>
@@ -855,6 +856,7 @@
           <EntitySetMapping Name="clientes">
             <EntityTypeMapping TypeName="pcgamerModel.clientes">
               <MappingFragment StoreEntitySet="clientes">
+                <ScalarProperty Name="fecharegistro" ColumnName="fecharegistro" />
                 <ScalarProperty Name="Id_cliente" ColumnName="Id_cliente" />
                 <ScalarProperty Name="nombres" ColumnName="nombres" />
                 <ScalarProperty Name="apellidos" ColumnName="apellidos" />
@@ -862,7 +864,6 @@
                 <ScalarProperty Name="domicilio" ColumnName="domicilio" />
                 <ScalarProperty Name="telefono" ColumnName="telefono" />
                 <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="fechaingreso" ColumnName="fechaingreso" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -900,6 +901,7 @@
           <EntitySetMapping Name="personas">
             <EntityTypeMapping TypeName="pcgamerModel.personas">
               <MappingFragment StoreEntitySet="personas">
+                <ScalarProperty Name="sexo" ColumnName="sexo" />
                 <ScalarProperty Name="Id_persona" ColumnName="Id_persona" />
                 <ScalarProperty Name="nombres" ColumnName="nombres" />
                 <ScalarProperty Name="apellidos" ColumnName="apellidos" />

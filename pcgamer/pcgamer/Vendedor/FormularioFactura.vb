@@ -43,14 +43,14 @@ Public Class FormularioFactura
     End Sub
 
     Private Sub FormularioFactura_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If TCliente.Text <> "" Then
-            BSeleccionarCliente.Hide()
-        End If
+
         TFechaHora.Text = String.Format("{0:G}", DateTime.Now)
 
+        AccesoDatos.cargarFormaPago(CBFormaPago)
+        CBFormaPago.SelectedIndex = 0
     End Sub
 
-    Private Sub BSeleccionarCliente_Click(sender As Object, e As EventArgs) Handles BSeleccionarCliente.Click
+    Private Sub BBuscarCliente_Click(sender As Object, e As EventArgs) Handles BBuscarCliente.Click
         FormularioCliente.Show()
         Me.Hide()
     End Sub
@@ -131,4 +131,5 @@ Public Class FormularioFactura
     Private Sub DataGridFactura_RowStateChanged(sender As Object, e As DataGridViewRowStateChangedEventArgs) Handles DataGridFactura.RowStateChanged
         calcularTotal()
     End Sub
+
 End Class

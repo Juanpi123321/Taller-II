@@ -20,6 +20,7 @@ Partial Public Class personas
     Public Property imagen As String
     Public Property rol_id As Integer
     Public Property telefono As String
+    Public Property sexo As String
 
     Public Overridable Property rol As rol
     Public Overridable Property usuarios As ICollection(Of usuarios) = New HashSet(Of usuarios)

@@ -24,4 +24,47 @@
         Return producto
     End Function
 
+    Shared Sub cargarClientes(grid As DataGridView)
+        Dim datos = (From c In ctx.clientes
+                     Select Id = c.Id_cliente, Apellidos = c.apellidos, Nombres = c.nombres, DNI = c.dni,
+                         Fecha_Registro = c.fecharegistro).ToList
+        grid.DataSource = datos
+        'oculta el Id_producto
+        grid.Columns(0).Visible = False
+    End Sub
+
+    Shared Function capturarCliente(id As Integer) As clientes
+        Dim cliente = (From p In ctx.clientes
+                       Where p.Id_cliente = id
+                       Select p).SingleOrDefault
+        Return cliente
+    End Function
+
+    Shared Sub ActualizarCliente(id_cliente As Integer, nombres As String, apellidos As String, dni As Integer,
+                                 domicilio As String, telefono As String, email As String, fecharegistro As Date)
+        Dim cliente = (From c In ctx.clientes
+                       Where c.Id_cliente = id_cliente
+                       Select c).SingleOrDefault
+        With cliente
+            .nombres = nombres
+            .apellidos = apellidos
+            .dni = dni
+            .domicilio = domicilio
+            .telefono = telefono
+            .email = email
+            .fecharegistro = fecharegistro
+        End With
+        ctx.SaveChanges()
+    End Sub
+
+    Shared Sub cargarFormaPago(formapago As ComboBox)
+        Dim datos = (From fp In ctx.forma_pago
+                     Select descripcion_formapago = fp.descripcion_formapago).ToList
+        formapago.DataSource = datos
+    End Sub
+
+    Shared Sub AgregarCliente(cliente As clientes)
+        ctx.clientes.Add(cliente)
+        ctx.SaveChanges()
+    End Sub
 End Class

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormularioCliente
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,13 +20,9 @@ Partial Class FormularioCliente
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormularioCliente))
         Me.PBLogo = New System.Windows.Forms.PictureBox()
         Me.LNombre = New System.Windows.Forms.Label()
@@ -50,7 +46,6 @@ Partial Class FormularioCliente
         Me.BAgregar = New System.Windows.Forms.Button()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.TabCliente = New System.Windows.Forms.TabControl()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.BCancelar = New System.Windows.Forms.Button()
         Me.BGuardar = New System.Windows.Forms.Button()
@@ -72,17 +67,14 @@ Partial Class FormularioCliente
         Me.TBApellido = New System.Windows.Forms.TextBox()
         Me.TBuscar = New System.Windows.Forms.TextBox()
         Me.DataGridCliente = New System.Windows.Forms.DataGridView()
-        Me.apellidos = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombres = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dni = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fecha_ingreso = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabCliente.SuspendLayout()
-        Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         CType(Me.DataGridCliente, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage1.SuspendLayout()
         Me.SuspendLayout()
         '
         'PBLogo
@@ -300,19 +292,6 @@ Partial Class FormularioCliente
         Me.TabCliente.SelectedIndex = 0
         Me.TabCliente.Size = New System.Drawing.Size(886, 518)
         Me.TabCliente.TabIndex = 18
-        '
-        'TabPage1
-        '
-        Me.TabPage1.BackColor = System.Drawing.Color.Black
-        Me.TabPage1.Controls.Add(Me.Panel1)
-        Me.TabPage1.Controls.Add(Me.BAgregar)
-        Me.TabPage1.Controls.Add(Me.BLimpiar)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 29)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(878, 485)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Registrar"
         '
         'TabPage2
         '
@@ -558,59 +537,33 @@ Partial Class FormularioCliente
         '
         'DataGridCliente
         '
+        Me.DataGridCliente.AllowUserToAddRows = False
         Me.DataGridCliente.AllowUserToDeleteRows = False
+        Me.DataGridCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridCliente.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.DataGridCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridCliente.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.apellidos, Me.nombres, Me.dni, Me.fecha_ingreso})
         Me.DataGridCliente.GridColor = System.Drawing.SystemColors.GrayText
         Me.DataGridCliente.Location = New System.Drawing.Point(1, 274)
         Me.DataGridCliente.Name = "DataGridCliente"
         Me.DataGridCliente.ReadOnly = True
         Me.DataGridCliente.RowTemplate.Height = 24
+        Me.DataGridCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridCliente.Size = New System.Drawing.Size(875, 215)
         Me.DataGridCliente.TabIndex = 12
         Me.DataGridCliente.TabStop = False
         '
-        'apellidos
+        'TabPage1
         '
-        Me.apellidos.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
-        Me.apellidos.DefaultCellStyle = DataGridViewCellStyle1
-        Me.apellidos.HeaderText = "Apellidos"
-        Me.apellidos.Name = "apellidos"
-        Me.apellidos.ReadOnly = True
-        Me.apellidos.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        '
-        'nombres
-        '
-        Me.nombres.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        Me.nombres.DefaultCellStyle = DataGridViewCellStyle2
-        Me.nombres.HeaderText = "Nombres"
-        Me.nombres.Name = "nombres"
-        Me.nombres.ReadOnly = True
-        Me.nombres.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        '
-        'dni
-        '
-        Me.dni.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
-        Me.dni.DefaultCellStyle = DataGridViewCellStyle3
-        Me.dni.HeaderText = "DNI"
-        Me.dni.Name = "dni"
-        Me.dni.ReadOnly = True
-        Me.dni.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dni.Width = 72
-        '
-        'fecha_ingreso
-        '
-        Me.fecha_ingreso.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
-        Me.fecha_ingreso.DefaultCellStyle = DataGridViewCellStyle4
-        Me.fecha_ingreso.HeaderText = "Fecha Ingreso"
-        Me.fecha_ingreso.Name = "fecha_ingreso"
-        Me.fecha_ingreso.ReadOnly = True
-        Me.fecha_ingreso.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.TabPage1.BackColor = System.Drawing.Color.Black
+        Me.TabPage1.Controls.Add(Me.Panel1)
+        Me.TabPage1.Controls.Add(Me.BAgregar)
+        Me.TabPage1.Controls.Add(Me.BLimpiar)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 29)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(878, 485)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "Registrar"
         '
         'FormularioCliente
         '
@@ -634,10 +587,10 @@ Partial Class FormularioCliente
         Me.Panel1.PerformLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabCliente.ResumeLayout(False)
-        Me.TabPage1.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         CType(Me.DataGridCliente, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -687,8 +640,4 @@ Partial Class FormularioCliente
     Friend WithEvents BEditar As Button
     Friend WithEvents BCancelar As Button
     Friend WithEvents BGuardar As Button
-    Friend WithEvents apellidos As DataGridViewTextBoxColumn
-    Friend WithEvents nombres As DataGridViewTextBoxColumn
-    Friend WithEvents dni As DataGridViewTextBoxColumn
-    Friend WithEvents fecha_ingreso As DataGridViewTextBoxColumn
 End Class

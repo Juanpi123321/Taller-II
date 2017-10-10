@@ -34,12 +34,6 @@ Partial Class FormularioFactura
         Me.LTotal = New System.Windows.Forms.Label()
         Me.TTotal = New System.Windows.Forms.Label()
         Me.DataGridFactura = New System.Windows.Forms.DataGridView()
-        Me.Id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.unidadmedida = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.punitario = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.importe = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.LFactura4 = New System.Windows.Forms.Label()
         Me.LFactura6 = New System.Windows.Forms.Label()
@@ -50,10 +44,10 @@ Partial Class FormularioFactura
         Me.LFactura7 = New System.Windows.Forms.Label()
         Me.LFactura2 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.CBFormaPago = New System.Windows.Forms.ComboBox()
         Me.BEliminar = New System.Windows.Forms.Button()
         Me.BAgregar = New System.Windows.Forms.Button()
-        Me.BSeleccionarCliente = New System.Windows.Forms.Button()
-        Me.BEditar = New System.Windows.Forms.Button()
+        Me.BBuscarCliente = New System.Windows.Forms.Button()
         Me.TVendedor = New System.Windows.Forms.Label()
         Me.LVendedor = New System.Windows.Forms.Label()
         Me.LTelefono = New System.Windows.Forms.Label()
@@ -73,6 +67,13 @@ Partial Class FormularioFactura
         Me.PBEmpresa = New System.Windows.Forms.PictureBox()
         Me.BImprimir = New System.Windows.Forms.Button()
         Me.BCancelar = New System.Windows.Forms.Button()
+        Me.Id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.unidadmedida = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.punitario = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.importe = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.stock = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridFactura, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -147,79 +148,13 @@ Partial Class FormularioFactura
         Me.DataGridFactura.AllowUserToAddRows = False
         Me.DataGridFactura.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.DataGridFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridFactura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id_producto, Me.cantidad, Me.unidadmedida, Me.descripcion, Me.punitario, Me.importe})
+        Me.DataGridFactura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id_producto, Me.cantidad, Me.unidadmedida, Me.descripcion, Me.punitario, Me.importe, Me.stock})
         Me.DataGridFactura.GridColor = System.Drawing.SystemColors.GrayText
         Me.DataGridFactura.Location = New System.Drawing.Point(3, 309)
         Me.DataGridFactura.Name = "DataGridFactura"
         Me.DataGridFactura.RowTemplate.Height = 24
         Me.DataGridFactura.Size = New System.Drawing.Size(785, 152)
         Me.DataGridFactura.TabIndex = 0
-        '
-        'Id_producto
-        '
-        Me.Id_producto.HeaderText = "Id_producto"
-        Me.Id_producto.Name = "Id_producto"
-        Me.Id_producto.Visible = False
-        '
-        'cantidad
-        '
-        Me.cantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
-        Me.cantidad.DefaultCellStyle = DataGridViewCellStyle1
-        Me.cantidad.HeaderText = "Cantidad"
-        Me.cantidad.MaxInputLength = 3
-        Me.cantidad.Name = "cantidad"
-        Me.cantidad.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.cantidad.Width = 123
-        '
-        'unidadmedida
-        '
-        Me.unidadmedida.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        Me.unidadmedida.DefaultCellStyle = DataGridViewCellStyle2
-        Me.unidadmedida.HeaderText = "Unidad de medida"
-        Me.unidadmedida.Name = "unidadmedida"
-        Me.unidadmedida.ReadOnly = True
-        Me.unidadmedida.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        '
-        'descripcion
-        '
-        Me.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
-        Me.descripcion.DefaultCellStyle = DataGridViewCellStyle3
-        Me.descripcion.HeaderText = "Descripcion"
-        Me.descripcion.Name = "descripcion"
-        Me.descripcion.ReadOnly = True
-        Me.descripcion.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        '
-        'punitario
-        '
-        Me.punitario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
-        Me.punitario.DefaultCellStyle = DataGridViewCellStyle4
-        Me.punitario.HeaderText = "P. Unitario"
-        Me.punitario.MaxInputLength = 99999
-        Me.punitario.Name = "punitario"
-        Me.punitario.ReadOnly = True
-        Me.punitario.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.punitario.Width = 126
-        '
-        'importe
-        '
-        Me.importe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black
-        Me.importe.DefaultCellStyle = DataGridViewCellStyle5
-        Me.importe.HeaderText = "Importe"
-        Me.importe.MaxInputLength = 9999999
-        Me.importe.Name = "importe"
-        Me.importe.ReadOnly = True
-        Me.importe.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.importe.Width = 115
         '
         'GroupBox2
         '
@@ -318,10 +253,10 @@ Partial Class FormularioFactura
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.CBFormaPago)
         Me.GroupBox3.Controls.Add(Me.BEliminar)
         Me.GroupBox3.Controls.Add(Me.BAgregar)
-        Me.GroupBox3.Controls.Add(Me.BSeleccionarCliente)
-        Me.GroupBox3.Controls.Add(Me.BEditar)
+        Me.GroupBox3.Controls.Add(Me.BBuscarCliente)
         Me.GroupBox3.Controls.Add(Me.TVendedor)
         Me.GroupBox3.Controls.Add(Me.LVendedor)
         Me.GroupBox3.Controls.Add(Me.LTelefono)
@@ -339,6 +274,15 @@ Partial Class FormularioFactura
         Me.GroupBox3.TabIndex = 13
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Cliente"
+        '
+        'CBFormaPago
+        '
+        Me.CBFormaPago.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CBFormaPago.FormattingEnabled = True
+        Me.CBFormaPago.Location = New System.Drawing.Point(437, 90)
+        Me.CBFormaPago.Name = "CBFormaPago"
+        Me.CBFormaPago.Size = New System.Drawing.Size(168, 24)
+        Me.CBFormaPago.TabIndex = 13
         '
         'BEliminar
         '
@@ -374,36 +318,20 @@ Partial Class FormularioFactura
         Me.BAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.BAgregar.UseVisualStyleBackColor = False
         '
-        'BSeleccionarCliente
+        'BBuscarCliente
         '
-        Me.BSeleccionarCliente.BackColor = System.Drawing.Color.DarkRed
-        Me.BSeleccionarCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.BSeleccionarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BSeleccionarCliente.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BSeleccionarCliente.ForeColor = System.Drawing.Color.White
-        Me.BSeleccionarCliente.Location = New System.Drawing.Point(437, 22)
-        Me.BSeleccionarCliente.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
-        Me.BSeleccionarCliente.Name = "BSeleccionarCliente"
-        Me.BSeleccionarCliente.Size = New System.Drawing.Size(161, 32)
-        Me.BSeleccionarCliente.TabIndex = 5
-        Me.BSeleccionarCliente.Text = "Seleccionar Cliente"
-        Me.BSeleccionarCliente.UseVisualStyleBackColor = False
-        '
-        'BEditar
-        '
-        Me.BEditar.BackColor = System.Drawing.Color.DarkRed
-        Me.BEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.BEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BEditar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BEditar.ForeColor = System.Drawing.Color.White
-        Me.BEditar.Location = New System.Drawing.Point(437, 62)
-        Me.BEditar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
-        Me.BEditar.Name = "BEditar"
-        Me.BEditar.Size = New System.Drawing.Size(83, 32)
-        Me.BEditar.TabIndex = 1
-        Me.BEditar.Text = "Editar"
-        Me.BEditar.UseVisualStyleBackColor = False
-        Me.BEditar.Visible = False
+        Me.BBuscarCliente.BackColor = System.Drawing.Color.DarkRed
+        Me.BBuscarCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BBuscarCliente.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BBuscarCliente.ForeColor = System.Drawing.Color.White
+        Me.BBuscarCliente.Location = New System.Drawing.Point(437, 22)
+        Me.BBuscarCliente.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.BBuscarCliente.Name = "BBuscarCliente"
+        Me.BBuscarCliente.Size = New System.Drawing.Size(126, 32)
+        Me.BBuscarCliente.TabIndex = 5
+        Me.BBuscarCliente.Text = "Buscar Cliente"
+        Me.BBuscarCliente.UseVisualStyleBackColor = False
         '
         'TVendedor
         '
@@ -605,6 +533,78 @@ Partial Class FormularioFactura
         Me.BCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.BCancelar.UseVisualStyleBackColor = False
         '
+        'Id_producto
+        '
+        Me.Id_producto.HeaderText = "Id_producto"
+        Me.Id_producto.Name = "Id_producto"
+        Me.Id_producto.Visible = False
+        '
+        'cantidad
+        '
+        Me.cantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
+        Me.cantidad.DefaultCellStyle = DataGridViewCellStyle1
+        Me.cantidad.HeaderText = "Cantidad"
+        Me.cantidad.MaxInputLength = 3
+        Me.cantidad.Name = "cantidad"
+        Me.cantidad.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.cantidad.Width = 123
+        '
+        'unidadmedida
+        '
+        Me.unidadmedida.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        Me.unidadmedida.DefaultCellStyle = DataGridViewCellStyle2
+        Me.unidadmedida.HeaderText = "Unidad de medida"
+        Me.unidadmedida.Name = "unidadmedida"
+        Me.unidadmedida.ReadOnly = True
+        Me.unidadmedida.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'descripcion
+        '
+        Me.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        Me.descripcion.DefaultCellStyle = DataGridViewCellStyle3
+        Me.descripcion.HeaderText = "Descripcion"
+        Me.descripcion.Name = "descripcion"
+        Me.descripcion.ReadOnly = True
+        Me.descripcion.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'punitario
+        '
+        Me.punitario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
+        Me.punitario.DefaultCellStyle = DataGridViewCellStyle4
+        Me.punitario.HeaderText = "P. Unitario"
+        Me.punitario.MaxInputLength = 99999
+        Me.punitario.Name = "punitario"
+        Me.punitario.ReadOnly = True
+        Me.punitario.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.punitario.Width = 137
+        '
+        'importe
+        '
+        Me.importe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black
+        Me.importe.DefaultCellStyle = DataGridViewCellStyle5
+        Me.importe.HeaderText = "Importe"
+        Me.importe.MaxInputLength = 9999999
+        Me.importe.Name = "importe"
+        Me.importe.ReadOnly = True
+        Me.importe.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.importe.Width = 115
+        '
+        'stock
+        '
+        Me.stock.HeaderText = "Stock"
+        Me.stock.Name = "stock"
+        Me.stock.Visible = False
+        '
         'FormularioFactura
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 22.0!)
@@ -671,18 +671,19 @@ Partial Class FormularioFactura
     Friend WithEvents TDNI As Label
     Friend WithEvents TCliente As Label
     Friend WithEvents TFechaHora As Label
-    Friend WithEvents BEditar As Button
-    Friend WithEvents BSeleccionarCliente As Button
+    Friend WithEvents BBuscarCliente As Button
     Friend WithEvents BAgregar As Button
     Friend WithEvents BEliminar As Button
     Friend WithEvents BImprimir As Button
     Friend WithEvents BCancelar As Button
     Friend WithEvents LTotal As Label
     Friend WithEvents TTotal As Label
+    Friend WithEvents CBFormaPago As ComboBox
     Friend WithEvents Id_producto As DataGridViewTextBoxColumn
     Friend WithEvents cantidad As DataGridViewTextBoxColumn
     Friend WithEvents unidadmedida As DataGridViewTextBoxColumn
     Friend WithEvents descripcion As DataGridViewTextBoxColumn
     Friend WithEvents punitario As DataGridViewTextBoxColumn
     Friend WithEvents importe As DataGridViewTextBoxColumn
+    Friend WithEvents stock As DataGridViewTextBoxColumn
 End Class
