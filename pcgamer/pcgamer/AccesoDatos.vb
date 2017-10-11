@@ -2,11 +2,6 @@
     Shared ctx As New pcgamerEntities
 
     Shared Sub cargarProductos(grid As DataGridView)
-        '     Dim datos = (From p In ctx.productos
-        '                   Where p.estado = 1 Select Id = p.Id_producto, c1 = p.c1_procesador_id, c2 = p.c2_placamadre_id, c3 = p.c3_ram_id,
-        '          c4 = p.c4_placavideo_id, c5 = p.c5_discorigido_id, c6 = p.c6_gabinete_id, precio = p.precio,
-        'stock = p.stock, categoria = p.categoria_id, imagen = p.imagen, estado = p.estado).ToList
-
         Dim datos = (From p In ctx.productos
                      Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
                          Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
@@ -151,6 +146,28 @@
                        Select c
                   ).SingleOrDefault
         cliente.estado = estado
+        ctx.SaveChanges()
+    End Sub
+
+    Shared Sub ActualizarProducto(id_producto As Integer, nombre As String, procesador As Integer, PlacaMadre As Integer,
+                                 Ram As Integer, PlacaVideo As Integer, DiscoRigido As Integer, Gabinete As Integer,
+                                 Precio As Integer, Stock As Integer, Categoria As Integer)
+        Dim producto = (From p In ctx.productos
+                        Where p.Id_producto = id_producto
+                        Select p).SingleOrDefault
+        With producto
+            .nombre = nombre
+            .c1_procesador_id = procesador
+            .c2_placamadre_id = PlacaMadre
+            .c3_ram_id = Ram
+            .c4_placavideo_id = PlacaVideo
+            .c5_discorigido_id = DiscoRigido
+            .c6_gabinete_id = Gabinete
+            .precio = Precio
+            .stock = Stock
+            .categoria_id = Categoria
+            .estado = 1
+        End With
         ctx.SaveChanges()
     End Sub
 

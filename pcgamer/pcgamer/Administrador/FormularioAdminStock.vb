@@ -5,197 +5,132 @@
 
     Private Sub limpiar()
         TNombre.Clear()
-        TProcesador.Clear()
-        TPlacaMadre.Clear()
-        TRam.Clear()
+        'TProcesador.Clear()
+        'TPlacaMadre.Clear()
+        'TRam.Clear()
         TStock.Clear()
-        TPlacaVideo.Clear()
-        TDiscoRigido.Clear()
-        TGabinete.Clear()
+        'TPlacaVideo.Clear()
+        'TDiscoRigido.Clear()
+        'TGabinete.Clear()
         TPrecio.Clear()
     End Sub
 
     Private Sub habilitar()
         TNombre.ReadOnly = False
-        TProcesador.ReadOnly = False
-        TPlacaMadre.ReadOnly = False
-        TRam.ReadOnly = False
+        TProcesador.DropDownStyle = ComboBoxStyle.DropDownList
+        TPlacaMadre.DropDownStyle = ComboBoxStyle.DropDownList
+        TRam.DropDownStyle = ComboBoxStyle.DropDownList
         TStock.ReadOnly = False
-        TCategoria.Enabled = True
-        TPlacaVideo.ReadOnly = False
-        TDiscoRigido.ReadOnly = False
-        TGabinete.ReadOnly = False
+        TCategoria.DropDownStyle = ComboBoxStyle.DropDownList
+        TPlacaVideo.DropDownStyle = ComboBoxStyle.DropDownList
+        TDiscoRigido.DropDownStyle = ComboBoxStyle.DropDownList
+        TGabinete.DropDownStyle = ComboBoxStyle.DropDownList
         TPrecio.ReadOnly = False
     End Sub
 
     Private Sub deshabilitar()
         TNombre.ReadOnly = True
-        TProcesador.ReadOnly = True
-        TPlacaMadre.ReadOnly = True
-        TRam.ReadOnly = True
+        TProcesador.DropDownStyle = ComboBoxStyle.Simple
+        TPlacaMadre.DropDownStyle = ComboBoxStyle.Simple
+        TRam.DropDownStyle = ComboBoxStyle.Simple
         TStock.ReadOnly = True
-        TCategoria.Enabled = False
-        TPlacaVideo.ReadOnly = True
-        TDiscoRigido.ReadOnly = True
-        TGabinete.ReadOnly = True
+        TCategoria.DropDownStyle = ComboBoxStyle.Simple
+        TPlacaVideo.DropDownStyle = ComboBoxStyle.Simple
+        TDiscoRigido.DropDownStyle = ComboBoxStyle.Simple
+        TGabinete.DropDownStyle = ComboBoxStyle.Simple
         TPrecio.ReadOnly = True
-    End Sub
-
-    'Si estan habilitados los campos para modificar y hace click en otro lado
-    Private Sub cancelarAgregarEditar()
-        If BCancelar.Visible = True Or BGuardar.Visible = True Or BCancelarAgregar.Visible = True Or BAgregar.Visible = True Then
-            MsgBox("Debe finalizar la edicion antes de continuar", MsgBoxStyle.DefaultButton2 +
-                       MsgBoxStyle.Exclamation, "Operacion Cancelada")
-            BNuevo.Visible = True
-            BGuardar.Visible = False
-            BCancelar.Visible = False
-            BCancelarAgregar.Visible = False
-            BAgregar.Visible = False
-            BEditar.Visible = True
-            deshabilitar()
-        End If
 
     End Sub
 
-    Private Sub FormularioStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Agrego todo manualmente hasta que tenga Base de Datos
-        DataGridStock.Rows.Add("Pc Bronze Ultra", "10", "8999.99", "Desktop-Escritorio")
-        DataGridStock.Rows.Add("Pc Bronze", "4", "7999.99", "Desktop-Escritorio")
-        DataGridStock.Rows.Add("Pc RaidMax Viper", "24", "9499.99", "Desktop-Escritorio")
-        DataGridStock.Rows.Add("Pc RaidMax Cobra", "30", "9999.99", "Desktop-Escritorio")
-        DataGridStock.Rows.Add("Acer Aspire E 15", "45", "20499.99", "Notebook")
-        DataGridStock.Rows.Add("Hp Gamer Omen", "12", "27999.99", "Notebook")
-        DataGridStock.Rows.Add("Pc Bangho Gamer", "20", "17999.99", "Desktop-Escritorio")
-        DataGridStock.Rows.Add("Pc Master Race", "10", "13799.99", "Desktop-Escritorio")
-        DataGridStock.Rows.Add("Pc NZXT Guardian", "25", "9999.99", "Desktop-Escritorio")
-        DataGridStock.Rows.Add("Pc Circuit Planet", "15", "8999.99", "Desktop-Escritorio")
+    Private Sub bloquear()
+        TBuscar.Enabled = False
+        CBBuscar.Enabled = False
+        DataGridStock.Enabled = False
+    End Sub
 
-        TNombre.Text = "     ************"
-        TProcesador.Text = "     ************"
-        TPlacaMadre.Text = "     ************"
-        TRam.Text = "     ************"
-        TStock.Text = "     ************"
-        TCategoria.SelectedIndex = 0
-        TPlacaVideo.Text = "     ************"
-        TDiscoRigido.Text = "     ************"
-        TGabinete.Text = "     ************"
-        TPrecio.Text = "     ************"
+    Private Sub desbloquear()
+        TBuscar.Enabled = True
+        CBBuscar.Enabled = True
+        DataGridStock.Enabled = True
+    End Sub
+
+    Private Sub cargarDetalle(producto As productos)
+        TNombre.Text = producto.nombre
+        TProcesador.Text = producto.c1_procesador.c1_descripcion
+        TPlacaMadre.Text = producto.c2_placamadre.c2_descripcion
+        TRam.Text = producto.c3_ram.c3_descripcion
+        TStock.Text = producto.stock
+        TCategoria.Text = producto.categoria.descripcion_categoria
+        TPlacaVideo.Text = producto.c4_placavideo.c4_descripcion
+        TDiscoRigido.Text = producto.c5_discorigido.c5_descripcion
+        TGabinete.Text = producto.c6_gabinete.c6_descripcion
+        TPrecio.Text = "$ " + System.Convert.ToString(producto.precio)
+
+        'Cambiar por direccion del producto
         Dim imagen As String = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\gabinete.jpg"
         PBImagen.Image = Image.FromFile(imagen)
         Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
+    End Sub
 
-        CBBuscar.SelectedIndex = 0
-        TCategoria.SelectedIndex = 0
+    Private Sub FormularioStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+            AccesoDatos.cargarProductos(DataGridStock)
+            DataGridStock.ClearSelection()
+
+            'Cuando abro que no aparezca ningun valor
+            TNombre.Text = "     ************"
+            TProcesador.Text = "     ************"
+            TPlacaMadre.Text = "     ************"
+            TRam.Text = "     ************"
+            TStock.Text = "     ************"
+            TCategoria.Text = "     ************"
+            TPlacaVideo.Text = "     ************"
+            TDiscoRigido.Text = "     ************"
+            TGabinete.Text = "     ************"
+            TPrecio.Text = "     ************"
+            Dim imagen As String = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\gabinete.jpg"
+            PBImagen.Image = Image.FromFile(imagen)
+            Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
+
+            CBBuscar.SelectedIndex = 0
+
+        Catch ex As Exception
+            MsgBox("Ha ocurrido un error, la lista de producto no se pudo cargar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Error al cargar Datagrid")
+        End Try
     End Sub
 
     Private Sub DataGridStock_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridStock.CellEnter
         Dim fila As Integer = DataGridStock.CurrentRow.Index
-        TNombre.Text = DataGridStock.Item(0, fila).Value
-        Dim procesador As String = ""
-        Dim placamadre As String = ""
-        Dim ram As String = ""
-        Dim placavideo As String = ""
-        Dim discorigido As String = ""
-        Dim gabinete As String = ""
-        Dim imagen As String = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\gabinete.jpg"
-        Select Case fila
-            Case 0
-                procesador = "Intel Core i5 3.0GHz"
-                placamadre = "Asus (1151) Z170-e"
-                ram = "HyperX 8GB DDR3 1866Mhz"
-                placavideo = "MSI GTX 1060 GAMING GDDR5"
-                discorigido = "Seagate BarraCuda 3.5 1TB"
-                gabinete = "Sentey Kron Gs-6005"
-                imagen = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\pc-bronze-ultra.jpg"
+        Dim id_producto As Integer = DataGridStock.Item(0, fila).Value
+        Dim producto As productos = AccesoDatos.capturarProducto(id_producto)
+        deshabilitar()
+        cargarDetalle(producto)
 
-            Case 1
-                procesador = "Intel Core i3-6100 3.7GHz"
-                placamadre = "Asrock H110M-HDV"
-                ram = "HyperX 4GB DDR3 1866Mhz"
-                placavideo = "Asus GeForce GTX 1040"
-                discorigido = "WD Blue 1TB SATA3"
-                gabinete = "Nfortec Pegasus LED Azul"
-                imagen = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\pc-bronze.jpg"
-            Case 2
-                procesador = "AMD APU Series A10 7860k"
-                placamadre = "Gigabyte Chipset A68 - USB3.0"
-                ram = "HyperX 8GB DDR3 1866Mhz"
-                placavideo = "Asus GeForce GTX 1040"
-                discorigido = "Toshiba 1TB SATA3"
-                gabinete = "RaidMax Viper"
-                imagen = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\gamer-raidmax-viper.jpg"
-            Case 3
-                procesador = "AMD FX8320"
-                placamadre = "ASUS M578L-M"
-                ram = "HyperX 8GB DDR3 1866Mhz"
-                placavideo = "ASUS Radeon R9 Strix 4GB"
-                discorigido = "WD Blue 1TB SATA3"
-                gabinete = "RaidMax Cobra"
-                imagen = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\gamer-raidmax-cobra-z-black-red.jpg"
-            Case 4
-                procesador = "Intel Core I5-7200U"
-                placamadre = "NBMML11002 (RF)"
-                ram = "DDR4 6 GB (estándar)"
-                placavideo = "Intel HD 620"
-                discorigido = "1TB Toshiba SATA3"
-                gabinete = "-"
-                imagen = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\Acer Aspire E 15.jpg"
-            Case 5
-                procesador = "Intel Core i7 de 2,8 Ghz Turbo Boost"
-                placamadre = "15-ce002la"
-                ram = "Memoria 12 GB DDR4 de SDRAM"
-                placavideo = "NVIDIA GeForce GTX 1050"
-                discorigido = "1TB 7200 RPM SATA"
-                gabinete = "-"
-                imagen = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\Gamer-Hp-Omen-15-ax205la.jpg"
-        End Select
-        TProcesador.Text = procesador
-        TPlacaMadre.Text = placamadre
-        TRam.Text = ram
-        TStock.Text = DataGridStock.Item(1, fila).Value
-        TCategoria.Text = DataGridStock.Item(3, fila).Value
-        TPlacaVideo.Text = placavideo
-        TDiscoRigido.Text = discorigido
-        TGabinete.Text = gabinete
-        TPrecio.Text = DataGridStock.Item(2, fila).Value
-
-        PBImagen.Image = Image.FromFile(imagen)
-        Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
-
-        'Hago esto xq sino cuando llega a la ultima fila me da error
-        If TStock.Text <> "" And DataGridStock.CurrentRow.DefaultCellStyle.BackColor <> Color.Gray Then
-            If Integer.Parse(TStock.Text) <= 10 Then
-                DataGridStock.CurrentRow.DefaultCellStyle.BackColor = Color.Red
-            End If
-
-        End If
-
-        If DataGridStock.CurrentRow.DefaultCellStyle.BackColor = Color.Gray Then
+        If DataGridStock.Item(5, fila).Value = 0 Then
             BAlta.Visible = True
             BBaja.Visible = False
         Else
             BAlta.Visible = False
             BBaja.Visible = True
         End If
-
-        cancelarAgregarEditar()
     End Sub
 
     Private Sub BEditar_Click(sender As Object, e As EventArgs) Handles BEditar.Click
-        Dim fila As Integer = DataGridStock.CurrentRow.Index
-        If DataGridStock.CurrentRow.DefaultCellStyle.BackColor = Color.Gray Then
+        If DataGridStock.CurrentRow Is Nothing Then
+            MsgBox("Seleccione un producto para poder editar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Edicion Invalida")
+        ElseIf DataGridStock.CurrentRow.DefaultCellStyle.BackColor = Color.Gray Then
             MsgBox("No es posible editar, el producto esta dado de baja", MsgBoxStyle.DefaultButton2 +
                        MsgBoxStyle.Exclamation, "Operacion invalida")
-        ElseIf DataGridStock.Item(1, fila).Value = "" Or TNombre.Text = "     ************" Then
-            MsgBox("Seleccione un producto para editar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
         Else
             BNuevo.Visible = False
             BGuardar.Visible = True
             BCancelar.Visible = True
+            bloquear()
             habilitar()
         End If
     End Sub
 
+    'falta agregar que valide todos los campos
     Private Sub BGuardar_Click(sender As Object, e As EventArgs) Handles BGuardar.Click
         If TNombre.Text = "" Or TStock.Text = "" Or TPrecio.Text = "" Or TCategoria.SelectedIndex = 0 Then
             MsgBox("Debe completar todos los campos", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Campos incompletos")
@@ -205,25 +140,23 @@
             respuesta = MsgBox("¿Esta seguro que desea Editar al producto " + TNombre.Text + "??",
                                MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Editar Producto")
             If MsgBoxResult.Yes = respuesta Then
-                DataGridStock.Item(0, fila).Value = TNombre.Text
-                DataGridStock.Item(1, fila).Value = TStock.Text
-                DataGridStock.Item(2, fila).Value = TPrecio.Text
-                DataGridStock.Item(3, fila).Value = TCategoria.Text
-
-                BNuevo.Visible = True
-                BGuardar.Visible = False
-                BCancelar.Visible = False
-                deshabilitar()
+                Dim id_producto As Integer = DataGridStock.CurrentRow().Cells(0).Value
+                Dim fecharegistro As Date = DataGridStock.CurrentRow.Cells(4).Value
+                AccesoDatos.ActualizarProducto(id_producto, TNombre.Text, TProcesador.SelectedIndex, TPlacaMadre.SelectedIndex,
+                                 TRam.SelectedIndex, TPlacaVideo.SelectedIndex, TDiscoRigido.SelectedIndex, TGabinete.SelectedIndex,
+                                 TPrecio.Text, TStock.Text, TCategoria.SelectedIndex)
+                AccesoDatos.cargarProductos(DataGridStock)
                 MsgBox("Se ha modificado correctamente", MsgBoxStyle.DefaultButton2 +
                                MsgBoxStyle.Information, "Modificacion exitosa")
             Else
-                BNuevo.Visible = True
-                BGuardar.Visible = False
-                BCancelar.Visible = False
-                deshabilitar()
                 MsgBox("No se han realizado cambios", MsgBoxStyle.DefaultButton2 +
-                               MsgBoxStyle.Information, "Operacion Cancelada")
+                                   MsgBoxStyle.Information, "Operacion Cancelada")
             End If
+            BNuevo.Visible = True
+            BGuardar.Visible = False
+            BCancelar.Visible = False
+            desbloquear()
+            deshabilitar()
         End If
     End Sub
 
@@ -231,6 +164,7 @@
         BNuevo.Visible = True
         BGuardar.Visible = False
         BCancelar.Visible = False
+        desbloquear()
         deshabilitar()
         MsgBox("No se han realizado cambios", MsgBoxStyle.DefaultButton2 +
                            MsgBoxStyle.Information, "Operacion Cancelada")
@@ -336,7 +270,7 @@
         End Try
     End Sub
 
-    Private Sub TStock_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TStock.KeyPress
+    Private Sub TStock_KeyPress(sender As Object, e As KeyPressEventArgs)
         If Not IsNumeric(e.KeyChar) Then
             e.Handled = True
         End If
@@ -349,10 +283,84 @@
     End Sub
 
     Private Sub TBuscar_TextChanged(sender As Object, e As EventArgs) Handles TBuscar.TextChanged
-        cancelarAgregarEditar()
+        'le paso lo qe se escribe, el numero del combobox buscar seleccionado y el datagrid
+        AccesoDatos.buscarProducto(sender.text, CBBuscar.SelectedIndex, DataGridStock)
     End Sub
 
     Private Sub CBBuscar_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBBuscar.SelectedIndexChanged
-        cancelarAgregarEditar()
+        'le paso lo qe se escribe, el numero del combobox buscar seleccionado y el datagrid
+        AccesoDatos.buscarProducto(sender.text, CBBuscar.SelectedIndex, DataGridStock)
     End Sub
+
+    'si el estado es 0 (esta dado de baja) entonces lo marca en gris, sino esta dado de baja y el stock es menor a 10 lo marca de rojo
+    Private Sub DataGridStock_RowStateChanged(sender As Object, e As DataGridViewRowStateChangedEventArgs) Handles DataGridStock.RowStateChanged
+        For Each Row As DataGridViewRow In DataGridStock.Rows
+            If Row.Cells(5).Value = "0" Then
+                Row.DefaultCellStyle.BackColor = Color.Gray
+            ElseIf Row.Cells(3).Value < 11 Then
+                Row.DefaultCellStyle.BackColor = Color.Red
+            End If
+        Next
+    End Sub
+
+
+#Region "bloquear combobox"
+    Private Sub TProcesador_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TProcesador.KeyPress
+        'si esta habilitado para escribir habilita tmb su campo
+        If TNombre.ReadOnly = False And TStock.ReadOnly = False And TPrecio.ReadOnly = False Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub TPlacaMadre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TPlacaMadre.KeyPress
+        'si esta habilitado para escribir habilita tmb su campo
+        If TNombre.ReadOnly = False And TStock.ReadOnly = False And TPrecio.ReadOnly = False Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub TRam_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TRam.KeyPress
+        'si esta habilitado para escribir habilita tmb su campo
+        If TNombre.ReadOnly = False And TStock.ReadOnly = False And TPrecio.ReadOnly = False Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub TCategoria_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TCategoria.KeyPress
+        'si esta habilitado para escribir habilita tmb su campo
+        If TNombre.ReadOnly = False And TStock.ReadOnly = False And TPrecio.ReadOnly = False Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub TPlacaVideo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TPlacaVideo.KeyPress
+        'si esta habilitado para escribir habilita tmb su campo
+        If TNombre.ReadOnly = False And TStock.ReadOnly = False And TPrecio.ReadOnly = False Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub TDiscoRigido_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TDiscoRigido.KeyPress
+        'si esta habilitado para escribir habilita tmb su campo
+        If TNombre.ReadOnly = False And TStock.ReadOnly = False And TPrecio.ReadOnly = False Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub TGabinete_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TGabinete.KeyPress
+        'si esta habilitado para escribir habilita tmb su campo
+        If TNombre.ReadOnly = False And TStock.ReadOnly = False And TPrecio.ReadOnly = False Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+#End Region
+
 End Class

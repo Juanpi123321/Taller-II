@@ -256,13 +256,15 @@ Public Class FormularioAdminCliente
         End If
     End Sub
     Private Sub TBDni_Validated(sender As Object, e As EventArgs) Handles TBDNI.Validated
-        If TBDNI.Text <> "" Then
-            If Long.Parse(TBDNI.Text) < 3000000 Or Long.Parse(TBDNI.Text) > 99999999 Then
-                MsgBox("Ingrese un DNI valido", MsgBoxStyle.DefaultButton2 +
-                       MsgBoxStyle.Information, "DNI invalido")
-                DNIvalidate = False
-            Else
-                DNIvalidate = True
+        If TBDNI.Text <> "       ********************" Then
+            If TBDNI.Text <> "" Then
+                If Long.Parse(TBDNI.Text) < 3000000 Or Long.Parse(TBDNI.Text) > 99999999 Then
+                    MsgBox("Ingrese un DNI valido", MsgBoxStyle.DefaultButton2 +
+                           MsgBoxStyle.Information, "DNI invalido")
+                    DNIvalidate = False
+                Else
+                    DNIvalidate = True
+                End If
             End If
         End If
     End Sub

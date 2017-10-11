@@ -31,7 +31,6 @@
 
     Private Sub FormularioStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-
             AccesoDatos.cargarProductos(DataGridStock)
             DataGridStock.ClearSelection()
 
@@ -55,7 +54,6 @@
         Catch ex As Exception
             MsgBox("Ha ocurrido un error, la lista de producto no se pudo cargar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Error al cargar Datagrid")
         End Try
-
     End Sub
 
     Private Sub DataGridStock_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridStock.CellEnter

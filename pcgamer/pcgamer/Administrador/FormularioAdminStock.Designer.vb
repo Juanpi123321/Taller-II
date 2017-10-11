@@ -22,23 +22,17 @@ Partial Class FormularioAdminStock
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormularioAdminStock))
         Me.LTitulo = New System.Windows.Forms.Label()
         Me.PBLogo = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.TStock = New System.Windows.Forms.TextBox()
+        Me.TGabinete = New System.Windows.Forms.ComboBox()
+        Me.TDiscoRigido = New System.Windows.Forms.ComboBox()
+        Me.TPlacaVideo = New System.Windows.Forms.ComboBox()
+        Me.TRam = New System.Windows.Forms.ComboBox()
         Me.TCategoria = New System.Windows.Forms.ComboBox()
         Me.TPrecio = New System.Windows.Forms.TextBox()
-        Me.TStock = New System.Windows.Forms.TextBox()
-        Me.TGabinete = New System.Windows.Forms.TextBox()
-        Me.TRam = New System.Windows.Forms.TextBox()
-        Me.TDiscoRigido = New System.Windows.Forms.TextBox()
-        Me.TPlacaVideo = New System.Windows.Forms.TextBox()
-        Me.TPlacaMadre = New System.Windows.Forms.TextBox()
-        Me.TProcesador = New System.Windows.Forms.TextBox()
         Me.TNombre = New System.Windows.Forms.TextBox()
         Me.BCancelar = New System.Windows.Forms.Button()
         Me.BGuardar = New System.Windows.Forms.Button()
@@ -61,12 +55,10 @@ Partial Class FormularioAdminStock
         Me.LNombre = New System.Windows.Forms.Label()
         Me.PBImagen = New System.Windows.Forms.PictureBox()
         Me.DataGridStock = New System.Windows.Forms.DataGridView()
-        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.stock = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.categoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BBaja = New System.Windows.Forms.Button()
         Me.BAlta = New System.Windows.Forms.Button()
+        Me.TPlacaMadre = New System.Windows.Forms.ComboBox()
+        Me.TProcesador = New System.Windows.Forms.ComboBox()
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PBImagen, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -100,15 +92,15 @@ Partial Class FormularioAdminStock
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Black
-        Me.Panel1.Controls.Add(Me.TCategoria)
-        Me.Panel1.Controls.Add(Me.TPrecio)
         Me.Panel1.Controls.Add(Me.TStock)
         Me.Panel1.Controls.Add(Me.TGabinete)
-        Me.Panel1.Controls.Add(Me.TRam)
         Me.Panel1.Controls.Add(Me.TDiscoRigido)
         Me.Panel1.Controls.Add(Me.TPlacaVideo)
-        Me.Panel1.Controls.Add(Me.TPlacaMadre)
         Me.Panel1.Controls.Add(Me.TProcesador)
+        Me.Panel1.Controls.Add(Me.TPlacaMadre)
+        Me.Panel1.Controls.Add(Me.TRam)
+        Me.Panel1.Controls.Add(Me.TCategoria)
+        Me.Panel1.Controls.Add(Me.TPrecio)
         Me.Panel1.Controls.Add(Me.TNombre)
         Me.Panel1.Controls.Add(Me.BCancelar)
         Me.Panel1.Controls.Add(Me.BGuardar)
@@ -138,14 +130,59 @@ Partial Class FormularioAdminStock
         Me.Panel1.Size = New System.Drawing.Size(886, 464)
         Me.Panel1.TabIndex = 18
         '
+        'TStock
+        '
+        Me.TStock.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TStock.Location = New System.Drawing.Point(122, 220)
+        Me.TStock.Name = "TStock"
+        Me.TStock.ReadOnly = True
+        Me.TStock.Size = New System.Drawing.Size(216, 22)
+        Me.TStock.TabIndex = 47
+        '
+        'TGabinete
+        '
+        Me.TGabinete.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TGabinete.FormattingEnabled = True
+        Me.TGabinete.Location = New System.Drawing.Point(473, 175)
+        Me.TGabinete.Name = "TGabinete"
+        Me.TGabinete.Size = New System.Drawing.Size(216, 24)
+        Me.TGabinete.TabIndex = 46
+        '
+        'TDiscoRigido
+        '
+        Me.TDiscoRigido.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TDiscoRigido.FormattingEnabled = True
+        Me.TDiscoRigido.Location = New System.Drawing.Point(473, 136)
+        Me.TDiscoRigido.Name = "TDiscoRigido"
+        Me.TDiscoRigido.Size = New System.Drawing.Size(216, 24)
+        Me.TDiscoRigido.TabIndex = 45
+        '
+        'TPlacaVideo
+        '
+        Me.TPlacaVideo.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TPlacaVideo.FormattingEnabled = True
+        Me.TPlacaVideo.Location = New System.Drawing.Point(473, 96)
+        Me.TPlacaVideo.Name = "TPlacaVideo"
+        Me.TPlacaVideo.Size = New System.Drawing.Size(216, 24)
+        Me.TPlacaVideo.TabIndex = 44
+        '
+        'TRam
+        '
+        Me.TRam.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TRam.FormattingEnabled = True
+        Me.TRam.Location = New System.Drawing.Point(122, 175)
+        Me.TRam.Name = "TRam"
+        Me.TRam.Size = New System.Drawing.Size(216, 24)
+        Me.TRam.TabIndex = 42
+        '
         'TCategoria
         '
-        Me.TCategoria.Enabled = False
+        Me.TCategoria.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TCategoria.FormattingEnabled = True
         Me.TCategoria.Items.AddRange(New Object() {"Seleccione un valor", "Desktop-Escritorio", "Notebook"})
         Me.TCategoria.Location = New System.Drawing.Point(473, 57)
         Me.TCategoria.Name = "TCategoria"
-        Me.TCategoria.Size = New System.Drawing.Size(207, 28)
+        Me.TCategoria.Size = New System.Drawing.Size(207, 24)
         Me.TCategoria.TabIndex = 13
         '
         'TPrecio
@@ -156,69 +193,6 @@ Partial Class FormularioAdminStock
         Me.TPrecio.ReadOnly = True
         Me.TPrecio.Size = New System.Drawing.Size(207, 22)
         Me.TPrecio.TabIndex = 17
-        '
-        'TStock
-        '
-        Me.TStock.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TStock.Location = New System.Drawing.Point(122, 222)
-        Me.TStock.Name = "TStock"
-        Me.TStock.ReadOnly = True
-        Me.TStock.Size = New System.Drawing.Size(216, 22)
-        Me.TStock.TabIndex = 12
-        '
-        'TGabinete
-        '
-        Me.TGabinete.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TGabinete.Location = New System.Drawing.Point(473, 177)
-        Me.TGabinete.Name = "TGabinete"
-        Me.TGabinete.ReadOnly = True
-        Me.TGabinete.Size = New System.Drawing.Size(207, 22)
-        Me.TGabinete.TabIndex = 16
-        '
-        'TRam
-        '
-        Me.TRam.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TRam.Location = New System.Drawing.Point(122, 182)
-        Me.TRam.Name = "TRam"
-        Me.TRam.ReadOnly = True
-        Me.TRam.Size = New System.Drawing.Size(216, 22)
-        Me.TRam.TabIndex = 11
-        '
-        'TDiscoRigido
-        '
-        Me.TDiscoRigido.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TDiscoRigido.Location = New System.Drawing.Point(473, 136)
-        Me.TDiscoRigido.Name = "TDiscoRigido"
-        Me.TDiscoRigido.ReadOnly = True
-        Me.TDiscoRigido.Size = New System.Drawing.Size(207, 22)
-        Me.TDiscoRigido.TabIndex = 15
-        '
-        'TPlacaVideo
-        '
-        Me.TPlacaVideo.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TPlacaVideo.Location = New System.Drawing.Point(473, 99)
-        Me.TPlacaVideo.Name = "TPlacaVideo"
-        Me.TPlacaVideo.ReadOnly = True
-        Me.TPlacaVideo.Size = New System.Drawing.Size(207, 22)
-        Me.TPlacaVideo.TabIndex = 14
-        '
-        'TPlacaMadre
-        '
-        Me.TPlacaMadre.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TPlacaMadre.Location = New System.Drawing.Point(122, 141)
-        Me.TPlacaMadre.Name = "TPlacaMadre"
-        Me.TPlacaMadre.ReadOnly = True
-        Me.TPlacaMadre.Size = New System.Drawing.Size(216, 22)
-        Me.TPlacaMadre.TabIndex = 10
-        '
-        'TProcesador
-        '
-        Me.TProcesador.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TProcesador.Location = New System.Drawing.Point(122, 101)
-        Me.TProcesador.Name = "TProcesador"
-        Me.TProcesador.ReadOnly = True
-        Me.TProcesador.Size = New System.Drawing.Size(216, 22)
-        Me.TProcesador.TabIndex = 9
         '
         'TNombre
         '
@@ -462,57 +436,19 @@ Partial Class FormularioAdminStock
         '
         'DataGridStock
         '
+        Me.DataGridStock.AllowUserToAddRows = False
+        Me.DataGridStock.AllowUserToDeleteRows = False
+        Me.DataGridStock.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridStock.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.DataGridStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridStock.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nombre, Me.stock, Me.precio, Me.categoria})
         Me.DataGridStock.GridColor = System.Drawing.SystemColors.GrayText
         Me.DataGridStock.Location = New System.Drawing.Point(3, 272)
         Me.DataGridStock.Name = "DataGridStock"
         Me.DataGridStock.ReadOnly = True
         Me.DataGridStock.RowTemplate.Height = 24
+        Me.DataGridStock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridStock.Size = New System.Drawing.Size(880, 189)
         Me.DataGridStock.TabIndex = 22
-        '
-        'nombre
-        '
-        Me.nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
-        Me.nombre.DefaultCellStyle = DataGridViewCellStyle1
-        Me.nombre.HeaderText = "Nombre"
-        Me.nombre.Name = "nombre"
-        Me.nombre.ReadOnly = True
-        Me.nombre.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        '
-        'stock
-        '
-        Me.stock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        Me.stock.DefaultCellStyle = DataGridViewCellStyle2
-        Me.stock.HeaderText = "Stock"
-        Me.stock.Name = "stock"
-        Me.stock.ReadOnly = True
-        Me.stock.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.stock.Width = 86
-        '
-        'precio
-        '
-        Me.precio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
-        Me.precio.DefaultCellStyle = DataGridViewCellStyle3
-        Me.precio.HeaderText = "Precio (pesos $)"
-        Me.precio.Name = "precio"
-        Me.precio.ReadOnly = True
-        Me.precio.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        '
-        'categoria
-        '
-        Me.categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
-        Me.categoria.DefaultCellStyle = DataGridViewCellStyle4
-        Me.categoria.HeaderText = "Categoria"
-        Me.categoria.Name = "categoria"
-        Me.categoria.ReadOnly = True
-        Me.categoria.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         '
         'BBaja
         '
@@ -551,6 +487,24 @@ Partial Class FormularioAdminStock
         Me.BAlta.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.BAlta.UseVisualStyleBackColor = False
         Me.BAlta.Visible = False
+        '
+        'TPlacaMadre
+        '
+        Me.TPlacaMadre.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TPlacaMadre.FormattingEnabled = True
+        Me.TPlacaMadre.Location = New System.Drawing.Point(122, 136)
+        Me.TPlacaMadre.Name = "TPlacaMadre"
+        Me.TPlacaMadre.Size = New System.Drawing.Size(216, 24)
+        Me.TPlacaMadre.TabIndex = 42
+        '
+        'TProcesador
+        '
+        Me.TProcesador.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TProcesador.FormattingEnabled = True
+        Me.TProcesador.Location = New System.Drawing.Point(122, 98)
+        Me.TProcesador.Name = "TProcesador"
+        Me.TProcesador.Size = New System.Drawing.Size(216, 24)
+        Me.TProcesador.TabIndex = 42
         '
         'FormularioAdminStock
         '
@@ -600,16 +554,8 @@ Partial Class FormularioAdminStock
     Friend WithEvents LProcesador As Label
     Friend WithEvents LNombre As Label
     Friend WithEvents PBImagen As PictureBox
-    Friend WithEvents DataGridStock As DataGridView
     Friend WithEvents BNuevo As Button
     Friend WithEvents TPrecio As TextBox
-    Friend WithEvents TStock As TextBox
-    Friend WithEvents TGabinete As TextBox
-    Friend WithEvents TRam As TextBox
-    Friend WithEvents TDiscoRigido As TextBox
-    Friend WithEvents TPlacaVideo As TextBox
-    Friend WithEvents TPlacaMadre As TextBox
-    Friend WithEvents TProcesador As TextBox
     Friend WithEvents TNombre As TextBox
     Friend WithEvents BGuardar As Button
     Friend WithEvents BCancelar As Button
@@ -618,8 +564,12 @@ Partial Class FormularioAdminStock
     Friend WithEvents BAgregar As Button
     Friend WithEvents BCancelarAgregar As Button
     Friend WithEvents TCategoria As ComboBox
-    Friend WithEvents nombre As DataGridViewTextBoxColumn
-    Friend WithEvents stock As DataGridViewTextBoxColumn
-    Friend WithEvents precio As DataGridViewTextBoxColumn
-    Friend WithEvents categoria As DataGridViewTextBoxColumn
+    Friend WithEvents TStock As TextBox
+    Friend WithEvents TGabinete As ComboBox
+    Friend WithEvents TDiscoRigido As ComboBox
+    Friend WithEvents TPlacaVideo As ComboBox
+    Friend WithEvents TRam As ComboBox
+    Friend WithEvents DataGridStock As DataGridView
+    Friend WithEvents TProcesador As ComboBox
+    Friend WithEvents TPlacaMadre As ComboBox
 End Class
