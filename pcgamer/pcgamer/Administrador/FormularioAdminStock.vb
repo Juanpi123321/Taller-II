@@ -39,7 +39,6 @@
         TDiscoRigido.DropDownStyle = ComboBoxStyle.Simple
         TGabinete.DropDownStyle = ComboBoxStyle.Simple
         TPrecio.ReadOnly = True
-
     End Sub
 
     Private Sub bloquear()
@@ -64,7 +63,7 @@
         TPlacaVideo.Text = producto.c4_placavideo.c4_descripcion
         TDiscoRigido.Text = producto.c5_discorigido.c5_descripcion
         TGabinete.Text = producto.c6_gabinete.c6_descripcion
-        TPrecio.Text = "$ " + System.Convert.ToString(producto.precio)
+        TPrecio.Text = producto.precio
 
         'Cambiar por direccion del producto
         Dim imagen As String = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\gabinete.jpg"
@@ -72,30 +71,33 @@
         Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
     End Sub
 
+    Private Sub cargarProductos()
+        AccesoDatos.cargarProductos(DataGridStock)
+        DataGridStock.ClearSelection()
+
+        'Cuando abro que no aparezca ningun valor
+        TNombre.Text = "     ****************************"
+        TProcesador.Text = "     ****************************"
+        TPlacaMadre.Text = "     ****************************"
+        TRam.Text = "     ****************************"
+        TStock.Text = "     ****************************"
+        TCategoria.Text = "     ****************************"
+        TPlacaVideo.Text = "     ****************************"
+        TDiscoRigido.Text = "     ****************************"
+        TGabinete.Text = "     ****************************"
+        TPrecio.Text = "     ****************************"
+        Dim imagen As String = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\gabinete.jpg"
+        PBImagen.Image = Image.FromFile(imagen)
+        Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
+
+        CBBuscar.SelectedIndex = 0
+    End Sub
+
     Private Sub FormularioStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            AccesoDatos.cargarProductos(DataGridStock)
-            DataGridStock.ClearSelection()
-
-            'Cuando abro que no aparezca ningun valor
-            TNombre.Text = "     ************"
-            TProcesador.Text = "     ************"
-            TPlacaMadre.Text = "     ************"
-            TRam.Text = "     ************"
-            TStock.Text = "     ************"
-            TCategoria.Text = "     ************"
-            TPlacaVideo.Text = "     ************"
-            TDiscoRigido.Text = "     ************"
-            TGabinete.Text = "     ************"
-            TPrecio.Text = "     ************"
-            Dim imagen As String = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\gabinete.jpg"
-            PBImagen.Image = Image.FromFile(imagen)
-            Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
-
-            CBBuscar.SelectedIndex = 0
-
+            cargarProductos()
         Catch ex As Exception
-            MsgBox("Ha ocurrido un error, la lista de producto no se pudo cargar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Error al cargar Datagrid")
+            MsgBox("Ha ocurrido un error, la lista de productos no se pudo cargar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Error al cargar Datagrid")
         End Try
     End Sub
 
@@ -125,6 +127,8 @@
             BNuevo.Visible = False
             BGuardar.Visible = True
             BCancelar.Visible = True
+            BBaja.Visible = False
+            BAlta.Visible = False
             bloquear()
             habilitar()
         End If
@@ -132,32 +136,40 @@
 
     'falta agregar que valide todos los campos
     Private Sub BGuardar_Click(sender As Object, e As EventArgs) Handles BGuardar.Click
-        If TNombre.Text = "" Or TStock.Text = "" Or TPrecio.Text = "" Or TCategoria.SelectedIndex = 0 Then
-            MsgBox("Debe completar todos los campos", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Campos incompletos")
-        Else
-            Dim fila As Integer = DataGridStock.CurrentRow.Index
-            Dim respuesta As MsgBoxResult
-            respuesta = MsgBox("¿Esta seguro que desea Editar al producto " + TNombre.Text + "??",
-                               MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Editar Producto")
-            If MsgBoxResult.Yes = respuesta Then
-                Dim id_producto As Integer = DataGridStock.CurrentRow().Cells(0).Value
-                Dim fecharegistro As Date = DataGridStock.CurrentRow.Cells(4).Value
-                AccesoDatos.ActualizarProducto(id_producto, TNombre.Text, TProcesador.SelectedIndex, TPlacaMadre.SelectedIndex,
-                                 TRam.SelectedIndex, TPlacaVideo.SelectedIndex, TDiscoRigido.SelectedIndex, TGabinete.SelectedIndex,
-                                 TPrecio.Text, TStock.Text, TCategoria.SelectedIndex)
-                AccesoDatos.cargarProductos(DataGridStock)
-                MsgBox("Se ha modificado correctamente", MsgBoxStyle.DefaultButton2 +
-                               MsgBoxStyle.Information, "Modificacion exitosa")
+        Try
+            If TNombre.Text = "" Or TStock.Text = "" Or TPrecio.Text = "" Or TCategoria.SelectedIndex = 0 Then
+                MsgBox("Debe completar todos los campos", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Campos incompletos")
             Else
-                MsgBox("No se han realizado cambios", MsgBoxStyle.DefaultButton2 +
-                                   MsgBoxStyle.Information, "Operacion Cancelada")
+                Dim fila As Integer = DataGridStock.CurrentRow.Index
+                Dim respuesta As MsgBoxResult
+                respuesta = MsgBox("¿Esta seguro que desea Editar al producto " + TNombre.Text + "??",
+                                   MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Editar Producto")
+                If MsgBoxResult.Yes = respuesta Then
+                    Dim id_producto As Integer = DataGridStock.CurrentRow().Cells(0).Value
+                    AccesoDatos.ActualizarProducto(id_producto, TNombre.Text, TProcesador.SelectedIndex, TPlacaMadre.SelectedIndex,
+                                     TRam.SelectedIndex, TPlacaVideo.SelectedIndex, TDiscoRigido.SelectedIndex, TGabinete.SelectedIndex,
+                                     TPrecio.Text, TStock.Text, TCategoria.SelectedIndex)
+                    AccesoDatos.cargarProductos(DataGridStock)
+                    MsgBox("Se ha modificado correctamente", MsgBoxStyle.DefaultButton2 +
+                                   MsgBoxStyle.Information, "Modificacion exitosa")
+                Else
+                    MsgBox("No se han realizado cambios", MsgBoxStyle.DefaultButton2 +
+                                       MsgBoxStyle.Information, "Operacion Cancelada")
+                End If
+                BNuevo.Visible = True
+                BGuardar.Visible = False
+                BCancelar.Visible = False
+                desbloquear()
+                deshabilitar()
             End If
+        Catch ex As Exception
+            MsgBox("Ha ocurrido un problema, el producto no se pudo agregar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Fallo al Agregar")
             BNuevo.Visible = True
             BGuardar.Visible = False
             BCancelar.Visible = False
             desbloquear()
             deshabilitar()
-        End If
+        End Try
     End Sub
 
     Private Sub BCancelar_Click(sender As Object, e As EventArgs) Handles BCancelar.Click
@@ -171,22 +183,25 @@
     End Sub
 
     Private Sub BBaja_Click(sender As Object, e As EventArgs) Handles BBaja.Click
-        Dim respuesta As MsgBoxResult
-        Dim fila As Integer = DataGridStock.CurrentRow.Index
-        If DataGridStock.CurrentRow.DefaultCellStyle.BackColor = Color.Gray Then
-            MsgBox("El producto ya esta dado de baja", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Baja invalida")
+        If DataGridStock.CurrentRow Is Nothing Then
+            MsgBox("Seleccione un producto para poder dar de baja", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
         Else
-            If TNombre.Text = "     ************" Then
-                MsgBox("Seleccione un producto para dar de baja", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
+            Dim respuesta As MsgBoxResult
+            Dim fila As Integer = DataGridStock.CurrentRow.Index
+            'Pregunta si el fondo es gris o si el estado es 0
+            If DataGridStock.CurrentRow.DefaultCellStyle.BackColor = Color.Gray Or DataGridStock.CurrentRow().Cells(5).Value = 0 Then
+                MsgBox("El producto ya esta dado de baja", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Baja invalida")
             Else
                 respuesta = MsgBox("¿Esta seguro que desea Eliminar al producto " + TNombre.Text + "??",
                            MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Baja Producto")
                 If MsgBoxResult.Yes = respuesta Then
                     Try
-                        DataGridStock.CurrentRow.DefaultCellStyle.BackColor = Color.Gray
+                        Dim id_producto As Integer = DataGridStock.CurrentRow().Cells(0).Value
+                        AccesoDatos.EliminarProducto(id_producto, "0")
+                        AccesoDatos.cargarProductos(DataGridStock)
                         MsgBox("El producto se ha eliminado correctamente", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Eliminacion exitosa")
                     Catch ex As Exception
-                        MsgBox("Ha ocurrido un problema, el product se pudo eliminar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Fallo al Eliminar")
+                        MsgBox("Ha ocurrido un problema, el producto no se pudo eliminar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Fallo al Eliminar")
                     End Try
                 End If
             End If
@@ -194,45 +209,57 @@
     End Sub
 
     Private Sub BAlta_Click(sender As Object, e As EventArgs) Handles BAlta.Click
-        Dim respuesta As MsgBoxResult
-        Dim fila As Integer = DataGridStock.CurrentRow.Index
-        If DataGridStock.CurrentRow.DefaultCellStyle.BackColor = Color.Gray Then
-            respuesta = MsgBox("¿Esta seguro que desea Dar de Alta al producto??",
-                           MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Alta Producto")
-            If MsgBoxResult.Yes = respuesta Then
-                Try
-                    DataGridStock.CurrentRow.DefaultCellStyle.BackColor = Color.White
-                    MsgBox("El producto se ha dado de alta correctamente", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Alta exitosa")
-                Catch ex As Exception
-                    MsgBox("Ha ocurrido un problema, el producto no se pudo dar de alta", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Alta invalida")
-                End Try
-            End If
+        If DataGridStock.CurrentRow Is Nothing Then
+            MsgBox("Seleccione un producto para poder dar de alta", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
         Else
-            MsgBox("El producto ya esta dado de Alta", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Alta Invalida")
+            Dim respuesta As MsgBoxResult
+            Dim fila As Integer = DataGridStock.CurrentRow.Index
+            'Pregunta si el estado es 1
+            If DataGridStock.CurrentRow().Cells(5).Value = 1 Then
+                MsgBox("El producto ya esta dado de alta", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Alta invalida")
+            Else
+                respuesta = MsgBox("¿Esta seguro que desea dar de alta al producto " + TNombre.Text + "??",
+                           MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Alta Producto")
+                If MsgBoxResult.Yes = respuesta Then
+                    Try
+                        Dim id_producto As Integer = DataGridStock.CurrentRow().Cells(0).Value
+                        AccesoDatos.EliminarProducto(id_producto, "1")
+                        AccesoDatos.cargarProductos(DataGridStock)
+                        MsgBox("El producto se ha dado de alta correctamente", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Alta exitosa")
+                    Catch ex As Exception
+                        MsgBox("Ha ocurrido un problema, el producto no se pudo dar de alta", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Fallo al dar Alta")
+                    End Try
+                End If
+            End If
         End If
-
     End Sub
 
     Private Sub BNuevo_Click(sender As Object, e As EventArgs) Handles BNuevo.Click
         limpiar()
+        bloquear()
         habilitar()
 
         BAgregar.Visible = True
         BCancelarAgregar.Visible = True
         BEditar.Visible = False
         BNuevo.Visible = False
+        BBaja.Visible = False
+        BAlta.Visible = False
     End Sub
 
-    Private Sub BCancelarGuardar_Click(sender As Object, e As EventArgs) Handles BCancelarAgregar.Click
+    Private Sub BCancelarAgregar_Click(sender As Object, e As EventArgs) Handles BCancelarAgregar.Click
+        desbloquear()
+        deshabilitar()
+
         BAgregar.Visible = False
         BCancelarAgregar.Visible = False
         BEditar.Visible = True
         BNuevo.Visible = True
-        deshabilitar()
         MsgBox("No se ha agregado ningun producto", MsgBoxStyle.DefaultButton2 +
                            MsgBoxStyle.Information, "Operacion Cancelada")
     End Sub
 
+    'verificar para todo los campos
     Private Sub BAgregar_Click(sender As Object, e As EventArgs) Handles BAgregar.Click
         Try
             If TNombre.Text = "" Or TStock.Text = "" Or TPrecio.Text = "" Or TCategoria.Text = "" Then
@@ -242,40 +269,52 @@
                 respuesta = MsgBox("¿Esta seguro que desea agregar el producto??",
                            MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Agregar Producto")
                 If MsgBoxResult.Yes = respuesta Then
-                    Dim fila As Integer = DataGridStock.CurrentRow.Index
-                    Dim nombre As String = TNombre.Text
-                    Dim stock As String = TStock.Text
-                    Dim precio As String = TPrecio.Text
-                    Dim categoria As String = TCategoria.Text
-                    DataGridStock.Rows.Add(nombre, stock, precio, categoria)
-                    MsgBox("El producto se ha agregado correctamente", MsgBoxStyle.DefaultButton2 +
-                           MsgBoxStyle.Information, "Operacion exitosa")
+                    AccesoDatos.AgregarProducto(New productos() With
+                                               {.nombre = TNombre.Text,
+                                               .c1_procesador_id = TProcesador.SelectedIndex,
+                                               .c2_placamadre_id = TPlacaMadre.SelectedIndex,
+                                               .c3_ram_id = TRam.SelectedIndex,
+                                               .stock = TStock.Text,
+                                               .categoria_id = TCategoria.SelectedIndex,
+                                               .c4_placavideo_id = TPlacaMadre.SelectedIndex,
+                                               .c5_discorigido_id = TDiscoRigido.SelectedIndex,
+                                               .c6_gabinete_id = TGabinete.SelectedIndex,
+                                               .precio = TPrecio.Text,
+                                               .estado = 1
+                                               })
+                    limpiar()
+                    cargarProductos()
+                    MsgBox("El producto se ha registrado correctamente", MsgBoxStyle.DefaultButton2 +
+            MsgBoxStyle.Information, "Registro Exitoso")
                 Else
                     MsgBox("El producto no se ha agregado", MsgBoxStyle.DefaultButton2 +
                            MsgBoxStyle.Information, "Operacion Cancelada")
                 End If
+                desbloquear()
+                deshabilitar()
+
                 BAgregar.Visible = False
                 BCancelarAgregar.Visible = False
                 BEditar.Visible = True
                 BNuevo.Visible = True
-                deshabilitar()
             End If
         Catch ex As Exception
             MsgBox("Ha ocurrido un problema, el producto no se pudo agregar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Fallo al Agregar")
+            desbloquear()
+            deshabilitar()
+
             BAgregar.Visible = False
             BCancelarAgregar.Visible = False
             BEditar.Visible = True
             BNuevo.Visible = True
-            deshabilitar()
         End Try
     End Sub
 
-    Private Sub TStock_KeyPress(sender As Object, e As KeyPressEventArgs)
+    Private Sub TStock_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TStock.KeyPress
         If Not IsNumeric(e.KeyChar) Then
             e.Handled = True
         End If
     End Sub
-
     Private Sub TPrecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TPrecio.KeyPress
         If Not IsNumeric(e.KeyChar) Then
             e.Handled = True
@@ -283,11 +322,6 @@
     End Sub
 
     Private Sub TBuscar_TextChanged(sender As Object, e As EventArgs) Handles TBuscar.TextChanged
-        'le paso lo qe se escribe, el numero del combobox buscar seleccionado y el datagrid
-        AccesoDatos.buscarProducto(sender.text, CBBuscar.SelectedIndex, DataGridStock)
-    End Sub
-
-    Private Sub CBBuscar_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBBuscar.SelectedIndexChanged
         'le paso lo qe se escribe, el numero del combobox buscar seleccionado y el datagrid
         AccesoDatos.buscarProducto(sender.text, CBBuscar.SelectedIndex, DataGridStock)
     End Sub
@@ -361,6 +395,7 @@
             e.Handled = True
         End If
     End Sub
+
 #End Region
 
 End Class

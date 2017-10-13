@@ -171,4 +171,18 @@
         ctx.SaveChanges()
     End Sub
 
+    Shared Sub EliminarProducto(id_producto As Integer, estado As Integer)
+        Dim producto = (From p In ctx.productos
+                        Where p.Id_producto = id_producto
+                        Select p
+                  ).SingleOrDefault
+        producto.estado = estado
+        ctx.SaveChanges()
+    End Sub
+
+    Shared Sub AgregarProducto(producto As productos)
+        ctx.productos.Add(producto)
+        ctx.SaveChanges()
+    End Sub
+
 End Class

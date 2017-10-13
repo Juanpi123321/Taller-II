@@ -284,9 +284,8 @@ Public Class FormularioAdminCliente
             Dim respuesta As MsgBoxResult
             Dim fila As Integer = DataGridCliente.CurrentRow.Index
             'Pregunta si el fondo es gris o si el estado es 0
-            If DataGridCliente.CurrentRow.DefaultCellStyle.BackColor = Color.Gray Or DataGridCliente.CurrentRow().Cells(0).Value = 0 Then
+            If DataGridCliente.CurrentRow.DefaultCellStyle.BackColor = Color.Gray Or DataGridCliente.CurrentRow().Cells(5).Value = 0 Then
                 MsgBox("El cliente ya esta dado de baja", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Eliminacion invalida")
-
             Else
                 respuesta = MsgBox("¿Esta seguro que desea Eliminar al cliente " + TBNombre.Text + " " + TBApellido.Text + "??",
                                MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Eliminar Cliente")

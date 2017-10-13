@@ -378,11 +378,13 @@ Partial Class FormularioAdminCliente
         '
         Me.DataGridCliente.AllowUserToAddRows = False
         Me.DataGridCliente.AllowUserToDeleteRows = False
+        Me.DataGridCliente.AllowUserToResizeColumns = False
+        Me.DataGridCliente.AllowUserToResizeRows = False
         Me.DataGridCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridCliente.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.DataGridCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridCliente.GridColor = System.Drawing.SystemColors.GrayText
         Me.DataGridCliente.Location = New System.Drawing.Point(1, 274)
+        Me.DataGridCliente.MultiSelect = False
         Me.DataGridCliente.Name = "DataGridCliente"
         Me.DataGridCliente.ReadOnly = True
         Me.DataGridCliente.RowTemplate.Height = 24
