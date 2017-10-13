@@ -216,7 +216,6 @@ Partial Class FormularioAdminStock
         '
         Me.TCategoria.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TCategoria.FormattingEnabled = True
-        Me.TCategoria.Items.AddRange(New Object() {"Seleccione un valor", "Desktop-Escritorio", "Notebook"})
         Me.TCategoria.Location = New System.Drawing.Point(497, 64)
         Me.TCategoria.Name = "TCategoria"
         Me.TCategoria.Size = New System.Drawing.Size(285, 22)

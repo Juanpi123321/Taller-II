@@ -157,15 +157,16 @@
                         Select p).SingleOrDefault
         With producto
             .nombre = nombre
-            .c1_procesador_id = procesador
-            .c2_placamadre_id = PlacaMadre
-            .c3_ram_id = Ram
-            .c4_placavideo_id = PlacaVideo
-            .c5_discorigido_id = DiscoRigido
-            .c6_gabinete_id = Gabinete
+            'le sumo 1 xq en el combobox el primer valor es 0
+            .c1_procesador_id = procesador + 1
+            .c2_placamadre_id = PlacaMadre + 1
+            .c3_ram_id = Ram + 1
+            .c4_placavideo_id = PlacaVideo + 1
+            .c5_discorigido_id = DiscoRigido + 1
+            .c6_gabinete_id = Gabinete + 1
             .precio = Precio
             .stock = Stock
-            .categoria_id = Categoria
+            .categoria_id = Categoria + 1
             .estado = 1
         End With
         ctx.SaveChanges()
@@ -183,6 +184,45 @@
     Shared Sub AgregarProducto(producto As productos)
         ctx.productos.Add(producto)
         ctx.SaveChanges()
+    End Sub
+
+    Shared Sub cargarCBoxs(cb1 As ComboBox, indice1 As Integer, cb2 As ComboBox, indice2 As Integer, cb3 As ComboBox, indice3 As Integer,
+                           cb4 As ComboBox, indice4 As Integer, cb5 As ComboBox, indice5 As Integer, cb6 As ComboBox, indice6 As Integer,
+                           cbCat As ComboBox, indiceCat As Integer)
+        cb1.DataSource = ctx.c1_procesador.ToList()
+        cb1.ValueMember = "c1_procesador1"
+        cb1.DisplayMember = "c1_descripcion"
+        cb1.SelectedIndex = indice1
+
+        cb2.DataSource = ctx.c2_placamadre.ToList()
+        cb2.ValueMember = "c2_placamadre1"
+        cb2.DisplayMember = "c2_descripcion"
+        cb2.SelectedIndex = indice2
+
+        cb3.DataSource = ctx.c3_ram.ToList()
+        cb3.ValueMember = "c3_ram1"
+        cb3.DisplayMember = "c3_descripcion"
+        cb3.SelectedIndex = indice3
+
+        cb4.DataSource = ctx.c4_placavideo.ToList()
+        cb4.ValueMember = "c4_placaVideo1"
+        cb4.DisplayMember = "c4_descripcion"
+        cb4.SelectedIndex = indice4
+
+        cb5.DataSource = ctx.c5_discorigido.ToList()
+        cb5.ValueMember = "c5_discoRigido1"
+        cb5.DisplayMember = "c5_descripcion"
+        cb5.SelectedIndex = indice5
+
+        cb6.DataSource = ctx.c6_gabinete.ToList()
+        cb6.ValueMember = "c6_gabinete1"
+        cb6.DisplayMember = "c6_descripcion"
+        cb6.SelectedIndex = indice6
+
+        cbCat.DataSource = ctx.categoria.ToList()
+        cbCat.ValueMember = "Id_categoria"
+        cbCat.DisplayMember = "descripcion_categoria"
+        cbCat.SelectedIndex = indiceCat
     End Sub
 
 End Class
