@@ -5,14 +5,16 @@
 
     Private Sub limpiar()
         TNombre.Clear()
-        'TProcesador.Clear()
-        'TPlacaMadre.Clear()
-        'TRam.Clear()
-        TStock.Clear()
-        'TPlacaVideo.Clear()
-        'TDiscoRigido.Clear()
-        'TGabinete.Clear()
-        TPrecio.Clear()
+        TProcesador.SelectedIndex = -1
+        TPlacaMadre.SelectedIndex = -1
+        TRam.SelectedIndex = -1
+        TStock.Text = 0
+        TCategoria.SelectedIndex = -1
+        TPlacaVideo.SelectedIndex = -1
+        TDiscoRigido.SelectedIndex = -1
+        TGabinete.SelectedIndex = -1
+        TPrecio.Text = 0
+
     End Sub
 
     Private Sub habilitar()
@@ -54,20 +56,19 @@
     End Sub
 
     Private Sub cargarComboBoxs()
-        AccesoDatos.cargarCBoxs(TProcesador, TProcesador.SelectedIndex, TPlacaMadre, TPlacaVideo.SelectedIndex, TRam, TRam.SelectedIndex,
-TPlacaVideo, TPlacaVideo.SelectedIndex, TDiscoRigido, TDiscoRigido.SelectedIndex, TGabinete, TGabinete.SelectedIndex, TCategoria, TCategoria.SelectedIndex)
+        AccesoDatos.cargarCBoxs(TProcesador, TPlacaMadre, TRam, TPlacaVideo, TDiscoRigido, TGabinete, TCategoria)
     End Sub
 
     Private Sub cargarDetalle(producto As productos)
         TNombre.Text = producto.nombre
-        TProcesador.Text = producto.c1_procesador.c1_descripcion
-        TPlacaMadre.Text = producto.c2_placamadre.c2_descripcion
-        TRam.Text = producto.c3_ram.c3_descripcion
+        TProcesador.SelectedIndex = producto.c1_procesador_id - 1
+        TPlacaMadre.SelectedIndex = producto.c2_placamadre_id - 1
+        TRam.SelectedIndex = producto.c3_ram_id - 1
         TStock.Text = producto.stock
-        TCategoria.Text = producto.categoria.descripcion_categoria
-        TPlacaVideo.Text = producto.c4_placavideo.c4_descripcion
-        TDiscoRigido.Text = producto.c5_discorigido.c5_descripcion
-        TGabinete.Text = producto.c6_gabinete.c6_descripcion
+        TCategoria.SelectedIndex = producto.categoria_id - 1
+        TPlacaVideo.SelectedIndex = producto.c4_placavideo_id - 1
+        TDiscoRigido.SelectedIndex = producto.c5_discorigido_id - 1
+        TGabinete.SelectedIndex = producto.c6_gabinete_id - 1
         TPrecio.Text = producto.precio
 
         'Cambiar por direccion del producto
@@ -77,20 +78,34 @@ TPlacaVideo, TPlacaVideo.SelectedIndex, TDiscoRigido, TDiscoRigido.SelectedIndex
     End Sub
 
     Private Sub cargarProductos()
+        cargarComboBoxs()
         AccesoDatos.cargarProductos(DataGridStock)
         DataGridStock.ClearSelection()
+        deshabilitar()
+        DataGridStock.DefaultCellStyle.ForeColor = Color.Black
 
         'Cuando abro que no aparezca ningun valor
-        TNombre.Text = "     ****************************"
-        TProcesador.Text = "     ****************************"
-        TPlacaMadre.Text = "     ****************************"
-        TRam.Text = "     ****************************"
-        TStock.Text = "     ****************************"
-        TCategoria.Text = "     ****************************"
-        TPlacaVideo.Text = "     ****************************"
-        TDiscoRigido.Text = "     ****************************"
-        TGabinete.Text = "     ****************************"
-        TPrecio.Text = "     ****************************"
+        'TNombre.Text = "     ****************************"
+        'TProcesador.Text = "     ****************************"
+        'TPlacaMadre.Text = "     ****************************"
+        'TRam.Text = "     ****************************"
+        'TStock.Text = "     ****************************"
+        'TCategoria.Text = "     ****************************"
+        'TPlacaVideo.Text = "     ****************************"
+        'TDiscoRigido.Text = "     ****************************"
+        'TGabinete.Text = "     ****************************"
+        'TPrecio.Text = "     ****************************"
+
+        TNombre.Clear()
+        TProcesador.SelectedIndex = -1
+        TPlacaMadre.SelectedIndex = -1
+        TRam.SelectedIndex = -1
+        TStock.Clear()
+        TCategoria.SelectedIndex = -1
+        TPlacaVideo.SelectedIndex = -1
+        TDiscoRigido.SelectedIndex = -1
+        TGabinete.SelectedIndex = -1
+        TPrecio.Clear()
         Dim imagen As String = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\gabinete.jpg"
         PBImagen.Image = Image.FromFile(imagen)
         Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
@@ -101,6 +116,7 @@ TPlacaVideo, TPlacaVideo.SelectedIndex, TDiscoRigido, TDiscoRigido.SelectedIndex
     Private Sub FormularioStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             cargarProductos()
+            BBaja.Visible = False
         Catch ex As Exception
             MsgBox("Ha ocurrido un error, la lista de productos no se pudo cargar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Error al cargar Datagrid")
         End Try
@@ -110,7 +126,6 @@ TPlacaVideo, TPlacaVideo.SelectedIndex, TDiscoRigido, TDiscoRigido.SelectedIndex
         Dim fila As Integer = DataGridStock.CurrentRow.Index
         Dim id_producto As Integer = DataGridStock.Item(0, fila).Value
         Dim producto As productos = AccesoDatos.capturarProducto(id_producto)
-        deshabilitar()
         cargarDetalle(producto)
 
         If DataGridStock.Item(5, fila).Value = 0 Then
@@ -136,14 +151,13 @@ TPlacaVideo, TPlacaVideo.SelectedIndex, TDiscoRigido, TDiscoRigido.SelectedIndex
             BAlta.Visible = False
             bloquear()
             habilitar()
-            cargarComboBoxs()
         End If
     End Sub
 
-    'falta agregar que valide todos los campos
     Private Sub BGuardar_Click(sender As Object, e As EventArgs) Handles BGuardar.Click
         Try
-            If TNombre.Text = "" Or TStock.Text = "" Or TPrecio.Text = "" Then
+            If TNombre.Text = "" Or TProcesador.Text = "" Or TPlacaMadre.Text = "" Or TRam.Text = "" Or TStock.Text = "" Or
+                TCategoria.Text = "" Or TPlacaVideo.Text = "" Or TDiscoRigido.Text = "" Or TGabinete.Text = "" Or TPrecio.Text = "" Then
                 MsgBox("Debe completar todos los campos", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Campos incompletos")
             Else
                 Dim fila As Integer = DataGridStock.CurrentRow.Index
@@ -257,48 +271,49 @@ TPlacaVideo, TPlacaVideo.SelectedIndex, TDiscoRigido, TDiscoRigido.SelectedIndex
         BCancelarAgregar.Visible = False
         BEditar.Visible = True
         BNuevo.Visible = True
+        limpiar()
         MsgBox("No se ha agregado ningun producto", MsgBoxStyle.DefaultButton2 +
                            MsgBoxStyle.Information, "Operacion Cancelada")
     End Sub
 
-    'verificar para todo los campos
     Private Sub BAgregar_Click(sender As Object, e As EventArgs) Handles BAgregar.Click
         Try
-            If TNombre.Text = "" Or TStock.Text = "" Or TPrecio.Text = "" Or TCategoria.Text = "" Then
+            If TNombre.Text = "" Or TProcesador.Text = "" Or TPlacaMadre.Text = "" Or TRam.Text = "" Or TStock.Text = "" Or
+                TCategoria.Text = "" Or TPlacaVideo.Text = "" Or TDiscoRigido.Text = "" Or TGabinete.Text = "" Or TPrecio.Text = "" Then
                 MsgBox("Debe completar todos los campos", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Campos incompletos")
             Else
-                Dim respuesta As MsgBoxResult
-                respuesta = MsgBox("¿Esta seguro que desea agregar el producto??",
-                           MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Agregar Producto")
-                If MsgBoxResult.Yes = respuesta Then
-                    AccesoDatos.AgregarProducto(New productos() With
-                                               {.nombre = TNombre.Text,
-                                               .c1_procesador_id = TProcesador.SelectedIndex,
-                                               .c2_placamadre_id = TPlacaMadre.SelectedIndex,
-                                               .c3_ram_id = TRam.SelectedIndex,
-                                               .stock = TStock.Text,
-                                               .categoria_id = TCategoria.SelectedIndex,
-                                               .c4_placavideo_id = TPlacaMadre.SelectedIndex,
-                                               .c5_discorigido_id = TDiscoRigido.SelectedIndex,
-                                               .c6_gabinete_id = TGabinete.SelectedIndex,
-                                               .precio = TPrecio.Text,
-                                               .estado = 1
-                                               })
-                    limpiar()
-                    cargarProductos()
-                    MsgBox("El producto se ha registrado correctamente", MsgBoxStyle.DefaultButton2 +
-            MsgBoxStyle.Information, "Registro Exitoso")
+                If TPrecio.Text = 0 Then
+                    MsgBox("El precio no puede ser 0", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Precio incorrecto")
                 Else
-                    MsgBox("El producto no se ha agregado", MsgBoxStyle.DefaultButton2 +
-                           MsgBoxStyle.Information, "Operacion Cancelada")
-                End If
-                desbloquear()
-                deshabilitar()
+                    Dim respuesta As MsgBoxResult
+                    respuesta = MsgBox("¿Esta seguro que desea agregar el producto??",
+                               MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Agregar Producto")
+                    If MsgBoxResult.Yes = respuesta Then
+                        AccesoDatos.AgregarProducto(New productos() With
+                                                   {.nombre = TNombre.Text,
+                                                   .c1_procesador_id = TProcesador.SelectedIndex + 1,
+                                                   .c2_placamadre_id = TPlacaMadre.SelectedIndex + 1,
+                                                   .c3_ram_id = TRam.SelectedIndex + 1,
+                                                   .stock = TStock.Text,
+                                                   .categoria_id = TCategoria.SelectedIndex + 1,
+                                                   .c4_placavideo_id = TPlacaMadre.SelectedIndex + 1,
+                                                   .c5_discorigido_id = TDiscoRigido.SelectedIndex + 1,
+                                                   .c6_gabinete_id = TGabinete.SelectedIndex + 1,
+                                                   .precio = TPrecio.Text,
+                                                   .estado = 1
+                                                   })
+                        limpiar()
+                        cargarProductos()
+                        MsgBox("El producto se ha registrado correctamente", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Registro Exitoso")
+                        desbloquear()
+                        deshabilitar()
 
-                BAgregar.Visible = False
-                BCancelarAgregar.Visible = False
-                BEditar.Visible = True
-                BNuevo.Visible = True
+                        BAgregar.Visible = False
+                        BCancelarAgregar.Visible = False
+                        BEditar.Visible = True
+                        BNuevo.Visible = True
+                    End If
+                End If
             End If
         Catch ex As Exception
             MsgBox("Ha ocurrido un problema, el producto no se pudo agregar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Fallo al Agregar")
@@ -335,6 +350,8 @@ TPlacaVideo, TPlacaVideo.SelectedIndex, TDiscoRigido, TDiscoRigido.SelectedIndex
                 Row.DefaultCellStyle.BackColor = Color.Gray
             ElseIf Row.Cells(3).Value < 11 Then
                 Row.DefaultCellStyle.BackColor = Color.Red
+            Else
+                Row.DefaultCellStyle.BackColor = Color.White
             End If
         Next
     End Sub

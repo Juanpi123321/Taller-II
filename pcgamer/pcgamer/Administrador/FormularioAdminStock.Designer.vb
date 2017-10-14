@@ -72,23 +72,23 @@ Partial Class FormularioAdminStock
         Me.LTitulo.BackColor = System.Drawing.Color.Black
         Me.LTitulo.Font = New System.Drawing.Font("Verdana", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LTitulo.ForeColor = System.Drawing.Color.White
-        Me.LTitulo.Location = New System.Drawing.Point(376, 51)
+        Me.LTitulo.Location = New System.Drawing.Point(469, 50)
         Me.LTitulo.Name = "LTitulo"
         Me.LTitulo.Size = New System.Drawing.Size(352, 40)
-        Me.LTitulo.TabIndex = 22
+        Me.LTitulo.TabIndex = 32
         Me.LTitulo.Text = "Gestionar Productos"
         '
         'PBLogo
         '
         Me.PBLogo.Image = Global.pcgamer.My.Resources.Resources.pcgamer_logo
-        Me.PBLogo.Location = New System.Drawing.Point(872, 14)
+        Me.PBLogo.Location = New System.Drawing.Point(991, 14)
         Me.PBLogo.Margin = New System.Windows.Forms.Padding(5)
         Me.PBLogo.Name = "PBLogo"
         Me.PBLogo.Size = New System.Drawing.Size(198, 34)
         Me.PBLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PBLogo.TabIndex = 14
         Me.PBLogo.TabStop = False
-        Me.PBLogo.Tag = "21"
+        Me.PBLogo.Tag = ""
         '
         'Panel1
         '
@@ -96,6 +96,8 @@ Partial Class FormularioAdminStock
         Me.Panel1.Controls.Add(Me.BAgregarFactura)
         Me.Panel1.Controls.Add(Me.TStock)
         Me.Panel1.Controls.Add(Me.TGabinete)
+        Me.Panel1.Controls.Add(Me.BBaja)
+        Me.Panel1.Controls.Add(Me.BAlta)
         Me.Panel1.Controls.Add(Me.TDiscoRigido)
         Me.Panel1.Controls.Add(Me.TPlacaVideo)
         Me.Panel1.Controls.Add(Me.TProcesador)
@@ -127,10 +129,10 @@ Partial Class FormularioAdminStock
         Me.Panel1.Controls.Add(Me.DataGridStock)
         Me.Panel1.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel1.ForeColor = System.Drawing.Color.White
-        Me.Panel1.Location = New System.Drawing.Point(48, 118)
+        Me.Panel1.Location = New System.Drawing.Point(12, 119)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(984, 464)
-        Me.Panel1.TabIndex = 18
+        Me.Panel1.Size = New System.Drawing.Size(1164, 464)
+        Me.Panel1.TabIndex = 33
         '
         'BAgregarFactura
         '
@@ -139,11 +141,11 @@ Partial Class FormularioAdminStock
         Me.BAgregarFactura.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BAgregarFactura.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BAgregarFactura.ForeColor = System.Drawing.Color.White
-        Me.BAgregarFactura.Location = New System.Drawing.Point(807, 15)
+        Me.BAgregarFactura.Location = New System.Drawing.Point(986, 16)
         Me.BAgregarFactura.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BAgregarFactura.Name = "BAgregarFactura"
         Me.BAgregarFactura.Size = New System.Drawing.Size(174, 32)
-        Me.BAgregarFactura.TabIndex = 48
+        Me.BAgregarFactura.TabIndex = 5
         Me.BAgregarFactura.Text = "Agregar a Factura"
         Me.BAgregarFactura.UseVisualStyleBackColor = False
         Me.BAgregarFactura.Visible = False
@@ -155,35 +157,35 @@ Partial Class FormularioAdminStock
         Me.TStock.MaxLength = 3
         Me.TStock.Name = "TStock"
         Me.TStock.ReadOnly = True
-        Me.TStock.Size = New System.Drawing.Size(272, 22)
-        Me.TStock.TabIndex = 47
+        Me.TStock.Size = New System.Drawing.Size(378, 22)
+        Me.TStock.TabIndex = 13
         '
         'TGabinete
         '
         Me.TGabinete.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TGabinete.FormattingEnabled = True
-        Me.TGabinete.Location = New System.Drawing.Point(497, 183)
+        Me.TGabinete.Location = New System.Drawing.Point(635, 183)
         Me.TGabinete.Name = "TGabinete"
-        Me.TGabinete.Size = New System.Drawing.Size(285, 22)
-        Me.TGabinete.TabIndex = 46
+        Me.TGabinete.Size = New System.Drawing.Size(324, 22)
+        Me.TGabinete.TabIndex = 17
         '
         'TDiscoRigido
         '
         Me.TDiscoRigido.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TDiscoRigido.FormattingEnabled = True
-        Me.TDiscoRigido.Location = New System.Drawing.Point(497, 144)
+        Me.TDiscoRigido.Location = New System.Drawing.Point(635, 144)
         Me.TDiscoRigido.Name = "TDiscoRigido"
-        Me.TDiscoRigido.Size = New System.Drawing.Size(285, 22)
-        Me.TDiscoRigido.TabIndex = 45
+        Me.TDiscoRigido.Size = New System.Drawing.Size(324, 22)
+        Me.TDiscoRigido.TabIndex = 16
         '
         'TPlacaVideo
         '
         Me.TPlacaVideo.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TPlacaVideo.FormattingEnabled = True
-        Me.TPlacaVideo.Location = New System.Drawing.Point(497, 102)
+        Me.TPlacaVideo.Location = New System.Drawing.Point(635, 102)
         Me.TPlacaVideo.Name = "TPlacaVideo"
-        Me.TPlacaVideo.Size = New System.Drawing.Size(285, 22)
-        Me.TPlacaVideo.TabIndex = 44
+        Me.TPlacaVideo.Size = New System.Drawing.Size(324, 22)
+        Me.TPlacaVideo.TabIndex = 15
         '
         'TProcesador
         '
@@ -191,8 +193,8 @@ Partial Class FormularioAdminStock
         Me.TProcesador.FormattingEnabled = True
         Me.TProcesador.Location = New System.Drawing.Point(113, 102)
         Me.TProcesador.Name = "TProcesador"
-        Me.TProcesador.Size = New System.Drawing.Size(272, 22)
-        Me.TProcesador.TabIndex = 42
+        Me.TProcesador.Size = New System.Drawing.Size(378, 22)
+        Me.TProcesador.TabIndex = 10
         '
         'TPlacaMadre
         '
@@ -200,8 +202,8 @@ Partial Class FormularioAdminStock
         Me.TPlacaMadre.FormattingEnabled = True
         Me.TPlacaMadre.Location = New System.Drawing.Point(113, 144)
         Me.TPlacaMadre.Name = "TPlacaMadre"
-        Me.TPlacaMadre.Size = New System.Drawing.Size(272, 22)
-        Me.TPlacaMadre.TabIndex = 42
+        Me.TPlacaMadre.Size = New System.Drawing.Size(378, 22)
+        Me.TPlacaMadre.TabIndex = 11
         '
         'TRam
         '
@@ -209,27 +211,27 @@ Partial Class FormularioAdminStock
         Me.TRam.FormattingEnabled = True
         Me.TRam.Location = New System.Drawing.Point(113, 183)
         Me.TRam.Name = "TRam"
-        Me.TRam.Size = New System.Drawing.Size(272, 22)
-        Me.TRam.TabIndex = 42
+        Me.TRam.Size = New System.Drawing.Size(378, 22)
+        Me.TRam.TabIndex = 12
         '
         'TCategoria
         '
         Me.TCategoria.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TCategoria.FormattingEnabled = True
-        Me.TCategoria.Location = New System.Drawing.Point(497, 64)
+        Me.TCategoria.Location = New System.Drawing.Point(635, 64)
         Me.TCategoria.Name = "TCategoria"
-        Me.TCategoria.Size = New System.Drawing.Size(285, 22)
-        Me.TCategoria.TabIndex = 13
+        Me.TCategoria.Size = New System.Drawing.Size(324, 22)
+        Me.TCategoria.TabIndex = 14
         '
         'TPrecio
         '
         Me.TPrecio.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TPrecio.Location = New System.Drawing.Point(497, 224)
+        Me.TPrecio.Location = New System.Drawing.Point(635, 224)
         Me.TPrecio.MaxLength = 8
         Me.TPrecio.Name = "TPrecio"
         Me.TPrecio.ReadOnly = True
-        Me.TPrecio.Size = New System.Drawing.Size(285, 22)
-        Me.TPrecio.TabIndex = 17
+        Me.TPrecio.Size = New System.Drawing.Size(324, 22)
+        Me.TPrecio.TabIndex = 18
         '
         'TNombre
         '
@@ -237,8 +239,8 @@ Partial Class FormularioAdminStock
         Me.TNombre.Location = New System.Drawing.Point(113, 66)
         Me.TNombre.Name = "TNombre"
         Me.TNombre.ReadOnly = True
-        Me.TNombre.Size = New System.Drawing.Size(272, 22)
-        Me.TNombre.TabIndex = 8
+        Me.TNombre.Size = New System.Drawing.Size(378, 22)
+        Me.TNombre.TabIndex = 9
         '
         'BCancelar
         '
@@ -248,11 +250,11 @@ Partial Class FormularioAdminStock
         Me.BCancelar.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BCancelar.ForeColor = System.Drawing.Color.White
         Me.BCancelar.Image = Global.pcgamer.My.Resources.Resources.cancelar_icono1
-        Me.BCancelar.Location = New System.Drawing.Point(736, 6)
+        Me.BCancelar.Location = New System.Drawing.Point(764, 7)
         Me.BCancelar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BCancelar.Name = "BCancelar"
         Me.BCancelar.Size = New System.Drawing.Size(54, 48)
-        Me.BCancelar.TabIndex = 36
+        Me.BCancelar.TabIndex = 7
         Me.BCancelar.UseVisualStyleBackColor = False
         Me.BCancelar.Visible = False
         '
@@ -264,11 +266,11 @@ Partial Class FormularioAdminStock
         Me.BGuardar.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BGuardar.ForeColor = System.Drawing.Color.White
         Me.BGuardar.Image = Global.pcgamer.My.Resources.Resources.ok_icono
-        Me.BGuardar.Location = New System.Drawing.Point(824, 7)
+        Me.BGuardar.Location = New System.Drawing.Point(888, 8)
         Me.BGuardar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BGuardar.Name = "BGuardar"
         Me.BGuardar.Size = New System.Drawing.Size(52, 47)
-        Me.BGuardar.TabIndex = 4
+        Me.BGuardar.TabIndex = 8
         Me.BGuardar.UseVisualStyleBackColor = False
         Me.BGuardar.Visible = False
         '
@@ -279,11 +281,11 @@ Partial Class FormularioAdminStock
         Me.BNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BNuevo.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BNuevo.ForeColor = System.Drawing.Color.White
-        Me.BNuevo.Location = New System.Drawing.Point(681, 15)
+        Me.BNuevo.Location = New System.Drawing.Point(688, 15)
         Me.BNuevo.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BNuevo.Name = "BNuevo"
         Me.BNuevo.Size = New System.Drawing.Size(118, 32)
-        Me.BNuevo.TabIndex = 35
+        Me.BNuevo.TabIndex = 4
         Me.BNuevo.Text = "Nuevo"
         Me.BNuevo.UseVisualStyleBackColor = False
         '
@@ -294,7 +296,7 @@ Partial Class FormularioAdminStock
         Me.BAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BAgregar.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BAgregar.ForeColor = System.Drawing.Color.White
-        Me.BAgregar.Location = New System.Drawing.Point(864, 17)
+        Me.BAgregar.Location = New System.Drawing.Point(878, 17)
         Me.BAgregar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BAgregar.Name = "BAgregar"
         Me.BAgregar.Size = New System.Drawing.Size(97, 32)
@@ -310,11 +312,11 @@ Partial Class FormularioAdminStock
         Me.BCancelarAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BCancelarAgregar.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BCancelarAgregar.ForeColor = System.Drawing.Color.White
-        Me.BCancelarAgregar.Location = New System.Drawing.Point(741, 17)
+        Me.BCancelarAgregar.Location = New System.Drawing.Point(748, 17)
         Me.BCancelarAgregar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BCancelarAgregar.Name = "BCancelarAgregar"
         Me.BCancelarAgregar.Size = New System.Drawing.Size(96, 32)
-        Me.BCancelarAgregar.TabIndex = 34
+        Me.BCancelarAgregar.TabIndex = 6
         Me.BCancelarAgregar.Text = "Cancelar"
         Me.BCancelarAgregar.UseVisualStyleBackColor = False
         Me.BCancelarAgregar.Visible = False
@@ -330,7 +332,7 @@ Partial Class FormularioAdminStock
         Me.BEditar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BEditar.Name = "BEditar"
         Me.BEditar.Size = New System.Drawing.Size(101, 32)
-        Me.BEditar.TabIndex = 33
+        Me.BEditar.TabIndex = 3
         Me.BEditar.Text = "Editar"
         Me.BEditar.UseVisualStyleBackColor = False
         '
@@ -341,7 +343,7 @@ Partial Class FormularioAdminStock
         Me.CBBuscar.Location = New System.Drawing.Point(371, 17)
         Me.CBBuscar.Name = "CBBuscar"
         Me.CBBuscar.Size = New System.Drawing.Size(186, 28)
-        Me.CBBuscar.TabIndex = 1
+        Me.CBBuscar.TabIndex = 2
         '
         'LBuscar
         '
@@ -351,7 +353,7 @@ Partial Class FormularioAdminStock
         Me.LBuscar.Location = New System.Drawing.Point(18, 19)
         Me.LBuscar.Name = "LBuscar"
         Me.LBuscar.Size = New System.Drawing.Size(75, 20)
-        Me.LBuscar.TabIndex = 21
+        Me.LBuscar.TabIndex = 19
         Me.LBuscar.Text = "Buscar:"
         '
         'TBuscar
@@ -365,20 +367,20 @@ Partial Class FormularioAdminStock
         '
         Me.LCategoria.AutoSize = True
         Me.LCategoria.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LCategoria.Location = New System.Drawing.Point(391, 68)
+        Me.LCategoria.Location = New System.Drawing.Point(521, 68)
         Me.LCategoria.Name = "LCategoria"
         Me.LCategoria.Size = New System.Drawing.Size(81, 17)
-        Me.LCategoria.TabIndex = 28
+        Me.LCategoria.TabIndex = 25
         Me.LCategoria.Text = "Categoria:"
         '
         'LPrecio
         '
         Me.LPrecio.AutoSize = True
         Me.LPrecio.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LPrecio.Location = New System.Drawing.Point(391, 226)
+        Me.LPrecio.Location = New System.Drawing.Point(521, 226)
         Me.LPrecio.Name = "LPrecio"
         Me.LPrecio.Size = New System.Drawing.Size(69, 17)
-        Me.LPrecio.TabIndex = 32
+        Me.LPrecio.TabIndex = 29
         Me.LPrecio.Text = "Precio: $"
         '
         'LStock
@@ -388,37 +390,37 @@ Partial Class FormularioAdminStock
         Me.LStock.Location = New System.Drawing.Point(19, 224)
         Me.LStock.Name = "LStock"
         Me.LStock.Size = New System.Drawing.Size(54, 17)
-        Me.LStock.TabIndex = 27
+        Me.LStock.TabIndex = 24
         Me.LStock.Text = "Stock:"
         '
         'LGabinete
         '
         Me.LGabinete.AutoSize = True
         Me.LGabinete.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LGabinete.Location = New System.Drawing.Point(391, 186)
+        Me.LGabinete.Location = New System.Drawing.Point(521, 186)
         Me.LGabinete.Name = "LGabinete"
         Me.LGabinete.Size = New System.Drawing.Size(76, 17)
-        Me.LGabinete.TabIndex = 31
+        Me.LGabinete.TabIndex = 28
         Me.LGabinete.Text = "Gabinete:"
         '
         'LDiscoRigido
         '
         Me.LDiscoRigido.AutoSize = True
         Me.LDiscoRigido.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LDiscoRigido.Location = New System.Drawing.Point(391, 144)
+        Me.LDiscoRigido.Location = New System.Drawing.Point(521, 144)
         Me.LDiscoRigido.Name = "LDiscoRigido"
         Me.LDiscoRigido.Size = New System.Drawing.Size(100, 17)
-        Me.LDiscoRigido.TabIndex = 30
+        Me.LDiscoRigido.TabIndex = 27
         Me.LDiscoRigido.Text = "Disco Rigido:"
         '
         'LPlacaVideo
         '
         Me.LPlacaVideo.AutoSize = True
         Me.LPlacaVideo.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LPlacaVideo.Location = New System.Drawing.Point(391, 105)
+        Me.LPlacaVideo.Location = New System.Drawing.Point(521, 105)
         Me.LPlacaVideo.Name = "LPlacaVideo"
         Me.LPlacaVideo.Size = New System.Drawing.Size(92, 17)
-        Me.LPlacaVideo.TabIndex = 29
+        Me.LPlacaVideo.TabIndex = 26
         Me.LPlacaVideo.Text = "Placa Video:"
         '
         'LRam
@@ -428,7 +430,7 @@ Partial Class FormularioAdminStock
         Me.LRam.Location = New System.Drawing.Point(19, 186)
         Me.LRam.Name = "LRam"
         Me.LRam.Size = New System.Drawing.Size(45, 17)
-        Me.LRam.TabIndex = 26
+        Me.LRam.TabIndex = 23
         Me.LRam.Text = "Ram:"
         '
         'LPlacaMadre
@@ -438,7 +440,7 @@ Partial Class FormularioAdminStock
         Me.LPlacaMadre.Location = New System.Drawing.Point(15, 144)
         Me.LPlacaMadre.Name = "LPlacaMadre"
         Me.LPlacaMadre.Size = New System.Drawing.Size(95, 17)
-        Me.LPlacaMadre.TabIndex = 25
+        Me.LPlacaMadre.TabIndex = 22
         Me.LPlacaMadre.Text = "Placa Madre:"
         '
         'LProcesador
@@ -448,7 +450,7 @@ Partial Class FormularioAdminStock
         Me.LProcesador.Location = New System.Drawing.Point(15, 103)
         Me.LProcesador.Name = "LProcesador"
         Me.LProcesador.Size = New System.Drawing.Size(92, 17)
-        Me.LProcesador.TabIndex = 24
+        Me.LProcesador.TabIndex = 21
         Me.LProcesador.Text = "Procesador:"
         '
         'LNombre
@@ -458,14 +460,14 @@ Partial Class FormularioAdminStock
         Me.LNombre.Location = New System.Drawing.Point(15, 65)
         Me.LNombre.Name = "LNombre"
         Me.LNombre.Size = New System.Drawing.Size(69, 17)
-        Me.LNombre.TabIndex = 23
+        Me.LNombre.TabIndex = 20
         Me.LNombre.Text = "Nombre:"
         '
         'PBImagen
         '
         Me.PBImagen.BackgroundImage = Global.pcgamer.My.Resources.Resources.gabinete2
         Me.PBImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PBImagen.Location = New System.Drawing.Point(793, 62)
+        Me.PBImagen.Location = New System.Drawing.Point(965, 66)
         Me.PBImagen.Name = "PBImagen"
         Me.PBImagen.Size = New System.Drawing.Size(183, 188)
         Me.PBImagen.TabIndex = 1
@@ -488,7 +490,7 @@ Partial Class FormularioAdminStock
         Me.DataGridStock.RowTemplate.Height = 24
         Me.DataGridStock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridStock.Size = New System.Drawing.Size(978, 189)
-        Me.DataGridStock.TabIndex = 22
+        Me.DataGridStock.TabIndex = 1
         '
         'BBaja
         '
@@ -499,15 +501,15 @@ Partial Class FormularioAdminStock
         Me.BBaja.ForeColor = System.Drawing.Color.White
         Me.BBaja.Image = Global.pcgamer.My.Resources.Resources.cancelar_icono1
         Me.BBaja.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BBaja.Location = New System.Drawing.Point(864, 587)
+        Me.BBaja.Location = New System.Drawing.Point(988, 288)
         Me.BBaja.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BBaja.Name = "BBaja"
-        Me.BBaja.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.BBaja.Size = New System.Drawing.Size(164, 48)
-        Me.BBaja.TabIndex = 42
+        Me.BBaja.TabIndex = 30
         Me.BBaja.Text = "Baja Prod"
         Me.BBaja.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.BBaja.UseVisualStyleBackColor = False
+        Me.BBaja.Visible = False
         '
         'BAlta
         '
@@ -518,11 +520,11 @@ Partial Class FormularioAdminStock
         Me.BAlta.ForeColor = System.Drawing.Color.White
         Me.BAlta.Image = Global.pcgamer.My.Resources.Resources.ok_icono
         Me.BAlta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BAlta.Location = New System.Drawing.Point(864, 587)
+        Me.BAlta.Location = New System.Drawing.Point(988, 288)
         Me.BAlta.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BAlta.Name = "BAlta"
         Me.BAlta.Size = New System.Drawing.Size(164, 48)
-        Me.BAlta.TabIndex = 41
+        Me.BAlta.TabIndex = 31
         Me.BAlta.Text = "Alta Prod"
         Me.BAlta.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.BAlta.UseVisualStyleBackColor = False
@@ -532,21 +534,21 @@ Partial Class FormularioAdminStock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackgroundImage = Global.pcgamer.My.Resources.Resources.hyperx_background
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1084, 673)
+        Me.ClientSize = New System.Drawing.Size(1203, 673)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.LTitulo)
         Me.Controls.Add(Me.PBLogo)
-        Me.Controls.Add(Me.BAlta)
-        Me.Controls.Add(Me.BBaja)
         Me.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Location = New System.Drawing.Point(150, 0)
+        Me.Location = New System.Drawing.Point(100, 0)
         Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.MaximizeBox = False
         Me.Name = "FormularioAdminStock"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
-        Me.Tag = "20"
+        Me.Tag = ""
         Me.Text = "Formulario Admin Stock"
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
