@@ -26,9 +26,12 @@ Partial Class FormularioAdminStock
         Me.LTitulo = New System.Windows.Forms.Label()
         Me.PBLogo = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.BCambiarImagen = New System.Windows.Forms.Button()
         Me.BAgregarFactura = New System.Windows.Forms.Button()
         Me.TStock = New System.Windows.Forms.TextBox()
         Me.TGabinete = New System.Windows.Forms.ComboBox()
+        Me.BBaja = New System.Windows.Forms.Button()
+        Me.BAlta = New System.Windows.Forms.Button()
         Me.TDiscoRigido = New System.Windows.Forms.ComboBox()
         Me.TPlacaVideo = New System.Windows.Forms.ComboBox()
         Me.TProcesador = New System.Windows.Forms.ComboBox()
@@ -58,8 +61,9 @@ Partial Class FormularioAdminStock
         Me.LNombre = New System.Windows.Forms.Label()
         Me.PBImagen = New System.Windows.Forms.PictureBox()
         Me.DataGridStock = New System.Windows.Forms.DataGridView()
-        Me.BBaja = New System.Windows.Forms.Button()
-        Me.BAlta = New System.Windows.Forms.Button()
+        Me.LApeyNom = New System.Windows.Forms.Label()
+        Me.LRol = New System.Windows.Forms.Label()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PBImagen, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -93,6 +97,7 @@ Partial Class FormularioAdminStock
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Black
+        Me.Panel1.Controls.Add(Me.BCambiarImagen)
         Me.Panel1.Controls.Add(Me.BAgregarFactura)
         Me.Panel1.Controls.Add(Me.TStock)
         Me.Panel1.Controls.Add(Me.TGabinete)
@@ -134,6 +139,22 @@ Partial Class FormularioAdminStock
         Me.Panel1.Size = New System.Drawing.Size(1164, 464)
         Me.Panel1.TabIndex = 33
         '
+        'BCambiarImagen
+        '
+        Me.BCambiarImagen.BackColor = System.Drawing.Color.DarkRed
+        Me.BCambiarImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BCambiarImagen.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BCambiarImagen.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BCambiarImagen.ForeColor = System.Drawing.Color.White
+        Me.BCambiarImagen.Location = New System.Drawing.Point(997, 272)
+        Me.BCambiarImagen.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.BCambiarImagen.Name = "BCambiarImagen"
+        Me.BCambiarImagen.Size = New System.Drawing.Size(138, 25)
+        Me.BCambiarImagen.TabIndex = 34
+        Me.BCambiarImagen.Text = "Cambiar Imagen"
+        Me.BCambiarImagen.UseVisualStyleBackColor = False
+        Me.BCambiarImagen.Visible = False
+        '
         'BAgregarFactura
         '
         Me.BAgregarFactura.BackColor = System.Drawing.Color.DarkRed
@@ -168,6 +189,44 @@ Partial Class FormularioAdminStock
         Me.TGabinete.Name = "TGabinete"
         Me.TGabinete.Size = New System.Drawing.Size(324, 22)
         Me.TGabinete.TabIndex = 17
+        '
+        'BBaja
+        '
+        Me.BBaja.BackColor = System.Drawing.Color.DarkRed
+        Me.BBaja.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BBaja.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BBaja.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BBaja.ForeColor = System.Drawing.Color.White
+        Me.BBaja.Image = Global.pcgamer.My.Resources.Resources.cancelar_icono1
+        Me.BBaja.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BBaja.Location = New System.Drawing.Point(988, 329)
+        Me.BBaja.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.BBaja.Name = "BBaja"
+        Me.BBaja.Size = New System.Drawing.Size(164, 48)
+        Me.BBaja.TabIndex = 30
+        Me.BBaja.Text = "Baja Prod"
+        Me.BBaja.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BBaja.UseVisualStyleBackColor = False
+        Me.BBaja.Visible = False
+        '
+        'BAlta
+        '
+        Me.BAlta.BackColor = System.Drawing.Color.DarkRed
+        Me.BAlta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BAlta.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BAlta.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BAlta.ForeColor = System.Drawing.Color.White
+        Me.BAlta.Image = Global.pcgamer.My.Resources.Resources.ok_icono
+        Me.BAlta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BAlta.Location = New System.Drawing.Point(988, 329)
+        Me.BAlta.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.BAlta.Name = "BAlta"
+        Me.BAlta.Size = New System.Drawing.Size(164, 48)
+        Me.BAlta.TabIndex = 31
+        Me.BAlta.Text = "Alta Prod"
+        Me.BAlta.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BAlta.UseVisualStyleBackColor = False
+        Me.BAlta.Visible = False
         '
         'TDiscoRigido
         '
@@ -465,9 +524,10 @@ Partial Class FormularioAdminStock
         '
         'PBImagen
         '
-        Me.PBImagen.BackgroundImage = Global.pcgamer.My.Resources.Resources.gabinete2
+        Me.PBImagen.BackColor = System.Drawing.Color.White
         Me.PBImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PBImagen.Location = New System.Drawing.Point(965, 66)
+        Me.PBImagen.ImageLocation = ""
+        Me.PBImagen.Location = New System.Drawing.Point(970, 66)
         Me.PBImagen.Name = "PBImagen"
         Me.PBImagen.Size = New System.Drawing.Size(183, 188)
         Me.PBImagen.TabIndex = 1
@@ -492,43 +552,33 @@ Partial Class FormularioAdminStock
         Me.DataGridStock.Size = New System.Drawing.Size(978, 189)
         Me.DataGridStock.TabIndex = 1
         '
-        'BBaja
+        'LApeyNom
         '
-        Me.BBaja.BackColor = System.Drawing.Color.DarkRed
-        Me.BBaja.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.BBaja.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BBaja.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BBaja.ForeColor = System.Drawing.Color.White
-        Me.BBaja.Image = Global.pcgamer.My.Resources.Resources.cancelar_icono1
-        Me.BBaja.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BBaja.Location = New System.Drawing.Point(988, 288)
-        Me.BBaja.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
-        Me.BBaja.Name = "BBaja"
-        Me.BBaja.Size = New System.Drawing.Size(164, 48)
-        Me.BBaja.TabIndex = 30
-        Me.BBaja.Text = "Baja Prod"
-        Me.BBaja.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BBaja.UseVisualStyleBackColor = False
-        Me.BBaja.Visible = False
+        Me.LApeyNom.AutoSize = True
+        Me.LApeyNom.BackColor = System.Drawing.Color.Transparent
+        Me.LApeyNom.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LApeyNom.ForeColor = System.Drawing.SystemColors.ActiveCaption
+        Me.LApeyNom.Location = New System.Drawing.Point(999, 646)
+        Me.LApeyNom.Name = "LApeyNom"
+        Me.LApeyNom.Size = New System.Drawing.Size(153, 18)
+        Me.LApeyNom.TabIndex = 35
+        Me.LApeyNom.Text = "Gallardo Juan Pablo"
         '
-        'BAlta
+        'LRol
         '
-        Me.BAlta.BackColor = System.Drawing.Color.DarkRed
-        Me.BAlta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.BAlta.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BAlta.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BAlta.ForeColor = System.Drawing.Color.White
-        Me.BAlta.Image = Global.pcgamer.My.Resources.Resources.ok_icono
-        Me.BAlta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BAlta.Location = New System.Drawing.Point(988, 288)
-        Me.BAlta.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
-        Me.BAlta.Name = "BAlta"
-        Me.BAlta.Size = New System.Drawing.Size(164, 48)
-        Me.BAlta.TabIndex = 31
-        Me.BAlta.Text = "Alta Prod"
-        Me.BAlta.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BAlta.UseVisualStyleBackColor = False
-        Me.BAlta.Visible = False
+        Me.LRol.AutoSize = True
+        Me.LRol.BackColor = System.Drawing.Color.Transparent
+        Me.LRol.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LRol.ForeColor = System.Drawing.SystemColors.ActiveCaption
+        Me.LRol.Location = New System.Drawing.Point(857, 644)
+        Me.LRol.Name = "LRol"
+        Me.LRol.Size = New System.Drawing.Size(139, 20)
+        Me.LRol.TabIndex = 34
+        Me.LRol.Text = "Administrador:"
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
         'FormularioAdminStock
         '
@@ -537,7 +587,9 @@ Partial Class FormularioAdminStock
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackgroundImage = Global.pcgamer.My.Resources.Resources.hyperx_background
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1203, 673)
+        Me.ClientSize = New System.Drawing.Size(1202, 673)
+        Me.Controls.Add(Me.LApeyNom)
+        Me.Controls.Add(Me.LRol)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.LTitulo)
         Me.Controls.Add(Me.PBLogo)
@@ -597,4 +649,8 @@ Partial Class FormularioAdminStock
     Friend WithEvents TProcesador As ComboBox
     Friend WithEvents TPlacaMadre As ComboBox
     Friend WithEvents BAgregarFactura As Button
+    Friend WithEvents LApeyNom As Label
+    Friend WithEvents LRol As Label
+    Friend WithEvents BCambiarImagen As Button
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
 End Class

@@ -1,4 +1,5 @@
-﻿Public Class FormularioAdminStock
+﻿Imports System.IO
+Public Class FormularioAdminStock
     Private Sub FormularioAdminStock_Closed(sender As Object, e As EventArgs) Handles Me.Closed
         FormularioAdministrador.Show()
     End Sub
@@ -72,8 +73,14 @@
         TPrecio.Text = producto.precio
 
         'Cambiar por direccion del producto
-        Dim imagen As String = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\gabinete.jpg"
-        PBImagen.Image = Image.FromFile(imagen)
+        'Dim imagen As String = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\gabinete.jpg"
+        'PBImagen.Image = Image.FromFile(imagen)
+        If producto.imagen Is Nothing Or producto.imagen = "no-disponible" Then
+            PBImagen.Image = Image.FromFile("D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\pcgamer\pcgamer\Resources\sin-imagen.png")
+        Else
+            PBImagen.ImageLocation = producto.imagen
+            PBImagen.Image = Image.FromFile(producto.imagen)
+        End If
         Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
     End Sub
 
@@ -85,17 +92,6 @@
         DataGridStock.DefaultCellStyle.ForeColor = Color.Black
 
         'Cuando abro que no aparezca ningun valor
-        'TNombre.Text = "     ****************************"
-        'TProcesador.Text = "     ****************************"
-        'TPlacaMadre.Text = "     ****************************"
-        'TRam.Text = "     ****************************"
-        'TStock.Text = "     ****************************"
-        'TCategoria.Text = "     ****************************"
-        'TPlacaVideo.Text = "     ****************************"
-        'TDiscoRigido.Text = "     ****************************"
-        'TGabinete.Text = "     ****************************"
-        'TPrecio.Text = "     ****************************"
-
         TNombre.Clear()
         TProcesador.SelectedIndex = -1
         TPlacaMadre.SelectedIndex = -1
@@ -113,14 +109,30 @@
         CBBuscar.SelectedIndex = 0
     End Sub
 
+    Private Xpos, Ypos
+
     Private Sub FormularioStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+#Region "bloquear movimiento del form"
+            CenterToScreen()
+            Xpos = Location.X
+            Ypos = Location.Y
+#End Region
+
             cargarProductos()
             BBaja.Visible = False
         Catch ex As Exception
             MsgBox("Ha ocurrido un error, la lista de productos no se pudo cargar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Error al cargar Datagrid")
         End Try
     End Sub
+
+#Region "bloquear movimiento del form"
+    Private Sub FormularioAdminStock_Move(sender As Object, e As EventArgs) Handles Me.Move
+        If Xpos > 0 Then
+            Location = New Point(Xpos, Ypos)
+        End If
+    End Sub
+#End Region
 
     Private Sub DataGridStock_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridStock.CellEnter
         Dim fila As Integer = DataGridStock.CurrentRow.Index
@@ -149,6 +161,7 @@
             BCancelar.Visible = True
             BBaja.Visible = False
             BAlta.Visible = False
+            BCambiarImagen.Visible = True
             bloquear()
             habilitar()
         End If
@@ -160,31 +173,28 @@
                 TCategoria.Text = "" Or TPlacaVideo.Text = "" Or TDiscoRigido.Text = "" Or TGabinete.Text = "" Or TPrecio.Text = "" Then
                 MsgBox("Debe completar todos los campos", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Campos incompletos")
             Else
-                Dim fila As Integer = DataGridStock.CurrentRow.Index
                 Dim respuesta As MsgBoxResult
+                Dim fila As Integer = DataGridStock.CurrentRow.Index
                 respuesta = MsgBox("¿Esta seguro que desea Editar al producto " + TNombre.Text + "??",
-                                   MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Editar Producto")
+                                       MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Editar Producto")
                 If MsgBoxResult.Yes = respuesta Then
                     Dim id_producto As Integer = DataGridStock.CurrentRow().Cells(0).Value
                     AccesoDatos.ActualizarProducto(id_producto, TNombre.Text, TProcesador.SelectedIndex, TPlacaMadre.SelectedIndex,
-                                     TRam.SelectedIndex, TPlacaVideo.SelectedIndex, TDiscoRigido.SelectedIndex, TGabinete.SelectedIndex,
-                                     TPrecio.Text, TStock.Text, TCategoria.SelectedIndex)
+                                             TRam.SelectedIndex, TPlacaVideo.SelectedIndex, TDiscoRigido.SelectedIndex, TGabinete.SelectedIndex,
+                                             TPrecio.Text, TStock.Text, TCategoria.SelectedIndex, PBImagen.ImageLocation)
                     AccesoDatos.cargarProductos(DataGridStock)
+                    BNuevo.Visible = True
+                    BGuardar.Visible = False
+                    BCancelar.Visible = False
+                    BCambiarImagen.Visible = False
+                    desbloquear()
+                    deshabilitar()
                     MsgBox("Se ha modificado correctamente", MsgBoxStyle.DefaultButton2 +
-                                   MsgBoxStyle.Information, "Modificacion exitosa")
-                Else
-                    MsgBox("No se han realizado cambios", MsgBoxStyle.DefaultButton2 +
-                                       MsgBoxStyle.Information, "Operacion Cancelada")
+                                           MsgBoxStyle.Information, "Modificacion exitosa")
                 End If
             End If
-            'Catch ex As Exception
-            'MsgBox("Ha ocurrido un problema, el producto no se pudo guardar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Fallo al Modificar")
-        Finally
-            BNuevo.Visible = True
-            BGuardar.Visible = False
-            BCancelar.Visible = False
-            desbloquear()
-            deshabilitar()
+        Catch ex As Exception
+            MsgBox("Ha ocurrido un problema, el producto no se pudo guardar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Fallo al Modificar")
         End Try
     End Sub
 
@@ -192,8 +202,10 @@
         BNuevo.Visible = True
         BGuardar.Visible = False
         BCancelar.Visible = False
+        BCambiarImagen.Visible = False
         desbloquear()
         deshabilitar()
+        limpiar()
         MsgBox("No se han realizado cambios", MsgBoxStyle.DefaultButton2 +
                            MsgBoxStyle.Information, "Operacion Cancelada")
     End Sub
@@ -261,6 +273,8 @@
         BNuevo.Visible = False
         BBaja.Visible = False
         BAlta.Visible = False
+        BCambiarImagen.Visible = True
+        PBImagen.Image = Nothing
     End Sub
 
     Private Sub BCancelarAgregar_Click(sender As Object, e As EventArgs) Handles BCancelarAgregar.Click
@@ -271,6 +285,7 @@
         BCancelarAgregar.Visible = False
         BEditar.Visible = True
         BNuevo.Visible = True
+        BCambiarImagen.Visible = False
         limpiar()
         MsgBox("No se ha agregado ningun producto", MsgBoxStyle.DefaultButton2 +
                            MsgBoxStyle.Information, "Operacion Cancelada")
@@ -300,6 +315,7 @@
                                                    .c5_discorigido_id = TDiscoRigido.SelectedIndex + 1,
                                                    .c6_gabinete_id = TGabinete.SelectedIndex + 1,
                                                    .precio = TPrecio.Text,
+                                                   .imagen = PBImagen.ImageLocation,
                                                    .estado = 1
                                                    })
                         limpiar()
@@ -312,6 +328,7 @@
                         BCancelarAgregar.Visible = False
                         BEditar.Visible = True
                         BNuevo.Visible = True
+                        BCambiarImagen.Visible = False
                     End If
                 End If
             End If
@@ -416,5 +433,16 @@
     End Sub
 
 #End Region
+
+    Private Sub BCambiarImagen_Click(sender As Object, e As EventArgs) Handles BCambiarImagen.Click
+        OpenFileDialog1.InitialDirectory = "D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\pcgamer\pcgamer\Resources"
+        OpenFileDialog1.Filter = "Todos los archivos|*.*|Archivos Imagenes|*.jpg|Archivos Imagenes|*.bmp|Archivos Imagenes|*.png"
+        OpenFileDialog1.FilterIndex = 1
+        OpenFileDialog1.RestoreDirectory = True
+
+        If OpenFileDialog1.ShowDialog() = Windows.Forms.DialogResult.OK Then
+            PBImagen.ImageLocation = OpenFileDialog1.FileName
+        End If
+    End Sub
 
 End Class

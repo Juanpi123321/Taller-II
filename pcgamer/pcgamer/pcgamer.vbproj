@@ -462,6 +462,41 @@
       <DependentUpon>ModeloPcgamer.edmx</DependentUpon>
       <LastGenOutput>ModeloPcgamer.vb</LastGenOutput>
     </Content>
+    <None Include="Resources\powercase-7041-gamer.png" />
+    <None Include="Resources\sin-imagen.png" />
+    <None Include="Resources\Acer-Gamer-Vx151.png" />
+    <None Include="Resources\notebook-bangho1.png" />
+    <None Include="Resources\nzxt-guardian1.png" />
+    <None Include="Resources\Pc_Bangho_Gamer.jpg" />
+    <None Include="Resources\gabinete-sentey1.png" />
+    <None Include="Resources\Gamer-Hp-Omen-15-ax205la1.jpg" />
+    <None Include="Resources\Acer Aspire E 151.jpg" />
+    <None Include="Resources\THERMALTAKE VERSA H22 %283,0%291.jpg" />
+    <None Include="Resources\THERMALTAKE N21 GAMING %283,0%29 LED ROJO1.jpg" />
+    <None Include="Resources\Acer-Gamer-Vx15.png" />
+    <None Include="Resources\notebook-bangho.png" />
+    <None Include="Resources\circuit-planet.jpg" />
+    <None Include="Resources\nzxt-guardian.png" />
+    <None Include="Resources\gabinete-sentey.png" />
+    <None Include="Resources\Pc Bangho Gamer.jpg" />
+    <None Include="Resources\Gamer-Hp-Omen-15-ax205la.jpg" />
+    <None Include="Resources\Acer Aspire E 15.jpg" />
+    <None Include="Resources\Riotoro-Cr-1280-prism-Full-Tower-Rgb.png" />
+    <None Include="Resources\Corsair-Spec-Alpha-Ventana-Usb3.png" />
+    <None Include="Resources\Thermaltake-Versa-C22-Rgb-Ventana-Cooler.png" />
+    <None Include="Resources\powercase-5263-gamer.png" />
+    <None Include="Resources\Thermaltake-Versa-C21-Rgb-Mid-Tower.png" />
+    <None Include="Resources\Sama-Jax-01-Negro-Rojo-120mm-Led-Fan-Red-X-4.png" />
+    <None Include="Resources\Sama-Jax-01-Blanco-&amp;-Rojo-120mm-Led.png" />
+    <None Include="Resources\powercase-6813-gamer.png" />
+    <None Include="Resources\cirkuit-planet-8232-gamer.png" />
+    <None Include="Resources\sentey-kron-gs-6005-1x80mm-1x120mm.png" />
+    <None Include="Resources\CORSAIR GRAPHITE 230T ORANGE 3FAN LED.png" />
+    <None Include="Resources\iceber crystal g5.jpg" />
+    <None Include="Resources\icerberg turbo z6.jpg" />
+    <None Include="Resources\Aero-500_BG_BK%402x.png" />
+    <None Include="Resources\THERMALTAKE VERSA H22 %283,0%29.jpg" />
+    <None Include="Resources\THERMALTAKE N21 GAMING %283,0%29 LED ROJO.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

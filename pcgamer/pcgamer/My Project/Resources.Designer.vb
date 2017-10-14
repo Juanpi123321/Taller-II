@@ -74,6 +74,56 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property Acer_Aspire_E_15() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Acer Aspire E 15", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property Acer_Aspire_E_151() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Acer Aspire E 151", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property Acer_Gamer_Vx15() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Acer-Gamer-Vx15", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property Acer_Gamer_Vx151() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Acer-Gamer-Vx151", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property Aero_500_BG_BK_2x() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Aero-500_BG_BK@2x", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property almacen() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("almacen", resourceCulture)
@@ -174,6 +224,26 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property circuit_planet() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("circuit-planet", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property cirkuit_planet_8232_gamer() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("cirkuit-planet-8232-gamer", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property Client_Service() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Client-Service", resourceCulture)
@@ -187,6 +257,26 @@ Namespace My.Resources
         Friend ReadOnly Property cliente() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("cliente", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property CORSAIR_GRAPHITE_230T_ORANGE_3FAN_LED() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("CORSAIR GRAPHITE 230T ORANGE 3FAN LED", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property Corsair_Spec_Alpha_Ventana_Usb3() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Corsair-Spec-Alpha-Ventana-Usb3", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -284,6 +374,26 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property gabinete_sentey() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("gabinete-sentey", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property gabinete_sentey1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("gabinete-sentey1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property gabinete1() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("gabinete1", resourceCulture)
@@ -304,9 +414,49 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property Gamer_Hp_Omen_15_ax205la() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Gamer-Hp-Omen-15-ax205la", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property Gamer_Hp_Omen_15_ax205la1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Gamer-Hp-Omen-15-ax205la1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property hyperx_background() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("hyperx-background", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property iceber_crystal_g5() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("iceber crystal g5", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property icerberg_turbo_z6() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("icerberg turbo z6", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -347,6 +497,46 @@ Namespace My.Resources
         Friend ReadOnly Property lupa1() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("lupa1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property notebook_bangho() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("notebook-bangho", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property notebook_bangho1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("notebook-bangho1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property nzxt_guardian() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("nzxt-guardian", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property nzxt_guardian1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("nzxt-guardian1", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -417,6 +607,86 @@ Namespace My.Resources
         Friend ReadOnly Property people_work_metaphor_separated_white_29812042() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("people-work-metaphor-separated-white-29812042", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property powercase_5263_gamer() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("powercase-5263-gamer", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property powercase_6813_gamer() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("powercase-6813-gamer", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property powercase_7041_gamer() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("powercase-7041-gamer", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property Riotoro_Cr_1280_prism_Full_Tower_Rgb() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Riotoro-Cr-1280-prism-Full-Tower-Rgb", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property Sama_Jax_01_Blanco___Rojo_120mm_Led() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Sama-Jax-01-Blanco-&-Rojo-120mm-Led", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property Sama_Jax_01_Negro_Rojo_120mm_Led_Fan_Red_X_4() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Sama-Jax-01-Negro-Rojo-120mm-Led-Fan-Red-X-4", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property sentey_kron_gs_6005_1x80mm_1x120mm() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("sentey-kron-gs-6005-1x80mm-1x120mm", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property sin_imagen() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("sin-imagen", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -497,6 +767,66 @@ Namespace My.Resources
         Friend ReadOnly Property superadmin2_() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("superadmin2.", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property THERMALTAKE_N21_GAMING__3_0__LED_ROJO() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("THERMALTAKE N21 GAMING (3,0) LED ROJO", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property THERMALTAKE_N21_GAMING__3_0__LED_ROJO1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("THERMALTAKE N21 GAMING (3,0) LED ROJO1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property Thermaltake_Versa_C21_Rgb_Mid_Tower() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Thermaltake-Versa-C21-Rgb-Mid-Tower", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property Thermaltake_Versa_C22_Rgb_Ventana_Cooler() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Thermaltake-Versa-C22-Rgb-Ventana-Cooler", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property THERMALTAKE_VERSA_H22__3_0_() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("THERMALTAKE VERSA H22 (3,0)", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property THERMALTAKE_VERSA_H22__3_0_1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("THERMALTAKE VERSA H22 (3,0)1", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

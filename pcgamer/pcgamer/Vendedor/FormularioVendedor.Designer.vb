@@ -33,7 +33,7 @@ Partial Class FormularioVendedor
         Me.PBFactura = New System.Windows.Forms.PictureBox()
         Me.BCerrarSesion = New System.Windows.Forms.Button()
         Me.LTitulo = New System.Windows.Forms.Label()
-        Me.LCuenta = New System.Windows.Forms.Label()
+        Me.LRol = New System.Windows.Forms.Label()
         Me.LApeyNom = New System.Windows.Forms.Label()
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -45,7 +45,7 @@ Partial Class FormularioVendedor
         'PBLogo
         '
         Me.PBLogo.Image = Global.pcgamer.My.Resources.Resources.pcgamer_logo
-        Me.PBLogo.Location = New System.Drawing.Point(794, 14)
+        Me.PBLogo.Location = New System.Drawing.Point(990, 14)
         Me.PBLogo.Margin = New System.Windows.Forms.Padding(5)
         Me.PBLogo.Name = "PBLogo"
         Me.PBLogo.Size = New System.Drawing.Size(198, 34)
@@ -56,14 +56,13 @@ Partial Class FormularioVendedor
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Transparent
-        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.BStock)
         Me.Panel1.Controls.Add(Me.BCliente)
         Me.Panel1.Controls.Add(Me.BFactura)
         Me.Panel1.Controls.Add(Me.PBCliente)
         Me.Panel1.Controls.Add(Me.PBStock)
         Me.Panel1.Controls.Add(Me.PBFactura)
-        Me.Panel1.Location = New System.Drawing.Point(205, 203)
+        Me.Panel1.Location = New System.Drawing.Point(318, 191)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(606, 277)
@@ -154,7 +153,7 @@ Partial Class FormularioVendedor
         Me.BCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BCerrarSesion.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BCerrarSesion.ForeColor = System.Drawing.Color.White
-        Me.BCerrarSesion.Location = New System.Drawing.Point(827, 72)
+        Me.BCerrarSesion.Location = New System.Drawing.Point(1023, 72)
         Me.BCerrarSesion.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BCerrarSesion.Name = "BCerrarSesion"
         Me.BCerrarSesion.Size = New System.Drawing.Size(166, 32)
@@ -168,23 +167,23 @@ Partial Class FormularioVendedor
         Me.LTitulo.BackColor = System.Drawing.Color.Black
         Me.LTitulo.Font = New System.Drawing.Font("Verdana", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LTitulo.ForeColor = System.Drawing.Color.White
-        Me.LTitulo.Location = New System.Drawing.Point(385, 83)
+        Me.LTitulo.Location = New System.Drawing.Point(542, 87)
         Me.LTitulo.Name = "LTitulo"
         Me.LTitulo.Size = New System.Drawing.Size(248, 48)
         Me.LTitulo.TabIndex = 24
         Me.LTitulo.Text = "VENDEDOR"
         '
-        'LCuenta
+        'LRol
         '
-        Me.LCuenta.AutoSize = True
-        Me.LCuenta.BackColor = System.Drawing.Color.Transparent
-        Me.LCuenta.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LCuenta.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.LCuenta.Location = New System.Drawing.Point(713, 641)
-        Me.LCuenta.Name = "LCuenta"
-        Me.LCuenta.Size = New System.Drawing.Size(98, 20)
-        Me.LCuenta.TabIndex = 25
-        Me.LCuenta.Text = "Vendedor:"
+        Me.LRol.AutoSize = True
+        Me.LRol.BackColor = System.Drawing.Color.Transparent
+        Me.LRol.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LRol.ForeColor = System.Drawing.SystemColors.ActiveCaption
+        Me.LRol.Location = New System.Drawing.Point(857, 644)
+        Me.LRol.Name = "LRol"
+        Me.LRol.Size = New System.Drawing.Size(98, 20)
+        Me.LRol.TabIndex = 25
+        Me.LRol.Text = "Vendedor:"
         '
         'LApeyNom
         '
@@ -192,7 +191,7 @@ Partial Class FormularioVendedor
         Me.LApeyNom.BackColor = System.Drawing.Color.Transparent
         Me.LApeyNom.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LApeyNom.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.LApeyNom.Location = New System.Drawing.Point(817, 643)
+        Me.LApeyNom.Location = New System.Drawing.Point(961, 646)
         Me.LApeyNom.Name = "LApeyNom"
         Me.LApeyNom.Size = New System.Drawing.Size(125, 18)
         Me.LApeyNom.TabIndex = 26
@@ -202,19 +201,21 @@ Partial Class FormularioVendedor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackgroundImage = Global.pcgamer.My.Resources.Resources.hyperx_background
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1006, 673)
+        Me.ClientSize = New System.Drawing.Size(1202, 673)
         Me.Controls.Add(Me.LApeyNom)
-        Me.Controls.Add(Me.LCuenta)
+        Me.Controls.Add(Me.LRol)
         Me.Controls.Add(Me.LTitulo)
         Me.Controls.Add(Me.BCerrarSesion)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PBLogo)
         Me.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Location = New System.Drawing.Point(150, 0)
+        Me.Location = New System.Drawing.Point(100, 0)
         Me.Margin = New System.Windows.Forms.Padding(5)
+        Me.MaximizeBox = False
         Me.Name = "FormularioVendedor"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Formulario Vendedor"
@@ -238,6 +239,6 @@ Partial Class FormularioVendedor
     Friend WithEvents BCliente As Button
     Friend WithEvents BCerrarSesion As Button
     Friend WithEvents LTitulo As Label
-    Friend WithEvents LCuenta As Label
+    Friend WithEvents LRol As Label
     Friend WithEvents LApeyNom As Label
 End Class

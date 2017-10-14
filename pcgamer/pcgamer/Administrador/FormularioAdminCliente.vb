@@ -62,12 +62,12 @@ Public Class FormularioAdminCliente
         AccesoDatos.cargarClientes(DataGridCliente)
         DataGridCliente.ClearSelection()
 
-        TBApellido.Text = "       ********************"
-        TBNombre.Text = "       ********************"
-        TBDNI.Text = "       ********************"
-        TBDomicilio.Text = "       ********************"
-        TBTelefono.Text = "       ********************"
-        TBEmail.Text = "       ********************"
+        TBApellido.Clear()
+        TBNombre.Clear()
+        TBDNI.Clear()
+        TBDomicilio.Clear()
+        TBTelefono.Clear()
+        TBEmail.Clear()
 
         CBBuscar.SelectedIndex = 0
     End Sub
@@ -120,14 +120,14 @@ Public Class FormularioAdminCliente
     End Sub
 
     Private Sub TNombre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TNombre.KeyPress
-        Dim re As New Regex("[^a-zA-Z_ \b]", RegexOptions.IgnoreCase)
+        Dim re As New Regex("[^a-zA-ZñÑ_ \b]", RegexOptions.IgnoreCase)
         e.Handled = re.IsMatch(e.KeyChar)
         If (e.Handled = True) Then
             ErrorProvider1.SetError(TNombre, "Porfavor ingrese solo letras")
         End If
     End Sub
     Private Sub TApellido_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TApellido.KeyPress
-        Dim re As New Regex("[^a-zA-Z_ \b]", RegexOptions.IgnoreCase)
+        Dim re As New Regex("[^a-zA-ZñÑ_ \b]", RegexOptions.IgnoreCase)
         e.Handled = re.IsMatch(e.KeyChar)
         If (e.Handled = True) Then
             ErrorProvider1.SetError(TApellido, "Porfavor ingrese solo letras")
@@ -186,15 +186,28 @@ Public Class FormularioAdminCliente
             TBDni_Validated(sender, e)
         End If
     End Sub
-
+    Private Xpos, Ypos
     Private Sub FormularioCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+#Region "bloquear movimiento del form"
+            CenterToScreen()
+            Xpos = Location.X
+            Ypos = Location.Y
+#End Region
             cargarClientes()
-
+            BEliminar.Visible = False
         Catch ex As Exception
             MsgBox("Ha ocurrido un error, la lista de clientes no se pudo cargar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Error al cargar Datagrid")
         End Try
     End Sub
+
+#Region "bloquear movimiento del form"
+    Private Sub FormularioAdminStock_Move(sender As Object, e As EventArgs) Handles Me.Move
+        If Xpos > 0 Then
+            Location = New Point(Xpos, Ypos)
+        End If
+    End Sub
+#End Region
 
     Private Sub BGuardar_Click(sender As Object, e As EventArgs) Handles BGuardar.Click
         If TBDNI.Text = "" Or DNIvalidate = False Then
@@ -244,8 +257,10 @@ Public Class FormularioAdminCliente
 
         If DataGridCliente.Item(5, fila).Value = 0 Then
             BAlta.Visible = True
+            BEliminar.Visible = False
         Else
             BAlta.Visible = False
+            BEliminar.Visible = True
         End If
 
     End Sub
@@ -269,11 +284,11 @@ Public Class FormularioAdminCliente
         End If
     End Sub
     Private Sub TBNombre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TBNombre.KeyPress
-        Dim re As New Regex("[^a-zA-Z_ \b]", RegexOptions.IgnoreCase)
+        Dim re As New Regex("[^a-zA-ZñÑ_ \b]", RegexOptions.IgnoreCase)
         e.Handled = re.IsMatch(e.KeyChar)
     End Sub
     Private Sub TBApellido_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TBApellido.KeyPress
-        Dim re As New Regex("[^a-zA-Z_ \b]", RegexOptions.IgnoreCase)
+        Dim re As New Regex("[^a-zA-ZñÑ_ \b]", RegexOptions.IgnoreCase)
         e.Handled = re.IsMatch(e.KeyChar)
     End Sub
 
@@ -340,4 +355,5 @@ Public Class FormularioAdminCliente
             End If
         Next
     End Sub
+
 End Class

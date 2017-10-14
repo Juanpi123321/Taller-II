@@ -100,7 +100,7 @@
 
     Shared Sub ActualizarProducto(id_producto As Integer, nombre As String, procesador As Integer, PlacaMadre As Integer,
                                  Ram As Integer, PlacaVideo As Integer, DiscoRigido As Integer, Gabinete As Integer,
-                                 Precio As Integer, Stock As Integer, Categoria As Integer)
+                                 Precio As Integer, Stock As Integer, Categoria As Integer, imagen As String)
         Dim producto = (From p In ctx.productos
                         Where p.Id_producto = id_producto
                         Select p).SingleOrDefault
@@ -116,6 +116,7 @@
             .precio = Precio
             .stock = Stock
             .categoria_id = Categoria + 1
+            .imagen = imagen
             .estado = 1
         End With
         ctx.SaveChanges()
