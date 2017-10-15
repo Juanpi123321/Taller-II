@@ -20,6 +20,7 @@ Public Class FormularioSuperUsuario
         TContrasena.Clear()
         CBSexo.SelectedIndex = 0
         RRolVendedor.Checked = True
+        FechaIngreso.Value = Now
         PBImagen.ImageLocation = "D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\pcgamer\pcgamer\Resources\usuario.jpg"
     End Sub
 
@@ -67,10 +68,6 @@ Public Class FormularioSuperUsuario
         CBSexo.Enabled = False
     End Sub
 
-    Private Sub FechaIngreso_ValueChanged(sender As Object, e As EventArgs) Handles FechaIngreso.ValueChanged
-        FechaIngreso.Value = Now
-    End Sub
-
     Private Sub cargarRol(rol As String)
         If rol = "Vendedor" Then
             RRolVendedor.Checked = True
@@ -97,6 +94,7 @@ Public Class FormularioSuperUsuario
         End If
         TUsuario.Text = usuario.usuario
         TContrasena.Text = usuario.contrasena
+        FechaIngreso.Value = usuario.fechaingreso
 
         If persona.imagen Is Nothing Then
             PBImagen.Image = Image.FromFile("D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\pcgamer\pcgamer\Resources\sin-imagen.png")
@@ -157,41 +155,54 @@ Public Class FormularioSuperUsuario
             bloquear()
             habilitar()
             TDni_Validated(sender, e)
+            TEmail_Validated(sender, e)
         End If
     End Sub
 
     Private Sub BGuardar_Click(sender As Object, e As EventArgs) Handles BGuardar.Click
-        If TDNI.Text = "" Or DNIvalidate = False Then
-            MsgBox("El DNI es un campo obligatorio", MsgBoxStyle.DefaultButton2 +
+        If TNombre.Text = "" Or TApellido.Text = "" Or TDNI.Text = "" Or TDomicilio.Text = "" Or TEmail.Text = "" Or
+            TUsuario.Text = "" Then
+            MsgBox("Debe completar los campos obligatorios!", MsgBoxStyle.DefaultButton2 +
+        MsgBoxStyle.Critical, "Registro Incompleto")
+        ElseIf DNIvalidate = False Then
+            MsgBox("Ingrese un DNI valido", MsgBoxStyle.DefaultButton2 +
                        MsgBoxStyle.Information, "DNI invalido")
+        ElseIf Emailvalidate = False Then
+            MsgBox("Ingrese un Email valido", MsgBoxStyle.DefaultButton2 +
+                       MsgBoxStyle.Information, "Email invalido")
+        ElseIf CBSexo.SelectedIndex = 0 Then
+            MsgBox("Seleccione un tipo de Sexo", MsgBoxStyle.DefaultButton2 +
+                       MsgBoxStyle.Information, "Sexo invalido")
         Else
-            Dim fila As Integer = DataGridUsuario.CurrentRow.Index
             Dim respuesta As MsgBoxResult
+            Dim fila As Integer = DataGridUsuario.CurrentRow.Index
             respuesta = MsgBox("¿Esta seguro que desea guardar los cambios realizados??",
-                           MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Editar Usuario")
+                       MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Editar Usuario")
             If MsgBoxResult.Yes = respuesta Then
-                Dim id_usuario As Integer = DataGridUsuario.CurrentRow().Cells(0).Value
-                Dim sexo As Char = determinarSexo()
-                Dim rol As String = determinarRol()
-                AccesoDatos.ActualizarUsuario(id_usuario, TNombre.Text, TApellido.Text, TDNI.Text,
-                                 TDomicilio.Text, TTelefono.Text, TEmail.Text, rol,
-                                              sexo, TUsuario.Text, TContrasena.Text, PBImagen.ImageLocation)
-                AccesoDatos.cargarUsuarios(DataGridUsuario)
-                MsgBox("Se ha modificado correctamente", MsgBoxStyle.DefaultButton2 +
-                               MsgBoxStyle.Information, "Modificacion exitosa")
-            Else
-                limpiar()
-                MsgBox("No se han realizado cambios", MsgBoxStyle.DefaultButton2 +
-                                   MsgBoxStyle.Information, "Operacion Cancelada")
+                Try
+                    Dim id_usuario As Integer = DataGridUsuario.CurrentRow().Cells(0).Value
+                    Dim sexo As Char = determinarSexo()
+                    Dim rol As String = determinarRol()
+                    AccesoDatos.ActualizarUsuario(id_usuario, TNombre.Text, TApellido.Text, TDNI.Text,
+                                     TDomicilio.Text, TTelefono.Text, TEmail.Text, rol,
+                                                  sexo, TUsuario.Text, TContrasena.Text, PBImagen.ImageLocation)
+                    AccesoDatos.cargarUsuarios(DataGridUsuario)
+                    MsgBox("Se ha modificado correctamente", MsgBoxStyle.DefaultButton2 +
+                                   MsgBoxStyle.Information, "Modificacion exitosa")
+                Catch ex As Exception
+                    MsgBox("Lo sentimos ha ocurrido un evento inesperado, el usuario no pudo ser registrado",
+                      MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Error al registrar")
+                Finally
+                    BCambiarImagen.Visible = False
+                    BNuevo.Visible = True
+                    BCancelar.Visible = False
+                    BGuardar.Visible = False
+                    BEditar.Visible = True
+                    BEliminar.Visible = True
+                    desbloquear()
+                    deshabilitar()
+                End Try
             End If
-            BCambiarImagen.Visible = False
-            BNuevo.Visible = True
-            BCancelar.Visible = False
-            BGuardar.Visible = False
-            BEditar.Visible = True
-            BEliminar.Visible = True
-            desbloquear()
-            deshabilitar()
         End If
     End Sub
 
@@ -343,99 +354,73 @@ Public Class FormularioSuperUsuario
         ElseIf CBSexo.SelectedIndex = 0 Then
             MsgBox("Seleccione un tipo de Sexo", MsgBoxStyle.DefaultButton2 +
                        MsgBoxStyle.Information, "Sexo invalido")
-        ElseIf PBImagen.ImageLocation = Nothing Or PBImagen.ImageLocation = "D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\pcgamer\pcgamer\Resources\usuario.jpg" Then
-
-            respuesta = MsgBox("El usuario se va a registrar sin ninguna imagen, ¿Es usted lo que eso desea?", MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 +
-                               MsgBoxStyle.Information, "Imagen no detectada")
-            If MsgBoxResult.Yes = respuesta Then
-                Try
-                    respuesta = MsgBox("¿Esta seguro que desea agregar al usuario??",
-                                       MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Agregar Usuario")
-                    If MsgBoxResult.Yes = respuesta Then
+        Else
+            If AccesoDatos.existePersona(TDNI.Text) Then
+                MsgBox("Ya existe un Usuario registrado con el DNI '" + TDNI.Text + "'", MsgBoxStyle.DefaultButton2 +
+                           MsgBoxStyle.Critical, "DNI en uso")
+            ElseIf AccesoDatos.existeEmailPersona(TEmail.Text) Then
+                MsgBox("Ya existe un Usuario registrado con el Email '" + TEmail.Text + "'", MsgBoxStyle.DefaultButton2 +
+                           MsgBoxStyle.Critical, "Email en uso")
+            Else
+                If PBImagen.ImageLocation = Nothing Or PBImagen.ImageLocation = "D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\pcgamer\pcgamer\Resources\usuario.jpg" Then
+                    MsgBox("El usuario se va a registrar sin ninguna imagen", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Imagen no detectada")
+                End If
+                respuesta = MsgBox("¿Esta seguro que desea agregar al usuario??",
+                                               MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Agregar Usuario")
+                If MsgBoxResult.Yes = respuesta Then
+                    Try
                         Dim rol As Integer = determinarRol()
                         Dim sexo As Char = determinarSexo()
                         Dim ultimo_id_persona As Integer
                         ultimo_id_persona = AccesoDatos.AgregarPersona(New personas() With {
-                                                   .nombres = TNombre.Text,
-                                                   .apellidos = TApellido.Text,
-                                                   .email = TEmail.Text,
-                                                   .domicilio = TDomicilio.Text,
-                                                   .dni = TDNI.Text,
-                                                   .imagen = PBImagen.ImageLocation,
-                                                   .rol_id = rol,
-                                                   .telefono = TTelefono.Text,
-                                                   .sexo = sexo
-                                                   })
+                                                       .nombres = TNombre.Text,
+                                                       .apellidos = TApellido.Text,
+                                                       .email = TEmail.Text,
+                                                       .domicilio = TDomicilio.Text,
+                                                       .dni = TDNI.Text,
+                                                       .imagen = PBImagen.ImageLocation,
+                                                       .rol_id = rol,
+                                                       .telefono = TTelefono.Text,
+                                                       .sexo = sexo
+                                                       })
                         AccesoDatos.AgregarUsuario(New usuarios() With {
-                                                   .usuario = TUsuario.Text,
-                                                   .contrasena = TContrasena.Text,
-                                                   .persona_id = ultimo_id_persona,
-                                                   .estado = 1,
-                                                   .fechaingreso = FechaIngreso.Value
-                                                   })
-                        limpiar()
+                                                       .usuario = TUsuario.Text,
+                                                       .contrasena = TContrasena.Text,
+                                                       .persona_id = ultimo_id_persona,
+                                                       .estado = 1,
+                                                       .fechaingreso = FechaIngreso.Value
+                                                       })
+
                         cargarUsuarios()
-
                         MsgBox("El Usuario se ha registrado correctamente", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Registro Exitoso")
-                    Else
-                        MsgBox("No se ha agregado el usuario", MsgBoxStyle.DefaultButton2 +
-                               MsgBoxStyle.Information, "Operacion Cancelada")
-                    End If
-                Catch ex As Exception
-                    MsgBox("Lo sentimos ha ocurrido un evento inesperado, el usuario no pudo ser registrado",
-                  MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Error al registrar")
+
+                    Catch ex As Exception
+                        MsgBox("Lo sentimos ha ocurrido un evento inesperado, el usuario no pudo ser registrado",
+                          MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Error al registrar")
+                    Finally
+                        BCancelar.Visible = False
+                        BAgregar.Visible = False
+                        BCambiarImagen.Visible = False
+                        BNuevo.Visible = True
+
+                        BGuardar.Visible = False
+                        BEditar.Visible = True
+                        BEliminar.Visible = True
+                        limpiar()
+                        desbloquear()
+                        deshabilitar()
                 End Try
-                BCancelar.Visible = False
-                BAgregar.Visible = False
-                BCambiarImagen.Visible = False
-                BNuevo.Visible = True
-
-                BGuardar.Visible = False
-                BEditar.Visible = True
-                BEliminar.Visible = True
-                limpiar()
-                desbloquear()
-                deshabilitar()
             End If
-        Else
-            respuesta = MsgBox("¿Esta seguro que desea agregar al usuario??",
-                                       MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Agregar Usuario")
-            If MsgBoxResult.Yes = respuesta Then
-                Dim rol As Integer = determinarRol()
-                Dim sexo As Char = determinarSexo()
-                Dim ultimo_id_persona As Integer
-                ultimo_id_persona = AccesoDatos.AgregarPersona(New personas() With {
-                                       .nombres = TNombre.Text,
-                                       .apellidos = TApellido.Text,
-                                       .email = TEmail.Text,
-                                       .domicilio = TDomicilio.Text,
-                                       .dni = TDNI.Text,
-                                       .imagen = PBImagen.ImageLocation,
-                                       .rol_id = rol,
-                                       .telefono = TTelefono.Text,
-                                       .sexo = sexo
-                                       })
-                AccesoDatos.AgregarUsuario(New usuarios() With {
-                                       .usuario = TUsuario.Text,
-                                       .contrasena = TContrasena.Text,
-                                       .persona_id = ultimo_id_persona,
-                                       .estado = 1,
-                                       .fechaingreso = FechaIngreso.Value
-                                       })
-                limpiar()
-                cargarUsuarios()
-
-                MsgBox("El Usuario se ha registrado correctamente", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Registro Exitoso")
-            End If
+        End If
         End If
     End Sub
 
     Private Function determinarRol() As Integer
         Dim rol As Integer
         If RRolSuper.Checked = True Then
-            Rol = 3
+            rol = 3
         ElseIf RRolAdmin.Checked = True Then
-            Rol = 2
+            rol = 2
         Else
             rol = 1
         End If

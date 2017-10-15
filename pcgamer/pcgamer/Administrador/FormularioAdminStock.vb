@@ -289,35 +289,48 @@ Public Class FormularioAdminStock
     End Sub
 
     Private Sub BAgregar_Click(sender As Object, e As EventArgs) Handles BAgregar.Click
-        Try
-            If TNombre.Text = "" Or TProcesador.Text = "" Or TPlacaMadre.Text = "" Or TRam.Text = "" Or TStock.Text = "" Or
+        If TNombre.Text = "" Or TProcesador.Text = "" Or TPlacaMadre.Text = "" Or TRam.Text = "" Or TStock.Text = "" Or
                 TCategoria.Text = "" Or TPlacaVideo.Text = "" Or TDiscoRigido.Text = "" Or TGabinete.Text = "" Or TPrecio.Text = "" Then
-                MsgBox("Debe completar todos los campos", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Campos incompletos")
+            MsgBox("Debe completar todos los campos", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Campos incompletos")
+        Else
+            If TPrecio.Text = 0 Then
+                MsgBox("El precio no puede ser 0", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Precio incorrecto")
+            ElseIf AccesoDatos.existeProducto(TNombre.Text) Then
+                MsgBox("Ya existe un producto registrado con el nombre '" + TNombre.Text + "'", MsgBoxStyle.DefaultButton2 +
+                           MsgBoxStyle.Critical, "Nombre en uso")
             Else
-                If TPrecio.Text = 0 Then
-                    MsgBox("El precio no puede ser 0", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Precio incorrecto")
-                Else
-                    Dim respuesta As MsgBoxResult
-                    respuesta = MsgBox("¿Esta seguro que desea agregar el producto??",
-                               MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Agregar Producto")
-                    If MsgBoxResult.Yes = respuesta Then
+                If PBImagen.ImageLocation = Nothing Then
+                    MsgBox("El producto se va a registrar sin ninguna imagen", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Imagen no detectada")
+                End If
+                If TStock.Text = 0 Then
+                    MsgBox("El producto se va a registrar sin ningun valor de stock", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Stock no detectado")
+                End If
+                Dim respuesta As MsgBoxResult
+                respuesta = MsgBox("¿Esta seguro que desea agregar el producto??",
+                           MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Agregar Producto")
+                If MsgBoxResult.Yes = respuesta Then
+                    Try
                         AccesoDatos.AgregarProducto(New productos() With
-                                                   {.nombre = TNombre.Text,
-                                                   .c1_procesador_id = TProcesador.SelectedIndex + 1,
-                                                   .c2_placamadre_id = TPlacaMadre.SelectedIndex + 1,
-                                                   .c3_ram_id = TRam.SelectedIndex + 1,
-                                                   .stock = TStock.Text,
-                                                   .categoria_id = TCategoria.SelectedIndex + 1,
-                                                   .c4_placavideo_id = TPlacaMadre.SelectedIndex + 1,
-                                                   .c5_discorigido_id = TDiscoRigido.SelectedIndex + 1,
-                                                   .c6_gabinete_id = TGabinete.SelectedIndex + 1,
-                                                   .precio = TPrecio.Text,
-                                                   .imagen = PBImagen.ImageLocation,
-                                                   .estado = 1
-                                                   })
+                                               {.nombre = TNombre.Text,
+                                               .c1_procesador_id = TProcesador.SelectedIndex + 1,
+                                               .c2_placamadre_id = TPlacaMadre.SelectedIndex + 1,
+                                               .c3_ram_id = TRam.SelectedIndex + 1,
+                                               .stock = TStock.Text,
+                                               .categoria_id = TCategoria.SelectedIndex + 1,
+                                               .c4_placavideo_id = TPlacaMadre.SelectedIndex + 1,
+                                               .c5_discorigido_id = TDiscoRigido.SelectedIndex + 1,
+                                               .c6_gabinete_id = TGabinete.SelectedIndex + 1,
+                                               .precio = TPrecio.Text,
+                                               .imagen = PBImagen.ImageLocation,
+                                               .estado = 1
+                                               })
+
+                        MsgBox("El producto se ha registrado correctamente", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Registro Exitoso")
+                    Catch ex As Exception
+                        MsgBox("Ha ocurrido un problema, el producto no se pudo agregar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Fallo al Agregar")
+                    Finally
                         limpiar()
                         cargarProductos()
-                        MsgBox("El producto se ha registrado correctamente", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Registro Exitoso")
                         desbloquear()
                         deshabilitar()
 
@@ -326,19 +339,10 @@ Public Class FormularioAdminStock
                         BEditar.Visible = True
                         BNuevo.Visible = True
                         BCambiarImagen.Visible = False
-                    End If
+                    End Try
                 End If
             End If
-        Catch ex As Exception
-            MsgBox("Ha ocurrido un problema, el producto no se pudo agregar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Fallo al Agregar")
-            desbloquear()
-            deshabilitar()
-
-            BAgregar.Visible = False
-            BCancelarAgregar.Visible = False
-            BEditar.Visible = True
-            BNuevo.Visible = True
-        End Try
+        End If
     End Sub
 
     Private Sub TStock_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TStock.KeyPress

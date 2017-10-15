@@ -133,9 +133,6 @@
   <data name="notebook-bangho1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\notebook-bangho1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="super-admin1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\super-admin1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Acer Aspire E 15" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Acer Aspire E 15.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -151,9 +148,6 @@
   <data name="informes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\informes.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="super-admin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\super-admin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="notebook-bangho" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\notebook-bangho.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -166,17 +160,17 @@
   <data name="gabinete-sentey" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gabinete-sentey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="sentey-kron-gs-6005-1x80mm-1x120mm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sentey-kron-gs-6005-1x80mm-1x120mm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="nzxt-guardian" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\nzxt-guardian.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="lupa-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lupa-icon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="THERMALTAKE N21 GAMING (3,0) LED ROJO1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\THERMALTAKE N21 GAMING (3,0) LED ROJO1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="factura4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\factura4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pcgamer-logo-grande" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pcgamer-logo-grande.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icerberg turbo z6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icerberg turbo z6.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,6 +202,9 @@
   <data name="pcgamer-logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pcgamer-logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CORSAIR GRAPHITE 230T ORANGE 3FAN LED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CORSAIR GRAPHITE 230T ORANGE 3FAN LED.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="almacen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\almacen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -232,9 +229,6 @@
   <data name="pcgamer-logo-grande2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pcgamer-logo-grande2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Sama-Jax-01-Negro-Rojo-120mm-Led-Fan-Red-X-4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Sama-Jax-01-Negro-Rojo-120mm-Led-Fan-Red-X-4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ok-icono" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ok-icono.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -243,9 +237,6 @@
   </data>
   <data name="pity" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pity.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Acer-Gamer-Vx151" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Acer-Gamer-Vx151.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="THERMALTAKE VERSA H22 (3,0)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\THERMALTAKE VERSA H22 (3,0)1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -262,6 +253,15 @@
   <data name="Pc Bangho Gamer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Pc Bangho Gamer.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Gamer-Hp-Omen-15-ax205la1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gamer-Hp-Omen-15-ax205la1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="almacen2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\almacen2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="THERMALTAKE N21 GAMING (3,0) LED ROJO1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\THERMALTAKE N21 GAMING (3,0) LED ROJO1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="factura21" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\factura2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -271,11 +271,11 @@
   <data name="gabinete2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gabinete2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="candelaria" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\candelaria.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="asus-background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\asus-background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pcgamer-logo-grande" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pcgamer-logo-grande.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cirkuit-planet-8232-gamer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cirkuit-planet-8232-gamer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -295,8 +295,11 @@
   <data name="stock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\stock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="marcelo-tinelli" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\marcelo-tinelli.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sin-imagen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sin-imagen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nzxt-guardian1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nzxt-guardian1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="THERMALTAKE N21 GAMING (3,0) LED ROJO" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\THERMALTAKE N21 GAMING (3,0) LED ROJO.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -319,14 +322,14 @@
   <data name="63375334-representante-de-servicio-al-cliente-3d-ilustraci-n-aislado-sobre-fondo-blanco-Foto-de-archivo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\63375334-representante-de-servicio-al-cliente-3d-ilustraci-n-aislado-sobre-fondo-blanco-Foto-de-archivo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="nzxt-guardian1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\nzxt-guardian1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Acer-Gamer-Vx151" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Acer-Gamer-Vx151.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Acer-Gamer-Vx15" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Acer-Gamer-Vx15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sentey-kron-gs-6005-1x80mm-1x120mm" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sentey-kron-gs-6005-1x80mm-1x120mm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Sama-Jax-01-Negro-Rojo-120mm-Led-Fan-Red-X-4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sama-Jax-01-Negro-Rojo-120mm-Led-Fan-Red-X-4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="wanda" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wanda.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -334,8 +337,8 @@
   <data name="powercase-7041-gamer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\powercase-7041-gamer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="almacen2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\almacen2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="factura4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\factura4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="database-backup-icons2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\database-backup-icons2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -349,17 +352,17 @@
   <data name="Sama-Jax-01-Blanco-&amp;-Rojo-120mm-Led" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sama-Jax-01-Blanco-&amp;-Rojo-120mm-Led.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sin-imagen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sin-imagen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="marcelo-tinelli" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\marcelo-tinelli.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CORSAIR GRAPHITE 230T ORANGE 3FAN LED" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CORSAIR GRAPHITE 230T ORANGE 3FAN LED.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="super-admin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\super-admin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="lupa" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lupa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Gamer-Hp-Omen-15-ax205la1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Gamer-Hp-Omen-15-ax205la1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="super-admin1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\super-admin1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="marcelo-gallardo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\marcelo-gallardo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -379,7 +382,7 @@
   <data name="pcgamer-logo-grande1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pcgamer-logo-grande1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="candelaria" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\candelaria.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Yiyo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Yiyo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

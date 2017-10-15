@@ -77,6 +77,27 @@
                      Select descripcion_formapago = fp.descripcion_formapago).ToList
         formapago.DataSource = datos
     End Sub
+
+    Shared Function existeCliente(dni As String) As Boolean
+        Dim existe As Boolean = True
+        Dim datos = (From c In ctx.clientes
+                     Where c.dni = dni
+                     Select Id_cliente = c.Id_cliente, Nombre = c.nombres).SingleOrDefault
+        If datos Is Nothing Then
+            existe = False
+        End If
+        Return existe
+    End Function
+    Shared Function existeEmailCliente(email As String) As Boolean
+        Dim existe As Boolean = True
+        Dim datos = (From c In ctx.clientes
+                     Where c.email = email
+                     Select Id_cliente = c.Id_cliente, Nombre = c.nombres).SingleOrDefault
+        If datos Is Nothing Then
+            existe = False
+        End If
+        Return existe
+    End Function
 #End Region
 
 #Region "Producto"
@@ -218,6 +239,17 @@
         cbCat.ValueMember = "Id_categoria"
         cbCat.DisplayMember = "descripcion_categoria"
     End Sub
+
+    Shared Function existeProducto(nombre As String) As Boolean
+        Dim existe As Boolean = True
+        Dim datos = (From p In ctx.productos
+                     Where p.nombre = nombre
+                     Select Id_producto = p.Id_producto, Nombre_Producto = p.nombre).SingleOrDefault
+        If datos Is Nothing Then
+            existe = False
+        End If
+        Return existe
+    End Function
 #End Region
 
 #Region "Usuario"
@@ -320,6 +352,27 @@
                        Where p.Id_persona = id
                        Select p).SingleOrDefault
         Return persona
+    End Function
+
+    Shared Function existePersona(dni As String) As Boolean
+        Dim existe As Boolean = True
+        Dim datos = (From p In ctx.personas
+                     Where p.dni = dni
+                     Select Id_persona = p.Id_persona, Nombre = p.nombres).SingleOrDefault
+        If datos Is Nothing Then
+            existe = False
+        End If
+        Return existe
+    End Function
+    Shared Function existeEmailPersona(email As String) As Boolean
+        Dim existe As Boolean = True
+        Dim datos = (From p In ctx.personas
+                     Where p.email = email
+                     Select Id_persona = p.Id_persona, Nombre = p.nombres).SingleOrDefault
+        If datos Is Nothing Then
+            existe = False
+        End If
+        Return existe
     End Function
 #End Region
 

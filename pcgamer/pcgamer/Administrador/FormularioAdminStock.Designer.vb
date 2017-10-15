@@ -178,16 +178,16 @@ Partial Class FormularioAdminStock
         Me.TStock.MaxLength = 3
         Me.TStock.Name = "TStock"
         Me.TStock.ReadOnly = True
-        Me.TStock.Size = New System.Drawing.Size(378, 22)
+        Me.TStock.Size = New System.Drawing.Size(347, 22)
         Me.TStock.TabIndex = 13
         '
         'TGabinete
         '
         Me.TGabinete.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TGabinete.FormattingEnabled = True
-        Me.TGabinete.Location = New System.Drawing.Point(635, 183)
+        Me.TGabinete.Location = New System.Drawing.Point(604, 183)
         Me.TGabinete.Name = "TGabinete"
-        Me.TGabinete.Size = New System.Drawing.Size(324, 22)
+        Me.TGabinete.Size = New System.Drawing.Size(342, 22)
         Me.TGabinete.TabIndex = 17
         '
         'BBaja
@@ -232,18 +232,18 @@ Partial Class FormularioAdminStock
         '
         Me.TDiscoRigido.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TDiscoRigido.FormattingEnabled = True
-        Me.TDiscoRigido.Location = New System.Drawing.Point(635, 144)
+        Me.TDiscoRigido.Location = New System.Drawing.Point(604, 144)
         Me.TDiscoRigido.Name = "TDiscoRigido"
-        Me.TDiscoRigido.Size = New System.Drawing.Size(324, 22)
+        Me.TDiscoRigido.Size = New System.Drawing.Size(342, 22)
         Me.TDiscoRigido.TabIndex = 16
         '
         'TPlacaVideo
         '
         Me.TPlacaVideo.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TPlacaVideo.FormattingEnabled = True
-        Me.TPlacaVideo.Location = New System.Drawing.Point(635, 102)
+        Me.TPlacaVideo.Location = New System.Drawing.Point(604, 102)
         Me.TPlacaVideo.Name = "TPlacaVideo"
-        Me.TPlacaVideo.Size = New System.Drawing.Size(324, 22)
+        Me.TPlacaVideo.Size = New System.Drawing.Size(342, 22)
         Me.TPlacaVideo.TabIndex = 15
         '
         'TProcesador
@@ -252,7 +252,7 @@ Partial Class FormularioAdminStock
         Me.TProcesador.FormattingEnabled = True
         Me.TProcesador.Location = New System.Drawing.Point(113, 102)
         Me.TProcesador.Name = "TProcesador"
-        Me.TProcesador.Size = New System.Drawing.Size(378, 22)
+        Me.TProcesador.Size = New System.Drawing.Size(347, 22)
         Me.TProcesador.TabIndex = 10
         '
         'TPlacaMadre
@@ -261,7 +261,7 @@ Partial Class FormularioAdminStock
         Me.TPlacaMadre.FormattingEnabled = True
         Me.TPlacaMadre.Location = New System.Drawing.Point(113, 144)
         Me.TPlacaMadre.Name = "TPlacaMadre"
-        Me.TPlacaMadre.Size = New System.Drawing.Size(378, 22)
+        Me.TPlacaMadre.Size = New System.Drawing.Size(347, 22)
         Me.TPlacaMadre.TabIndex = 11
         '
         'TRam
@@ -270,26 +270,26 @@ Partial Class FormularioAdminStock
         Me.TRam.FormattingEnabled = True
         Me.TRam.Location = New System.Drawing.Point(113, 183)
         Me.TRam.Name = "TRam"
-        Me.TRam.Size = New System.Drawing.Size(378, 22)
+        Me.TRam.Size = New System.Drawing.Size(347, 22)
         Me.TRam.TabIndex = 12
         '
         'TCategoria
         '
         Me.TCategoria.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TCategoria.FormattingEnabled = True
-        Me.TCategoria.Location = New System.Drawing.Point(635, 64)
+        Me.TCategoria.Location = New System.Drawing.Point(604, 64)
         Me.TCategoria.Name = "TCategoria"
-        Me.TCategoria.Size = New System.Drawing.Size(324, 22)
+        Me.TCategoria.Size = New System.Drawing.Size(342, 22)
         Me.TCategoria.TabIndex = 14
         '
         'TPrecio
         '
         Me.TPrecio.Font = New System.Drawing.Font("Verdana", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TPrecio.Location = New System.Drawing.Point(635, 224)
+        Me.TPrecio.Location = New System.Drawing.Point(604, 224)
         Me.TPrecio.MaxLength = 8
         Me.TPrecio.Name = "TPrecio"
         Me.TPrecio.ReadOnly = True
-        Me.TPrecio.Size = New System.Drawing.Size(324, 22)
+        Me.TPrecio.Size = New System.Drawing.Size(342, 22)
         Me.TPrecio.TabIndex = 18
         '
         'TNombre
@@ -298,7 +298,7 @@ Partial Class FormularioAdminStock
         Me.TNombre.Location = New System.Drawing.Point(113, 66)
         Me.TNombre.Name = "TNombre"
         Me.TNombre.ReadOnly = True
-        Me.TNombre.Size = New System.Drawing.Size(378, 22)
+        Me.TNombre.Size = New System.Drawing.Size(347, 22)
         Me.TNombre.TabIndex = 9
         '
         'BCancelar
@@ -426,7 +426,7 @@ Partial Class FormularioAdminStock
         '
         Me.LCategoria.AutoSize = True
         Me.LCategoria.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LCategoria.Location = New System.Drawing.Point(521, 68)
+        Me.LCategoria.Location = New System.Drawing.Point(492, 68)
         Me.LCategoria.Name = "LCategoria"
         Me.LCategoria.Size = New System.Drawing.Size(81, 17)
         Me.LCategoria.TabIndex = 25
@@ -436,7 +436,7 @@ Partial Class FormularioAdminStock
         '
         Me.LPrecio.AutoSize = True
         Me.LPrecio.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LPrecio.Location = New System.Drawing.Point(521, 226)
+        Me.LPrecio.Location = New System.Drawing.Point(492, 226)
         Me.LPrecio.Name = "LPrecio"
         Me.LPrecio.Size = New System.Drawing.Size(69, 17)
         Me.LPrecio.TabIndex = 29
@@ -456,7 +456,7 @@ Partial Class FormularioAdminStock
         '
         Me.LGabinete.AutoSize = True
         Me.LGabinete.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LGabinete.Location = New System.Drawing.Point(521, 186)
+        Me.LGabinete.Location = New System.Drawing.Point(492, 186)
         Me.LGabinete.Name = "LGabinete"
         Me.LGabinete.Size = New System.Drawing.Size(76, 17)
         Me.LGabinete.TabIndex = 28
@@ -466,7 +466,7 @@ Partial Class FormularioAdminStock
         '
         Me.LDiscoRigido.AutoSize = True
         Me.LDiscoRigido.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LDiscoRigido.Location = New System.Drawing.Point(521, 144)
+        Me.LDiscoRigido.Location = New System.Drawing.Point(492, 144)
         Me.LDiscoRigido.Name = "LDiscoRigido"
         Me.LDiscoRigido.Size = New System.Drawing.Size(100, 17)
         Me.LDiscoRigido.TabIndex = 27
@@ -476,7 +476,7 @@ Partial Class FormularioAdminStock
         '
         Me.LPlacaVideo.AutoSize = True
         Me.LPlacaVideo.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LPlacaVideo.Location = New System.Drawing.Point(521, 105)
+        Me.LPlacaVideo.Location = New System.Drawing.Point(492, 105)
         Me.LPlacaVideo.Name = "LPlacaVideo"
         Me.LPlacaVideo.Size = New System.Drawing.Size(92, 17)
         Me.LPlacaVideo.TabIndex = 26
@@ -527,9 +527,9 @@ Partial Class FormularioAdminStock
         Me.PBImagen.BackColor = System.Drawing.Color.White
         Me.PBImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PBImagen.ImageLocation = ""
-        Me.PBImagen.Location = New System.Drawing.Point(970, 66)
+        Me.PBImagen.Location = New System.Drawing.Point(966, 66)
         Me.PBImagen.Name = "PBImagen"
-        Me.PBImagen.Size = New System.Drawing.Size(183, 188)
+        Me.PBImagen.Size = New System.Drawing.Size(187, 188)
         Me.PBImagen.TabIndex = 1
         Me.PBImagen.TabStop = False
         '

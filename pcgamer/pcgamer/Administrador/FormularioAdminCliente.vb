@@ -87,36 +87,40 @@ Public Class FormularioAdminCliente
             MsgBox("Ingrese un Email valido", MsgBoxStyle.DefaultButton2 +
                        MsgBoxStyle.Information, "Email invalido")
         Else
-            Try
+            If AccesoDatos.existeCliente(TDni.Text) Then
+                MsgBox("Ya existe un cliente registrado con el DNI '" + TDni.Text + "'", MsgBoxStyle.DefaultButton2 +
+                           MsgBoxStyle.Critical, "DNI en uso")
+            ElseIf AccesoDatos.existeEmailCliente(TEmail.Text) Then
+                MsgBox("Ya existe un cliente registrado con el Email '" + TEmail.Text + "'", MsgBoxStyle.DefaultButton2 +
+                           MsgBoxStyle.Critical, "Email en uso")
+            Else
                 Dim respuesta As MsgBoxResult
                 respuesta = MsgBox("¿Esta seguro que desea Dar de agregar al cliente??",
-                           MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Alta Cliente")
+                       MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Alta Cliente")
                 If MsgBoxResult.Yes = respuesta Then
-                    AccesoDatos.AgregarCliente(New clientes() With
-                                               {.nombres = TNombre.Text,
-                                               .apellidos = TApellido.Text,
-                                               .dni = TDni.Text,
-                                               .domicilio = TDomicilio.Text,
-                                               .telefono = TTelefono.Text,
-                                               .email = TEmail.Text,
-                                               .fecharegistro = FechaReg.Value,
-                                               .estado = 1
-                                               })
-                    limpiar()
-                    cargarClientes()
-
-                    MsgBox("El Cliente se ha registrado correctamente", MsgBoxStyle.DefaultButton2 +
+                    Try
+                        AccesoDatos.AgregarCliente(New clientes() With
+                                           {.nombres = TNombre.Text,
+                                           .apellidos = TApellido.Text,
+                                           .dni = TDni.Text,
+                                           .domicilio = TDomicilio.Text,
+                                           .telefono = TTelefono.Text,
+                                           .email = TEmail.Text,
+                                           .fecharegistro = FechaReg.Value,
+                                           .estado = 1
+                                           })
+                        MsgBox("El Cliente se ha registrado correctamente", MsgBoxStyle.DefaultButton2 +
                             MsgBoxStyle.Information, "Registro Exitoso")
-                Else
-                    MsgBox("No se ha agregado el cliente", MsgBoxStyle.DefaultButton2 +
-                           MsgBoxStyle.Information, "Operacion Cancelada")
+                    Catch ex As Exception
+                        MsgBox("Lo sentimos ha ocurrido un evento inesperado, el cliente no pudo ser registrado",
+                         MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Error al registrar")
+                    Finally
+                        limpiar()
+                        cargarClientes()
+                    End Try
                 End If
-            Catch ex As Exception
-                MsgBox("Lo sentimos ha ocurrido un evento inesperado, el cliente no pudo ser registrado",
-            MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Error al registrar")
-            End Try
+            End If
         End If
-
     End Sub
 
     Private Sub TNombre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TNombre.KeyPress
@@ -184,6 +188,7 @@ Public Class FormularioAdminCliente
             bloquear()
             habilitar()
             TBDni_Validated(sender, e)
+            TBEmail_validated(sender, e)
         End If
     End Sub
 
@@ -211,31 +216,39 @@ Public Class FormularioAdminCliente
 #End Region
 
     Private Sub BGuardar_Click(sender As Object, e As EventArgs) Handles BGuardar.Click
-        If TBDNI.Text = "" Or DNIvalidate = False Then
-            MsgBox("El DNI es un campo obligatorio", MsgBoxStyle.DefaultButton2 +
+        If TBNombre.Text = "" Or TBApellido.Text = "" Or TBDNI.Text = "" Or TBDomicilio.Text = "" Or TBEmail.Text = "" Then
+            MsgBox("Debe completar los campos obligatorios!", MsgBoxStyle.DefaultButton2 +
+        MsgBoxStyle.Critical, "Registro Incompleto")
+        ElseIf DNIvalidate = False Then
+            MsgBox("Ingrese un DNI valido", MsgBoxStyle.DefaultButton2 +
                        MsgBoxStyle.Information, "DNI invalido")
+        ElseIf Emailvalidate = False Then
+            MsgBox("Ingrese un Email valido", MsgBoxStyle.DefaultButton2 +
+                       MsgBoxStyle.Information, "Email invalido")
         Else
             Dim respuesta As MsgBoxResult
             respuesta = MsgBox("¿Esta seguro que desea guardar los cambios realizados??",
                            MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Editar Cliente")
             If MsgBoxResult.Yes = respuesta Then
-                Dim id_cliente As Integer = DataGridCliente.CurrentRow().Cells(0).Value
-                Dim fecharegistro As Date = DataGridCliente.CurrentRow.Cells(4).Value
-                AccesoDatos.ActualizarCliente(id_cliente, TBNombre.Text, TBApellido.Text, TBDNI.Text,
-                                 TBDomicilio.Text, TBTelefono.Text, TBEmail.Text, fecharegistro)
-                AccesoDatos.cargarClientes(DataGridCliente)
-                MsgBox("Se ha modificado correctamente", MsgBoxStyle.DefaultButton2 +
-                               MsgBoxStyle.Information, "Modificacion exitosa")
-            Else
-                limpiar()
-                MsgBox("No se han realizado cambios", MsgBoxStyle.DefaultButton2 +
-                                   MsgBoxStyle.Information, "Operacion Cancelada")
+                Try
+                    Dim id_cliente As Integer = DataGridCliente.CurrentRow().Cells(0).Value
+                    Dim fecharegistro As Date = DataGridCliente.CurrentRow.Cells(4).Value
+                    AccesoDatos.ActualizarCliente(id_cliente, TBNombre.Text, TBApellido.Text, TBDNI.Text,
+                                     TBDomicilio.Text, TBTelefono.Text, TBEmail.Text, fecharegistro)
+                    AccesoDatos.cargarClientes(DataGridCliente)
+                    MsgBox("Se ha modificado correctamente", MsgBoxStyle.DefaultButton2 +
+                                   MsgBoxStyle.Information, "Modificacion exitosa")
+                Catch ex As Exception
+                    MsgBox("Lo sentimos ha ocurrido un evento inesperado, el cliente no pudo ser registrado",
+                      MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Error al registrar")
+                Finally
+                    BEliminar.Visible = True
+                    BCancelar.Visible = False
+                    BGuardar.Visible = False
+                    desbloquear()
+                    deshabilitar()
+                End Try
             End If
-            BEliminar.Visible = True
-            BCancelar.Visible = False
-            BGuardar.Visible = False
-            desbloquear()
-            deshabilitar()
         End If
     End Sub
 
@@ -293,6 +306,15 @@ Public Class FormularioAdminCliente
     Private Sub TBApellido_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TBApellido.KeyPress
         Dim re As New Regex("[^a-zA-ZñÑ_ \b]", RegexOptions.IgnoreCase)
         e.Handled = re.IsMatch(e.KeyChar)
+    End Sub
+    Private Sub TBEmail_Validated(sender As Object, e As EventArgs) Handles TBEmail.Validated
+        If ValidarEmail(TBEmail.Text) = False Then
+            Emailvalidate = False
+            MsgBox("Ingrese un Email valido", MsgBoxStyle.DefaultButton2 +
+                       MsgBoxStyle.Information, "Email invalido")
+        Else
+            Emailvalidate = True
+        End If
     End Sub
 
     Private Sub BEliminar_Click(sender As Object, e As EventArgs) Handles BEliminar.Click
