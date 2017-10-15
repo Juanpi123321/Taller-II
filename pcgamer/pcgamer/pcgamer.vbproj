@@ -154,6 +154,7 @@
     <Compile Include="forma_pago.vb">
       <DependentUpon>ModeloPcgamer.tt</DependentUpon>
     </Compile>
+    <Compile Include="Funciones-y-Metodos.vb" />
     <Compile Include="ModeloPcgamer.Context.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -248,7 +249,6 @@
     <Compile Include="Vendedor\FormularioStock.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Funciones.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Administrador\FormularioAdminCliente.resx">
@@ -462,6 +462,14 @@
       <DependentUpon>ModeloPcgamer.edmx</DependentUpon>
       <LastGenOutput>ModeloPcgamer.vb</LastGenOutput>
     </Content>
+    <None Include="Resources\candelaria.jpg" />
+    <None Include="Resources\wanda.jpg" />
+    <None Include="Resources\andrea.jpg" />
+    <None Include="Resources\pity.jpg" />
+    <None Include="Resources\marcelo-tinelli.jpg" />
+    <None Include="Resources\marcelo-gallardo.jpg" />
+    <None Include="Resources\icardi.jpg" />
+    <None Include="Resources\donald-trump.jpg" />
     <None Include="Resources\powercase-7041-gamer.png" />
     <None Include="Resources\sin-imagen.png" />
     <None Include="Resources\Acer-Gamer-Vx151.png" />

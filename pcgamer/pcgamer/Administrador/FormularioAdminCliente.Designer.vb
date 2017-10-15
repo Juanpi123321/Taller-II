@@ -424,7 +424,7 @@ Partial Class FormularioAdminCliente
         Me.TabPage1.Location = New System.Drawing.Point(4, 29)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1156, 431)
+        Me.TabPage1.Size = New System.Drawing.Size(1156, 437)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Registrar"
         '

@@ -49,7 +49,7 @@ Partial Class FormularioSuperAdmin
         Me.BCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BCerrarSesion.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BCerrarSesion.ForeColor = System.Drawing.Color.White
-        Me.BCerrarSesion.Location = New System.Drawing.Point(827, 72)
+        Me.BCerrarSesion.Location = New System.Drawing.Point(1023, 72)
         Me.BCerrarSesion.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BCerrarSesion.Name = "BCerrarSesion"
         Me.BCerrarSesion.Size = New System.Drawing.Size(166, 32)
@@ -60,17 +60,16 @@ Partial Class FormularioSuperAdmin
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Transparent
-        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.BBackup)
         Me.Panel1.Controls.Add(Me.BRoles)
         Me.Panel1.Controls.Add(Me.BUsuarios)
         Me.Panel1.Controls.Add(Me.PBInformes)
         Me.Panel1.Controls.Add(Me.PBStock)
         Me.Panel1.Controls.Add(Me.PBClientes)
-        Me.Panel1.Location = New System.Drawing.Point(205, 203)
+        Me.Panel1.Location = New System.Drawing.Point(316, 240)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(606, 277)
+        Me.Panel1.Size = New System.Drawing.Size(606, 268)
         Me.Panel1.TabIndex = 7
         '
         'BBackup
@@ -155,7 +154,7 @@ Partial Class FormularioSuperAdmin
         'PBLogo
         '
         Me.PBLogo.Image = Global.pcgamer.My.Resources.Resources.pcgamer_logo
-        Me.PBLogo.Location = New System.Drawing.Point(794, 14)
+        Me.PBLogo.Location = New System.Drawing.Point(990, 14)
         Me.PBLogo.Margin = New System.Windows.Forms.Padding(5)
         Me.PBLogo.Name = "PBLogo"
         Me.PBLogo.Size = New System.Drawing.Size(198, 34)
@@ -170,7 +169,7 @@ Partial Class FormularioSuperAdmin
         Me.PictureBox1.Location = New System.Drawing.Point(-18, -2)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(215, 221)
+        Me.PictureBox1.Size = New System.Drawing.Size(233, 218)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 9
         Me.PictureBox1.TabStop = False
@@ -181,7 +180,7 @@ Partial Class FormularioSuperAdmin
         Me.LTitulo.BackColor = System.Drawing.Color.Black
         Me.LTitulo.Font = New System.Drawing.Font("Verdana", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LTitulo.ForeColor = System.Drawing.Color.White
-        Me.LTitulo.Location = New System.Drawing.Point(251, 83)
+        Me.LTitulo.Location = New System.Drawing.Point(366, 81)
         Me.LTitulo.Name = "LTitulo"
         Me.LTitulo.Size = New System.Drawing.Size(519, 48)
         Me.LTitulo.TabIndex = 23
@@ -191,9 +190,10 @@ Partial Class FormularioSuperAdmin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackgroundImage = Global.pcgamer.My.Resources.Resources.superadmin_background3
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1006, 673)
+        Me.ClientSize = New System.Drawing.Size(1202, 673)
         Me.Controls.Add(Me.LTitulo)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.BCerrarSesion)
@@ -201,8 +201,9 @@ Partial Class FormularioSuperAdmin
         Me.Controls.Add(Me.PBLogo)
         Me.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Location = New System.Drawing.Point(150, 0)
+        Me.Location = New System.Drawing.Point(100, 0)
         Me.Margin = New System.Windows.Forms.Padding(5)
+        Me.MaximizeBox = False
         Me.Name = "FormularioSuperAdmin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Formulario Super Admininistrador"

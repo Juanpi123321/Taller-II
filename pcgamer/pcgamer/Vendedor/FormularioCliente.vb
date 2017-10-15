@@ -170,7 +170,7 @@ Public Class FormularioCliente
         End If
     End Sub
     Private Sub TEmail_Validated(sender As Object, e As EventArgs) Handles TEmail.Validated
-        If Funciones.ValidarEmail(TEmail.Text) = False Then
+        If ValidarEmail(TEmail.Text) = False Then
             ErrorProvider1.SetError(TEmail, "Porfavor ingrese un mail valido")
             Emailvalidate = False
             MsgBox("Ingrese un Email valido", MsgBoxStyle.DefaultButton2 +

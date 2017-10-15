@@ -1,6 +1,6 @@
 ﻿Public Class FormularioSuperRoles
     Private Sub FormularioSuperRoles_Closed(sender As Object, e As EventArgs) Handles Me.Closed
-        FormularioSuperAdmin.Show()
+        redirigirMenu(Me.Tag)
     End Sub
 
     Private Sub defectoSuper()

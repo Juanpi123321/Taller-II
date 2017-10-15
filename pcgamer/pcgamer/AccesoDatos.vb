@@ -58,7 +58,7 @@
         End Select
 
         grid.DataSource = datos
-        'oculta el Id_producto
+        'oculta el Id_cliente
         grid.Columns(0).Visible = False
         grid.Columns(5).Visible = False
     End Sub
@@ -220,4 +220,108 @@
     End Sub
 #End Region
 
+#Region "Usuario"
+    Shared Sub cargarUsuarios(grid As DataGridView)
+        Dim datos = (From u In ctx.usuarios
+                     Join p In ctx.personas On p.Id_persona Equals u.persona_id
+                     Join r In ctx.rol On r.Id_rol Equals p.rol_id
+                     Select Id_usuario = u.Id_usuario, Nombres = p.nombres, Apellidos = p.apellidos, DNI = p.dni,
+                         Rol = p.rol.tipo_rol, Estado = u.estado, Fecha_Ingreso = u.fechaingreso).ToList
+        grid.DataSource = datos
+        'oculta el Id_producto
+        grid.Columns(0).Visible = False
+        grid.Columns(5).Visible = False
+    End Sub
+
+    Shared Function capturarUsuario(id As Integer) As usuarios
+        Dim usuario = (From u In ctx.usuarios
+                       Where u.Id_usuario = id
+                       Select u).SingleOrDefault
+        Return usuario
+    End Function
+
+    Shared Sub ActualizarUsuario(id_usuario As Integer, nombres As String, apellidos As String, dni As Integer,
+                                 domicilio As String, telefono As String, email As String, rol As Integer,
+                                 sexo As Char, p_usuario As String, p_contrasena As String, imagen As String)
+        Dim usuario = (From u In ctx.usuarios
+                       Where u.Id_usuario = id_usuario
+                       Select u).SingleOrDefault
+        Dim persona = (From p In ctx.personas
+                       Where p.Id_persona = usuario.persona_id
+                       Select p).SingleOrDefault
+
+        usuario.usuario = p_usuario
+        usuario.contrasena = p_contrasena
+        With persona
+            .nombres = nombres
+            .apellidos = apellidos
+            .email = email
+            .domicilio = domicilio
+            .dni = dni
+            .rol_id = rol
+            .imagen = imagen
+            .telefono = telefono
+            .sexo = sexo
+        End With
+
+        ctx.SaveChanges()
+    End Sub
+
+    Shared Sub AgregarUsuario(usuario As usuarios)
+        ctx.usuarios.Add(usuario)
+        ctx.SaveChanges()
+    End Sub
+
+    Shared Sub buscarUsuario(busqueda As String, filtro As Integer, grid As DataGridView)
+        Dim datos = (From u In ctx.usuarios
+                     Join p In ctx.personas On p.Id_persona Equals u.persona_id
+                     Select Id_usuario = u.Id_usuario, Nombres = p.nombres, Apellidos = p.apellidos, DNI = p.dni,
+                         Rol = p.rol.tipo_rol, Estado = u.estado, Fecha_Ingreso = u.fechaingreso).ToList
+        Select Case filtro
+            Case 0
+                datos = (From u In ctx.usuarios
+                         Join p In ctx.personas On p.Id_persona Equals u.persona_id
+                         Where p.nombres.Contains(busqueda) Or p.apellidos.Contains(busqueda)
+                         Select Id_usuario = u.Id_usuario, Nombres = p.nombres, Apellidos = p.apellidos, DNI = p.dni,
+                         Rol = p.rol.tipo_rol, Estado = u.estado, Fecha_Ingreso = u.fechaingreso).ToList
+            Case 1
+                datos = (From u In ctx.usuarios
+                         Join p In ctx.personas On p.Id_persona Equals u.persona_id
+                         Where p.dni.ToString.Contains(busqueda)
+                         Select Id_usuario = u.Id_usuario, Nombres = p.nombres, Apellidos = p.apellidos, DNI = p.dni,
+                         Rol = p.rol.tipo_rol, Estado = u.estado, Fecha_Ingreso = u.fechaingreso).ToList
+        End Select
+
+        grid.DataSource = datos
+        'oculta el Id_usuario
+        grid.Columns(0).Visible = False
+        grid.Columns(5).Visible = False
+    End Sub
+
+    Shared Sub EliminarUsuario(id_usuario As Integer, estado As Integer)
+        Dim usuario = (From u In ctx.usuarios
+                       Where u.Id_usuario = id_usuario
+                       Select u
+                  ).SingleOrDefault
+        usuario.estado = estado
+        ctx.SaveChanges()
+    End Sub
+
+#Region "Persona"
+    Shared Function AgregarPersona(persona As personas) As Integer
+        ctx.personas.Add(persona)
+        ctx.SaveChanges()
+        Dim id_persona As Integer = persona.Id_persona
+        Return id_persona
+    End Function
+
+    Shared Function capturarPersona(id As Integer) As personas
+        Dim persona = (From p In ctx.personas
+                       Where p.Id_persona = id
+                       Select p).SingleOrDefault
+        Return persona
+    End Function
+#End Region
+
+#End Region
 End Class

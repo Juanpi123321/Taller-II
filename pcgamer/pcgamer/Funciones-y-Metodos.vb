@@ -1,4 +1,17 @@
-﻿Module Funciones
+﻿Module Funciones_y_Metodos
+
+    'De acuerdo al tipo de rol redirige
+    Public Sub redirigirMenu(ByVal rol As String)
+        If rol = "SuperAdministrador" Then
+            FormularioSuperAdmin.Show()
+        ElseIf rol = "Administrador" Then
+            FormularioAdministrador.Show()
+        ElseIf rol = "Vendedor" Then
+            FormularioVendedor.Show()
+        Else
+            MsgBox("Tipo de ROL desconocido")
+        End If
+    End Sub
 
     Function ValidarEmail(ByVal email As String) As Boolean
         Dim emailRegex As New System.Text.RegularExpressions.Regex(

@@ -2,7 +2,7 @@
 
 Public Class FormularioAdminCliente
     Private Sub FormularioAdminCliente_Closed(sender As Object, e As EventArgs) Handles Me.Closed
-        FormularioAdministrador.Show()
+        redirigirMenu(Me.Tag)
     End Sub
 
     Dim DNIvalidate As Boolean
@@ -106,7 +106,7 @@ Public Class FormularioAdminCliente
                     cargarClientes()
 
                     MsgBox("El Cliente se ha registrado correctamente", MsgBoxStyle.DefaultButton2 +
-            MsgBoxStyle.Information, "Registro Exitoso")
+                            MsgBoxStyle.Information, "Registro Exitoso")
                 Else
                     MsgBox("No se ha agregado el cliente", MsgBoxStyle.DefaultButton2 +
                            MsgBoxStyle.Information, "Operacion Cancelada")
@@ -161,7 +161,7 @@ Public Class FormularioAdminCliente
         End If
     End Sub
     Private Sub TEmail_Validated(sender As Object, e As EventArgs) Handles TEmail.Validated
-        If Funciones.ValidarEmail(TEmail.Text) = False Then
+        If ValidarEmail(TEmail.Text) = False Then
             ErrorProvider1.SetError(TEmail, "Porfavor ingrese un mail valido")
             Emailvalidate = False
             MsgBox("Ingrese un Email valido", MsgBoxStyle.DefaultButton2 +
@@ -172,7 +172,7 @@ Public Class FormularioAdminCliente
     End Sub
 
     Private Sub BEditar_Click(sender As Object, e As EventArgs) Handles BEditar.Click
-        If DataGridCliente.CurrentRow Is Nothing Or TBApellido.Text = "       ********************" Then
+        If DataGridCliente.CurrentRow Is Nothing Then
             MsgBox("Seleccione un cliente para poder editar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Edicion Invalida")
         ElseIf DataGridCliente.CurrentRow.DefaultCellStyle.BackColor = Color.Gray Then
             MsgBox("No es posible editar, el cliente esta dado de baja", MsgBoxStyle.DefaultButton2 +
@@ -186,6 +186,7 @@ Public Class FormularioAdminCliente
             TBDni_Validated(sender, e)
         End If
     End Sub
+
     Private Xpos, Ypos
     Private Sub FormularioCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
@@ -226,6 +227,7 @@ Public Class FormularioAdminCliente
                 MsgBox("Se ha modificado correctamente", MsgBoxStyle.DefaultButton2 +
                                MsgBoxStyle.Information, "Modificacion exitosa")
             Else
+                limpiar()
                 MsgBox("No se han realizado cambios", MsgBoxStyle.DefaultButton2 +
                                    MsgBoxStyle.Information, "Operacion Cancelada")
             End If
@@ -245,6 +247,7 @@ Public Class FormularioAdminCliente
         BGuardar.Visible = False
         desbloquear()
         deshabilitar()
+        limpiar()
     End Sub
 
     Private Sub DataGridCliente_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridCliente.CellEnter
@@ -293,7 +296,7 @@ Public Class FormularioAdminCliente
     End Sub
 
     Private Sub BEliminar_Click(sender As Object, e As EventArgs) Handles BEliminar.Click
-        If DataGridCliente.CurrentRow Is Nothing Or TBNombre.Text = "       ********************" Then
+        If DataGridCliente.CurrentRow Is Nothing Then
             MsgBox("Seleccione un cliente para eliminar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
         Else
             Dim respuesta As MsgBoxResult
@@ -319,7 +322,7 @@ Public Class FormularioAdminCliente
     End Sub
 
     Private Sub BAlta_Click(sender As Object, e As EventArgs) Handles BAlta.Click
-        If DataGridCliente.CurrentRow Is Nothing Or TBNombre.Text = "       ********************" Then
+        If DataGridCliente.CurrentRow Is Nothing Then
             MsgBox("Seleccione un cliente para dar de alta", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
         Else
             Dim respuesta As MsgBoxResult

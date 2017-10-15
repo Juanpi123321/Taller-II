@@ -1,22 +1,19 @@
 ﻿
 Public Class FormularioSuperAdmin
 
-    Private Sub BCerrarSesion_Click(sender As Object, e As EventArgs) Handles BCerrarSesion.Click
-        Dim respuesta As MsgBoxResult
-        respuesta = MsgBox("¿Esta seguro que desea Abandonar la Sesion?", MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Question, "Cerrar Sesion")
-        If MsgBoxResult.Yes = respuesta Then
-            Login.Show()
-            Me.Close()
-        End If
+    Private Sub BUsuarios_Click(sender As Object, e As EventArgs) Handles BUsuarios.Click
+        'Le aviso el tipo de rol
+        FormularioSuperUsuario.Tag = Me.Tag
+        FormularioSuperUsuario.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub BRoles_Click(sender As Object, e As EventArgs) Handles BRoles.Click
+        verificarAcceso()
     End Sub
 
     Private Sub BBackup_Click(sender As Object, e As EventArgs) Handles BBackup.Click
         MsgBox("Disponible para la segunda entrega, disculpe las molestias", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "No disponible")
-    End Sub
-
-    Private Sub BUsuarios_Click(sender As Object, e As EventArgs) Handles BUsuarios.Click
-        FormularioSuperUsuario.Show()
-        Me.Hide()
     End Sub
 
     'Verifica la autenticidad del superadministrador, en caso de que deje abierto o de alguna manera alguna persona extraña acceda al sistema y desee otorgarse permisos
@@ -81,6 +78,8 @@ Public Class FormularioSuperAdmin
         AddHandler BIngresar.Click, Sub(sender, args)
                                         If TUsuario.Text = "superadmin" And TContrasena.Text <> "" Then
                                             MsgBox("Maneje con cautela los permisos otorgados a los usuarios", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Acceso Autorizado")
+                                            'Le aviso el tipo de rol
+                                            FormularioSuperRoles.Tag = Me.Tag
                                             FormularioSuperRoles.Show()
                                             Me.Hide()
                                         Else
@@ -99,9 +98,29 @@ Public Class FormularioSuperAdmin
         Me.Opacity = 1
     End Sub
 
-    Private Sub BRoles_Click(sender As Object, e As EventArgs) Handles BRoles.Click
-        'MsgBox("Disponible para la segunda entrega, disculpe las molestias", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "No disponible")
-        verificarAcceso()
+    Private Sub BCerrarSesion_Click(sender As Object, e As EventArgs) Handles BCerrarSesion.Click
+        Dim respuesta As MsgBoxResult
+        respuesta = MsgBox("¿Esta seguro que desea Abandonar la Sesion?", MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Question, "Cerrar Sesion")
+        If MsgBoxResult.Yes = respuesta Then
+            Login.Show()
+            Me.Close()
+        End If
     End Sub
 
+#Region "bloquear movimiento del form"
+    Private Xpos, Ypos
+    Private Sub FormularioAdministrador_Move(sender As Object, e As EventArgs) Handles Me.Move
+        If Xpos > 0 Then
+            Location = New Point(Xpos, Ypos)
+        End If
+    End Sub
+
+    Private Sub FormularioAdministrador_Load(sender As Object, e As EventArgs) Handles Me.Load
+#Region "bloquear movimiento del form"
+        CenterToScreen()
+        Xpos = Location.X
+        Ypos = Location.Y
+#End Region
+    End Sub
+#End Region
 End Class

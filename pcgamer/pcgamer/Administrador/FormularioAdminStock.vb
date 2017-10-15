@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 Public Class FormularioAdminStock
     Private Sub FormularioAdminStock_Closed(sender As Object, e As EventArgs) Handles Me.Closed
-        FormularioAdministrador.Show()
+        redirigirMenu(Me.Tag)
     End Sub
 
     Private Sub limpiar()
@@ -72,9 +72,6 @@ Public Class FormularioAdminStock
         TGabinete.SelectedIndex = producto.c6_gabinete_id - 1
         TPrecio.Text = producto.precio
 
-        'Cambiar por direccion del producto
-        'Dim imagen As String = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\gabinete.jpg"
-        'PBImagen.Image = Image.FromFile(imagen)
         If producto.imagen Is Nothing Or producto.imagen = "no-disponible" Then
             PBImagen.Image = Image.FromFile("D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\pcgamer\pcgamer\Resources\sin-imagen.png")
         Else

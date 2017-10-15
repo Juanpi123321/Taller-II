@@ -107,7 +107,7 @@
           <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="domicilio" Type="text" Nullable="false" />
           <Property Name="dni" Type="int" Nullable="false" />
-          <Property Name="imagen" Type="text" Nullable="false" />
+          <Property Name="imagen" Type="text" />
           <Property Name="rol_id" Type="int" Nullable="false" />
           <Property Name="telefono" Type="text" />
           <Property Name="sexo" Type="varchar" MaxLength="1" Nullable="false" />
@@ -504,7 +504,7 @@
           <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="domicilio" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="dni" Type="Int32" Nullable="false" />
-          <Property Name="imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="rol_id" Type="Int32" Nullable="false" />
           <Property Name="telefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="rol" Relationship="Self.FK_personas_rol" FromRole="personas" ToRole="rol" />

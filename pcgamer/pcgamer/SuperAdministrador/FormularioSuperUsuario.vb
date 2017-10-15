@@ -3,10 +3,10 @@ Imports System.IO
 
 Public Class FormularioSuperUsuario
     Private Sub FormularioSuperUsuario_Closed(sender As Object, e As EventArgs) Handles Me.Closed
-        FormularioSuperAdmin.Show()
+        redirigirMenu(Me.Tag)
     End Sub
 
-    Dim DNIvalidate As Boolean = True
+    Dim DNIvalidate As Boolean
     Dim Emailvalidate As Boolean
 
     Private Sub limpiar()
@@ -16,6 +16,11 @@ Public Class FormularioSuperUsuario
         TDomicilio.Clear()
         TTelefono.Clear()
         TEmail.Clear()
+        TUsuario.Clear()
+        TContrasena.Clear()
+        CBSexo.SelectedIndex = 0
+        RRolVendedor.Checked = True
+        PBImagen.ImageLocation = "D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\pcgamer\pcgamer\Resources\usuario.jpg"
     End Sub
 
     Private Sub habilitar()
@@ -28,6 +33,8 @@ Public Class FormularioSuperUsuario
         RRolVendedor.Enabled = True
         RRolAdmin.Enabled = True
         RRolSuper.Enabled = True
+        TUsuario.ReadOnly = False
+        TContrasena.ReadOnly = False
     End Sub
 
     Private Sub deshabilitar()
@@ -40,124 +47,168 @@ Public Class FormularioSuperUsuario
         RRolVendedor.Enabled = False
         RRolAdmin.Enabled = False
         RRolSuper.Enabled = False
+        TUsuario.ReadOnly = True
+        TContrasena.ReadOnly = True
     End Sub
 
-    'Si estan habilitados los campos para modificar y hace click en otro lado
-    Private Sub cancelarAgregarEditar()
-        If BCancelar.Visible = True Then
-            MsgBox("Debe finalizar la edicion antes de continuar", MsgBoxStyle.DefaultButton2 +
-                   MsgBoxStyle.Exclamation, "Operacion cancelada")
-            limpiar()
-            BImagen.Visible = False
-            BNuevo.Visible = True
-            BEditar.Visible = True
-            BEliminar.Visible = True
-            BCancelar.Visible = False
-            BAgregar.Visible = False
-            BGuardar.Visible = False
-            deshabilitar()
+    Private Sub bloquear()
+        TBuscar.Enabled = False
+        CBBuscar.Enabled = False
+        DataGridUsuario.Enabled = False
+        'esta loco funciona alrevez nose xq
+        CBSexo.Enabled = True
+    End Sub
+
+    Private Sub desbloquear()
+        TBuscar.Enabled = True
+        CBBuscar.Enabled = True
+        DataGridUsuario.Enabled = True
+        'esta loco funciona alrevez nose xq
+        CBSexo.Enabled = False
+    End Sub
+
+    Private Sub FechaIngreso_ValueChanged(sender As Object, e As EventArgs) Handles FechaIngreso.ValueChanged
+        FechaIngreso.Value = Now
+    End Sub
+
+    Private Sub cargarRol(rol As String)
+        If rol = "Vendedor" Then
+            RRolVendedor.Checked = True
+        ElseIf rol = "Administrador" Then
+            RRolAdmin.Checked = True
+        Else
+            RRolSuper.Checked = True
         End If
     End Sub
 
-    Private Sub FechaReg_ValueChanged(sender As Object, e As EventArgs) Handles FechaReg.ValueChanged
-        FechaReg.Value = Now
+    Private Sub cargarDetalle(usuario As usuarios, persona As personas)
+        TApellido.Text = persona.apellidos
+        TNombre.Text = persona.nombres
+        TDNI.Text = persona.dni
+        TDomicilio.Text = persona.domicilio
+        TTelefono.Text = persona.telefono
+        TEmail.Text = persona.email
+        If persona.sexo = "M" Then
+            CBSexo.SelectedIndex = 1
+        ElseIf persona.sexo = "F" Then
+            CBSexo.SelectedIndex = 2
+        Else
+            CBSexo.SelectedIndex = 3
+        End If
+        TUsuario.Text = usuario.usuario
+        TContrasena.Text = usuario.contrasena
+
+        If persona.imagen Is Nothing Then
+            PBImagen.Image = Image.FromFile("D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\pcgamer\pcgamer\Resources\sin-imagen.png")
+        Else
+            PBImagen.ImageLocation = persona.imagen
+            PBImagen.Image = Image.FromFile(persona.imagen)
+        End If
+        Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
     End Sub
 
-    Private Sub FormularioSuperUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        DataGridUsuario.Rows.Add("0001", "Gallardo", "Marcelo", "25332121", "Administrador", "21/09/2017 10:09")
-        DataGridUsuario.Rows.Add("0002", "Trump", "Donald", "10123341", "Vendedor", "21/09/2017 17:41")
-        DataGridUsuario.Rows.Add("0003", "Martinez", "Pity", "40112858", "Vendedor", "22/09/2017 11:01")
-        DataGridUsuario.Rows.Add("0004", "Tinelli", "Marcelo", "15020491", "Vendedor", "23/09/2017 09:33")
-        TNombre.Text = "        *********************      "
-        TApellido.Text = "        *********************      "
-        TDNI.Text = "        *********************      "
-        TDomicilio.Text = "        *********************      "
-        TTelefono.Text = "        *********************      "
-        TEmail.Text = "        *********************      "
-        Dim imagen As String = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\usuarios\usuario.jpg"
-        PBImagen.Image = Image.FromFile(imagen)
+    Private Sub cargarUsuarios()
+        AccesoDatos.cargarUsuarios(DataGridUsuario)
+        DataGridUsuario.ClearSelection()
+
+        TApellido.Clear()
+        TNombre.Clear()
+        TDNI.Clear()
+        TDomicilio.Clear()
+        TTelefono.Clear()
+        TEmail.Clear()
+        CBSexo.SelectedIndex = 0
+        TUsuario.Clear()
+        TContrasena.Clear()
+        RRolVendedor.Checked = True
+        CBBuscar.SelectedIndex = 0
+        PBImagen.ImageLocation = "D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\pcgamer\pcgamer\Resources\usuario.jpg"
         Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
 
     End Sub
 
+    Private Sub FormularioSuperUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+#Region "bloquear movimiento del form"
+            CenterToScreen()
+            Xpos = Location.X
+            Ypos = Location.Y
+#End Region
+            cargarUsuarios()
+            BEliminar.Visible = False
+        Catch ex As Exception
+            MsgBox("Ha ocurrido un error, la lista de usuarios no se pudo cargar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Error al cargar Datagrid")
+        End Try
+    End Sub
+
     Private Sub BEditar_Click(sender As Object, e As EventArgs) Handles BEditar.Click
-        Dim fila As Integer = DataGridUsuario.CurrentRow.Index
-        If DataGridUsuario.CurrentRow.DefaultCellStyle.BackColor = Color.Gray Then
+        If DataGridUsuario.CurrentRow Is Nothing Then
+            MsgBox("Seleccione un usuario para poder editar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Edicion Invalida")
+        ElseIf DataGridUsuario.CurrentRow.DefaultCellStyle.BackColor = Color.Gray Then
             MsgBox("No es posible editar, el usuario esta dado de baja", MsgBoxStyle.DefaultButton2 +
                        MsgBoxStyle.Exclamation, "Operacion invalida")
-        ElseIf DataGridUsuario.Item(1, fila).Value = "" Then
-            MsgBox("Seleccione un usuario para editar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
         Else
-            BImagen.Visible = True
+            BCambiarImagen.Visible = True
             BNuevo.Visible = False
             BEditar.Visible = False
             BEliminar.Visible = False
             BCancelar.Visible = True
             BGuardar.Visible = True
+            bloquear()
             habilitar()
+            TDni_Validated(sender, e)
         End If
     End Sub
 
     Private Sub BGuardar_Click(sender As Object, e As EventArgs) Handles BGuardar.Click
-        If TDNI.Text = "" Then
-            MsgBox("Debe ingresar un nro de DNI para poder continuar ", MsgBoxStyle.DefaultButton2 +
-                           MsgBoxStyle.Critical, "Operacion Invalida")
+        If TDNI.Text = "" Or DNIvalidate = False Then
+            MsgBox("El DNI es un campo obligatorio", MsgBoxStyle.DefaultButton2 +
+                       MsgBoxStyle.Information, "DNI invalido")
         Else
-            Dim dni As Long = Long.Parse(TDNI.Text)
             Dim fila As Integer = DataGridUsuario.CurrentRow.Index
-            Dim rol As String = DataGridUsuario.Item(4, fila).Value
-            If ValidarDNI(dni) Then
-                Dim respuesta As MsgBoxResult
-                respuesta = MsgBox("¿Esta seguro que desea guardar los cambios realizados??",
-                                   MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Editar Usuario")
-                If MsgBoxResult.Yes = respuesta Then
-                    DataGridUsuario.Item(1, fila).Value = TApellido.Text
-                    DataGridUsuario.Item(2, fila).Value = TNombre.Text
-                    DataGridUsuario.Item(3, fila).Value = TDNI.Text
-                    If RRolVendedor.Checked = True Then
-                        rol = "Vendedor"
-                    ElseIf RRolAdmin.Checked = True Then
-                        rol = "Administrador"
-                    Else
-                        rol = "Super Administrador"
-                    End If
-                    DataGridUsuario.Item(4, fila).Value = rol
-                    MsgBox("Se ha modificado correctamente", MsgBoxStyle.DefaultButton2 +
-                                   MsgBoxStyle.Information, "Modificacion exitosa")
-                Else
-                    MsgBox("No se han realizado cambios", MsgBoxStyle.DefaultButton2 +
-                           MsgBoxStyle.Information, "Operacion Cancelada")
-                End If
-                BImagen.Visible = False
-                BNuevo.Visible = True
-                BCancelar.Visible = False
-                BGuardar.Visible = False
-                BEditar.Visible = True
-                BEliminar.Visible = True
-                deshabilitar()
+            Dim respuesta As MsgBoxResult
+            respuesta = MsgBox("¿Esta seguro que desea guardar los cambios realizados??",
+                           MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Editar Usuario")
+            If MsgBoxResult.Yes = respuesta Then
+                Dim id_usuario As Integer = DataGridUsuario.CurrentRow().Cells(0).Value
+                Dim sexo As Char = determinarSexo()
+                Dim rol As String = determinarRol()
+                AccesoDatos.ActualizarUsuario(id_usuario, TNombre.Text, TApellido.Text, TDNI.Text,
+                                 TDomicilio.Text, TTelefono.Text, TEmail.Text, rol,
+                                              sexo, TUsuario.Text, TContrasena.Text, PBImagen.ImageLocation)
+                AccesoDatos.cargarUsuarios(DataGridUsuario)
+                MsgBox("Se ha modificado correctamente", MsgBoxStyle.DefaultButton2 +
+                               MsgBoxStyle.Information, "Modificacion exitosa")
             Else
-                MsgBox("Ingrese un DNI valido", MsgBoxStyle.DefaultButton2 +
-                           MsgBoxStyle.Information, "DNI invalido")
-                DNIvalidate = False
+                limpiar()
+                MsgBox("No se han realizado cambios", MsgBoxStyle.DefaultButton2 +
+                                   MsgBoxStyle.Information, "Operacion Cancelada")
             End If
+            BCambiarImagen.Visible = False
+            BNuevo.Visible = True
+            BCancelar.Visible = False
+            BGuardar.Visible = False
+            BEditar.Visible = True
+            BEliminar.Visible = True
+            desbloquear()
+            deshabilitar()
         End If
-
     End Sub
 
     Private Sub BCancelar_Click(sender As Object, e As EventArgs) Handles BCancelar.Click
+        MsgBox("No se han realizado cambios", MsgBoxStyle.DefaultButton2 +
+                           MsgBoxStyle.Information, "Operacion Cancelada")
         BNuevo.Visible = True
-        BImagen.Visible = False
+        BCambiarImagen.Visible = False
         BCancelar.Visible = False
         BAgregar.Visible = False
         BGuardar.Visible = False
         BEditar.Visible = True
         BEliminar.Visible = True
+        desbloquear()
         deshabilitar()
-        MsgBox("No se han realizado cambios", MsgBoxStyle.DefaultButton2 +
-                           MsgBoxStyle.Information, "Operacion Cancelada")
+        limpiar()
     End Sub
-
-
 
     Private Sub TDni_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TDNI.KeyPress
         If Not IsNumeric(e.KeyChar) Then
@@ -165,14 +216,14 @@ Public Class FormularioSuperUsuario
         End If
     End Sub
     Private Sub TDni_Validated(sender As Object, e As EventArgs) Handles TDNI.Validated
-        Dim dni As Long
         If TDNI.Text <> "" Then
-            dni = TDNI.Text
-            If Not ValidarDNI(dni) Then
-                MsgBox("Ingrese un DNI valido", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "DNI invalido")
+            If Long.Parse(TDNI.Text) < 3000000 Or Long.Parse(TDNI.Text) > 99999999 Then
+                MsgBox("Ingrese un DNI valido", MsgBoxStyle.DefaultButton2 +
+                       MsgBoxStyle.Information, "DNI invalido")
+                DNIvalidate = False
+            Else
+                DNIvalidate = True
             End If
-        Else
-            MsgBox("Ingrese un nro de DNI para poder continuar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "DNI invalido")
         End If
     End Sub
     Private Sub TNombre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TNombre.KeyPress
@@ -186,64 +237,15 @@ Public Class FormularioSuperUsuario
 
     Private Sub DataGridUsuario_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridUsuario.CellEnter
         Dim fila As Integer = DataGridUsuario.CurrentRow.Index
-        TApellido.Text = DataGridUsuario.Item(1, fila).Value
-        TNombre.Text = DataGridUsuario.Item(2, fila).Value
-        TDNI.Text = DataGridUsuario.Item(3, fila).Value
-        Dim rol As String = DataGridUsuario.Item(4, fila).Value
-        If rol = "Vendedor" Then
-            RRolVendedor.Checked = True
-        ElseIf rol = "Administrador" Then
-            RRolAdmin.Checked = True
-        Else
-            RRolSuper.Checked = True
-        End If
+        Dim id_usuario As Integer = DataGridUsuario.Item(0, fila).Value
+        Dim usuario As usuarios = AccesoDatos.capturarUsuario(id_usuario)
+        Dim persona As personas = AccesoDatos.capturarPersona(usuario.persona_id)
+        habilitar()
+        cargarRol(DataGridUsuario.Item(4, fila).Value)
+        cargarDetalle(usuario, persona)
+        deshabilitar()
 
-        Dim domicilio As String = "-"
-        Dim telefono As String = "-"
-        Dim email As String = "-"
-        Dim imagen As String = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\usuarios\usuario.jpg"
-        Select Case fila
-            Case 0
-                domicilio = "B° Nuñez Buenos Aires"
-                telefono = "01199850312"
-                email = "marcelitogallardo@hotmail.com"
-                imagen = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\usuarios\marcelo-gallardo.jpg"
-
-            Case 1
-                domicilio = "Queens - New York (USA)"
-                telefono = "-"
-                email = "donald-trump@outlook.com"
-                imagen = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\usuarios\donald-trump.jpg"
-            Case 2
-                domicilio = "Guaymallén Mendonza"
-                telefono = "3782123461"
-                email = "pitymartinez@gmail.com"
-                imagen = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\usuarios\pity.jpg"
-            Case 3
-                domicilio = "Bolivar Buenos Aires"
-                telefono = "0112212388"
-                email = "cuervotinelli@hotmail.com"
-                imagen = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\usuarios\marcelo-tinelli.jpg"
-        End Select
-        TDomicilio.Text = domicilio
-        TTelefono.Text = telefono
-        TEmail.Text = email
-        PBImagen.Image = Image.FromFile(imagen)
-        Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
-
-        If TApellido.Text = "" Then
-            TNombre.Text = "        *********************      "
-            TApellido.Text = "        *********************      "
-            TDNI.Text = "        *********************      "
-            TDomicilio.Text = "        *********************      "
-            TTelefono.Text = "        *********************      "
-            TEmail.Text = "        *********************      "
-            imagen = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\usuarios\usuario.jpg"
-            PBImagen.Image = Image.FromFile(imagen)
-            Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
-        End If
-
-        If DataGridUsuario.CurrentRow.DefaultCellStyle.BackColor = Color.Gray Then
+        If DataGridUsuario.Item(5, fila).Value = 0 Then
             BAlta.Visible = True
             BEliminar.Visible = False
         Else
@@ -251,57 +253,62 @@ Public Class FormularioSuperUsuario
             BEliminar.Visible = True
         End If
 
-        cancelarAgregarEditar()
-
     End Sub
 
-
     Private Sub BEliminar_Click(sender As Object, e As EventArgs) Handles BEliminar.Click
-        Dim respuesta As MsgBoxResult
-        Dim fila As Integer = DataGridUsuario.CurrentRow.Index
-        If DataGridUsuario.CurrentRow.DefaultCellStyle.BackColor = Color.Gray Then
-            MsgBox("El usuario ya esta dado de baja", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Eliminacion invalida")
-        ElseIf DataGridUsuario.Item(1, fila).Value = "" Then
+        If DataGridUsuario.CurrentRow Is Nothing Then
             MsgBox("Seleccione un usuario para eliminar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
         Else
-            respuesta = MsgBox("¿Esta seguro que desea Eliminar al usuario " + TNombre.Text + " " + TApellido.Text + "??",
+            Dim respuesta As MsgBoxResult
+            Dim fila As Integer = DataGridUsuario.CurrentRow.Index
+            'Pregunta si el fondo es gris o si el estado es 0
+            If DataGridUsuario.CurrentRow.DefaultCellStyle.BackColor = Color.Gray Or DataGridUsuario.CurrentRow().Cells(5).Value = 0 Then
+                MsgBox("El usuario ya esta dado de baja", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Eliminacion invalida")
+            Else
+                respuesta = MsgBox("¿Esta seguro que desea Eliminar al usuario " + TNombre.Text + " " + TApellido.Text + "??",
                            MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Eliminar Usuario")
-            If MsgBoxResult.Yes = respuesta Then
-                Try
-                    DataGridUsuario.CurrentRow.DefaultCellStyle.BackColor = Color.Gray
-                    MsgBox("El usuario se ha eliminado correctamente", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Eliminacion exitosa")
-                Catch ex As Exception
-                    MsgBox("Ha ocurrido un problema, el usuario no se pudo eliminar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Fallo al Eliminar")
-                End Try
+                If MsgBoxResult.Yes = respuesta Then
+                    Try
+                        Dim id_usuario As Integer = DataGridUsuario.CurrentRow().Cells(0).Value
+                        AccesoDatos.EliminarUsuario(id_usuario, "0")
+                        AccesoDatos.cargarUsuarios(DataGridUsuario)
+                        MsgBox("El usuario se ha eliminado correctamente", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Eliminacion exitosa")
+                    Catch ex As Exception
+                        MsgBox("Ha ocurrido un problema, el usuario no se pudo eliminar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Fallo al Eliminar")
+                    End Try
+                End If
             End If
         End If
     End Sub
 
     Private Sub BAlta_Click(sender As Object, e As EventArgs) Handles BAlta.Click
-        Dim respuesta As MsgBoxResult
-        Dim fila As Integer = DataGridUsuario.CurrentRow.Index
-        If DataGridUsuario.CurrentRow.DefaultCellStyle.BackColor = Color.Gray Then
-            respuesta = MsgBox("¿Esta seguro que desea Dar de Alta al usuario " + TNombre.Text + " " + TApellido.Text + "??",
-                           MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Alta Usuario")
-            If MsgBoxResult.Yes = respuesta Then
-                Try
-                    DataGridUsuario.CurrentRow.DefaultCellStyle.BackColor = Color.White
-                    MsgBox("El usuario se ha dado de alta correctamente", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Alta exitosa")
-                Catch ex As Exception
-                    MsgBox("Ha ocurrido un problema, el usuario no se pudo dar de alta", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Alta invalida")
-                End Try
-            End If
+        If DataGridUsuario.CurrentRow Is Nothing Then
+            MsgBox("Seleccione un usuario para dar de alta", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
         Else
-            MsgBox("El usuario ya esta dado de Alta", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Alta Invalida")
+            Dim respuesta As MsgBoxResult
+            Dim fila As Integer = DataGridUsuario.CurrentRow.Index
+            If DataGridUsuario.CurrentRow.DefaultCellStyle.BackColor = Color.Gray Then
+                respuesta = MsgBox("¿Esta seguro que desea Dar de Alta al usuario " + TNombre.Text + " " + TApellido.Text + "??",
+                               MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Alta Usuario")
+                If MsgBoxResult.Yes = respuesta Then
+                    Try
+                        Dim id_usuario As Integer = DataGridUsuario.CurrentRow().Cells(0).Value
+                        AccesoDatos.EliminarUsuario(id_usuario, "1")
+                        AccesoDatos.cargarUsuarios(DataGridUsuario)
+                        MsgBox("El usuario se ha dado de alta correctamente", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Alta exitosa")
+                    Catch ex As Exception
+                        MsgBox("Ha ocurrido un problema, el usuario no se pudo dar de alta", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Alta invalida")
+                    End Try
+                End If
+            Else
+                MsgBox("El usuario ya esta dado de Alta", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Alta Invalida")
+            End If
         End If
     End Sub
 
-    Private Sub CBBuscar_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBBuscar.SelectedIndexChanged
-        cancelarAgregarEditar()
-    End Sub
-
     Private Sub TBuscar_TextChanged(sender As Object, e As EventArgs) Handles TBuscar.TextChanged
-        cancelarAgregarEditar()
+        'le paso lo qe se escribe, el numero del combobox buscar seleccionado y el datagrid
+        AccesoDatos.buscarUsuario(sender.text, CBBuscar.SelectedIndex, DataGridUsuario)
     End Sub
 
     Private Sub BNuevo_Click(sender As Object, e As EventArgs) Handles BNuevo.Click
@@ -309,72 +316,145 @@ Public Class FormularioSuperUsuario
         Dim imagen As String = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\usuarios\usuario.jpg"
         PBImagen.Image = Image.FromFile(imagen)
         Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
+        bloquear()
         habilitar()
 
-        BImagen.Visible = True
+        BCambiarImagen.Visible = True
         BAgregar.Visible = True
         BCancelar.Visible = True
         BEditar.Visible = False
         BNuevo.Visible = False
         BEliminar.Visible = False
+        PBImagen.Image = Nothing
     End Sub
 
     Private Sub BAgregar_Click(sender As Object, e As EventArgs) Handles BAgregar.Click
-        If TNombre.Text = "" Or TApellido.Text = "" Or TDNI.Text = "" Or TDomicilio.Text = "" Or TEmail.Text = "" Then
+        Dim respuesta As MsgBoxResult
+        If TNombre.Text = "" Or TApellido.Text = "" Or TDNI.Text = "" Or TDomicilio.Text = "" Or TEmail.Text = "" Or
+            TUsuario.Text = "" Then
             MsgBox("Debe completar los campos obligatorios!", MsgBoxStyle.DefaultButton2 +
         MsgBoxStyle.Critical, "Registro Incompleto")
-
+        ElseIf DNIvalidate = False Then
+            MsgBox("Ingrese un DNI valido", MsgBoxStyle.DefaultButton2 +
+                       MsgBoxStyle.Information, "DNI invalido")
         ElseIf Emailvalidate = False Then
             MsgBox("Ingrese un Email valido", MsgBoxStyle.DefaultButton2 +
                        MsgBoxStyle.Information, "Email invalido")
-        Else
-            Dim dni As Long = Long.Parse(TDNI.Text)
-            Dim rol As String = "Vendedor"
-            If ValidarDNI(dni) Then
+        ElseIf CBSexo.SelectedIndex = 0 Then
+            MsgBox("Seleccione un tipo de Sexo", MsgBoxStyle.DefaultButton2 +
+                       MsgBoxStyle.Information, "Sexo invalido")
+        ElseIf PBImagen.ImageLocation = Nothing Or PBImagen.ImageLocation = "D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\pcgamer\pcgamer\Resources\usuario.jpg" Then
+
+            respuesta = MsgBox("El usuario se va a registrar sin ninguna imagen, ¿Es usted lo que eso desea?", MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 +
+                               MsgBoxStyle.Information, "Imagen no detectada")
+            If MsgBoxResult.Yes = respuesta Then
                 Try
-                    Dim respuesta As MsgBoxResult
                     respuesta = MsgBox("¿Esta seguro que desea agregar al usuario??",
-                                   MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Agregar Usuario")
+                                       MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Agregar Usuario")
                     If MsgBoxResult.Yes = respuesta Then
-                        If RRolVendedor.Checked = True Then
-                            rol = "Vendedor"
-                        ElseIf RRolAdmin.Checked = True Then
-                            rol = "Administrador"
-                        Else
-                            rol = "Super Administrador"
-                        End If
+                        Dim rol As Integer = determinarRol()
+                        Dim sexo As Char = determinarSexo()
+                        Dim ultimo_id_persona As Integer
+                        ultimo_id_persona = AccesoDatos.AgregarPersona(New personas() With {
+                                                   .nombres = TNombre.Text,
+                                                   .apellidos = TApellido.Text,
+                                                   .email = TEmail.Text,
+                                                   .domicilio = TDomicilio.Text,
+                                                   .dni = TDNI.Text,
+                                                   .imagen = PBImagen.ImageLocation,
+                                                   .rol_id = rol,
+                                                   .telefono = TTelefono.Text,
+                                                   .sexo = sexo
+                                                   })
+                        AccesoDatos.AgregarUsuario(New usuarios() With {
+                                                   .usuario = TUsuario.Text,
+                                                   .contrasena = TContrasena.Text,
+                                                   .persona_id = ultimo_id_persona,
+                                                   .estado = 1,
+                                                   .fechaingreso = FechaIngreso.Value
+                                                   })
+                        limpiar()
+                        cargarUsuarios()
+
                         MsgBox("El Usuario se ha registrado correctamente", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Registro Exitoso")
-                        DataGridUsuario.Rows.Add("0005", TApellido.Text, TNombre.Text, TDNI.Text, rol, FechaReg.Value)
                     Else
-                        MsgBox("No se han realizado cambios", MsgBoxStyle.DefaultButton2 +
-                           MsgBoxStyle.Information, "Operacion Cancelada")
+                        MsgBox("No se ha agregado el usuario", MsgBoxStyle.DefaultButton2 +
+                               MsgBoxStyle.Information, "Operacion Cancelada")
                     End If
                 Catch ex As Exception
                     MsgBox("Lo sentimos ha ocurrido un evento inesperado, el usuario no pudo ser registrado",
-            MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Error al registrar")
+                  MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Error al registrar")
                 End Try
                 BCancelar.Visible = False
                 BAgregar.Visible = False
-                BImagen.Visible = False
+                BCambiarImagen.Visible = False
                 BNuevo.Visible = True
 
                 BGuardar.Visible = False
                 BEditar.Visible = True
                 BEliminar.Visible = True
                 limpiar()
+                desbloquear()
                 deshabilitar()
-            Else
-                MsgBox("Ingrese un DNI valido", MsgBoxStyle.DefaultButton2 +
-                           MsgBoxStyle.Information, "DNI invalido")
-                DNIvalidate = False
+            End If
+        Else
+            respuesta = MsgBox("¿Esta seguro que desea agregar al usuario??",
+                                       MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Agregar Usuario")
+            If MsgBoxResult.Yes = respuesta Then
+                Dim rol As Integer = determinarRol()
+                Dim sexo As Char = determinarSexo()
+                Dim ultimo_id_persona As Integer
+                ultimo_id_persona = AccesoDatos.AgregarPersona(New personas() With {
+                                       .nombres = TNombre.Text,
+                                       .apellidos = TApellido.Text,
+                                       .email = TEmail.Text,
+                                       .domicilio = TDomicilio.Text,
+                                       .dni = TDNI.Text,
+                                       .imagen = PBImagen.ImageLocation,
+                                       .rol_id = rol,
+                                       .telefono = TTelefono.Text,
+                                       .sexo = sexo
+                                       })
+                AccesoDatos.AgregarUsuario(New usuarios() With {
+                                       .usuario = TUsuario.Text,
+                                       .contrasena = TContrasena.Text,
+                                       .persona_id = ultimo_id_persona,
+                                       .estado = 1,
+                                       .fechaingreso = FechaIngreso.Value
+                                       })
+                limpiar()
+                cargarUsuarios()
+
+                MsgBox("El Usuario se ha registrado correctamente", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Registro Exitoso")
             End If
         End If
-
-
     End Sub
 
+    Private Function determinarRol() As Integer
+        Dim rol As Integer
+        If RRolSuper.Checked = True Then
+            Rol = 3
+        ElseIf RRolAdmin.Checked = True Then
+            Rol = 2
+        Else
+            rol = 1
+        End If
+        Return rol
+    End Function
+
+    Private Function determinarSexo() As Char
+        Dim sexo As Char
+        If CBSexo.SelectedIndex = 1 Then
+            sexo = "M"
+        ElseIf CBSexo.SelectedIndex = 2 Then
+            sexo = "F"
+        Else sexo = "O"
+        End If
+        Return sexo
+    End Function
+
     Private Sub TEmail_Validated(sender As Object, e As EventArgs) Handles TEmail.Validated
-        If Funciones.ValidarEmail(TEmail.Text) = False Then
+        If ValidarEmail(TEmail.Text) = False Then
             Emailvalidate = False
             MsgBox("Ingrese un Email valido", MsgBoxStyle.DefaultButton2 +
                        MsgBoxStyle.Information, "Email invalido")
@@ -383,17 +463,32 @@ Public Class FormularioSuperUsuario
         End If
     End Sub
 
-    Private Sub BImagen_Click(sender As Object, e As EventArgs) Handles BImagen.Click
-        OpenFileDialog1.InitialDirectory = "D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\pcgamer\usuarios"
-        OpenFileDialog1.Filter = "Archivos Imagenes|*.jpg|Archivos Imagenes|*.bmp|Archivos Imagenes|*.png"
+    Private Sub DataGridUsuario_RowStateChanged(sender As Object, e As DataGridViewRowStateChangedEventArgs) Handles DataGridUsuario.RowStateChanged
+        For Each Row As DataGridViewRow In DataGridUsuario.Rows
+            If Row.Cells(5).Value = "0" Then
+                Row.DefaultCellStyle.BackColor = Color.Gray
+            End If
+        Next
+    End Sub
+
+#Region "bloquear movimiento del form"
+    Private Xpos, Ypos
+
+    Private Sub BCambiarImagen_Click(sender As Object, e As EventArgs) Handles BCambiarImagen.Click
+        OpenFileDialog1.InitialDirectory = "D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\pcgamer\pcgamer\Resources"
+        OpenFileDialog1.Filter = "Todos los archivos|*.*|Archivos Imagenes|*.jpg|Archivos Imagenes|*.bmp|Archivos Imagenes|*.png"
         OpenFileDialog1.FilterIndex = 1
         OpenFileDialog1.RestoreDirectory = True
 
         If OpenFileDialog1.ShowDialog() = Windows.Forms.DialogResult.OK Then
-            PBImagen.Image = Image.FromFile(OpenFileDialog1.FileName)
-            'Dim ruta As String
-            'ruta = Directory.GetCurrentDirectory()
-            'TFoto.Text = ruta
+            PBImagen.ImageLocation = OpenFileDialog1.FileName
         End If
     End Sub
+
+    Private Sub FormularioSuperUsuario_Move(sender As Object, e As EventArgs) Handles Me.Move
+        If Xpos > 0 Then
+            Location = New Point(Xpos, Ypos)
+        End If
+    End Sub
+#End Region
 End Class
