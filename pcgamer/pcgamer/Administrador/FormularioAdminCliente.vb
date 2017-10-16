@@ -2,7 +2,15 @@
 
 Public Class FormularioAdminCliente
     Private Sub FormularioAdminCliente_Closed(sender As Object, e As EventArgs) Handles Me.Closed
-        redirigirMenu(Me.Tag)
+        'Si desde factura se dirigio al formulario de cliente y cerro esa ventana, redirige hacia la factura
+        ''Si nunca entro a factura LApeyNom va a tener el valor x defecto '-'
+        If FormularioFactura.LApeyNom.Text = "-" Then
+            redirigirMenu(Me.Tag)
+        Else
+            'Le aviso el tipo de rol
+            FormularioFactura.Show()
+        End If
+        Me.Dispose()
     End Sub
 
     Dim DNIvalidate As Boolean
@@ -200,8 +208,18 @@ Public Class FormularioAdminCliente
             Xpos = Location.X
             Ypos = Location.Y
 #End Region
+            If Me.Tag = "Vendedor" Then
+                PBlogo2.Visible = True
+                BAgregarFactura.Visible = True
+                BEditar.Visible = False
+            End If
+            'La leyenda de abajo
+            LRol.Text = Me.Tag
+            LApeyNom.Text = LApeyNom.Tag
+
             cargarClientes()
             BEliminar.Visible = False
+            BAlta.Visible = False
         Catch ex As Exception
             MsgBox("Ha ocurrido un error, la lista de clientes no se pudo cargar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Error al cargar Datagrid")
         End Try
@@ -271,12 +289,14 @@ Public Class FormularioAdminCliente
         cargarDetalle(cliente)
         deshabilitar()
 
-        If DataGridCliente.Item(5, fila).Value = 0 Then
-            BAlta.Visible = True
-            BEliminar.Visible = False
-        Else
-            BAlta.Visible = False
-            BEliminar.Visible = True
+        If Me.Tag <> "Vendedor" Then
+            If DataGridCliente.Item(5, fila).Value = 0 Then
+                BAlta.Visible = True
+                BEliminar.Visible = False
+            Else
+                BAlta.Visible = False
+                BEliminar.Visible = True
+            End If
         End If
 
     End Sub
@@ -371,6 +391,27 @@ Public Class FormularioAdminCliente
     Private Sub TBuscar_TextChanged(sender As Object, e As EventArgs) Handles TBuscar.TextChanged
         'le paso lo qe se escribe, el numero del combobox buscar seleccionado y el datagrid
         AccesoDatos.buscarCliente(sender.text, CBBuscar.SelectedIndex, DataGridCliente)
+    End Sub
+
+    Private Sub BAgregarFactura_Click(sender As Object, e As EventArgs) Handles BAgregarFactura.Click
+        If DataGridCliente.CurrentRow Is Nothing Then
+            MsgBox("Seleccione un cliente para agregar a la factura", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
+        Else
+            Dim fila As Integer = DataGridCliente.CurrentRow.Index
+            If DataGridCliente.Item(5, fila).Value = 0 Then
+                MsgBox("El cliente seleccionado no puede agregarse a la factura porque ha sido dado de baja. Contactese con el Administrador", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
+            Else
+                FormularioFactura.TCliente.Text = TBApellido.Text + " " + TBNombre.Text
+                FormularioFactura.TDNI.Text = TBDNI.Text
+                FormularioFactura.TDomicilio.Text = TBDomicilio.Text
+                FormularioFactura.TTelefono.Text = TBTelefono.Text
+                'Le aviso el tipo de rol
+                FormularioFactura.Tag = Me.Tag
+                FormularioFactura.LApeyNom.Tag = LApeyNom.Tag
+                FormularioFactura.Show()
+                Me.Dispose()
+            End If
+        End If
     End Sub
 
     Private Sub DataGridCliente_RowStateChanged(sender As Object, e As DataGridViewRowStateChangedEventArgs) Handles DataGridCliente.RowStateChanged

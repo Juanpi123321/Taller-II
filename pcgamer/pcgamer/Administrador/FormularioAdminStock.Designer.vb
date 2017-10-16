@@ -26,6 +26,7 @@ Partial Class FormularioAdminStock
         Me.LTitulo = New System.Windows.Forms.Label()
         Me.PBLogo = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PBlogo2 = New System.Windows.Forms.PictureBox()
         Me.BCambiarImagen = New System.Windows.Forms.Button()
         Me.BAgregarFactura = New System.Windows.Forms.Button()
         Me.TStock = New System.Windows.Forms.TextBox()
@@ -66,6 +67,7 @@ Partial Class FormularioAdminStock
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        CType(Me.PBlogo2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PBImagen, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridStock, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -97,6 +99,7 @@ Partial Class FormularioAdminStock
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Black
+        Me.Panel1.Controls.Add(Me.PBlogo2)
         Me.Panel1.Controls.Add(Me.BCambiarImagen)
         Me.Panel1.Controls.Add(Me.BAgregarFactura)
         Me.Panel1.Controls.Add(Me.TStock)
@@ -138,6 +141,17 @@ Partial Class FormularioAdminStock
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1164, 464)
         Me.Panel1.TabIndex = 33
+        '
+        'PBlogo2
+        '
+        Me.PBlogo2.Image = Global.pcgamer.My.Resources.Resources.pcgamer_logo_grande3
+        Me.PBlogo2.Location = New System.Drawing.Point(1011, 302)
+        Me.PBlogo2.Name = "PBlogo2"
+        Me.PBlogo2.Size = New System.Drawing.Size(129, 125)
+        Me.PBlogo2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PBlogo2.TabIndex = 41
+        Me.PBlogo2.TabStop = False
+        Me.PBlogo2.Visible = False
         '
         'BCambiarImagen
         '
@@ -605,6 +619,7 @@ Partial Class FormularioAdminStock
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.PBlogo2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PBImagen, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridStock, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -653,4 +668,5 @@ Partial Class FormularioAdminStock
     Friend WithEvents LRol As Label
     Friend WithEvents BCambiarImagen As Button
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents PBlogo2 As PictureBox
 End Class

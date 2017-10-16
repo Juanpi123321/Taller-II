@@ -28,6 +28,8 @@ Partial Class FormularioAdminCliente
         Me.PBLogo = New System.Windows.Forms.PictureBox()
         Me.TabCliente = New System.Windows.Forms.TabControl()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.PBLogo3 = New System.Windows.Forms.PictureBox()
+        Me.PBlogo2 = New System.Windows.Forms.PictureBox()
         Me.BAgregarFactura = New System.Windows.Forms.Button()
         Me.BCancelar = New System.Windows.Forms.Button()
         Me.BGuardar = New System.Windows.Forms.Button()
@@ -75,6 +77,8 @@ Partial Class FormularioAdminCliente
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabCliente.SuspendLayout()
         Me.TabPage2.SuspendLayout()
+        CType(Me.PBLogo3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PBlogo2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -117,6 +121,8 @@ Partial Class FormularioAdminCliente
         'TabPage2
         '
         Me.TabPage2.BackColor = System.Drawing.Color.Black
+        Me.TabPage2.Controls.Add(Me.PBLogo3)
+        Me.TabPage2.Controls.Add(Me.PBlogo2)
         Me.TabPage2.Controls.Add(Me.BAgregarFactura)
         Me.TabPage2.Controls.Add(Me.BCancelar)
         Me.TabPage2.Controls.Add(Me.BGuardar)
@@ -147,6 +153,27 @@ Partial Class FormularioAdminCliente
         Me.TabPage2.Size = New System.Drawing.Size(1156, 437)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Buscar"
+        '
+        'PBLogo3
+        '
+        Me.PBLogo3.Image = Global.pcgamer.My.Resources.Resources.pcgamer_readers
+        Me.PBLogo3.Location = New System.Drawing.Point(891, 76)
+        Me.PBLogo3.Name = "PBLogo3"
+        Me.PBLogo3.Size = New System.Drawing.Size(231, 101)
+        Me.PBLogo3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PBLogo3.TabIndex = 43
+        Me.PBLogo3.TabStop = False
+        '
+        'PBlogo2
+        '
+        Me.PBlogo2.Image = Global.pcgamer.My.Resources.Resources.pcgamer_logo_grande3
+        Me.PBlogo2.Location = New System.Drawing.Point(981, 265)
+        Me.PBlogo2.Name = "PBlogo2"
+        Me.PBlogo2.Size = New System.Drawing.Size(129, 125)
+        Me.PBlogo2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PBlogo2.TabIndex = 42
+        Me.PBlogo2.TabStop = False
+        Me.PBlogo2.Visible = False
         '
         'BAgregarFactura
         '
@@ -660,6 +687,8 @@ Partial Class FormularioAdminCliente
         Me.TabCliente.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
+        CType(Me.PBLogo3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PBlogo2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage1.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
@@ -717,4 +746,6 @@ Partial Class FormularioAdminCliente
     Friend WithEvents LApeyNom As Label
     Friend WithEvents LRol As Label
     Friend WithEvents BAgregarFactura As Button
+    Friend WithEvents PBLogo3 As PictureBox
+    Friend WithEvents PBlogo2 As PictureBox
 End Class

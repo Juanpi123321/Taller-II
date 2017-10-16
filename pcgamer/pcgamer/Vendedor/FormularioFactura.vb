@@ -43,15 +43,23 @@ Public Class FormularioFactura
     End Sub
 
     Private Sub FormularioFactura_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+#Region "bloquear movimiento del form"
+        CenterToScreen()
+        Xpos = Location.X
+        Ypos = Location.Y
+#End Region
         TFechaHora.Text = String.Format("{0:G}", DateTime.Now)
+        LApeyNom.Text = LApeyNom.Tag
 
         AccesoDatos.cargarFormaPago(CBFormaPago)
         CBFormaPago.SelectedIndex = 0
     End Sub
 
     Private Sub BBuscarCliente_Click(sender As Object, e As EventArgs) Handles BBuscarCliente.Click
-        FormularioCliente.Show()
+        'Le aviso el tipo de rol
+        FormularioAdminCliente.Tag = Me.Tag
+        FormularioAdminCliente.LApeyNom.Tag = LApeyNom.Tag
+        FormularioAdminCliente.Show()
         Me.Hide()
     End Sub
 
@@ -79,7 +87,10 @@ Public Class FormularioFactura
     End Sub
 
     Private Sub BAgregar_Click(sender As Object, e As EventArgs) Handles BAgregar.Click
-        FormularioStock.Show()
+        'Le aviso el tipo de rol
+        FormularioAdminStock.Tag = Me.Tag
+        FormularioAdminStock.LApeyNom.Tag = LApeyNom.Tag
+        FormularioAdminStock.Show()
         Me.Hide()
     End Sub
 
@@ -132,4 +143,12 @@ Public Class FormularioFactura
         calcularTotal()
     End Sub
 
+#Region "bloquear movimiento del form"
+    Private Xpos, Ypos
+    Private Sub FormularioFactura_Move(sender As Object, e As EventArgs) Handles Me.Move
+        If Xpos > 0 Then
+            Location = New Point(Xpos, Ypos)
+        End If
+    End Sub
+#End Region
 End Class

@@ -3,6 +3,7 @@
     Private Sub BClientes_Click(sender As Object, e As EventArgs) Handles BClientes.Click
         'Le aviso el tipo de rol
         FormularioAdminCliente.Tag = Me.Tag
+        FormularioAdminCliente.LApeyNom.Tag = LApeyNom.Tag
         FormularioAdminCliente.Show()
         Me.Hide()
     End Sub
@@ -10,6 +11,7 @@
     Private Sub BStock_Click(sender As Object, e As EventArgs) Handles BStock.Click
         'Le aviso el tipo de rol
         FormularioAdminStock.Tag = Me.Tag
+        FormularioAdminStock.LApeyNom.Tag = LApeyNom.Tag
         FormularioAdminStock.Show()
         Me.Hide()
     End Sub
@@ -27,7 +29,6 @@
         End If
     End Sub
 
-
 #Region "bloquear movimiento del form"
     Private Xpos, Ypos
     Private Sub FormularioAdministrador_Move(sender As Object, e As EventArgs) Handles Me.Move
@@ -42,6 +43,9 @@
         Xpos = Location.X
         Ypos = Location.Y
 #End Region
+        'La leyenda de abajo
+        LRol.Text = Me.Tag
+        LApeyNom.Text = LApeyNom.Tag
     End Sub
 #End Region
 End Class

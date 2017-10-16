@@ -462,6 +462,8 @@
       <DependentUpon>ModeloPcgamer.edmx</DependentUpon>
       <LastGenOutput>ModeloPcgamer.vb</LastGenOutput>
     </Content>
+    <None Include="Resources\pcgamer-readers.png" />
+    <None Include="Resources\pcgamer-logo-grande3.png" />
     <None Include="Resources\Yiyo.jpg" />
     <None Include="Resources\candelaria.jpg" />
     <None Include="Resources\wanda.jpg" />

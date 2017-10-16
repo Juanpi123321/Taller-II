@@ -1,7 +1,15 @@
 ﻿Imports System.IO
 Public Class FormularioAdminStock
     Private Sub FormularioAdminStock_Closed(sender As Object, e As EventArgs) Handles Me.Closed
-        redirigirMenu(Me.Tag)
+        'Si desde factura se dirigio al formulario de cliente y cerro esa ventana, redirige hacia la factura
+        ''Si nunca entro a factura LApeyNom va a tener el valor x defecto '-'
+        If FormularioFactura.LApeyNom.Text = "-" Then
+            redirigirMenu(Me.Tag)
+        Else
+            'Le aviso el tipo de rol
+            FormularioFactura.Show()
+        End If
+        Me.Dispose()
     End Sub
 
     Private Sub limpiar()
@@ -15,6 +23,7 @@ Public Class FormularioAdminStock
         TDiscoRigido.SelectedIndex = -1
         TGabinete.SelectedIndex = -1
         TPrecio.Text = 0
+        PBImagen.Image = Nothing
 
     End Sub
 
@@ -115,6 +124,16 @@ Public Class FormularioAdminStock
             Xpos = Location.X
             Ypos = Location.Y
 #End Region
+            'si es vendedor no le permito editar ni agregar un prod nuevo
+            If Me.Tag = "Vendedor" Then
+                PBlogo2.Visible = True
+                BAgregarFactura.Visible = True
+                BEditar.Visible = False
+                BNuevo.Visible = False
+            End If
+            'La leyenda de abajo
+            LRol.Text = Me.Tag
+            LApeyNom.Text = LApeyNom.Tag
 
             cargarProductos()
             BBaja.Visible = False
@@ -137,12 +156,14 @@ Public Class FormularioAdminStock
         Dim producto As productos = AccesoDatos.capturarProducto(id_producto)
         cargarDetalle(producto)
 
-        If DataGridStock.Item(5, fila).Value = 0 Then
-            BAlta.Visible = True
-            BBaja.Visible = False
-        Else
-            BAlta.Visible = False
-            BBaja.Visible = True
+        If Me.Tag <> "Vendedor" Then
+            If DataGridStock.Item(5, fila).Value = 0 Then
+                BAlta.Visible = True
+                BBaja.Visible = False
+            Else
+                BAlta.Visible = False
+                BBaja.Visible = True
+            End If
         End If
     End Sub
 
@@ -271,7 +292,6 @@ Public Class FormularioAdminStock
         BBaja.Visible = False
         BAlta.Visible = False
         BCambiarImagen.Visible = True
-        PBImagen.Image = Nothing
     End Sub
 
     Private Sub BCancelarAgregar_Click(sender As Object, e As EventArgs) Handles BCancelarAgregar.Click
@@ -434,6 +454,46 @@ Public Class FormularioAdminStock
     End Sub
 
 #End Region
+
+    Private Sub BAgregarFactura_Click(sender As Object, e As EventArgs) Handles BAgregarFactura.Click
+        If DataGridStock.CurrentRow Is Nothing Then
+            MsgBox("Seleccione un producto para agregar a la factura", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
+        Else
+            If DataGridStock.CurrentRow.Cells(5).Value = "0" Then
+                MsgBox("No es posible agregar a factura, el producto esta dado de baja", MsgBoxStyle.DefaultButton2 +
+                       MsgBoxStyle.Exclamation, "Operacion invalida")
+            Else
+                If Integer.Parse(TStock.Text) = 0 Then
+                    MsgBox("El producto no puede cargarse a la factura, no existe stock disponible",
+                           MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Stock no disponible")
+                Else
+                    Dim fila As Integer = DataGridStock.CurrentRow.Index
+                    Dim id_producto As Integer = DataGridStock.Item(0, fila).Value
+
+                    'Verifica si existe el producto en la grilla de factura
+                    Dim existe As Boolean = FormularioFactura.DataGridFactura.Rows.Cast(Of DataGridViewRow).Any(Function(x) CInt(x.Cells(0).Value) = id_producto)
+                    If existe Then
+                        MsgBox("El producto ya se encuentra cargado en la factura, para agregar mas de uno, modifique el valor del campo 'Cantidad'",
+                               MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Producto existente en Factura")
+                    Else
+                        Dim producto As productos = AccesoDatos.capturarProducto(id_producto)
+                        Dim categoria As String = producto.categoria.descripcion_categoria
+                        Dim nombre As String = producto.nombre
+                        Dim precio As Decimal = producto.precio
+                        Dim cantidad As Integer = 1
+                        Dim importe As Decimal = precio * cantidad
+                        Dim stock As Integer = producto.stock
+                        FormularioFactura.DataGridFactura.Rows.Add(id_producto, cantidad, categoria, nombre, precio, importe, stock)
+                    End If
+                    'Le aviso el tipo de rol
+                    FormularioFactura.Tag = Me.Tag
+                    FormularioFactura.LApeyNom.Tag = LApeyNom.Tag
+                    FormularioFactura.Show()
+                    Me.Dispose()
+                End If
+            End If
+        End If
+    End Sub
 
     Private Sub BCambiarImagen_Click(sender As Object, e As EventArgs) Handles BCambiarImagen.Click
         OpenFileDialog1.InitialDirectory = "D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\pcgamer\pcgamer\Resources"
