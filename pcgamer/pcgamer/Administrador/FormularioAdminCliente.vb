@@ -405,6 +405,8 @@ Public Class FormularioAdminCliente
                 FormularioFactura.TDNI.Text = TBDNI.Text
                 FormularioFactura.TDomicilio.Text = TBDomicilio.Text
                 FormularioFactura.TTelefono.Text = TBTelefono.Text
+                'Le paso el id_cliente
+                FormularioFactura.LCliente.Tag = DataGridCliente.Item(0, fila).Value
                 'Le aviso el tipo de rol
                 FormularioFactura.Tag = Me.Tag
                 FormularioFactura.LApeyNom.Tag = LApeyNom.Tag

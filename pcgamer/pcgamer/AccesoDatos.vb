@@ -339,6 +339,14 @@
         ctx.SaveChanges()
     End Sub
 
+    'falta arreglar
+    Shared Function idUsuario(Nusuario As String) As Integer
+        'Dim Id = (From u In ctx.usuarios
+        'Where u.usuario = Nusuario
+        'Select Case u.Id_usuario).SingleOrDefault
+        'Return Id
+        Return 4
+    End Function
 #Region "Persona"
     Shared Function AgregarPersona(persona As personas) As Integer
         ctx.personas.Add(persona)
@@ -376,5 +384,20 @@
     End Function
 #End Region
 
+#End Region
+
+#Region "Factura"
+
+    Shared Function AgregarFactura(factura As factura) As Integer
+        ctx.factura.Add(factura)
+        ctx.SaveChanges()
+        Dim id_factura As Integer = factura.Id_factura
+        Return id_factura
+    End Function
+
+    Shared Sub AgregarFacturaDetalle(facturaDetalle As factura_detalle)
+        ctx.factura_detalle.Add(facturaDetalle)
+        ctx.SaveChanges()
+    End Sub
 #End Region
 End Class

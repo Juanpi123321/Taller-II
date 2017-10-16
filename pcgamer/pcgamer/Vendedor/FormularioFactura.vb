@@ -77,11 +77,47 @@ Public Class FormularioFactura
             respuesta = MsgBox("¿Esta seguro que desea imprimir la Factura?", MsgBoxStyle.YesNo +
             MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Generar Factura")
             If MsgBoxResult.Yes = respuesta Then
-                respuesta = MsgBox("La factura se ha generado correctamente", MsgBoxStyle.DefaultButton2 +
-            MsgBoxStyle.Information, "Facturacion exitosa")
-                'destruye de la memoria
-                Me.Dispose()
-                FormularioVendedor.Show()
+                Try
+                    Dim Id_cliente As Integer = Integer.Parse(LCliente.Tag)
+                    Dim fecha As Date = Format("{0:d}", DateTime.Now)
+                    Dim hora As TimeSpan = Date.Now.TimeOfDay
+                    Dim Id_vendedor As Integer = AccesoDatos.idUsuario(LApeyNom.Text)
+                    Dim Id_formaPago As Integer = CBFormaPago.SelectedIndex + 1
+                    Dim ultimo_id_factura As Integer
+                    ultimo_id_factura = AccesoDatos.AgregarFactura(New factura() With
+                                           {.cliente_id = Id_cliente,
+                                           .fecha = fecha,
+                                           .hora = hora,
+                                           .vendedor_id = Id_vendedor,
+                                           .forma_pago_id = Id_formaPago
+                                           })
+                    Dim Id_producto As Integer
+                    Dim cantidad As Integer
+                    Dim precio As Decimal
+                    Dim i As Integer = 0
+                    For Each Row As DataGridViewRow In DataGridFactura.Rows
+                        i = i + 1
+                        Id_producto = Row.Cells(0).Value
+                        cantidad = Row.Cells(1).Value
+                        precio = Row.Cells(4).Value
+                        AccesoDatos.AgregarFacturaDetalle(New factura_detalle() With {
+                                            .Id_factura = ultimo_id_factura,
+                                            .Id_factura_detalle = i,
+                                            .producto_id = Id_producto,
+                                            .cantidad = cantidad,
+                                            .precio_unit = precio
+                                              })
+                    Next
+                    MsgBox("La factura se ha generado correctamente", MsgBoxStyle.DefaultButton2 +
+                         MsgBoxStyle.Information, "Facturacion exitosa")
+                Catch ex As Exception
+                    MsgBox("Lo sentimos ha ocurrido un evento inesperado, la factura no pudo ser registrada",
+                      MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Error al registrar")
+                Finally
+                    redirigirMenu(Me.Tag)
+                    'destruye de la memoria
+                    Me.Dispose()
+                End Try
             End If
         End If
     End Sub

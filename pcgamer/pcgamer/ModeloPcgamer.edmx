@@ -75,7 +75,7 @@
           <Property Name="Id_factura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="cliente_id" Type="int" Nullable="false" />
           <Property Name="fecha" Type="date" Nullable="false" />
-          <Property Name="hora" Type="time" Precision="7" Nullable="false" />
+          <Property Name="hora" Type="time" Precision="0" Nullable="false" />
           <Property Name="vendedor_id" Type="int" Nullable="false" />
           <Property Name="forma_pago_id" Type="int" Nullable="false" />
         </EntityType>
@@ -84,7 +84,7 @@
             <PropertyRef Name="Id_factura" />
             <PropertyRef Name="Id_factura_detalle" />
           </Key>
-          <Property Name="Id_factura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_factura" Type="int" Nullable="false" />
           <Property Name="Id_factura_detalle" Type="int" Nullable="false" />
           <Property Name="producto_id" Type="int" Nullable="false" />
           <Property Name="cantidad" Type="int" Nullable="false" />
@@ -466,7 +466,7 @@
           <Property Name="Id_factura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="cliente_id" Type="Int32" Nullable="false" />
           <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="hora" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="hora" Type="Time" Nullable="false" Precision="0" />
           <Property Name="vendedor_id" Type="Int32" Nullable="false" />
           <Property Name="forma_pago_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="clientes" Relationship="Self.FK_factura_clientes" FromRole="factura" ToRole="clientes" />
@@ -479,7 +479,7 @@
             <PropertyRef Name="Id_factura" />
             <PropertyRef Name="Id_factura_detalle" />
           </Key>
-          <Property Name="Id_factura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_factura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <Property Name="Id_factura_detalle" Type="Int32" Nullable="false" />
           <Property Name="producto_id" Type="Int32" Nullable="false" />
           <Property Name="cantidad" Type="Int32" Nullable="false" />
