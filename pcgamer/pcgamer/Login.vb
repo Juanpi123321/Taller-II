@@ -3,29 +3,31 @@
     Private Sub BIngresar_Click(sender As Object, e As EventArgs) Handles BIngresar.Click
         If TUsuario.Text = "" Or TContrasena.Text = "" Then
             MsgBox("Debe completar todos los campos!", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Login Invalido")
-        Else
-            If TUsuario.Text = "superadmin" Then
+        ElseIf AccesoDatos.validarIngreso(TUsuario.Text, TContrasena.Text) Then
+            MsgBox("Bienvenido a Pc-Gamer", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Acceso Autorizado")
+            If Me.Tag = "SuperAdministrador" Then
                 'Le aviso el tipo de rol
-                FormularioSuperAdmin.Tag = "SuperAdministrador"
+                FormularioSuperAdmin.Tag = Me.Tag
+                FormularioSuperAdmin.LApeyNom.Tag = LUsuario.Tag
                 FormularioSuperAdmin.Show()
-                Me.Close()
-            ElseIf TUsuario.Text = "admin" Then
+            ElseIf Me.Tag = "Administrador" Then
                 'Le aviso el tipo de rol
-                FormularioAdministrador.Tag = "Administrador"
-                FormularioAdministrador.LApeyNom.Tag = TUsuario.Text
+                FormularioAdministrador.Tag = Me.Tag
+                FormularioAdministrador.LApeyNom.Tag = LUsuario.Tag
                 FormularioAdministrador.Show()
-                Me.Close()
-            ElseIf TUsuario.Text = "vendedor" Then
+            ElseIf Me.Tag = "Vendedor" Then
                 'Le aviso el tipo de rol
-                FormularioVendedor.Tag = "Vendedor"
-                FormularioVendedor.LApeyNom.Tag = TUsuario.Text
+                FormularioVendedor.Tag = Me.Tag
+                FormularioVendedor.LApeyNom.Tag = LUsuario.Tag
+                'le paso el id usuario para cuando genere la factura no tenga qe buscar
+                FormularioVendedor.LTitulo.Tag = LTitulo.Tag
                 FormularioVendedor.Show()
-                Me.Close()
-            Else
-                MsgBox("Nombre de usuario invalido", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Login Invalido")
-                TUsuario.Text = ""
-                TContrasena.Text = ""
             End If
+            Me.Close()
+        Else
+            MsgBox("Nombre de usuario y/o contraseña invalidos", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Login Invalido")
+            TUsuario.Text = ""
+            TContrasena.Text = ""
         End If
     End Sub
 

@@ -34,6 +34,8 @@ Partial Class FormularioSuperAdmin
         Me.PBLogo = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.LTitulo = New System.Windows.Forms.Label()
+        Me.LApeyNom = New System.Windows.Forms.Label()
+        Me.LRol = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PBInformes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PBStock, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -186,6 +188,30 @@ Partial Class FormularioSuperAdmin
         Me.LTitulo.TabIndex = 23
         Me.LTitulo.Text = "SUPER-ADMINISTRADOR"
         '
+        'LApeyNom
+        '
+        Me.LApeyNom.AutoSize = True
+        Me.LApeyNom.BackColor = System.Drawing.Color.Transparent
+        Me.LApeyNom.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LApeyNom.ForeColor = System.Drawing.SystemColors.ActiveCaption
+        Me.LApeyNom.Location = New System.Drawing.Point(948, 646)
+        Me.LApeyNom.Name = "LApeyNom"
+        Me.LApeyNom.Size = New System.Drawing.Size(150, 18)
+        Me.LApeyNom.TabIndex = 28
+        Me.LApeyNom.Text = "APELLIDO, Nombre"
+        '
+        'LRol
+        '
+        Me.LRol.AutoSize = True
+        Me.LRol.BackColor = System.Drawing.Color.Transparent
+        Me.LRol.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LRol.ForeColor = System.Drawing.SystemColors.ActiveCaption
+        Me.LRol.Location = New System.Drawing.Point(808, 644)
+        Me.LRol.Name = "LRol"
+        Me.LRol.Size = New System.Drawing.Size(139, 20)
+        Me.LRol.TabIndex = 27
+        Me.LRol.Text = "Administrador:"
+        '
         'FormularioSuperAdmin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 25.0!)
@@ -194,6 +220,8 @@ Partial Class FormularioSuperAdmin
         Me.BackgroundImage = Global.pcgamer.My.Resources.Resources.superadmin_background3
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1202, 673)
+        Me.Controls.Add(Me.LApeyNom)
+        Me.Controls.Add(Me.LRol)
         Me.Controls.Add(Me.LTitulo)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.BCerrarSesion)
@@ -229,4 +257,6 @@ Partial Class FormularioSuperAdmin
     Friend WithEvents PBLogo As PictureBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents LTitulo As Label
+    Friend WithEvents LApeyNom As Label
+    Friend WithEvents LRol As Label
 End Class

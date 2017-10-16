@@ -44,7 +44,7 @@
         Ypos = Location.Y
 #End Region
         'La leyenda de abajo
-        LRol.Text = Me.Tag
+        LRol.Text = Me.Tag + ":"
         LApeyNom.Text = LApeyNom.Tag
     End Sub
 #End Region

@@ -72,12 +72,6 @@
         ctx.SaveChanges()
     End Sub
 
-    Shared Sub cargarFormaPago(formapago As ComboBox)
-        Dim datos = (From fp In ctx.forma_pago
-                     Select descripcion_formapago = fp.descripcion_formapago).ToList
-        formapago.DataSource = datos
-    End Sub
-
     Shared Function existeCliente(dni As String) As Boolean
         Dim existe As Boolean = True
         Dim datos = (From c In ctx.clientes
@@ -88,6 +82,7 @@
         End If
         Return existe
     End Function
+
     Shared Function existeEmailCliente(email As String) As Boolean
         Dim existe As Boolean = True
         Dim datos = (From c In ctx.clientes
@@ -250,6 +245,14 @@
         End If
         Return existe
     End Function
+
+    Shared Sub descontarStockProducto(id_producto As Integer, cantidad As Integer)
+        Dim producto = (From p In ctx.productos
+                        Where p.Id_producto = id_producto
+                        Select p).SingleOrDefault
+        producto.stock = producto.stock - cantidad
+        ctx.SaveChanges()
+    End Sub
 #End Region
 
 #Region "Usuario"
@@ -339,14 +342,26 @@
         ctx.SaveChanges()
     End Sub
 
-    'falta arreglar
-    Shared Function idUsuario(Nusuario As String) As Integer
-        'Dim Id = (From u In ctx.usuarios
-        'Where u.usuario = Nusuario
-        'Select Case u.Id_usuario).SingleOrDefault
-        'Return Id
-        Return 4
+    Shared Function validarIngreso(p_usuario As String, p_contrasena As String)
+        Dim resultado As Boolean = False
+        Dim usuario = (From u In ctx.usuarios
+                       Join p In ctx.personas On p.Id_persona Equals u.persona_id
+                       Join r In ctx.rol On r.Id_rol Equals p.rol_id
+                       Where u.usuario = p_usuario
+                       Select contrasena = u.contrasena, nombre = p.nombres, apellido = p.apellidos, rol = r.tipo_rol,
+                           Id_usuario = u.Id_usuario).SingleOrDefault
+        If usuario Is Nothing Then
+            resultado = False
+        ElseIf usuario.contrasena = p_contrasena Then
+            resultado = True
+            Dim ApeyNom = UCase(usuario.apellido) & ", " & usuario.nombre
+            Login.LUsuario.Tag = ApeyNom
+            Login.Tag = usuario.rol
+            Login.LTitulo.Tag = usuario.Id_usuario  'le paso el id usuario para cuando genere la factura no tenga qe buscar
+        End If
+        Return resultado
     End Function
+
 #Region "Persona"
     Shared Function AgregarPersona(persona As personas) As Integer
         ctx.personas.Add(persona)
@@ -397,7 +412,23 @@
 
     Shared Sub AgregarFacturaDetalle(facturaDetalle As factura_detalle)
         ctx.factura_detalle.Add(facturaDetalle)
+        Dim id_prod = facturaDetalle.producto_id
+        Dim cantidad = facturaDetalle.cantidad
+        descontarStockProducto(id_prod, cantidad)
+
         ctx.SaveChanges()
     End Sub
+
+    Shared Sub cargarFormaPago(formaPago As ComboBox)
+        formaPago.DataSource = ctx.forma_pago.ToList()
+        formaPago.ValueMember = "Id_forma_pago"
+        formaPago.DisplayMember = "descripcion_formapago"
+    End Sub
+
+    Shared Function ultimoIdFactura()
+        Dim id = (From f In ctx.factura
+                  Select f.Id_factura).Max
+        Return id
+    End Function
 #End Region
 End Class

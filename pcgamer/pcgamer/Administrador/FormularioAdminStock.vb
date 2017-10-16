@@ -66,7 +66,12 @@ Public Class FormularioAdminStock
     End Sub
 
     Private Sub cargarComboBoxs()
-        AccesoDatos.cargarCBoxs(TProcesador, TPlacaMadre, TRam, TPlacaVideo, TDiscoRigido, TGabinete, TCategoria)
+        Try
+            AccesoDatos.cargarCBoxs(TProcesador, TPlacaMadre, TRam, TPlacaVideo, TDiscoRigido, TGabinete, TCategoria)
+        Catch ex As Exception
+            MsgBox("Ha ocurrido un problema, la base de datos no se pudo cargar correctamente", MsgBoxStyle.DefaultButton2 +
+                   MsgBoxStyle.Exclamation, "Fallo al cargar Productos")
+        End Try
     End Sub
 
     Private Sub cargarDetalle(producto As productos)
@@ -132,7 +137,7 @@ Public Class FormularioAdminStock
                 BNuevo.Visible = False
             End If
             'La leyenda de abajo
-            LRol.Text = Me.Tag
+            LRol.Text = Me.Tag + ":"
             LApeyNom.Text = LApeyNom.Tag
 
             cargarProductos()
@@ -455,41 +460,45 @@ Public Class FormularioAdminStock
 
 #End Region
 
-    Private Sub BAgregarFactura_Click(sender As Object, e As EventArgs) Handles BAgregarFactura.Click
-        If DataGridStock.CurrentRow Is Nothing Then
-            MsgBox("Seleccione un producto para agregar a la factura", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
-        Else
-            If DataGridStock.CurrentRow.Cells(5).Value = "0" Then
-                MsgBox("No es posible agregar a factura, el producto esta dado de baja", MsgBoxStyle.DefaultButton2 +
-                       MsgBoxStyle.Exclamation, "Operacion invalida")
+    Private Sub BAgregarFactura_Click(sender As Object, e As EventArgs) Handles BAgregarFactura.Click, DataGridStock.CellMouseDoubleClick
+        If Me.Tag = "Vendedor" Then     'si no es vendedor no puede agregar a factura, no aparece el boton
+            If DataGridStock.CurrentRow Is Nothing Then
+                MsgBox("Seleccione un producto para agregar a la factura", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
             Else
-                If Integer.Parse(TStock.Text) = 0 Then
-                    MsgBox("El producto no puede cargarse a la factura, no existe stock disponible",
-                           MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Stock no disponible")
+                If DataGridStock.CurrentRow.Cells(5).Value = "0" Then
+                    MsgBox("No es posible agregar a factura, el producto esta dado de baja", MsgBoxStyle.DefaultButton2 +
+                           MsgBoxStyle.Exclamation, "Operacion invalida")
                 Else
-                    Dim fila As Integer = DataGridStock.CurrentRow.Index
-                    Dim id_producto As Integer = DataGridStock.Item(0, fila).Value
-
-                    'Verifica si existe el producto en la grilla de factura
-                    Dim existe As Boolean = FormularioFactura.DataGridFactura.Rows.Cast(Of DataGridViewRow).Any(Function(x) CInt(x.Cells(0).Value) = id_producto)
-                    If existe Then
-                        MsgBox("El producto ya se encuentra cargado en la factura, para agregar mas de uno, modifique el valor del campo 'Cantidad'",
-                               MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Producto existente en Factura")
+                    If Integer.Parse(TStock.Text) = 0 Then
+                        MsgBox("El producto no puede cargarse a la factura, no existe stock disponible",
+                               MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Stock no disponible")
                     Else
-                        Dim producto As productos = AccesoDatos.capturarProducto(id_producto)
-                        Dim categoria As String = producto.categoria.descripcion_categoria
-                        Dim nombre As String = producto.nombre
-                        Dim precio As Decimal = producto.precio
-                        Dim cantidad As Integer = 1
-                        Dim importe As Decimal = precio * cantidad
-                        Dim stock As Integer = producto.stock
-                        FormularioFactura.DataGridFactura.Rows.Add(id_producto, cantidad, categoria, nombre, precio, importe, stock)
+                        Dim fila As Integer = DataGridStock.CurrentRow.Index
+                        Dim id_producto As Integer = DataGridStock.Item(0, fila).Value
+
+                        'Verifica si existe el producto en la grilla de factura
+                        Dim existe As Boolean = FormularioFactura.DataGridFactura.Rows.Cast(Of DataGridViewRow).Any(Function(x) CInt(x.Cells(0).Value) = id_producto)
+                        If existe Then
+                            MsgBox("El producto ya se encuentra cargado en la factura, para agregar mas de uno, modifique el valor del campo 'Cantidad'",
+                                   MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Producto existente en Factura")
+                        Else
+                            Dim producto As productos = AccesoDatos.capturarProducto(id_producto)
+                            Dim categoria As String = producto.categoria.descripcion_categoria
+                            Dim nombre As String = producto.nombre
+                            Dim precio As Decimal = producto.precio
+                            Dim cantidad As Integer = 1
+                            Dim importe As Decimal = precio * cantidad
+                            Dim stock As Integer = producto.stock
+                            FormularioFactura.DataGridFactura.Rows.Add(id_producto, cantidad, categoria, nombre, precio, importe, stock)
+                        End If
+                        'Le aviso el tipo de rol
+                        FormularioFactura.Tag = Me.Tag
+                        FormularioFactura.LApeyNom.Tag = LApeyNom.Tag
+                        'le paso el id usuario para cuando genere la factura no tenga qe buscar
+                        FormularioFactura.LTitulo.Tag = LTitulo.Tag
+                        FormularioFactura.Show()
+                        Me.Dispose()
                     End If
-                    'Le aviso el tipo de rol
-                    FormularioFactura.Tag = Me.Tag
-                    FormularioFactura.LApeyNom.Tag = LApeyNom.Tag
-                    FormularioFactura.Show()
-                    Me.Dispose()
                 End If
             End If
         End If

@@ -214,7 +214,7 @@ Public Class FormularioAdminCliente
                 BEditar.Visible = False
             End If
             'La leyenda de abajo
-            LRol.Text = Me.Tag
+            LRol.Text = Me.Tag + ":"
             LApeyNom.Text = LApeyNom.Tag
 
             cargarClientes()
@@ -393,25 +393,29 @@ Public Class FormularioAdminCliente
         AccesoDatos.buscarCliente(sender.text, CBBuscar.SelectedIndex, DataGridCliente)
     End Sub
 
-    Private Sub BAgregarFactura_Click(sender As Object, e As EventArgs) Handles BAgregarFactura.Click
-        If DataGridCliente.CurrentRow Is Nothing Then
-            MsgBox("Seleccione un cliente para agregar a la factura", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
-        Else
-            Dim fila As Integer = DataGridCliente.CurrentRow.Index
-            If DataGridCliente.Item(5, fila).Value = 0 Then
-                MsgBox("El cliente seleccionado no puede agregarse a la factura porque ha sido dado de baja. Contactese con el Administrador", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
+    Private Sub BAgregarFactura_Click(sender As Object, e As EventArgs) Handles BAgregarFactura.Click, DataGridCliente.CellMouseDoubleClick
+        If Me.Tag = "Vendedor" Then     'si no es vendedor no puede agregar a factura, no aparece el boton
+            If DataGridCliente.CurrentRow Is Nothing Then
+                MsgBox("Seleccione un cliente para agregar a la factura", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
             Else
-                FormularioFactura.TCliente.Text = TBApellido.Text + " " + TBNombre.Text
-                FormularioFactura.TDNI.Text = TBDNI.Text
-                FormularioFactura.TDomicilio.Text = TBDomicilio.Text
-                FormularioFactura.TTelefono.Text = TBTelefono.Text
-                'Le paso el id_cliente
-                FormularioFactura.LCliente.Tag = DataGridCliente.Item(0, fila).Value
-                'Le aviso el tipo de rol
-                FormularioFactura.Tag = Me.Tag
-                FormularioFactura.LApeyNom.Tag = LApeyNom.Tag
-                FormularioFactura.Show()
-                Me.Dispose()
+                Dim fila As Integer = DataGridCliente.CurrentRow.Index
+                If DataGridCliente.Item(5, fila).Value = 0 Then
+                    MsgBox("El cliente seleccionado no puede agregarse a la factura porque ha sido dado de baja. Contactese con el Administrador", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Operacion Invalida")
+                Else
+                    FormularioFactura.TCliente.Text = TBApellido.Text + " " + TBNombre.Text
+                    FormularioFactura.TDNI.Text = TBDNI.Text
+                    FormularioFactura.TDomicilio.Text = TBDomicilio.Text
+                    FormularioFactura.TTelefono.Text = TBTelefono.Text
+                    'Le paso el id_cliente
+                    FormularioFactura.LCliente.Tag = DataGridCliente.Item(0, fila).Value
+                    'Le aviso el tipo de rol
+                    FormularioFactura.Tag = Me.Tag
+                    FormularioFactura.LApeyNom.Tag = LApeyNom.Tag
+                    'le paso el id usuario para cuando genere la factura no tenga qe buscar
+                    FormularioFactura.LTitulo.Tag = LTitulo.Tag
+                    FormularioFactura.Show()
+                    Me.Dispose()
+                End If
             End If
         End If
     End Sub

@@ -74,7 +74,7 @@ Partial Class Login
         Me.LTitulo.BackColor = System.Drawing.Color.Black
         Me.LTitulo.Font = New System.Drawing.Font("Verdana", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LTitulo.ForeColor = System.Drawing.Color.White
-        Me.LTitulo.Location = New System.Drawing.Point(213, 105)
+        Me.LTitulo.Location = New System.Drawing.Point(213, 151)
         Me.LTitulo.Name = "LTitulo"
         Me.LTitulo.Size = New System.Drawing.Size(409, 40)
         Me.LTitulo.TabIndex = 6
@@ -89,7 +89,7 @@ Partial Class Login
         Me.BIngresar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.BIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BIngresar.ForeColor = System.Drawing.Color.White
-        Me.BIngresar.Location = New System.Drawing.Point(668, 271)
+        Me.BIngresar.Location = New System.Drawing.Point(668, 317)
         Me.BIngresar.Name = "BIngresar"
         Me.BIngresar.Size = New System.Drawing.Size(152, 55)
         Me.BIngresar.TabIndex = 5
@@ -104,7 +104,7 @@ Partial Class Login
         Me.Panel1.Controls.Add(Me.LContrasena)
         Me.Panel1.Controls.Add(Me.TContrasena)
         Me.Panel1.ForeColor = System.Drawing.Color.White
-        Me.Panel1.Location = New System.Drawing.Point(281, 184)
+        Me.Panel1.Location = New System.Drawing.Point(281, 230)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(295, 221)
         Me.Panel1.TabIndex = 0
@@ -112,7 +112,7 @@ Partial Class Login
         'PBLogo
         '
         Me.PBLogo.Image = Global.pcgamer.My.Resources.Resources.pcgamer_logo_grande1
-        Me.PBLogo.Location = New System.Drawing.Point(668, 76)
+        Me.PBLogo.Location = New System.Drawing.Point(668, 122)
         Me.PBLogo.Name = "PBLogo"
         Me.PBLogo.Size = New System.Drawing.Size(159, 137)
         Me.PBLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -125,7 +125,7 @@ Partial Class Login
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.pcgamer.My.Resources.Resources.asus_background
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1006, 593)
+        Me.ClientSize = New System.Drawing.Size(1006, 673)
         Me.Controls.Add(Me.PBLogo)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.BIngresar)

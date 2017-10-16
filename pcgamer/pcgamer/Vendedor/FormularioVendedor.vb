@@ -9,6 +9,8 @@
         'Le aviso el tipo de rol
         FormularioFactura.Tag = Me.Tag
         FormularioFactura.LApeyNom.Tag = LApeyNom.Tag
+        'le paso el id usuario para cuando genere la factura no tenga qe buscar
+        FormularioFactura.LTitulo.Tag = LTitulo.Tag
         FormularioFactura.Show()
         Me.Hide()
     End Sub
@@ -17,6 +19,8 @@
         'Le aviso el tipo de rol
         FormularioAdminCliente.Tag = Me.Tag
         FormularioAdminCliente.LApeyNom.Tag = LApeyNom.Tag
+        'le paso el id usuario para cuando genere la factura no tenga qe buscar
+        FormularioAdminCliente.LTitulo.Tag = LTitulo.Tag
         FormularioAdminCliente.Show()
         Me.Hide()
     End Sub
@@ -25,6 +29,8 @@
         'Le aviso el tipo de rol
         FormularioAdminStock.Tag = Me.Tag
         FormularioAdminStock.LApeyNom.Tag = LApeyNom.Tag
+        'le paso el id usuario para cuando genere la factura no tenga qe buscar
+        FormularioAdminStock.LTitulo.Tag = LTitulo.Tag
         FormularioAdminStock.Show()
         Me.Hide()
     End Sub
@@ -53,7 +59,7 @@
         Ypos = Location.Y
 #End Region
         'La leyenda de abajo
-        LRol.Text = Me.Tag
+        LRol.Text = Me.Tag + ":"
         LApeyNom.Text = LApeyNom.Tag
     End Sub
 #End Region

@@ -646,9 +646,9 @@ Partial Class FormularioAdminCliente
         Me.LApeyNom.ForeColor = System.Drawing.SystemColors.ActiveCaption
         Me.LApeyNom.Location = New System.Drawing.Point(999, 646)
         Me.LApeyNom.Name = "LApeyNom"
-        Me.LApeyNom.Size = New System.Drawing.Size(153, 18)
+        Me.LApeyNom.Size = New System.Drawing.Size(150, 18)
         Me.LApeyNom.TabIndex = 30
-        Me.LApeyNom.Text = "Gallardo Juan Pablo"
+        Me.LApeyNom.Text = "APELLIDO, Nombre"
         '
         'LRol
         '
@@ -656,7 +656,7 @@ Partial Class FormularioAdminCliente
         Me.LRol.BackColor = System.Drawing.Color.Transparent
         Me.LRol.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LRol.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.LRol.Location = New System.Drawing.Point(857, 644)
+        Me.LRol.Location = New System.Drawing.Point(863, 644)
         Me.LRol.Name = "LRol"
         Me.LRol.Size = New System.Drawing.Size(139, 20)
         Me.LRol.TabIndex = 29

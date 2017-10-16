@@ -181,9 +181,9 @@ Partial Class FormularioAdministrador
         Me.LApeyNom.ForeColor = System.Drawing.SystemColors.ActiveCaption
         Me.LApeyNom.Location = New System.Drawing.Point(975, 646)
         Me.LApeyNom.Name = "LApeyNom"
-        Me.LApeyNom.Size = New System.Drawing.Size(153, 18)
+        Me.LApeyNom.Size = New System.Drawing.Size(150, 18)
         Me.LApeyNom.TabIndex = 28
-        Me.LApeyNom.Text = "Gallardo Juan Pablo"
+        Me.LApeyNom.Text = "APELLIDO, Nombre"
         '
         'LRol
         '

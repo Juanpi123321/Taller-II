@@ -51,7 +51,15 @@ Public Class FormularioFactura
         TFechaHora.Text = String.Format("{0:G}", DateTime.Now)
         LApeyNom.Text = LApeyNom.Tag
 
-        AccesoDatos.cargarFormaPago(CBFormaPago)
+        Try
+            AccesoDatos.cargarFormaPago(CBFormaPago)
+            Dim ultimoIdFactura = (AccesoDatos.ultimoIdFactura() + 1).ToString
+            'es un numero de 5 digitos que completa con ceros
+            LFactura2.Text = ultimoIdFactura.PadLeft(5, "0")
+        Catch ex As Exception
+            MsgBox("Ha ocurrido un problema, la base de datos no se pudo cargar correctamente", MsgBoxStyle.DefaultButton2 +
+                   MsgBoxStyle.Exclamation, "Fallo al conectar con la Base de Datos")
+        End Try
         CBFormaPago.SelectedIndex = 0
     End Sub
 
@@ -59,6 +67,8 @@ Public Class FormularioFactura
         'Le aviso el tipo de rol
         FormularioAdminCliente.Tag = Me.Tag
         FormularioAdminCliente.LApeyNom.Tag = LApeyNom.Tag
+        'le paso el id usuario para cuando genere la factura no tenga qe buscar
+        FormularioAdminCliente.LTitulo.Tag = LTitulo.Tag
         FormularioAdminCliente.Show()
         Me.Hide()
     End Sub
@@ -81,7 +91,7 @@ Public Class FormularioFactura
                     Dim Id_cliente As Integer = Integer.Parse(LCliente.Tag)
                     Dim fecha As Date = Format("{0:d}", DateTime.Now)
                     Dim hora As TimeSpan = Date.Now.TimeOfDay
-                    Dim Id_vendedor As Integer = AccesoDatos.idUsuario(LApeyNom.Text)
+                    Dim Id_vendedor As Integer = Integer.Parse(LTitulo.Tag)
                     Dim Id_formaPago As Integer = CBFormaPago.SelectedIndex + 1
                     Dim ultimo_id_factura As Integer
                     ultimo_id_factura = AccesoDatos.AgregarFactura(New factura() With
@@ -110,9 +120,9 @@ Public Class FormularioFactura
                     Next
                     MsgBox("La factura se ha generado correctamente", MsgBoxStyle.DefaultButton2 +
                          MsgBoxStyle.Information, "Facturacion exitosa")
-                Catch ex As Exception
-                    MsgBox("Lo sentimos ha ocurrido un evento inesperado, la factura no pudo ser registrada",
-                      MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Error al registrar")
+                    'Catch ex As Exception
+                    '   MsgBox("Lo sentimos ha ocurrido un evento inesperado, la factura no pudo ser registrada",
+                    '  MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Error al registrar")
                 Finally
                     redirigirMenu(Me.Tag)
                     'destruye de la memoria
@@ -126,6 +136,8 @@ Public Class FormularioFactura
         'Le aviso el tipo de rol
         FormularioAdminStock.Tag = Me.Tag
         FormularioAdminStock.LApeyNom.Tag = LApeyNom.Tag
+        'le paso el id usuario para cuando genere la factura no tenga qe buscar
+        FormularioAdminStock.LTitulo.Tag = LTitulo.Tag
         FormularioAdminStock.Show()
         Me.Hide()
     End Sub
@@ -164,6 +176,13 @@ Public Class FormularioFactura
         If DataGridFactura.Item(1, fila).Value = 0 Then
             MsgBox("La cantidad de producto debe ser como minimo 1", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Cantidad Invalida")
             DataGridFactura.Item(1, fila).Value = 1
+        Else
+            Dim producto = AccesoDatos.capturarProducto(DataGridFactura.Item(0, fila).Value)
+            Dim stockDisponible As Integer = producto.stock
+            If DataGridFactura.Item(1, fila).Value > stockDisponible Then
+                MsgBox("No hay stock disponible de esta cantidad para ese producto. El maximo disponible es de " & stockDisponible & " unidades, ingrese un valor menor o igual a ese", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Stock insuficiente")
+                DataGridFactura.Item(1, fila).Value = 1
+            End If
         End If
         Dim importe As Decimal = DataGridFactura.Item(1, fila).Value * DataGridFactura.Item(4, fila).Value
         DataGridFactura.Item(5, fila).Value = importe
