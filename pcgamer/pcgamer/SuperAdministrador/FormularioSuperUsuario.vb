@@ -120,7 +120,9 @@ Public Class FormularioSuperUsuario
         CBSexo.SelectedIndex = 0
         TUsuario.Clear()
         TContrasena.Clear()
-        RRolVendedor.Checked = True
+        RRolVendedor.Checked = False
+        RRolAdmin.Checked = False
+        RRolSuper.Checked = False
         CBBuscar.SelectedIndex = 0
         PBImagen.ImageLocation = "D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\pcgamer\pcgamer\Resources\usuario.jpg"
         Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
@@ -384,6 +386,9 @@ Public Class FormularioSuperUsuario
             ElseIf AccesoDatos.existeEmailPersona(TEmail.Text) Then
                 MsgBox("Ya existe un Usuario registrado con el Email '" + TEmail.Text + "'", MsgBoxStyle.DefaultButton2 +
                            MsgBoxStyle.Critical, "Email en uso")
+            ElseIf BGenerarUsuario.Tag <> "True" Then
+                MsgBox("Debe generar un usuario y contraseña antes de continuar, haga click en el boton 'Generar Usuario'", MsgBoxStyle.DefaultButton2 +
+                           MsgBoxStyle.Critical, "Generar Usuario")
             Else
                 If PBImagen.ImageLocation = Nothing Or PBImagen.ImageLocation = "D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\pcgamer\pcgamer\Resources\usuario.jpg" Then
                     MsgBox("El usuario se va a registrar sin ninguna imagen", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Imagen no detectada")
@@ -407,8 +412,8 @@ Public Class FormularioSuperUsuario
                                                        .sexo = sexo
                                                        })
                         AccesoDatos.AgregarUsuario(New usuarios() With {
-                                                       .usuario = LUsuario.Tag,
-                                                       .contrasena = LContrasena.Tag,
+                                                       .usuario = TUsuario.Tag,
+                                                       .contrasena = TContrasena.Tag,
                                                        .persona_id = ultimo_id_persona,
                                                        .estado = 1,
                                                        .fechaingreso = FechaIngreso.Value
@@ -416,9 +421,9 @@ Public Class FormularioSuperUsuario
 
                         cargarUsuarios()
                         MsgBox("El Usuario se ha registrado correctamente", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Registro Exitoso")
-                    Catch ex As Exception
-                        MsgBox("Lo sentimos ha ocurrido un evento inesperado, el usuario no pudo ser registrado",
-                          MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Error al registrar")
+                        'Catch ex As Exception
+                        '   MsgBox("Lo sentimos ha ocurrido un evento inesperado, el usuario no pudo ser registrado",
+                        '  MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Error al registrar")
                     Finally
                         BCancelar.Visible = False
                         BAgregar.Visible = False
@@ -496,7 +501,7 @@ Public Class FormularioSuperUsuario
         End If
     End Sub
 
-    Private Sub BGenerarUsuario_Click(sender As Object, e As EventArgs) Handles BGenerarUsuario.Click
+    Private Sub BGenerarUsuario_Click(sender As Object, e As EventArgs) Handles BGenerarUsuario.Click, PBOk.Click
         If RRolSuper.Checked = False And RRolAdmin.Checked = False And RRolVendedor.Checked = False Then
             MsgBox("Debe asignar primero un rol al usuario", MsgBoxStyle.DefaultButton2 +
                        MsgBoxStyle.Critical, "Rol no detectado")
@@ -508,9 +513,21 @@ Public Class FormularioSuperUsuario
             BGenerarUsuario.Tag = "True"
             PBOk.Visible = True
             BGenerarUsuario.Visible = False
+            RRolVendedor.Enabled = False
+            RRolAdmin.Enabled = False
+            RRolSuper.Enabled = False
             Me.Opacity = 1
         End If
     End Sub
+
+
+    Private Sub TContrasena_MouseHover(sender As Object, e As EventArgs) Handles TContrasena.MouseHover
+        TContrasena.UseSystemPasswordChar = False
+    End Sub
+    Private Sub TContrasena_MouseLeave(sender As Object, e As EventArgs) Handles TContrasena.MouseLeave
+        TContrasena.UseSystemPasswordChar = True
+    End Sub
+
 #Region "bloquear movimiento del form"
     Private Xpos, Ypos
     Private Sub FormularioSuperUsuario_Move(sender As Object, e As EventArgs) Handles Me.Move
