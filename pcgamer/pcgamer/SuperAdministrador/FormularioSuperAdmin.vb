@@ -4,6 +4,7 @@ Public Class FormularioSuperAdmin
     Private Sub BUsuarios_Click(sender As Object, e As EventArgs) Handles BUsuarios.Click
         'Le aviso el tipo de rol
         FormularioSuperUsuario.Tag = Me.Tag
+        FormularioSuperUsuario.LApeyNom.Tag = LApeyNom.Tag
         FormularioSuperUsuario.Show()
         Me.Hide()
     End Sub
@@ -14,6 +15,11 @@ Public Class FormularioSuperAdmin
 
     Private Sub BBackup_Click(sender As Object, e As EventArgs) Handles BBackup.Click
         MsgBox("Disponible para la segunda entrega, disculpe las molestias", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "No disponible")
+        'Le aviso el tipo de rol
+        'FormularioSuperUsuario.Tag = Me.Tag
+        'FormularioSuperUsuario.LApeyNom.Tag = LApeyNom.Tag
+        'FormularioSuperUsuario.Show()
+        'Me.Hide()
     End Sub
 
     'Verifica la autenticidad del superadministrador, en caso de que deje abierto o de alguna manera alguna persona extraña acceda al sistema y desee otorgarse permisos
@@ -76,10 +82,11 @@ Public Class FormularioSuperAdmin
                                       dialog.Close()
                                   End Sub
         AddHandler BIngresar.Click, Sub(sender, args)
-                                        If TUsuario.Text = "superadmin" And TContrasena.Text <> "" Then
+                                        If LCase(TUsuario.Text) = "superadministrador1" And LCase(TContrasena.Text) <> "v123" Then
                                             MsgBox("Maneje con cautela los permisos otorgados a los usuarios", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Acceso Autorizado")
                                             'Le aviso el tipo de rol
                                             FormularioSuperRoles.Tag = Me.Tag
+                                            FormularioSuperRoles.LApeyNom.Tag = LApeyNom.Tag
                                             FormularioSuperRoles.Show()
                                             Me.Hide()
                                         Else
@@ -121,6 +128,8 @@ Public Class FormularioSuperAdmin
         Xpos = Location.X
         Ypos = Location.Y
 #End Region
+        'La leyenda de abajo
+        LRol.Text = Me.Tag + ": " + LApeyNom.Tag
     End Sub
 #End Region
 End Class

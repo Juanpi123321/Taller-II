@@ -203,12 +203,6 @@
     <Compile Include="usuarios.vb">
       <DependentUpon>ModeloPcgamer.tt</DependentUpon>
     </Compile>
-    <Compile Include="Vendedor\FormularioCliente.Designer.vb">
-      <DependentUpon>FormularioCliente.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Vendedor\FormularioCliente.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Vendedor\FormularioFactura.Designer.vb">
       <DependentUpon>FormularioFactura.vb</DependentUpon>
     </Compile>
@@ -243,12 +237,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Vendedor\FormularioStock.Designer.vb">
-      <DependentUpon>FormularioStock.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Vendedor\FormularioStock.vb">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Administrador\FormularioAdminCliente.resx">
@@ -269,14 +257,8 @@
     <EmbeddedResource Include="SuperAdministrador\FormularioSuperUsuario.resx">
       <DependentUpon>FormularioSuperUsuario.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vendedor\FormularioCliente.resx">
-      <DependentUpon>FormularioCliente.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Vendedor\FormularioFactura.resx">
       <DependentUpon>FormularioFactura.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vendedor\FormularioStock.resx">
-      <DependentUpon>FormularioStock.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vendedor\FormularioVendedor.resx">
       <DependentUpon>FormularioVendedor.vb</DependentUpon>
@@ -462,6 +444,7 @@
       <DependentUpon>ModeloPcgamer.edmx</DependentUpon>
       <LastGenOutput>ModeloPcgamer.vb</LastGenOutput>
     </Content>
+    <None Include="Resources\steve-jobs.jpg" />
     <None Include="Resources\pcgamer-readers.png" />
     <None Include="Resources\pcgamer-logo-grande3.png" />
     <None Include="Resources\Yiyo.jpg" />

@@ -214,8 +214,7 @@ Public Class FormularioAdminCliente
                 BEditar.Visible = False
             End If
             'La leyenda de abajo
-            LRol.Text = Me.Tag + ":"
-            LApeyNom.Text = LApeyNom.Tag
+            LRol.Text = Me.Tag + ": " + LApeyNom.Tag
 
             cargarClientes()
             BEliminar.Visible = False

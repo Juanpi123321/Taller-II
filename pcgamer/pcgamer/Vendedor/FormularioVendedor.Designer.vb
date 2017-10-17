@@ -193,9 +193,8 @@ Partial Class FormularioVendedor
         Me.LApeyNom.ForeColor = System.Drawing.SystemColors.ActiveCaption
         Me.LApeyNom.Location = New System.Drawing.Point(961, 646)
         Me.LApeyNom.Name = "LApeyNom"
-        Me.LApeyNom.Size = New System.Drawing.Size(150, 18)
+        Me.LApeyNom.Size = New System.Drawing.Size(0, 18)
         Me.LApeyNom.TabIndex = 26
-        Me.LApeyNom.Text = "APELLIDO, Nombre"
         '
         'FormularioVendedor
         '

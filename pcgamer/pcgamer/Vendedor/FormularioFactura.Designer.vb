@@ -327,7 +327,7 @@ Partial Class FormularioFactura
         Me.LFactura2.Name = "LFactura2"
         Me.LFactura2.Size = New System.Drawing.Size(63, 18)
         Me.LFactura2.TabIndex = 0
-        Me.LFactura2.Text = "00510"
+        Me.LFactura2.Text = "000XX"
         '
         'GroupBox3
         '

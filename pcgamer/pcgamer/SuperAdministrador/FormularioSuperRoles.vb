@@ -68,6 +68,13 @@
 
     Private Sub FormularioSuperRoles_Load(sender As Object, e As EventArgs) Handles Me.Load
         CheckBox4.Width = 60
+#Region "bloquear movimiento del form"
+        CenterToScreen()
+        Xpos = Location.X
+        Ypos = Location.Y
+#End Region
+        'La leyenda de abajo
+        LRol.Text = Me.Tag + ": " + LApeyNom.Tag
     End Sub
 
     Private Sub BCancelar_Click(sender As Object, e As EventArgs) Handles BCancelar.Click
@@ -95,4 +102,13 @@
         defectoAdmin()
         defectoVendedor()
     End Sub
+
+#Region "bloquear movimiento del form"
+    Private Xpos, Ypos
+    Private Sub FormularioSuperRoles_Move(sender As Object, e As EventArgs) Handles Me.Move
+        If Xpos > 0 Then
+            Location = New Point(Xpos, Ypos)
+        End If
+    End Sub
+#End Region
 End Class

@@ -36,7 +36,7 @@ Partial Class FormularioSuperUsuario
         Me.RRolAdmin = New System.Windows.Forms.RadioButton()
         Me.RRolVendedor = New System.Windows.Forms.RadioButton()
         Me.LSexo = New System.Windows.Forms.Label()
-        Me.LRol = New System.Windows.Forms.Label()
+        Me.LRolRB = New System.Windows.Forms.Label()
         Me.LFechaIng = New System.Windows.Forms.Label()
         Me.FechaIngreso = New System.Windows.Forms.DateTimePicker()
         Me.BNuevo = New System.Windows.Forms.Button()
@@ -64,6 +64,8 @@ Partial Class FormularioSuperUsuario
         Me.TBuscar = New System.Windows.Forms.TextBox()
         Me.DataGridUsuario = New System.Windows.Forms.DataGridView()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.LApeyNom = New System.Windows.Forms.Label()
+        Me.LRol = New System.Windows.Forms.Label()
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PBImagen, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -106,7 +108,7 @@ Partial Class FormularioSuperUsuario
         Me.Panel1.Controls.Add(Me.RRolAdmin)
         Me.Panel1.Controls.Add(Me.RRolVendedor)
         Me.Panel1.Controls.Add(Me.LSexo)
-        Me.Panel1.Controls.Add(Me.LRol)
+        Me.Panel1.Controls.Add(Me.LRolRB)
         Me.Panel1.Controls.Add(Me.LFechaIng)
         Me.Panel1.Controls.Add(Me.FechaIngreso)
         Me.Panel1.Controls.Add(Me.BNuevo)
@@ -261,16 +263,16 @@ Partial Class FormularioSuperUsuario
         Me.LSexo.TabIndex = 30
         Me.LSexo.Text = "Sexo:"
         '
-        'LRol
+        'LRolRB
         '
-        Me.LRol.AutoSize = True
-        Me.LRol.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LRol.ForeColor = System.Drawing.Color.White
-        Me.LRol.Location = New System.Drawing.Point(487, 181)
-        Me.LRol.Name = "LRol"
-        Me.LRol.Size = New System.Drawing.Size(38, 18)
-        Me.LRol.TabIndex = 31
-        Me.LRol.Text = "Rol:"
+        Me.LRolRB.AutoSize = True
+        Me.LRolRB.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LRolRB.ForeColor = System.Drawing.Color.White
+        Me.LRolRB.Location = New System.Drawing.Point(487, 181)
+        Me.LRolRB.Name = "LRolRB"
+        Me.LRolRB.Size = New System.Drawing.Size(38, 18)
+        Me.LRolRB.TabIndex = 31
+        Me.LRolRB.Text = "Rol:"
         '
         'LFechaIng
         '
@@ -589,6 +591,29 @@ Partial Class FormularioSuperUsuario
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
+        'LApeyNom
+        '
+        Me.LApeyNom.AutoSize = True
+        Me.LApeyNom.BackColor = System.Drawing.Color.Transparent
+        Me.LApeyNom.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LApeyNom.ForeColor = System.Drawing.SystemColors.ActiveCaption
+        Me.LApeyNom.Location = New System.Drawing.Point(945, 648)
+        Me.LApeyNom.Name = "LApeyNom"
+        Me.LApeyNom.Size = New System.Drawing.Size(0, 18)
+        Me.LApeyNom.TabIndex = 36
+        '
+        'LRol
+        '
+        Me.LRol.AutoSize = True
+        Me.LRol.BackColor = System.Drawing.Color.Transparent
+        Me.LRol.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LRol.ForeColor = System.Drawing.Color.White
+        Me.LRol.Location = New System.Drawing.Point(741, 646)
+        Me.LRol.Name = "LRol"
+        Me.LRol.Size = New System.Drawing.Size(190, 20)
+        Me.LRol.TabIndex = 35
+        Me.LRol.Text = "SuperAdministrador:"
+        '
         'FormularioSuperUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 20.0!)
@@ -597,6 +622,8 @@ Partial Class FormularioSuperUsuario
         Me.BackgroundImage = Global.pcgamer.My.Resources.Resources.superadmin_background3
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1202, 673)
+        Me.Controls.Add(Me.LApeyNom)
+        Me.Controls.Add(Me.LRol)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.LTitulo)
         Me.Controls.Add(Me.PBLogo)
@@ -646,7 +673,7 @@ Partial Class FormularioSuperUsuario
     Friend WithEvents RRolSuper As RadioButton
     Friend WithEvents RRolAdmin As RadioButton
     Friend WithEvents RRolVendedor As RadioButton
-    Friend WithEvents LRol As Label
+    Friend WithEvents LRolRB As Label
     Friend WithEvents LFechaIng As Label
     Friend WithEvents FechaIngreso As DateTimePicker
     Friend WithEvents BAgregar As Button
@@ -658,4 +685,6 @@ Partial Class FormularioSuperUsuario
     Friend WithEvents TContrasena As TextBox
     Friend WithEvents TUsuario As TextBox
     Friend WithEvents BCambiarImagen As Button
+    Friend WithEvents LApeyNom As Label
+    Friend WithEvents LRol As Label
 End Class

@@ -137,8 +137,7 @@ Public Class FormularioAdminStock
                 BNuevo.Visible = False
             End If
             'La leyenda de abajo
-            LRol.Text = Me.Tag + ":"
-            LApeyNom.Text = LApeyNom.Tag
+            LRol.Text = Me.Tag + ": " + LApeyNom.Tag
 
             cargarProductos()
             BBaja.Visible = False

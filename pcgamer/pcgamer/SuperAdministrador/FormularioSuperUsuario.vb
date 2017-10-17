@@ -134,6 +134,8 @@ Public Class FormularioSuperUsuario
 #End Region
             cargarUsuarios()
             BEliminar.Visible = False
+            'La leyenda de abajo
+            LRol.Text = Me.Tag + ": " + LApeyNom.Tag
         Catch ex As Exception
             MsgBox("Ha ocurrido un error, la lista de usuarios no se pudo cargar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Error al cargar Datagrid")
         End Try
@@ -456,9 +458,6 @@ Public Class FormularioSuperUsuario
         Next
     End Sub
 
-#Region "bloquear movimiento del form"
-    Private Xpos, Ypos
-
     Private Sub BCambiarImagen_Click(sender As Object, e As EventArgs) Handles BCambiarImagen.Click
         OpenFileDialog1.InitialDirectory = "D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\pcgamer\pcgamer\Resources"
         OpenFileDialog1.Filter = "Todos los archivos|*.*|Archivos Imagenes|*.jpg|Archivos Imagenes|*.bmp|Archivos Imagenes|*.png"
@@ -470,6 +469,8 @@ Public Class FormularioSuperUsuario
         End If
     End Sub
 
+#Region "bloquear movimiento del form"
+    Private Xpos, Ypos
     Private Sub FormularioSuperUsuario_Move(sender As Object, e As EventArgs) Handles Me.Move
         If Xpos > 0 Then
             Location = New Point(Xpos, Ypos)

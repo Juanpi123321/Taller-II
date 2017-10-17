@@ -349,17 +349,22 @@
                        Join r In ctx.rol On r.Id_rol Equals p.rol_id
                        Where u.usuario = p_usuario
                        Select contrasena = u.contrasena, nombre = p.nombres, apellido = p.apellidos, rol = r.tipo_rol,
-                           Id_usuario = u.Id_usuario).SingleOrDefault
+                           Id_usuario = u.Id_usuario, estado = u.estado).SingleOrDefault
         If usuario Is Nothing Then
             resultado = False
         ElseIf usuario.contrasena = p_contrasena Then
             resultado = True
-            Dim ApeyNom = UCase(usuario.apellido) & ", " & usuario.nombre
-            Login.LUsuario.Tag = ApeyNom
-            Login.Tag = usuario.rol
-            Login.LTitulo.Tag = usuario.Id_usuario  'le paso el id usuario para cuando genere la factura no tenga qe buscar
+            If usuario.estado = 0 Then
+                Login.BIngresar.Tag = "baja" 'si esta dado de baja le aviso al Login que no le deje ingresar
+            Else
+                Login.BIngresar.Tag = ""
+                Dim ApeyNom = UCase(usuario.apellido) & ", " & usuario.nombre
+                Login.LUsuario.Tag = ApeyNom
+                Login.Tag = usuario.rol
+                Login.LTitulo.Tag = usuario.Id_usuario  'le paso el id usuario para cuando genere la factura no tenga qe buscar
+            End If
         End If
-        Return resultado
+            Return resultado
     End Function
 
 #Region "Persona"
