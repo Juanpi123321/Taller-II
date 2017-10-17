@@ -367,6 +367,22 @@
             Return resultado
     End Function
 
+    Shared Sub generarUsuario(p_rol As Integer)
+        Dim numero = (From u In ctx.usuarios
+                      Join p In ctx.personas On p.Id_persona Equals u.persona_id
+                      Join r In ctx.rol On r.Id_rol Equals p.rol_id
+                      Where p.rol_id = p_rol
+                      Select Id_rol = p.rol_id, tipo = r.tipo_rol).Count
+        numero = numero + 1
+        Dim rol = (From r In ctx.rol
+                   Where r.Id_rol = p_rol
+                   Select tipoRol = r.tipo_rol).SingleOrDefault
+        Dim usuario As String = LCase(rol) + (numero).ToString
+        Dim contrasena As String = Left(usuario, 1) + "123"
+
+        FormularioGenerarUsuario.TUsuario.Tag = usuario
+        FormularioGenerarUsuario.TContrasena.Tag = contrasena
+    End Sub
 #Region "Persona"
     Shared Function AgregarPersona(persona As personas) As Integer
         ctx.personas.Add(persona)

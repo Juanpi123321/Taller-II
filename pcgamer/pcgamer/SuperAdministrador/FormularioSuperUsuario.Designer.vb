@@ -26,11 +26,9 @@ Partial Class FormularioSuperUsuario
         Me.LTitulo = New System.Windows.Forms.Label()
         Me.PBLogo = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PBOk = New System.Windows.Forms.PictureBox()
+        Me.BGenerarUsuario = New System.Windows.Forms.Button()
         Me.BCambiarImagen = New System.Windows.Forms.Button()
-        Me.LContrasena = New System.Windows.Forms.Label()
-        Me.LUsuario = New System.Windows.Forms.Label()
-        Me.TContrasena = New System.Windows.Forms.TextBox()
-        Me.TUsuario = New System.Windows.Forms.TextBox()
         Me.CBSexo = New System.Windows.Forms.ComboBox()
         Me.RRolSuper = New System.Windows.Forms.RadioButton()
         Me.RRolAdmin = New System.Windows.Forms.RadioButton()
@@ -66,8 +64,13 @@ Partial Class FormularioSuperUsuario
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.LApeyNom = New System.Windows.Forms.Label()
         Me.LRol = New System.Windows.Forms.Label()
+        Me.LUsuario = New System.Windows.Forms.Label()
+        Me.LContrasena = New System.Windows.Forms.Label()
+        Me.TContrasena = New System.Windows.Forms.TextBox()
+        Me.TUsuario = New System.Windows.Forms.TextBox()
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        CType(Me.PBOk, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PBImagen, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -98,11 +101,13 @@ Partial Class FormularioSuperUsuario
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Black
-        Me.Panel1.Controls.Add(Me.BCambiarImagen)
+        Me.Panel1.Controls.Add(Me.PBOk)
+        Me.Panel1.Controls.Add(Me.BGenerarUsuario)
+        Me.Panel1.Controls.Add(Me.TUsuario)
+        Me.Panel1.Controls.Add(Me.TContrasena)
         Me.Panel1.Controls.Add(Me.LContrasena)
         Me.Panel1.Controls.Add(Me.LUsuario)
-        Me.Panel1.Controls.Add(Me.TContrasena)
-        Me.Panel1.Controls.Add(Me.TUsuario)
+        Me.Panel1.Controls.Add(Me.BCambiarImagen)
         Me.Panel1.Controls.Add(Me.CBSexo)
         Me.Panel1.Controls.Add(Me.RRolSuper)
         Me.Panel1.Controls.Add(Me.RRolAdmin)
@@ -135,10 +140,38 @@ Partial Class FormularioSuperUsuario
         Me.Panel1.Controls.Add(Me.TApellido)
         Me.Panel1.Controls.Add(Me.TBuscar)
         Me.Panel1.Controls.Add(Me.DataGridUsuario)
+        Me.Panel1.ForeColor = System.Drawing.Color.White
         Me.Panel1.Location = New System.Drawing.Point(17, 119)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1164, 524)
         Me.Panel1.TabIndex = 34
+        '
+        'PBOk
+        '
+        Me.PBOk.Image = Global.pcgamer.My.Resources.Resources.okk
+        Me.PBOk.Location = New System.Drawing.Point(706, 170)
+        Me.PBOk.Name = "PBOk"
+        Me.PBOk.Size = New System.Drawing.Size(71, 57)
+        Me.PBOk.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PBOk.TabIndex = 37
+        Me.PBOk.TabStop = False
+        Me.PBOk.Visible = False
+        '
+        'BGenerarUsuario
+        '
+        Me.BGenerarUsuario.BackColor = System.Drawing.Color.DarkRed
+        Me.BGenerarUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BGenerarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BGenerarUsuario.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BGenerarUsuario.ForeColor = System.Drawing.Color.White
+        Me.BGenerarUsuario.Location = New System.Drawing.Point(646, 177)
+        Me.BGenerarUsuario.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.BGenerarUsuario.Name = "BGenerarUsuario"
+        Me.BGenerarUsuario.Size = New System.Drawing.Size(185, 47)
+        Me.BGenerarUsuario.TabIndex = 36
+        Me.BGenerarUsuario.Text = "Generar Usuario"
+        Me.BGenerarUsuario.UseVisualStyleBackColor = False
+        Me.BGenerarUsuario.Visible = False
         '
         'BCambiarImagen
         '
@@ -156,54 +189,13 @@ Partial Class FormularioSuperUsuario
         Me.BCambiarImagen.UseVisualStyleBackColor = False
         Me.BCambiarImagen.Visible = False
         '
-        'LContrasena
-        '
-        Me.LContrasena.AutoSize = True
-        Me.LContrasena.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LContrasena.ForeColor = System.Drawing.Color.White
-        Me.LContrasena.Location = New System.Drawing.Point(487, 97)
-        Me.LContrasena.Name = "LContrasena"
-        Me.LContrasena.Size = New System.Drawing.Size(101, 18)
-        Me.LContrasena.TabIndex = 29
-        Me.LContrasena.Text = "Contraseña:"
-        '
-        'LUsuario
-        '
-        Me.LUsuario.AutoSize = True
-        Me.LUsuario.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LUsuario.ForeColor = System.Drawing.Color.White
-        Me.LUsuario.Location = New System.Drawing.Point(487, 64)
-        Me.LUsuario.Name = "LUsuario"
-        Me.LUsuario.Size = New System.Drawing.Size(71, 18)
-        Me.LUsuario.TabIndex = 28
-        Me.LUsuario.Text = "Usuario:"
-        '
-        'TContrasena
-        '
-        Me.TContrasena.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TContrasena.Location = New System.Drawing.Point(597, 97)
-        Me.TContrasena.Name = "TContrasena"
-        Me.TContrasena.ReadOnly = True
-        Me.TContrasena.Size = New System.Drawing.Size(257, 23)
-        Me.TContrasena.TabIndex = 15
-        Me.TContrasena.UseSystemPasswordChar = True
-        '
-        'TUsuario
-        '
-        Me.TUsuario.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TUsuario.Location = New System.Drawing.Point(597, 63)
-        Me.TUsuario.Name = "TUsuario"
-        Me.TUsuario.ReadOnly = True
-        Me.TUsuario.Size = New System.Drawing.Size(257, 23)
-        Me.TUsuario.TabIndex = 14
-        '
         'CBSexo
         '
         Me.CBSexo.Enabled = False
         Me.CBSexo.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CBSexo.FormattingEnabled = True
         Me.CBSexo.Items.AddRange(New Object() {"Seleccione un valor", "Masculino", "Femenino", "Otros"})
-        Me.CBSexo.Location = New System.Drawing.Point(597, 132)
+        Me.CBSexo.Location = New System.Drawing.Point(615, 138)
         Me.CBSexo.Name = "CBSexo"
         Me.CBSexo.Size = New System.Drawing.Size(169, 24)
         Me.CBSexo.TabIndex = 16
@@ -215,7 +207,7 @@ Partial Class FormularioSuperUsuario
         Me.RRolSuper.Enabled = False
         Me.RRolSuper.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RRolSuper.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.RRolSuper.Location = New System.Drawing.Point(606, 206)
+        Me.RRolSuper.Location = New System.Drawing.Point(615, 104)
         Me.RRolSuper.Name = "RRolSuper"
         Me.RRolSuper.Size = New System.Drawing.Size(175, 21)
         Me.RRolSuper.TabIndex = 19
@@ -229,7 +221,7 @@ Partial Class FormularioSuperUsuario
         Me.RRolAdmin.Enabled = False
         Me.RRolAdmin.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RRolAdmin.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.RRolAdmin.Location = New System.Drawing.Point(606, 185)
+        Me.RRolAdmin.Location = New System.Drawing.Point(615, 83)
         Me.RRolAdmin.Name = "RRolAdmin"
         Me.RRolAdmin.Size = New System.Drawing.Size(128, 21)
         Me.RRolAdmin.TabIndex = 18
@@ -240,15 +232,13 @@ Partial Class FormularioSuperUsuario
         '
         Me.RRolVendedor.AutoSize = True
         Me.RRolVendedor.BackColor = System.Drawing.Color.Transparent
-        Me.RRolVendedor.Checked = True
         Me.RRolVendedor.Enabled = False
         Me.RRolVendedor.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RRolVendedor.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.RRolVendedor.Location = New System.Drawing.Point(606, 164)
+        Me.RRolVendedor.Location = New System.Drawing.Point(615, 62)
         Me.RRolVendedor.Name = "RRolVendedor"
         Me.RRolVendedor.Size = New System.Drawing.Size(96, 21)
         Me.RRolVendedor.TabIndex = 17
-        Me.RRolVendedor.TabStop = True
         Me.RRolVendedor.Text = "Vendedor"
         Me.RRolVendedor.UseVisualStyleBackColor = False
         '
@@ -257,7 +247,7 @@ Partial Class FormularioSuperUsuario
         Me.LSexo.AutoSize = True
         Me.LSexo.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LSexo.ForeColor = System.Drawing.Color.White
-        Me.LSexo.Location = New System.Drawing.Point(487, 138)
+        Me.LSexo.Location = New System.Drawing.Point(487, 139)
         Me.LSexo.Name = "LSexo"
         Me.LSexo.Size = New System.Drawing.Size(53, 18)
         Me.LSexo.TabIndex = 30
@@ -268,7 +258,7 @@ Partial Class FormularioSuperUsuario
         Me.LRolRB.AutoSize = True
         Me.LRolRB.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LRolRB.ForeColor = System.Drawing.Color.White
-        Me.LRolRB.Location = New System.Drawing.Point(487, 181)
+        Me.LRolRB.Location = New System.Drawing.Point(487, 80)
         Me.LRolRB.Name = "LRolRB"
         Me.LRolRB.Size = New System.Drawing.Size(38, 18)
         Me.LRolRB.TabIndex = 31
@@ -289,7 +279,7 @@ Partial Class FormularioSuperUsuario
         '
         Me.FechaIngreso.Enabled = False
         Me.FechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.FechaIngreso.Location = New System.Drawing.Point(615, 234)
+        Me.FechaIngreso.Location = New System.Drawing.Point(615, 237)
         Me.FechaIngreso.Name = "FechaIngreso"
         Me.FechaIngreso.Size = New System.Drawing.Size(151, 28)
         Me.FechaIngreso.TabIndex = 20
@@ -614,6 +604,46 @@ Partial Class FormularioSuperUsuario
         Me.LRol.TabIndex = 35
         Me.LRol.Text = "SuperAdministrador:"
         '
+        'LUsuario
+        '
+        Me.LUsuario.AutoSize = True
+        Me.LUsuario.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LUsuario.ForeColor = System.Drawing.Color.White
+        Me.LUsuario.Location = New System.Drawing.Point(487, 177)
+        Me.LUsuario.Name = "LUsuario"
+        Me.LUsuario.Size = New System.Drawing.Size(71, 18)
+        Me.LUsuario.TabIndex = 38
+        Me.LUsuario.Text = "Usuario:"
+        '
+        'LContrasena
+        '
+        Me.LContrasena.AutoSize = True
+        Me.LContrasena.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LContrasena.ForeColor = System.Drawing.Color.White
+        Me.LContrasena.Location = New System.Drawing.Point(487, 210)
+        Me.LContrasena.Name = "LContrasena"
+        Me.LContrasena.Size = New System.Drawing.Size(101, 18)
+        Me.LContrasena.TabIndex = 39
+        Me.LContrasena.Text = "Contraseña:"
+        '
+        'TContrasena
+        '
+        Me.TContrasena.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TContrasena.Location = New System.Drawing.Point(615, 205)
+        Me.TContrasena.Name = "TContrasena"
+        Me.TContrasena.ReadOnly = True
+        Me.TContrasena.Size = New System.Drawing.Size(169, 23)
+        Me.TContrasena.TabIndex = 40
+        '
+        'TUsuario
+        '
+        Me.TUsuario.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TUsuario.Location = New System.Drawing.Point(615, 176)
+        Me.TUsuario.Name = "TUsuario"
+        Me.TUsuario.ReadOnly = True
+        Me.TUsuario.Size = New System.Drawing.Size(169, 23)
+        Me.TUsuario.TabIndex = 41
+        '
         'FormularioSuperUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 20.0!)
@@ -638,6 +668,7 @@ Partial Class FormularioSuperUsuario
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.PBOk, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PBImagen, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridUsuario, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -680,11 +711,13 @@ Partial Class FormularioSuperUsuario
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents CBSexo As ComboBox
     Friend WithEvents LSexo As Label
-    Friend WithEvents LContrasena As Label
-    Friend WithEvents LUsuario As Label
-    Friend WithEvents TContrasena As TextBox
-    Friend WithEvents TUsuario As TextBox
     Friend WithEvents BCambiarImagen As Button
     Friend WithEvents LApeyNom As Label
     Friend WithEvents LRol As Label
+    Friend WithEvents BGenerarUsuario As Button
+    Friend WithEvents PBOk As PictureBox
+    Friend WithEvents LContrasena As Label
+    Friend WithEvents LUsuario As Label
+    Friend WithEvents TUsuario As TextBox
+    Friend WithEvents TContrasena As TextBox
 End Class

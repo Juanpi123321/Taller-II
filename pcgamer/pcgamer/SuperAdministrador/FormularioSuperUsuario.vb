@@ -19,7 +19,9 @@ Public Class FormularioSuperUsuario
         TUsuario.Clear()
         TContrasena.Clear()
         CBSexo.SelectedIndex = 0
-        RRolVendedor.Checked = True
+        RRolVendedor.Checked = False
+        RRolAdmin.Checked = False
+        RRolSuper.Checked = False
         FechaIngreso.Value = Now
         PBImagen.ImageLocation = "D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\pcgamer\pcgamer\Resources\usuario.jpg"
     End Sub
@@ -31,11 +33,11 @@ Public Class FormularioSuperUsuario
         TDomicilio.ReadOnly = False
         TTelefono.ReadOnly = False
         TEmail.ReadOnly = False
+        TUsuario.ReadOnly = False
+        TContrasena.ReadOnly = False
         RRolVendedor.Enabled = True
         RRolAdmin.Enabled = True
         RRolSuper.Enabled = True
-        TUsuario.ReadOnly = False
-        TContrasena.ReadOnly = False
     End Sub
 
     Private Sub deshabilitar()
@@ -45,11 +47,11 @@ Public Class FormularioSuperUsuario
         TDomicilio.ReadOnly = True
         TTelefono.ReadOnly = True
         TEmail.ReadOnly = True
+        TUsuario.ReadOnly = True
+        TContrasena.ReadOnly=true
         RRolVendedor.Enabled = False
         RRolAdmin.Enabled = False
         RRolSuper.Enabled = False
-        TUsuario.ReadOnly = True
-        TContrasena.ReadOnly = True
     End Sub
 
     Private Sub bloquear()
@@ -136,6 +138,7 @@ Public Class FormularioSuperUsuario
             BEliminar.Visible = False
             'La leyenda de abajo
             LRol.Text = Me.Tag + ": " + LApeyNom.Tag
+            BGenerarUsuario.Tag = "False"
         Catch ex As Exception
             MsgBox("Ha ocurrido un error, la lista de usuarios no se pudo cargar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Error al cargar Datagrid")
         End Try
@@ -218,6 +221,14 @@ Public Class FormularioSuperUsuario
         BGuardar.Visible = False
         BEditar.Visible = True
         BEliminar.Visible = True
+
+        PBOk.Visible = False
+        BGenerarUsuario.Visible = False
+        TUsuario.Visible = True
+        TContrasena.Visible = True
+        LUsuario.Visible = True
+        LContrasena.Visible = True
+
         desbloquear()
         deshabilitar()
         limpiar()
@@ -326,11 +337,18 @@ Public Class FormularioSuperUsuario
 
     Private Sub BNuevo_Click(sender As Object, e As EventArgs) Handles BNuevo.Click
         limpiar()
+        BGenerarUsuario.Visible = True
+        TUsuario.Visible = False
+        TContrasena.Visible = False
+        LUsuario.Visible = False
+        LContrasena.Visible = False
+
         Dim imagen As String = "D:\Usuarios\Alumno\Imágenes\imagenes de donde subo\usuarios\usuario.jpg"
         PBImagen.Image = Image.FromFile(imagen)
         Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
         bloquear()
         habilitar()
+        BGenerarUsuario.Tag = "False" 'inicializo la variable
 
         BCambiarImagen.Visible = True
         BAgregar.Visible = True
@@ -344,7 +362,7 @@ Public Class FormularioSuperUsuario
     Private Sub BAgregar_Click(sender As Object, e As EventArgs) Handles BAgregar.Click
         Dim respuesta As MsgBoxResult
         If TNombre.Text = "" Or TApellido.Text = "" Or TDNI.Text = "" Or TDomicilio.Text = "" Or TEmail.Text = "" Or
-            TUsuario.Text = "" Then
+            LUsuario.Tag = "False" Then
             MsgBox("Debe completar los campos obligatorios!", MsgBoxStyle.DefaultButton2 +
         MsgBoxStyle.Critical, "Registro Incompleto")
         ElseIf DNIvalidate = False Then
@@ -356,6 +374,9 @@ Public Class FormularioSuperUsuario
         ElseIf CBSexo.SelectedIndex = 0 Then
             MsgBox("Seleccione un tipo de Sexo", MsgBoxStyle.DefaultButton2 +
                        MsgBoxStyle.Information, "Sexo invalido")
+        ElseIf LUsuario.Text = "False" Then
+            MsgBox("Seleccione el boton 'Generar Usuario' para que se le puedo otorgar un usuario y contraseña", MsgBoxStyle.DefaultButton2 +
+                       MsgBoxStyle.Information, "Usuario no generado")
         Else
             If AccesoDatos.existePersona(TDNI.Text) Then
                 MsgBox("Ya existe un Usuario registrado con el DNI '" + TDNI.Text + "'", MsgBoxStyle.DefaultButton2 +
@@ -386,8 +407,8 @@ Public Class FormularioSuperUsuario
                                                        .sexo = sexo
                                                        })
                         AccesoDatos.AgregarUsuario(New usuarios() With {
-                                                       .usuario = TUsuario.Text,
-                                                       .contrasena = TContrasena.Text,
+                                                       .usuario = LUsuario.Tag,
+                                                       .contrasena = LContrasena.Tag,
                                                        .persona_id = ultimo_id_persona,
                                                        .estado = 1,
                                                        .fechaingreso = FechaIngreso.Value
@@ -395,7 +416,6 @@ Public Class FormularioSuperUsuario
 
                         cargarUsuarios()
                         MsgBox("El Usuario se ha registrado correctamente", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Registro Exitoso")
-
                     Catch ex As Exception
                         MsgBox("Lo sentimos ha ocurrido un evento inesperado, el usuario no pudo ser registrado",
                           MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Error al registrar")
@@ -411,7 +431,14 @@ Public Class FormularioSuperUsuario
                         limpiar()
                         desbloquear()
                         deshabilitar()
-                End Try
+
+                        PBOk.Visible = False
+                        BGenerarUsuario.Visible = False
+                        TUsuario.Visible = True
+                        TContrasena.Visible = True
+                        LUsuario.Visible = True
+                        LContrasena.Visible = True
+                    End Try
             End If
         End If
         End If
@@ -469,6 +496,21 @@ Public Class FormularioSuperUsuario
         End If
     End Sub
 
+    Private Sub BGenerarUsuario_Click(sender As Object, e As EventArgs) Handles BGenerarUsuario.Click
+        If RRolSuper.Checked = False And RRolAdmin.Checked = False And RRolVendedor.Checked = False Then
+            MsgBox("Debe asignar primero un rol al usuario", MsgBoxStyle.DefaultButton2 +
+                       MsgBoxStyle.Critical, "Rol no detectado")
+        Else
+            Dim rol As Integer = determinarRol()
+            FormularioGenerarUsuario.Tag = rol
+            Me.Opacity = 0.6
+            FormularioGenerarUsuario.ShowDialog()
+            BGenerarUsuario.Tag = "True"
+            PBOk.Visible = True
+            BGenerarUsuario.Visible = False
+            Me.Opacity = 1
+        End If
+    End Sub
 #Region "bloquear movimiento del form"
     Private Xpos, Ypos
     Private Sub FormularioSuperUsuario_Move(sender As Object, e As EventArgs) Handles Me.Move

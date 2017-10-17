@@ -129,7 +129,7 @@ Partial Class FormularioSuperRoles
         'PBLogo
         '
         Me.PBLogo.Image = Global.pcgamer.My.Resources.Resources.pcgamer_logo
-        Me.PBLogo.Location = New System.Drawing.Point(794, 14)
+        Me.PBLogo.Location = New System.Drawing.Point(990, 14)
         Me.PBLogo.Margin = New System.Windows.Forms.Padding(5)
         Me.PBLogo.Name = "PBLogo"
         Me.PBLogo.Size = New System.Drawing.Size(198, 34)
@@ -196,7 +196,7 @@ Partial Class FormularioSuperRoles
         Me.Panel1.Controls.Add(Me.GroupBox2)
         Me.Panel1.Controls.Add(Me.GroupBox1)
         Me.Panel1.Controls.Add(Me.GBUsuarios)
-        Me.Panel1.Location = New System.Drawing.Point(50, 66)
+        Me.Panel1.Location = New System.Drawing.Point(120, 66)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(917, 501)
         Me.Panel1.TabIndex = 72
@@ -1012,7 +1012,7 @@ Partial Class FormularioSuperRoles
         Me.LApeyNom.BackColor = System.Drawing.Color.Transparent
         Me.LApeyNom.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LApeyNom.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.LApeyNom.Location = New System.Drawing.Point(809, 646)
+        Me.LApeyNom.Location = New System.Drawing.Point(882, 646)
         Me.LApeyNom.Name = "LApeyNom"
         Me.LApeyNom.Size = New System.Drawing.Size(0, 18)
         Me.LApeyNom.TabIndex = 74
@@ -1023,7 +1023,7 @@ Partial Class FormularioSuperRoles
         Me.LRol.BackColor = System.Drawing.Color.Transparent
         Me.LRol.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LRol.ForeColor = System.Drawing.Color.White
-        Me.LRol.Location = New System.Drawing.Point(605, 644)
+        Me.LRol.Location = New System.Drawing.Point(678, 644)
         Me.LRol.Name = "LRol"
         Me.LRol.Size = New System.Drawing.Size(190, 20)
         Me.LRol.TabIndex = 73
@@ -1033,17 +1033,19 @@ Partial Class FormularioSuperRoles
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackgroundImage = Global.pcgamer.My.Resources.Resources.superadmin_background3
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1006, 673)
+        Me.ClientSize = New System.Drawing.Size(1202, 673)
         Me.Controls.Add(Me.LApeyNom)
         Me.Controls.Add(Me.LRol)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PBLogo)
         Me.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Location = New System.Drawing.Point(150, 0)
+        Me.Location = New System.Drawing.Point(100, 0)
         Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.MaximizeBox = False
         Me.Name = "FormularioSuperRoles"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Formulario Gestion de Roles"

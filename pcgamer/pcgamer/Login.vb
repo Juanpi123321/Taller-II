@@ -8,7 +8,7 @@
                 MsgBox("Lo lamento el usuario ha sido dado de baja, contactese con el SuperAdministrador", MsgBoxStyle.DefaultButton2 +
                        MsgBoxStyle.Critical, "Acceso No Autorizado")
             Else
-                MsgBox("Bienvenido a Pc-Gamer", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Acceso Autorizado")
+                MsgBox("Bienvenido a Pc-Gamer", MsgBoxStyle.Information, "Acceso Autorizado")
                 If Me.Tag = "SuperAdministrador" Then
                     'Le aviso el tipo de rol
                     FormularioSuperAdmin.Tag = Me.Tag

@@ -154,6 +154,12 @@
     <Compile Include="forma_pago.vb">
       <DependentUpon>ModeloPcgamer.tt</DependentUpon>
     </Compile>
+    <Compile Include="SuperAdministrador\FormularioGenerarUsuario.Designer.vb">
+      <DependentUpon>FormularioGenerarUsuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SuperAdministrador\FormularioGenerarUsuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Funciones-y-Metodos.vb" />
     <Compile Include="ModeloPcgamer.Context.vb">
       <AutoGen>True</AutoGen>
@@ -247,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\FormularioAdminStock.resx">
       <DependentUpon>FormularioAdminStock.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SuperAdministrador\FormularioGenerarUsuario.resx">
+      <DependentUpon>FormularioGenerarUsuario.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SuperAdministrador\FormularioSuperAdmin.resx">
       <DependentUpon>FormularioSuperAdmin.vb</DependentUpon>
@@ -444,6 +453,7 @@
       <DependentUpon>ModeloPcgamer.edmx</DependentUpon>
       <LastGenOutput>ModeloPcgamer.vb</LastGenOutput>
     </Content>
+    <None Include="Resources\okk.jpg" />
     <None Include="Resources\steve-jobs.jpg" />
     <None Include="Resources\pcgamer-readers.png" />
     <None Include="Resources\pcgamer-logo-grande3.png" />
