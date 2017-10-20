@@ -154,6 +154,12 @@
     <Compile Include="forma_pago.vb">
       <DependentUpon>ModeloPcgamer.tt</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\FormularioAdminInforme.Designer.vb">
+      <DependentUpon>FormularioAdminInforme.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\FormularioAdminInforme.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SuperAdministrador\FormularioGenerarUsuario.Designer.vb">
       <DependentUpon>FormularioGenerarUsuario.vb</DependentUpon>
     </Compile>
@@ -247,6 +253,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Administrador\FormularioAdminCliente.resx">
       <DependentUpon>FormularioAdminCliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\FormularioAdminInforme.resx">
+      <DependentUpon>FormularioAdminInforme.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\FormularioAdministrador.resx">
       <DependentUpon>FormularioAdministrador.vb</DependentUpon>
@@ -453,6 +462,8 @@
       <DependentUpon>ModeloPcgamer.edmx</DependentUpon>
       <LastGenOutput>ModeloPcgamer.vb</LastGenOutput>
     </Content>
+    <None Include="Resources\pc-gamer-logo-factura.jpg" />
+    <None Include="Resources\slider.PNG" />
     <None Include="Resources\okk.jpg" />
     <None Include="Resources\steve-jobs.jpg" />
     <None Include="Resources\pcgamer-readers.png" />

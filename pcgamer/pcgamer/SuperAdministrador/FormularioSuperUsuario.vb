@@ -163,6 +163,11 @@ Public Class FormularioSuperUsuario
             habilitar()
             TDni_Validated(sender, e)
             TEmail_Validated(sender, e)
+            'no le permito que cambie su rol
+            RRolVendedor.Enabled = False
+            RRolAdmin.Enabled = False
+            RRolSuper.Enabled = False
+            TUsuario.ReadOnly = True
         End If
     End Sub
 

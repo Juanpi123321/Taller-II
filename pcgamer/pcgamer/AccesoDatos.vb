@@ -107,6 +107,18 @@
         grid.Columns(5).Visible = False
     End Sub
 
+    Shared Sub cargarProductosActivos(grid As DataGridView)
+        Dim datos = (From p In ctx.productos
+                     Where p.estado = 1
+                     Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+                         Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
+
+        grid.DataSource = datos
+        'oculta el Id_producto
+        grid.Columns(0).Visible = False
+        grid.Columns(5).Visible = False
+    End Sub
+
     Shared Function capturarProducto(id As Integer) As productos
         Dim producto = (From p In ctx.productos
                         Where p.Id_producto = id
@@ -451,5 +463,32 @@
                   Select f.Id_factura).Max
         Return id
     End Function
+
+    Shared Sub cargarCBoxs(cbdesde As ComboBox, cbhasta As ComboBox)
+        cbdesde.DataSource = (From f In ctx.factura
+                              Select f.fecha).Distinct.ToList
+        'cbdesde.ValueMember = "fecha"
+        cbdesde.DisplayMember = "fecha"
+
+        cbhasta.DataSource = ctx.factura.ToList
+        cbhasta.DisplayMember = "fecha"
+    End Sub
+
+    Shared Sub cargarFacturas(grid As DataGridView)
+        Dim datos = (From f In ctx.factura
+                     Join c In ctx.clientes On c.Id_cliente Equals f.cliente_id
+                     Join u In ctx.usuarios On u.Id_usuario Equals f.vendedor_id
+                     Join pers In ctx.personas On pers.Id_persona Equals u.persona_id
+                     Join fpago In ctx.forma_pago On fpago.Id_forma_pago Equals f.forma_pago_id
+                     Select Id_factura = f.Id_factura, Cliente = c.apellidos + " " + c.nombres,
+                         Fecha = f.fecha, Hora = f.hora, Vendedor = pers.apellidos + " " + pers.nombres,
+                         Forma_Pago = fpago.descripcion_formapago).ToList
+
+        'Join p In ctx.productos On p.Id_producto Equals fd.producto_id
+
+        grid.DataSource = datos
+        'oculta el Id_producto
+        grid.Columns(0).Visible = False
+    End Sub
 #End Region
 End Class

@@ -133,6 +133,7 @@ Public Class FormularioFactura
     End Sub
 
     Private Sub BAgregar_Click(sender As Object, e As EventArgs) Handles BAgregar.Click
+        Me.Cursor = Cursors.WaitCursor
         'Le aviso el tipo de rol
         FormularioAdminStock.Tag = Me.Tag
         FormularioAdminStock.LApeyNom.Tag = LApeyNom.Tag
@@ -206,4 +207,7 @@ Public Class FormularioFactura
         End If
     End Sub
 #End Region
+    Private Sub FormularioFactura_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
+        Me.Cursor = Cursors.Arrow
+    End Sub
 End Class

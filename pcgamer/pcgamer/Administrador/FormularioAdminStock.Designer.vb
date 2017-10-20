@@ -26,6 +26,7 @@ Partial Class FormularioAdminStock
         Me.LTitulo = New System.Windows.Forms.Label()
         Me.PBLogo = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.BSoloActivos = New System.Windows.Forms.Button()
         Me.PBlogo2 = New System.Windows.Forms.PictureBox()
         Me.BCambiarImagen = New System.Windows.Forms.Button()
         Me.BAgregarFactura = New System.Windows.Forms.Button()
@@ -99,6 +100,7 @@ Partial Class FormularioAdminStock
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Black
+        Me.Panel1.Controls.Add(Me.BSoloActivos)
         Me.Panel1.Controls.Add(Me.PBlogo2)
         Me.Panel1.Controls.Add(Me.BCambiarImagen)
         Me.Panel1.Controls.Add(Me.BAgregarFactura)
@@ -141,6 +143,21 @@ Partial Class FormularioAdminStock
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1164, 464)
         Me.Panel1.TabIndex = 33
+        '
+        'BSoloActivos
+        '
+        Me.BSoloActivos.BackColor = System.Drawing.Color.DarkRed
+        Me.BSoloActivos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BSoloActivos.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BSoloActivos.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BSoloActivos.ForeColor = System.Drawing.Color.White
+        Me.BSoloActivos.Location = New System.Drawing.Point(888, 17)
+        Me.BSoloActivos.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.BSoloActivos.Name = "BSoloActivos"
+        Me.BSoloActivos.Size = New System.Drawing.Size(174, 32)
+        Me.BSoloActivos.TabIndex = 42
+        Me.BSoloActivos.Text = "Ver Solo Activos"
+        Me.BSoloActivos.UseVisualStyleBackColor = False
         '
         'PBlogo2
         '
@@ -572,11 +589,10 @@ Partial Class FormularioAdminStock
         Me.LApeyNom.BackColor = System.Drawing.Color.Transparent
         Me.LApeyNom.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LApeyNom.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.LApeyNom.Location = New System.Drawing.Point(999, 646)
+        Me.LApeyNom.Location = New System.Drawing.Point(973, 646)
         Me.LApeyNom.Name = "LApeyNom"
-        Me.LApeyNom.Size = New System.Drawing.Size(150, 18)
+        Me.LApeyNom.Size = New System.Drawing.Size(0, 18)
         Me.LApeyNom.TabIndex = 35
-        Me.LApeyNom.Text = "APELLIDO, Nombre"
         '
         'LRol
         '
@@ -584,7 +600,7 @@ Partial Class FormularioAdminStock
         Me.LRol.BackColor = System.Drawing.Color.Transparent
         Me.LRol.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LRol.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.LRol.Location = New System.Drawing.Point(865, 644)
+        Me.LRol.Location = New System.Drawing.Point(839, 644)
         Me.LRol.Name = "LRol"
         Me.LRol.Size = New System.Drawing.Size(139, 20)
         Me.LRol.TabIndex = 34
@@ -615,7 +631,7 @@ Partial Class FormularioAdminStock
         Me.Name = "FormularioAdminStock"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Tag = ""
-        Me.Text = "Formulario Admin Stock"
+        Me.Text = "Formulario Stock"
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
@@ -669,4 +685,5 @@ Partial Class FormularioAdminStock
     Friend WithEvents BCambiarImagen As Button
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents PBlogo2 As PictureBox
+    Friend WithEvents BSoloActivos As Button
 End Class

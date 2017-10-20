@@ -644,7 +644,7 @@ Partial Class FormularioAdminCliente
         Me.LApeyNom.BackColor = System.Drawing.Color.Transparent
         Me.LApeyNom.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LApeyNom.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.LApeyNom.Location = New System.Drawing.Point(999, 646)
+        Me.LApeyNom.Location = New System.Drawing.Point(980, 646)
         Me.LApeyNom.Name = "LApeyNom"
         Me.LApeyNom.Size = New System.Drawing.Size(0, 18)
         Me.LApeyNom.TabIndex = 30
@@ -655,7 +655,7 @@ Partial Class FormularioAdminCliente
         Me.LRol.BackColor = System.Drawing.Color.Transparent
         Me.LRol.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LRol.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.LRol.Location = New System.Drawing.Point(863, 644)
+        Me.LRol.Location = New System.Drawing.Point(844, 644)
         Me.LRol.Name = "LRol"
         Me.LRol.Size = New System.Drawing.Size(139, 20)
         Me.LRol.TabIndex = 29
@@ -681,7 +681,7 @@ Partial Class FormularioAdminCliente
         Me.MaximizeBox = False
         Me.Name = "FormularioAdminCliente"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
-        Me.Text = "Formulario Admin Cliente"
+        Me.Text = "Formulario Clientes"
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabCliente.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)

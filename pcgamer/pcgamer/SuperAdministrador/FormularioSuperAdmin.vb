@@ -2,6 +2,7 @@
 Public Class FormularioSuperAdmin
 
     Private Sub BUsuarios_Click(sender As Object, e As EventArgs) Handles BUsuarios.Click
+        Me.Cursor = Cursors.WaitCursor
         'Le aviso el tipo de rol
         FormularioSuperUsuario.Tag = Me.Tag
         FormularioSuperUsuario.LApeyNom.Tag = LApeyNom.Tag
@@ -14,6 +15,7 @@ Public Class FormularioSuperAdmin
     End Sub
 
     Private Sub BBackup_Click(sender As Object, e As EventArgs) Handles BBackup.Click
+        'Pedir contraseña de nuevo
         MsgBox("Disponible para la segunda entrega, disculpe las molestias", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "No disponible")
         'Le aviso el tipo de rol
         'FormularioSuperUsuario.Tag = Me.Tag
@@ -131,5 +133,9 @@ Public Class FormularioSuperAdmin
         'La leyenda de abajo
         LRol.Text = Me.Tag + ": " + LApeyNom.Tag
     End Sub
+
 #End Region
+    Private Sub FormularioSuperAdmin_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
+        Me.Cursor = Cursors.Arrow
+    End Sub
 End Class

@@ -24,6 +24,7 @@ Public Class FormularioAdminStock
         TGabinete.SelectedIndex = -1
         TPrecio.Text = 0
         PBImagen.Image = Nothing
+        PBImagen.ImageLocation = Nothing
 
     End Sub
 
@@ -97,7 +98,11 @@ Public Class FormularioAdminStock
 
     Private Sub cargarProductos()
         cargarComboBoxs()
-        AccesoDatos.cargarProductos(DataGridStock)
+        If DataGridStock.Tag = "SoloActivos" Then
+            AccesoDatos.cargarProductosActivos(DataGridStock)
+        Else
+            AccesoDatos.cargarProductos(DataGridStock)
+        End If
         DataGridStock.ClearSelection()
         deshabilitar()
         DataGridStock.DefaultCellStyle.ForeColor = Color.Black
@@ -129,12 +134,15 @@ Public Class FormularioAdminStock
             Xpos = Location.X
             Ypos = Location.Y
 #End Region
-            'si es vendedor no le permito editar ni agregar un prod nuevo
+            DataGridStock.Tag = "Todos"
+            'si es vendedor no le permito editar ni agregar un prod nuevo y le muestro solo los prod activos
             If Me.Tag = "Vendedor" Then
                 PBlogo2.Visible = True
                 BAgregarFactura.Visible = True
                 BEditar.Visible = False
                 BNuevo.Visible = False
+                DataGridStock.Tag = "SoloActivos"
+                BSoloActivos.Visible = False
             End If
             'La leyenda de abajo
             LRol.Text = Me.Tag + ": " + LApeyNom.Tag
@@ -204,7 +212,7 @@ Public Class FormularioAdminStock
                     AccesoDatos.ActualizarProducto(id_producto, TNombre.Text, TProcesador.SelectedIndex, TPlacaMadre.SelectedIndex,
                                              TRam.SelectedIndex, TPlacaVideo.SelectedIndex, TDiscoRigido.SelectedIndex, TGabinete.SelectedIndex,
                                              TPrecio.Text, TStock.Text, TCategoria.SelectedIndex, PBImagen.ImageLocation)
-                    AccesoDatos.cargarProductos(DataGridStock)
+                    AccesoDatos.cargarProductosActivos(DataGridStock)
                     BNuevo.Visible = True
                     BGuardar.Visible = False
                     BCancelar.Visible = False
@@ -248,7 +256,7 @@ Public Class FormularioAdminStock
                     Try
                         Dim id_producto As Integer = DataGridStock.CurrentRow().Cells(0).Value
                         AccesoDatos.EliminarProducto(id_producto, "0")
-                        AccesoDatos.cargarProductos(DataGridStock)
+                        AccesoDatos.cargarProductosActivos(DataGridStock)
                         MsgBox("El producto se ha eliminado correctamente", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Eliminacion exitosa")
                     Catch ex As Exception
                         MsgBox("Ha ocurrido un problema, el producto no se pudo eliminar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Fallo al Eliminar")
@@ -274,7 +282,7 @@ Public Class FormularioAdminStock
                     Try
                         Dim id_producto As Integer = DataGridStock.CurrentRow().Cells(0).Value
                         AccesoDatos.EliminarProducto(id_producto, "1")
-                        AccesoDatos.cargarProductos(DataGridStock)
+                        AccesoDatos.cargarProductosActivos(DataGridStock)
                         MsgBox("El producto se ha dado de alta correctamente", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Alta exitosa")
                     Catch ex As Exception
                         MsgBox("Ha ocurrido un problema, el producto no se pudo dar de alta", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Fallo al dar Alta")
@@ -296,6 +304,7 @@ Public Class FormularioAdminStock
         BBaja.Visible = False
         BAlta.Visible = False
         BCambiarImagen.Visible = True
+        BSoloActivos.Visible = False
     End Sub
 
     Private Sub BCancelarAgregar_Click(sender As Object, e As EventArgs) Handles BCancelarAgregar.Click
@@ -323,11 +332,11 @@ Public Class FormularioAdminStock
                 MsgBox("Ya existe un producto registrado con el nombre '" + TNombre.Text + "'", MsgBoxStyle.DefaultButton2 +
                            MsgBoxStyle.Critical, "Nombre en uso")
             Else
-                If PBImagen.ImageLocation = Nothing Then
-                    MsgBox("El producto se va a registrar sin ninguna imagen", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Imagen no detectada")
-                End If
                 If TStock.Text = 0 Then
                     MsgBox("El producto se va a registrar sin ningun valor de stock", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Stock no detectado")
+                End If
+                If PBImagen.ImageLocation = Nothing Then
+                    MsgBox("El producto se va a registrar sin ninguna imagen", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Imagen no detectada")
                 End If
                 Dim respuesta As MsgBoxResult
                 respuesta = MsgBox("¿Esta seguro que desea agregar el producto??",
@@ -501,6 +510,11 @@ Public Class FormularioAdminStock
                 End If
             End If
         End If
+    End Sub
+
+    Private Sub BSoloActivos_Click(sender As Object, e As EventArgs) Handles BSoloActivos.Click
+        DataGridStock.Tag = "SoloActivos"
+        cargarProductos()
     End Sub
 
     Private Sub BCambiarImagen_Click(sender As Object, e As EventArgs) Handles BCambiarImagen.Click

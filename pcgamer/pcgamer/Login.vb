@@ -1,6 +1,7 @@
 ﻿Public Class Login
 
     Private Sub BIngresar_Click(sender As Object, e As EventArgs) Handles BIngresar.Click
+        Me.Cursor = Cursors.WaitCursor
         If TUsuario.Text = "" Or TContrasena.Text = "" Then
             MsgBox("Debe completar todos los campos!", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Login Invalido")
         ElseIf AccesoDatos.validarIngreso(LCase(TUsuario.Text), LCase(TContrasena.Text)) Then
@@ -34,6 +35,7 @@
             TUsuario.Text = ""
             TContrasena.Text = ""
         End If
+        Me.Cursor = Cursors.Arrow
     End Sub
 
 #Region "bloquear movimiento del form"

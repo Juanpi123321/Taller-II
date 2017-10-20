@@ -22,7 +22,6 @@ Partial Class FormularioSuperUsuario
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormularioSuperUsuario))
         Me.LTitulo = New System.Windows.Forms.Label()
         Me.PBLogo = New System.Windows.Forms.PictureBox()
@@ -609,14 +608,6 @@ Partial Class FormularioSuperUsuario
         Me.DataGridUsuario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridUsuario.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.DataGridUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridUsuario.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridUsuario.GridColor = System.Drawing.SystemColors.GrayText
         Me.DataGridUsuario.Location = New System.Drawing.Point(1, 317)
         Me.DataGridUsuario.MultiSelect = False
@@ -674,7 +665,7 @@ Partial Class FormularioSuperUsuario
         Me.MaximizeBox = False
         Me.Name = "FormularioSuperUsuario"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
-        Me.Text = "Formulario Gestionar Usuario"
+        Me.Text = "Formulario Gestionar Usuarios"
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()

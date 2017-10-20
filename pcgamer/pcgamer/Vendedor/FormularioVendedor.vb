@@ -4,6 +4,7 @@
     End Sub
 
     Private Sub BFactura_Click(sender As Object, e As EventArgs) Handles BFactura.Click
+        Me.Cursor = Cursors.WaitCursor
         'Le aviso el tipo de rol
         FormularioFactura.Tag = Me.Tag
         FormularioFactura.LApeyNom.Tag = LApeyNom.Tag
@@ -14,6 +15,7 @@
     End Sub
 
     Private Sub BCliente_Click(sender As Object, e As EventArgs) Handles BCliente.Click
+        Me.Cursor = Cursors.WaitCursor
         'Le aviso el tipo de rol
         FormularioAdminCliente.Tag = Me.Tag
         FormularioAdminCliente.LApeyNom.Tag = LApeyNom.Tag
@@ -24,6 +26,7 @@
     End Sub
 
     Private Sub BStock_Click(sender As Object, e As EventArgs) Handles BStock.Click
+        Me.Cursor = Cursors.WaitCursor
         'Le aviso el tipo de rol
         FormularioAdminStock.Tag = Me.Tag
         FormularioAdminStock.LApeyNom.Tag = LApeyNom.Tag
@@ -59,5 +62,10 @@
         'La leyenda de abajo
         LRol.Text = Me.Tag + ": " + LApeyNom.Tag
     End Sub
+
 #End Region
+    Private Sub FormularioVendedor_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
+        Me.Cursor = Cursors.Arrow
+    End Sub
+
 End Class
