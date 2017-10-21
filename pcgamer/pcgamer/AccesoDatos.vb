@@ -11,6 +11,17 @@
         grid.Columns(5).Visible = False
     End Sub
 
+    Shared Sub cargarClientesActivos(grid As DataGridView)
+        Dim datos = (From c In ctx.clientes
+                     Where c.estado = 1
+                     Select Id = c.Id_cliente, Apellidos = c.apellidos, Nombres = c.nombres, DNI = c.dni,
+                         Fecha_Registro = c.fecharegistro, Estado = c.estado).ToList
+        grid.DataSource = datos
+        'oculta el Id_producto
+        grid.Columns(0).Visible = False
+        grid.Columns(5).Visible = False
+    End Sub
+
     Shared Function capturarCliente(id As Integer) As clientes
         Dim cliente = (From p In ctx.clientes
                        Where p.Id_cliente = id
@@ -465,13 +476,31 @@
     End Function
 
     Shared Sub cargarCBoxs(cbdesde As ComboBox, cbhasta As ComboBox)
-        cbdesde.DataSource = (From f In ctx.factura
-                              Select f.fecha).Distinct.ToList
-        'cbdesde.ValueMember = "fecha"
+        Dim datos = (From f In ctx.factura
+                     Select f.fecha).Distinct.ToList
+        cbdesde.DataSource = datos
         cbdesde.DisplayMember = "fecha"
 
-        cbhasta.DataSource = ctx.factura.ToList
+        cbhasta.DataSource = (From fecha In datos
+                              Order By fecha Descending
+                              Select fecha).ToList
         cbhasta.DisplayMember = "fecha"
+    End Sub
+
+    Shared Sub filtrarFecha(fDesde As Date, fHasta As Date, grid As DataGridView)
+        Dim datos = (From f In ctx.factura
+                     Join c In ctx.clientes On c.Id_cliente Equals f.cliente_id
+                     Join u In ctx.usuarios On u.Id_usuario Equals f.vendedor_id
+                     Join pers In ctx.personas On pers.Id_persona Equals u.persona_id
+                     Join fpago In ctx.forma_pago On fpago.Id_forma_pago Equals f.forma_pago_id
+                     Where f.fecha >= fDesde And f.fecha <= fHasta
+                     Select Id_factura = f.Id_factura, Cliente = c.apellidos + " " + c.nombres,
+                         Fecha = f.fecha, Hora = f.hora, Vendedor = pers.apellidos + " " + pers.nombres,
+                         Forma_Pago = fpago.descripcion_formapago).ToList
+
+        grid.DataSource = datos
+        'oculta el Id_producto
+        grid.Columns(0).Visible = False
     End Sub
 
     Shared Sub cargarFacturas(grid As DataGridView)
@@ -484,10 +513,48 @@
                          Fecha = f.fecha, Hora = f.hora, Vendedor = pers.apellidos + " " + pers.nombres,
                          Forma_Pago = fpago.descripcion_formapago).ToList
 
-        'Join p In ctx.productos On p.Id_producto Equals fd.producto_id
-
         grid.DataSource = datos
         'oculta el Id_producto
+        grid.Columns(0).Visible = False
+    End Sub
+
+    Shared Sub buscarFacturas(busqueda As String, filtro As Integer, grid As DataGridView, fdesde As Date, fhasta As Date)
+        Dim datos = (From f In ctx.factura
+                     Join c In ctx.clientes On c.Id_cliente Equals f.cliente_id
+                     Join u In ctx.usuarios On u.Id_usuario Equals f.vendedor_id
+                     Join pers In ctx.personas On pers.Id_persona Equals u.persona_id
+                     Join fpago In ctx.forma_pago On fpago.Id_forma_pago Equals f.forma_pago_id
+                     Where f.fecha >= fdesde And f.fecha <= fhasta
+                     Select Id_factura = f.Id_factura, Cliente = c.apellidos + " " + c.nombres,
+                         Fecha = f.fecha, Hora = f.hora, Vendedor = pers.apellidos + " " + pers.nombres,
+                         Forma_Pago = fpago.descripcion_formapago).ToList
+        Select Case filtro
+
+            Case 1
+                datos = (From f In ctx.factura
+                         Join c In ctx.clientes On c.Id_cliente Equals f.cliente_id
+                         Join u In ctx.usuarios On u.Id_usuario Equals f.vendedor_id
+                         Join pers In ctx.personas On pers.Id_persona Equals u.persona_id
+                         Join fpago In ctx.forma_pago On fpago.Id_forma_pago Equals f.forma_pago_id
+                         Where (f.clientes.nombres.Contains(busqueda) Or f.clientes.apellidos.Contains(busqueda)) And
+                         (f.fecha >= fdesde And f.fecha <= fhasta)
+                         Select Id_factura = f.Id_factura, Cliente = c.apellidos + " " + c.nombres,
+                             Fecha = f.fecha, Hora = f.hora, Vendedor = pers.apellidos + " " + pers.nombres,
+                             Forma_Pago = fpago.descripcion_formapago).ToList
+            Case 2
+                datos = (From f In ctx.factura
+                         Join c In ctx.clientes On c.Id_cliente Equals f.cliente_id
+                         Join u In ctx.usuarios On u.Id_usuario Equals f.vendedor_id
+                         Join pers In ctx.personas On pers.Id_persona Equals u.persona_id
+                         Join fpago In ctx.forma_pago On fpago.Id_forma_pago Equals f.forma_pago_id
+                         Where (pers.nombres.Contains(busqueda) Or pers.apellidos.Contains(busqueda)) And
+                         (f.fecha >= fdesde And f.fecha <= fhasta)
+                         Select Id_factura = f.Id_factura, Cliente = c.apellidos + " " + c.nombres,
+                             Fecha = f.fecha, Hora = f.hora, Vendedor = pers.apellidos + " " + pers.nombres,
+                             Forma_Pago = fpago.descripcion_formapago).ToList
+        End Select
+
+        grid.DataSource = datos
         grid.Columns(0).Visible = False
     End Sub
 #End Region

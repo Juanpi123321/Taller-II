@@ -74,6 +74,8 @@ Partial Class FormularioAdminCliente
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.LApeyNom = New System.Windows.Forms.Label()
         Me.LRol = New System.Windows.Forms.Label()
+        Me.BVerTodos = New System.Windows.Forms.Button()
+        Me.BSoloActivos = New System.Windows.Forms.Button()
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabCliente.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -121,6 +123,8 @@ Partial Class FormularioAdminCliente
         'TabPage2
         '
         Me.TabPage2.BackColor = System.Drawing.Color.Black
+        Me.TabPage2.Controls.Add(Me.BVerTodos)
+        Me.TabPage2.Controls.Add(Me.BSoloActivos)
         Me.TabPage2.Controls.Add(Me.PBLogo3)
         Me.TabPage2.Controls.Add(Me.PBlogo2)
         Me.TabPage2.Controls.Add(Me.BAgregarFactura)
@@ -182,7 +186,7 @@ Partial Class FormularioAdminCliente
         Me.BAgregarFactura.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BAgregarFactura.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BAgregarFactura.ForeColor = System.Drawing.Color.White
-        Me.BAgregarFactura.Location = New System.Drawing.Point(971, 22)
+        Me.BAgregarFactura.Location = New System.Drawing.Point(971, 19)
         Me.BAgregarFactura.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BAgregarFactura.Name = "BAgregarFactura"
         Me.BAgregarFactura.Size = New System.Drawing.Size(174, 31)
@@ -198,7 +202,7 @@ Partial Class FormularioAdminCliente
         Me.BCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BCancelar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BCancelar.ForeColor = System.Drawing.Color.White
-        Me.BCancelar.Location = New System.Drawing.Point(799, 22)
+        Me.BCancelar.Location = New System.Drawing.Point(799, 19)
         Me.BCancelar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BCancelar.Name = "BCancelar"
         Me.BCancelar.Size = New System.Drawing.Size(95, 31)
@@ -214,7 +218,7 @@ Partial Class FormularioAdminCliente
         Me.BGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BGuardar.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BGuardar.ForeColor = System.Drawing.Color.White
-        Me.BGuardar.Location = New System.Drawing.Point(944, 22)
+        Me.BGuardar.Location = New System.Drawing.Point(944, 19)
         Me.BGuardar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BGuardar.Name = "BGuardar"
         Me.BGuardar.Size = New System.Drawing.Size(95, 31)
@@ -661,6 +665,38 @@ Partial Class FormularioAdminCliente
         Me.LRol.TabIndex = 29
         Me.LRol.Text = "Administrador:"
         '
+        'BVerTodos
+        '
+        Me.BVerTodos.BackColor = System.Drawing.Color.DarkRed
+        Me.BVerTodos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BVerTodos.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BVerTodos.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BVerTodos.ForeColor = System.Drawing.Color.White
+        Me.BVerTodos.Location = New System.Drawing.Point(996, 19)
+        Me.BVerTodos.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.BVerTodos.Name = "BVerTodos"
+        Me.BVerTodos.Size = New System.Drawing.Size(116, 32)
+        Me.BVerTodos.TabIndex = 45
+        Me.BVerTodos.Text = "Ver Todos"
+        Me.BVerTodos.UseVisualStyleBackColor = False
+        Me.BVerTodos.Visible = False
+        '
+        'BSoloActivos
+        '
+        Me.BSoloActivos.BackColor = System.Drawing.Color.DarkRed
+        Me.BSoloActivos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BSoloActivos.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BSoloActivos.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BSoloActivos.ForeColor = System.Drawing.Color.White
+        Me.BSoloActivos.Location = New System.Drawing.Point(834, 19)
+        Me.BSoloActivos.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.BSoloActivos.Name = "BSoloActivos"
+        Me.BSoloActivos.Size = New System.Drawing.Size(159, 32)
+        Me.BSoloActivos.TabIndex = 44
+        Me.BSoloActivos.Text = "Ver Solo Activos"
+        Me.BSoloActivos.UseVisualStyleBackColor = False
+        Me.BSoloActivos.Visible = False
+        '
         'FormularioAdminCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 20.0!)
@@ -747,4 +783,6 @@ Partial Class FormularioAdminCliente
     Friend WithEvents BAgregarFactura As Button
     Friend WithEvents PBLogo3 As PictureBox
     Friend WithEvents PBlogo2 As PictureBox
+    Friend WithEvents BVerTodos As Button
+    Friend WithEvents BSoloActivos As Button
 End Class

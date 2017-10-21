@@ -67,7 +67,11 @@ Public Class FormularioAdminCliente
     End Sub
 
     Private Sub cargarClientes()
-        AccesoDatos.cargarClientes(DataGridCliente)
+        If DataGridCliente.Tag = "SoloActivos" Then
+            AccesoDatos.cargarClientesActivos(DataGridCliente)
+        Else
+            AccesoDatos.cargarClientes(DataGridCliente)
+        End If
         DataGridCliente.ClearSelection()
 
         TBApellido.Clear()
@@ -196,7 +200,9 @@ Public Class FormularioAdminCliente
             bloquear()
             habilitar()
             TBDni_Validated(sender, e)
-            TBEmail_validated(sender, e)
+            TBEmail_Validated(sender, e)
+            BSoloActivos.Visible = False
+            BVerTodos.Visible = False
         End If
     End Sub
 
@@ -212,6 +218,10 @@ Public Class FormularioAdminCliente
                 PBlogo2.Visible = True
                 BAgregarFactura.Visible = True
                 BEditar.Visible = False
+                DataGridCliente.Tag = "SoloActivos"
+            Else
+                BSoloActivos.Visible = True
+                BVerTodos.Visible = True
             End If
             'La leyenda de abajo
             LRol.Text = Me.Tag + ": " + LApeyNom.Tag
@@ -264,6 +274,10 @@ Public Class FormularioAdminCliente
                     BGuardar.Visible = False
                     desbloquear()
                     deshabilitar()
+                    If Me.Tag <> "Vendedor" Then
+                        BSoloActivos.Visible = True
+                        BVerTodos.Visible = True
+                    End If
                 End Try
             End If
         End If
@@ -278,6 +292,10 @@ Public Class FormularioAdminCliente
         desbloquear()
         deshabilitar()
         limpiar()
+        If Me.Tag <> "Vendedor" Then
+            BSoloActivos.Visible = True
+            BVerTodos.Visible = True
+        End If
     End Sub
 
     Private Sub DataGridCliente_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridCliente.CellEnter
@@ -417,6 +435,16 @@ Public Class FormularioAdminCliente
                 End If
             End If
         End If
+    End Sub
+
+    Private Sub BSoloActivos_Click(sender As Object, e As EventArgs) Handles BSoloActivos.Click
+        DataGridCliente.Tag = "SoloActivos"
+        cargarClientes()
+    End Sub
+
+    Private Sub BVerTodos_Click(sender As Object, e As EventArgs) Handles BVerTodos.Click
+        DataGridCliente.Tag = "VerTodos"
+        cargarClientes()
     End Sub
 
     Private Sub DataGridCliente_RowStateChanged(sender As Object, e As DataGridViewRowStateChangedEventArgs) Handles DataGridCliente.RowStateChanged

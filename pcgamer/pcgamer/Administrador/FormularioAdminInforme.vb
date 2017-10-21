@@ -31,9 +31,9 @@
 
 #End Region
     Private Sub FormularioAdminInforme_Load(sender As Object, e As EventArgs) Handles Me.Load
-        'Try
+        Try
 #Region "bloquear movimiento del form"
-        CenterToScreen()
+            CenterToScreen()
             Xpos = Location.X
             Ypos = Location.Y
 #End Region
@@ -41,12 +41,31 @@
             LRol.Text = Me.Tag + ": " + LApeyNom.Tag
 
             cargarFacturas()
-            'Catch ex As Exception
-        ' MsgBox("Ha ocurrido un error, la lista de facturas no se pudo cargar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Error al cargar Datagrid")
-        'End Try
+        Catch ex As Exception
+            MsgBox("Ha ocurrido un error, la lista de facturas no se pudo cargar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Error al cargar Datagrid")
+        End Try
+    End Sub
+
+    Private Sub BVerDetalle_Click(sender As Object, e As EventArgs) Handles BVerDetalle.Click
+        MsgBox("Mostrar Detalle de la factura usando Reportviewer", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Reporte Pendiente")
+
     End Sub
 
     Private Sub DataGridFacturas_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridFacturas.CellEnter
         BVerDetalle.Visible = True
+    End Sub
+
+    Private Sub BVer_Click(sender As Object, e As EventArgs) Handles BVer.Click
+        If CBDesde.Text > CBHasta.Text Then
+            MsgBox("Error, las fechas seleccionadas son incorrectas", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Filtrado incorrecto")
+        Else
+            AccesoDatos.filtrarFecha(CBDesde.Text, CBHasta.Text, DataGridFacturas)
+        End If
+
+    End Sub
+
+    Private Sub TBuscar_TextChanged(sender As Object, e As EventArgs) Handles TBuscar.TextChanged
+        'le paso lo qe se escribe, el numero del combobox buscar seleccionado y el datagrid
+        AccesoDatos.buscarFacturas(sender.text, CBBuscar.SelectedIndex, DataGridFacturas, CBDesde.Text, CBHasta.Text)
     End Sub
 End Class

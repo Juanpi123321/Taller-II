@@ -28,9 +28,10 @@ Partial Class FormularioAdminInforme
         Me.LTitulo = New System.Windows.Forms.Label()
         Me.PBLogo = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.PBlogo2 = New System.Windows.Forms.PictureBox()
+        Me.PBLogo3 = New System.Windows.Forms.PictureBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.BVer = New System.Windows.Forms.Button()
         Me.CBHasta = New System.Windows.Forms.ComboBox()
         Me.CBDesde = New System.Windows.Forms.ComboBox()
         Me.LHasta = New System.Windows.Forms.Label()
@@ -42,7 +43,8 @@ Partial Class FormularioAdminInforme
         Me.DataGridFacturas = New System.Windows.Forms.DataGridView()
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PBlogo2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PBLogo3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridFacturas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -96,7 +98,8 @@ Partial Class FormularioAdminInforme
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Black
-        Me.Panel1.Controls.Add(Me.PictureBox1)
+        Me.Panel1.Controls.Add(Me.PBlogo2)
+        Me.Panel1.Controls.Add(Me.PBLogo3)
         Me.Panel1.Controls.Add(Me.GroupBox1)
         Me.Panel1.Controls.Add(Me.BVerDetalle)
         Me.Panel1.Controls.Add(Me.CBBuscar)
@@ -110,19 +113,29 @@ Partial Class FormularioAdminInforme
         Me.Panel1.Size = New System.Drawing.Size(1164, 482)
         Me.Panel1.TabIndex = 35
         '
-        'PictureBox1
+        'PBlogo2
         '
-        Me.PictureBox1.Image = Global.pcgamer.My.Resources.Resources.pc_gamer_logo_factura
-        Me.PictureBox1.Location = New System.Drawing.Point(155, 81)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(365, 77)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 21
-        Me.PictureBox1.TabStop = False
+        Me.PBlogo2.Image = Global.pcgamer.My.Resources.Resources.pcgamer_logo_grande3
+        Me.PBlogo2.Location = New System.Drawing.Point(996, 291)
+        Me.PBlogo2.Name = "PBlogo2"
+        Me.PBlogo2.Size = New System.Drawing.Size(129, 125)
+        Me.PBlogo2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PBlogo2.TabIndex = 42
+        Me.PBlogo2.TabStop = False
+        '
+        'PBLogo3
+        '
+        Me.PBLogo3.Image = Global.pcgamer.My.Resources.Resources.pc_gamer_logo_factura
+        Me.PBLogo3.Location = New System.Drawing.Point(155, 81)
+        Me.PBLogo3.Name = "PBLogo3"
+        Me.PBLogo3.Size = New System.Drawing.Size(365, 77)
+        Me.PBLogo3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PBLogo3.TabIndex = 21
+        Me.PBLogo3.TabStop = False
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.BVer)
         Me.GroupBox1.Controls.Add(Me.CBHasta)
         Me.GroupBox1.Controls.Add(Me.CBDesde)
         Me.GroupBox1.Controls.Add(Me.LHasta)
@@ -135,21 +148,20 @@ Partial Class FormularioAdminInforme
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Fecha"
         '
-        'Button1
+        'BVer
         '
-        Me.Button1.BackColor = System.Drawing.Color.DarkRed
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(451, 23)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(80, 32)
-        Me.Button1.TabIndex = 21
-        Me.Button1.Text = "Ver"
-        Me.Button1.UseVisualStyleBackColor = False
-        Me.Button1.Visible = False
+        Me.BVer.BackColor = System.Drawing.Color.DarkRed
+        Me.BVer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BVer.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BVer.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BVer.ForeColor = System.Drawing.Color.White
+        Me.BVer.Location = New System.Drawing.Point(451, 23)
+        Me.BVer.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.BVer.Name = "BVer"
+        Me.BVer.Size = New System.Drawing.Size(80, 32)
+        Me.BVer.TabIndex = 21
+        Me.BVer.Text = "Ver"
+        Me.BVer.UseVisualStyleBackColor = False
         '
         'CBHasta
         '
@@ -208,7 +220,7 @@ Partial Class FormularioAdminInforme
         'CBBuscar
         '
         Me.CBBuscar.FormattingEnabled = True
-        Me.CBBuscar.Items.AddRange(New Object() {"Filtrar por", "Cliente", "Producto", "Vendedor"})
+        Me.CBBuscar.Items.AddRange(New Object() {"Filtrar por", "Cliente", "Vendedor"})
         Me.CBBuscar.Location = New System.Drawing.Point(371, 17)
         Me.CBBuscar.Name = "CBBuscar"
         Me.CBBuscar.Size = New System.Drawing.Size(186, 28)
@@ -275,7 +287,8 @@ Partial Class FormularioAdminInforme
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PBlogo2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PBLogo3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.DataGridFacturas, System.ComponentModel.ISupportInitialize).EndInit()
@@ -299,6 +312,7 @@ Partial Class FormularioAdminInforme
     Friend WithEvents CBDesde As ComboBox
     Friend WithEvents LHasta As Label
     Friend WithEvents LDesde As Label
-    Friend WithEvents Button1 As Button
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents BVer As Button
+    Friend WithEvents PBLogo3 As PictureBox
+    Friend WithEvents PBlogo2 As PictureBox
 End Class

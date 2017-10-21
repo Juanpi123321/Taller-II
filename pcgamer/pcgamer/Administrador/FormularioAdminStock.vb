@@ -134,7 +134,7 @@ Public Class FormularioAdminStock
             Xpos = Location.X
             Ypos = Location.Y
 #End Region
-            DataGridStock.Tag = "Todos"
+            DataGridStock.Tag = "VerTodos"
             'si es vendedor no le permito editar ni agregar un prod nuevo y le muestro solo los prod activos
             If Me.Tag = "Vendedor" Then
                 PBlogo2.Visible = True
@@ -142,7 +142,9 @@ Public Class FormularioAdminStock
                 BEditar.Visible = False
                 BNuevo.Visible = False
                 DataGridStock.Tag = "SoloActivos"
-                BSoloActivos.Visible = False
+            Else
+                BSoloActivos.Visible = True
+                BVerTodos.Visible = True
             End If
             'La leyenda de abajo
             LRol.Text = Me.Tag + ": " + LApeyNom.Tag
@@ -194,6 +196,8 @@ Public Class FormularioAdminStock
             BCambiarImagen.Visible = True
             bloquear()
             habilitar()
+            BSoloActivos.Visible = False
+            BVerTodos.Visible = False
         End If
     End Sub
 
@@ -219,10 +223,14 @@ Public Class FormularioAdminStock
                     BCambiarImagen.Visible = False
                     desbloquear()
                     deshabilitar()
+                    If Me.Tag <> "Vendedor" Then
+                        BSoloActivos.Visible = True
+                        BVerTodos.Visible = True
+                    End If
                     MsgBox("Se ha modificado correctamente", MsgBoxStyle.DefaultButton2 +
                                            MsgBoxStyle.Information, "Modificacion exitosa")
+                    End If
                 End If
-            End If
         Catch ex As Exception
             MsgBox("Ha ocurrido un problema, el producto no se pudo guardar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Fallo al Modificar")
         End Try
@@ -236,6 +244,10 @@ Public Class FormularioAdminStock
         desbloquear()
         deshabilitar()
         limpiar()
+        If Me.Tag <> "Vendedor" Then
+            BSoloActivos.Visible = True
+            BVerTodos.Visible = True
+        End If
         MsgBox("No se han realizado cambios", MsgBoxStyle.DefaultButton2 +
                            MsgBoxStyle.Information, "Operacion Cancelada")
     End Sub
@@ -305,6 +317,7 @@ Public Class FormularioAdminStock
         BAlta.Visible = False
         BCambiarImagen.Visible = True
         BSoloActivos.Visible = False
+        BVerTodos.Visible = False
     End Sub
 
     Private Sub BCancelarAgregar_Click(sender As Object, e As EventArgs) Handles BCancelarAgregar.Click
@@ -317,6 +330,10 @@ Public Class FormularioAdminStock
         BNuevo.Visible = True
         BCambiarImagen.Visible = False
         limpiar()
+        If Me.Tag <> "Vendedor" Then
+            BSoloActivos.Visible = True
+            BVerTodos.Visible = True
+        End If
         MsgBox("No se ha agregado ningun producto", MsgBoxStyle.DefaultButton2 +
                            MsgBoxStyle.Information, "Operacion Cancelada")
     End Sub
@@ -372,6 +389,10 @@ Public Class FormularioAdminStock
                         BEditar.Visible = True
                         BNuevo.Visible = True
                         BCambiarImagen.Visible = False
+                        If Me.Tag <> "Vendedor" Then
+                            BSoloActivos.Visible = True
+                            BVerTodos.Visible = True
+                        End If
                     End Try
                 End If
             End If
@@ -514,6 +535,11 @@ Public Class FormularioAdminStock
 
     Private Sub BSoloActivos_Click(sender As Object, e As EventArgs) Handles BSoloActivos.Click
         DataGridStock.Tag = "SoloActivos"
+        cargarProductos()
+    End Sub
+
+    Private Sub BVerTodos_Click(sender As Object, e As EventArgs) Handles BVerTodos.Click
+        DataGridStock.Tag = "VerTodos"
         cargarProductos()
     End Sub
 

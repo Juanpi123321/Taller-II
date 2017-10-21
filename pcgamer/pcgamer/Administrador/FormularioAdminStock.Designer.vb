@@ -66,6 +66,7 @@ Partial Class FormularioAdminStock
         Me.LApeyNom = New System.Windows.Forms.Label()
         Me.LRol = New System.Windows.Forms.Label()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.BVerTodos = New System.Windows.Forms.Button()
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PBlogo2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -100,6 +101,7 @@ Partial Class FormularioAdminStock
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Black
+        Me.Panel1.Controls.Add(Me.BVerTodos)
         Me.Panel1.Controls.Add(Me.BSoloActivos)
         Me.Panel1.Controls.Add(Me.PBlogo2)
         Me.Panel1.Controls.Add(Me.BCambiarImagen)
@@ -149,15 +151,16 @@ Partial Class FormularioAdminStock
         Me.BSoloActivos.BackColor = System.Drawing.Color.DarkRed
         Me.BSoloActivos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.BSoloActivos.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BSoloActivos.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BSoloActivos.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BSoloActivos.ForeColor = System.Drawing.Color.White
-        Me.BSoloActivos.Location = New System.Drawing.Point(888, 17)
+        Me.BSoloActivos.Location = New System.Drawing.Point(872, 16)
         Me.BSoloActivos.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BSoloActivos.Name = "BSoloActivos"
-        Me.BSoloActivos.Size = New System.Drawing.Size(174, 32)
+        Me.BSoloActivos.Size = New System.Drawing.Size(159, 32)
         Me.BSoloActivos.TabIndex = 42
         Me.BSoloActivos.Text = "Ver Solo Activos"
         Me.BSoloActivos.UseVisualStyleBackColor = False
+        Me.BSoloActivos.Visible = False
         '
         'PBlogo2
         '
@@ -610,6 +613,22 @@ Partial Class FormularioAdminStock
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
+        'BVerTodos
+        '
+        Me.BVerTodos.BackColor = System.Drawing.Color.DarkRed
+        Me.BVerTodos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BVerTodos.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BVerTodos.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BVerTodos.ForeColor = System.Drawing.Color.White
+        Me.BVerTodos.Location = New System.Drawing.Point(1034, 16)
+        Me.BVerTodos.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.BVerTodos.Name = "BVerTodos"
+        Me.BVerTodos.Size = New System.Drawing.Size(116, 32)
+        Me.BVerTodos.TabIndex = 43
+        Me.BVerTodos.Text = "Ver Todos"
+        Me.BVerTodos.UseVisualStyleBackColor = False
+        Me.BVerTodos.Visible = False
+        '
         'FormularioAdminStock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 20.0!)
@@ -686,4 +705,5 @@ Partial Class FormularioAdminStock
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents PBlogo2 As PictureBox
     Friend WithEvents BSoloActivos As Button
+    Friend WithEvents BVerTodos As Button
 End Class
