@@ -120,9 +120,9 @@ Public Class FormularioFactura
                     Next
                     MsgBox("La factura se ha generado correctamente", MsgBoxStyle.DefaultButton2 +
                          MsgBoxStyle.Information, "Facturacion exitosa")
-                    'Catch ex As Exception
-                    '   MsgBox("Lo sentimos ha ocurrido un evento inesperado, la factura no pudo ser registrada",
-                    '  MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Error al registrar")
+                Catch ex As Exception
+                    MsgBox("Lo sentimos ha ocurrido un evento inesperado, la factura no pudo ser registrada",
+                    MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Error al registrar")
                 Finally
                     redirigirMenu(Me.Tag)
                     'destruye de la memoria
