@@ -41,6 +41,7 @@ Partial Class FormularioAdminInforme
         Me.LBuscar = New System.Windows.Forms.Label()
         Me.TBuscar = New System.Windows.Forms.TextBox()
         Me.DataGridFacturas = New System.Windows.Forms.DataGridView()
+        Me.BEstadisticas = New System.Windows.Forms.Button()
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PBlogo2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -98,6 +99,7 @@ Partial Class FormularioAdminInforme
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Black
+        Me.Panel1.Controls.Add(Me.BEstadisticas)
         Me.Panel1.Controls.Add(Me.PBlogo2)
         Me.Panel1.Controls.Add(Me.PBLogo3)
         Me.Panel1.Controls.Add(Me.GroupBox1)
@@ -132,6 +134,7 @@ Partial Class FormularioAdminInforme
         Me.PBLogo3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PBLogo3.TabIndex = 21
         Me.PBLogo3.TabStop = False
+        Me.PBLogo3.Visible = False
         '
         'GroupBox1
         '
@@ -263,6 +266,22 @@ Partial Class FormularioAdminInforme
         Me.DataGridFacturas.Size = New System.Drawing.Size(929, 274)
         Me.DataGridFacturas.TabIndex = 1
         '
+        'BEstadisticas
+        '
+        Me.BEstadisticas.BackColor = System.Drawing.Color.DarkRed
+        Me.BEstadisticas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BEstadisticas.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BEstadisticas.ForeColor = System.Drawing.Color.White
+        Me.BEstadisticas.Location = New System.Drawing.Point(191, 114)
+        Me.BEstadisticas.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.BEstadisticas.Name = "BEstadisticas"
+        Me.BEstadisticas.Size = New System.Drawing.Size(335, 32)
+        Me.BEstadisticas.TabIndex = 43
+        Me.BEstadisticas.Text = "Ver Estadisticas de Ventas"
+        Me.BEstadisticas.UseVisualStyleBackColor = False
+        Me.BEstadisticas.Visible = False
+        '
         'FormularioAdminInforme
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 20.0!)
@@ -315,4 +334,5 @@ Partial Class FormularioAdminInforme
     Friend WithEvents BVer As Button
     Friend WithEvents PBLogo3 As PictureBox
     Friend WithEvents PBlogo2 As PictureBox
+    Friend WithEvents BEstadisticas As Button
 End Class
