@@ -7,7 +7,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>9d22324e-7eb9-4d0d-9293-173dad7aa53b</rd:DataSourceID>
+      <rd:DataSourceID>60b72e5c-98af-4f4d-9bf5-df17a42677ab</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -17,22 +17,22 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
+        <Field Name="cantidad">
+          <DataField>cantidad</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
         <Field Name="nombre">
           <DataField>nombre</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="descripcion_categoria">
-          <DataField>descripcion_categoria</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet1</rd:DataSetName>
         <rd:SchemaPath>D:\usuarios\alumno\Documentos\Visual Studio 2017\Projects\Taller-II\pcgamer\pcgamer\Reporte\Reportes.xsd</rd:SchemaPath>
-        <rd:TableName>ProdxCategoria</rd:TableName>
+        <rd:TableName>VentasxProducto</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>ProdxCategoriaTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>VentasxProductoTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -40,244 +40,43 @@
     <ReportSection>
       <Body>
         <ReportItems>
-          <Tablix Name="Tablix1">
-            <TablixBody>
-              <TablixColumns>
-                <TablixColumn>
-                  <Width>4.7225cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>4.7225cm</Width>
-                </TablixColumn>
-              </TablixColumns>
-              <TablixRows>
-                <TablixRow>
-                  <Height>0.48358cm</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox1">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Nombre Producto</Value>
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox1</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox3">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Categoria</Value>
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox3</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-                <TablixRow>
-                  <Height>0.48358cm</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="nombre">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!nombre.Value</Value>
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>nombre</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="descripcion_categoria">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!descripcion_categoria.Value</Value>
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>descripcion_categoria</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-              </TablixRows>
-            </TablixBody>
-            <TablixColumnHierarchy>
-              <TablixMembers>
-                <TablixMember />
-                <TablixMember />
-              </TablixMembers>
-            </TablixColumnHierarchy>
-            <TablixRowHierarchy>
-              <TablixMembers>
-                <TablixMember>
-                  <KeepWithGroup>After</KeepWithGroup>
-                </TablixMember>
-                <TablixMember>
-                  <Group Name="Detalles" />
-                </TablixMember>
-              </TablixMembers>
-            </TablixRowHierarchy>
-            <DataSetName>DataSet1</DataSetName>
-            <Top>2.2987cm</Top>
-            <Left>0.54186cm</Left>
-            <Height>0.96716cm</Height>
-            <Width>9.445cm</Width>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-          </Tablix>
-          <Textbox Name="Textbox7">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Productos por Categoria</Value>
-                    <Style>
-                      <FontSize>14pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox7</rd:DefaultName>
-            <Top>0.62653cm</Top>
-            <Left>6.3627cm</Left>
-            <Height>0.74817cm</Height>
-            <Width>6.6275cm</Width>
-            <ZIndex>1</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Chart Name="Chart2">
             <ChartCategoryHierarchy>
               <ChartMembers>
                 <ChartMember>
                   <Group Name="Chart2_CategoryGroup">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!descripcion_categoria.Value</GroupExpression>
+                      <GroupExpression>=Fields!nombre.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!descripcion_categoria.Value</Value>
+                      <Value>=Fields!nombre.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <Label>=Fields!descripcion_categoria.Value</Label>
+                  <Label>=Fields!nombre.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>
             <ChartSeriesHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Label>descripcion categoria</Label>
+                  <Label>cantidad</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartSeriesHierarchy>
             <ChartData>
               <ChartSeriesCollection>
-                <ChartSeries Name="descripcion_categoria">
+                <ChartSeries Name="cantidad">
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Count(Fields!descripcion_categoria.Value)</Y>
+                        <Y>=Sum(Fields!cantidad.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
+                        <UseValueAsLabel>true</UseValueAsLabel>
+                        <Visible>true</Visible>
                       </ChartDataLabel>
                       <Style />
                       <ChartMarker>
@@ -532,10 +331,8 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
-                <ChartThreeDProperties>
-                  <Enabled>true</Enabled>
-                </ChartThreeDProperties>
                 <Style>
+                  <BackgroundColor>#00ffffff</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
                 </Style>
               </ChartArea>
@@ -560,7 +357,7 @@
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption />
+                <Caption>Ventas por Producto</Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>9pt</FontSize>
@@ -590,11 +387,10 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSet1</DataSetName>
-            <Top>2.2987cm</Top>
-            <Left>10.9982cm</Left>
-            <Height>5.762cm</Height>
-            <Width>9.38383cm</Width>
-            <ZIndex>2</ZIndex>
+            <Top>2.24254cm</Top>
+            <Left>0.79586cm</Left>
+            <Height>10.22817cm</Height>
+            <Width>15.45867cm</Width>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -604,11 +400,44 @@
               <BackgroundGradientType>None</BackgroundGradientType>
             </Style>
           </Chart>
+          <Textbox Name="Textbox1">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Ventas por tipo especifico de Producto</Value>
+                    <Style>
+                      <FontSize>18pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>0.5207cm</Top>
+            <Left>2.82787cm</Left>
+            <Height>1.02333cm</Height>
+            <Width>12.25783cm</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
-        <Height>3.2985in</Height>
+        <Height>5.2235in</Height>
         <Style />
       </Body>
-      <Width>8.13276in</Width>
+      <Width>6.90776in</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
@@ -628,5 +457,5 @@
     </GridLayoutDefinition>
   </ReportParametersLayout>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>098e5387-fe4e-45f4-a015-209f26f52bfb</rd:ReportID>
+  <rd:ReportID>5d0bb8ed-b794-4c7c-a067-0fd3651b386c</rd:ReportID>
 </Report>

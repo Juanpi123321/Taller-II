@@ -192,12 +192,6 @@
     <Compile Include="Reporte\DetalleFactura.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reporte\FormaPago.Designer.vb">
-      <DependentUpon>FormaPago.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Reporte\FormaPago.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Reporte\ProdxCategoria.Designer.vb">
       <DependentUpon>ProdxCategoria.vb</DependentUpon>
     </Compile>
@@ -307,6 +301,24 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Reporte\VentasxProducto.Designer.vb">
+      <DependentUpon>VentasxProducto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\VentasxProducto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\VentasxVendedor.Designer.vb">
+      <DependentUpon>VentasxVendedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\VentasxVendedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\VentasFormaPago.Designer.vb">
+      <DependentUpon>VentasFormaPago.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\VentasFormaPago.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Administrador\FormularioAdminCliente.resx">
@@ -327,9 +339,6 @@
     <EmbeddedResource Include="Reporte\DetalleFactura.rdlc" />
     <EmbeddedResource Include="Reporte\DetalleFactura.resx">
       <DependentUpon>DetalleFactura.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reporte\FormaPago.resx">
-      <DependentUpon>FormaPago.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reporte\ProdxCategoria.rdlc" />
     <EmbeddedResource Include="Reporte\ProdxCategoria.resx">
@@ -365,6 +374,18 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\VentasxProducto.rdlc" />
+    <EmbeddedResource Include="Reporte\VentasxProducto.resx">
+      <DependentUpon>VentasxProducto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\VentasxVendedor.rdlc" />
+    <EmbeddedResource Include="Reporte\VentasxVendedor.resx">
+      <DependentUpon>VentasxVendedor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\VentasFormaPago.rdlc" />
+    <EmbeddedResource Include="Reporte\VentasFormaPago.resx">
+      <DependentUpon>VentasFormaPago.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

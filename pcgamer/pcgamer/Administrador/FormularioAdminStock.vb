@@ -91,7 +91,7 @@ Public Class FormularioAdminStock
             PBImagen.Image = Image.FromFile("D:\Usuarios\Alumno\Documentos\Visual Studio 2017\Projects\Taller-II\pcgamer\pcgamer\Resources\sin-imagen.png")
         Else
             PBImagen.ImageLocation = producto.imagen
-            PBImagen.Image = Image.FromFile(producto.imagen)
+            'PBImagen.Image = Image.FromFile(producto.imagen)
         End If
         Me.PBImagen.SizeMode = PictureBoxSizeMode.StretchImage
     End Sub
@@ -229,8 +229,8 @@ Public Class FormularioAdminStock
                     End If
                     MsgBox("Se ha modificado correctamente", MsgBoxStyle.DefaultButton2 +
                                            MsgBoxStyle.Information, "Modificacion exitosa")
-                    End If
                 End If
+            End If
         Catch ex As Exception
             MsgBox("Ha ocurrido un problema, el producto no se pudo guardar", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Fallo al Modificar")
         End Try
