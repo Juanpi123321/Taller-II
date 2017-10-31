@@ -25,10 +25,10 @@ Partial Class VentasxVendedor
         Me.components = New System.ComponentModel.Container()
         Me.VentasxVendedorBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet1 = New pcgamer.DataSet1()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.VentasxVendedorTableAdapter = New pcgamer.DataSet1TableAdapters.VentasxVendedorTableAdapter()
         Me.VentasFormaPagoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VentasFormaPagoTableAdapter = New pcgamer.DataSet1TableAdapters.VentasFormaPagoTableAdapter()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         CType(Me.VentasxVendedorBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VentasFormaPagoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -44,16 +44,6 @@ Partial Class VentasxVendedor
         Me.DataSet1.DataSetName = "DataSet1"
         Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'ReportViewer1
-        '
-        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "pcgamer.VentasxVendedor.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(731, 673)
-        Me.ReportViewer1.TabIndex = 0
-        '
         'VentasxVendedorTableAdapter
         '
         Me.VentasxVendedorTableAdapter.ClearBeforeFill = True
@@ -66,6 +56,16 @@ Partial Class VentasxVendedor
         'VentasFormaPagoTableAdapter
         '
         Me.VentasFormaPagoTableAdapter.ClearBeforeFill = True
+        '
+        'ReportViewer1
+        '
+        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "pcgamer.VentasxVendedor.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.ServerReport.BearerToken = Nothing
+        Me.ReportViewer1.Size = New System.Drawing.Size(731, 673)
+        Me.ReportViewer1.TabIndex = 0
         '
         'VentasxVendedor
         '
@@ -81,11 +81,10 @@ Partial Class VentasxVendedor
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
     Friend WithEvents VentasxVendedorBindingSource As BindingSource
     Friend WithEvents DataSet1 As DataSet1
     Friend WithEvents VentasxVendedorTableAdapter As DataSet1TableAdapters.VentasxVendedorTableAdapter
     Friend WithEvents VentasFormaPagoBindingSource As BindingSource
     Friend WithEvents VentasFormaPagoTableAdapter As DataSet1TableAdapters.VentasFormaPagoTableAdapter
+    Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
 End Class

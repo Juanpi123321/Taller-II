@@ -307,10 +307,10 @@
     <Compile Include="Reporte\VentasxProducto.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reporte\VentasxVendedor.Designer.vb">
+    <Compile Include="VentasxVendedor.Designer.vb">
       <DependentUpon>VentasxVendedor.vb</DependentUpon>
     </Compile>
-    <Compile Include="Reporte\VentasxVendedor.vb">
+    <Compile Include="VentasxVendedor.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reporte\VentasFormaPago.Designer.vb">
@@ -379,8 +379,8 @@
     <EmbeddedResource Include="Reporte\VentasxProducto.resx">
       <DependentUpon>VentasxProducto.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reporte\VentasxVendedor.rdlc" />
-    <EmbeddedResource Include="Reporte\VentasxVendedor.resx">
+    <EmbeddedResource Include="VentasxVendedor.rdlc" />
+    <EmbeddedResource Include="VentasxVendedor.resx">
       <DependentUpon>VentasxVendedor.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reporte\VentasFormaPago.rdlc" />
