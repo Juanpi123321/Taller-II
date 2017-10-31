@@ -28,6 +28,7 @@ Partial Class FormularioAdminInforme
         Me.LTitulo = New System.Windows.Forms.Label()
         Me.PBLogo = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.BEstadisticas = New System.Windows.Forms.Button()
         Me.PBlogo2 = New System.Windows.Forms.PictureBox()
         Me.PBLogo3 = New System.Windows.Forms.PictureBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -41,7 +42,6 @@ Partial Class FormularioAdminInforme
         Me.LBuscar = New System.Windows.Forms.Label()
         Me.TBuscar = New System.Windows.Forms.TextBox()
         Me.DataGridFacturas = New System.Windows.Forms.DataGridView()
-        Me.BEstadisticas = New System.Windows.Forms.Button()
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PBlogo2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -114,6 +114,21 @@ Partial Class FormularioAdminInforme
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1164, 482)
         Me.Panel1.TabIndex = 35
+        '
+        'BEstadisticas
+        '
+        Me.BEstadisticas.BackColor = System.Drawing.Color.DarkRed
+        Me.BEstadisticas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BEstadisticas.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BEstadisticas.ForeColor = System.Drawing.Color.White
+        Me.BEstadisticas.Location = New System.Drawing.Point(191, 114)
+        Me.BEstadisticas.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.BEstadisticas.Name = "BEstadisticas"
+        Me.BEstadisticas.Size = New System.Drawing.Size(335, 32)
+        Me.BEstadisticas.TabIndex = 43
+        Me.BEstadisticas.Text = "Ver Estadisticas de Ventas"
+        Me.BEstadisticas.UseVisualStyleBackColor = False
         '
         'PBlogo2
         '
@@ -265,22 +280,6 @@ Partial Class FormularioAdminInforme
         Me.DataGridFacturas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridFacturas.Size = New System.Drawing.Size(929, 274)
         Me.DataGridFacturas.TabIndex = 1
-        '
-        'BEstadisticas
-        '
-        Me.BEstadisticas.BackColor = System.Drawing.Color.DarkRed
-        Me.BEstadisticas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.BEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BEstadisticas.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BEstadisticas.ForeColor = System.Drawing.Color.White
-        Me.BEstadisticas.Location = New System.Drawing.Point(191, 114)
-        Me.BEstadisticas.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
-        Me.BEstadisticas.Name = "BEstadisticas"
-        Me.BEstadisticas.Size = New System.Drawing.Size(335, 32)
-        Me.BEstadisticas.TabIndex = 43
-        Me.BEstadisticas.Text = "Ver Estadisticas de Ventas"
-        Me.BEstadisticas.UseVisualStyleBackColor = False
-        Me.BEstadisticas.Visible = False
         '
         'FormularioAdminInforme
         '

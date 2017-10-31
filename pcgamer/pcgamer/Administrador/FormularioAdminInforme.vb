@@ -70,6 +70,14 @@
 
     End Sub
 
+    Private Sub BEstadisticas_Click(sender As Object, e As EventArgs) Handles BEstadisticas.Click
+        'Le aviso el tipo de rol
+        FormularioEstadisticas.Tag = Me.Tag
+        FormularioEstadisticas.LApeyNom.Tag = LApeyNom.Tag
+        FormularioEstadisticas.Show()
+        Me.Hide()
+    End Sub
+
     Private Sub TBuscar_TextChanged(sender As Object, e As EventArgs) Handles TBuscar.TextChanged
         'le paso lo qe se escribe, el numero del combobox buscar seleccionado y el datagrid
         AccesoDatos.buscarFacturas(sender.text, CBBuscar.SelectedIndex, DataGridFacturas, CBDesde.Text, CBHasta.Text)

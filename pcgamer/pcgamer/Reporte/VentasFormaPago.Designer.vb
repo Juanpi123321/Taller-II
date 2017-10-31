@@ -24,13 +24,24 @@ Partial Class VentasFormaPago
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.DataSet1 = New pcgamer.DataSet1()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(VentasFormaPago))
         Me.VentasFormaPagoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataSet1 = New pcgamer.DataSet1()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.VentasFormaPagoTableAdapter = New pcgamer.DataSet1TableAdapters.VentasFormaPagoTableAdapter()
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VentasFormaPagoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'VentasFormaPagoBindingSource
+        '
+        Me.VentasFormaPagoBindingSource.DataMember = "VentasFormaPago"
+        Me.VentasFormaPagoBindingSource.DataSource = Me.DataSet1
+        '
+        'DataSet1
+        '
+        Me.DataSet1.DataSetName = "DataSet1"
+        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ReportViewer1
         '
@@ -45,16 +56,6 @@ Partial Class VentasFormaPago
         Me.ReportViewer1.Size = New System.Drawing.Size(806, 673)
         Me.ReportViewer1.TabIndex = 0
         '
-        'DataSet1
-        '
-        Me.DataSet1.DataSetName = "DataSet1"
-        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'VentasFormaPagoBindingSource
-        '
-        Me.VentasFormaPagoBindingSource.DataMember = "VentasFormaPago"
-        Me.VentasFormaPagoBindingSource.DataSource = Me.DataSet1
-        '
         'VentasFormaPagoTableAdapter
         '
         Me.VentasFormaPagoTableAdapter.ClearBeforeFill = True
@@ -63,12 +64,17 @@ Partial Class VentasFormaPago
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(806, 673)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Location = New System.Drawing.Point(100, 0)
+        Me.MaximizeBox = False
         Me.Name = "VentasFormaPago"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "VentasFormaPago"
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VentasFormaPagoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
