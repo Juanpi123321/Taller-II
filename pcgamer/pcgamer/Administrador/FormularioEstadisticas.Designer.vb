@@ -33,10 +33,13 @@ Partial Class FormularioEstadisticas
         Me.PBLogo = New System.Windows.Forms.PictureBox()
         Me.LApeyNom = New System.Windows.Forms.Label()
         Me.LRol = New System.Windows.Forms.Label()
+        Me.PBProdxCategoria = New System.Windows.Forms.PictureBox()
+        Me.BProdxCategoria = New System.Windows.Forms.Button()
         CType(Me.PBFormaPago, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PBProducto, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PBVendedor, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PBProdxCategoria, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'BFormaPago
@@ -46,7 +49,7 @@ Partial Class FormularioEstadisticas
         Me.BFormaPago.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BFormaPago.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BFormaPago.ForeColor = System.Drawing.Color.White
-        Me.BFormaPago.Location = New System.Drawing.Point(267, 423)
+        Me.BFormaPago.Location = New System.Drawing.Point(179, 417)
         Me.BFormaPago.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BFormaPago.Name = "BFormaPago"
         Me.BFormaPago.Size = New System.Drawing.Size(201, 32)
@@ -61,7 +64,7 @@ Partial Class FormularioEstadisticas
         Me.BProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BProducto.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BProducto.ForeColor = System.Drawing.Color.White
-        Me.BProducto.Location = New System.Drawing.Point(515, 423)
+        Me.BProducto.Location = New System.Drawing.Point(427, 417)
         Me.BProducto.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BProducto.Name = "BProducto"
         Me.BProducto.Size = New System.Drawing.Size(201, 32)
@@ -76,7 +79,7 @@ Partial Class FormularioEstadisticas
         Me.BVendedor.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BVendedor.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BVendedor.ForeColor = System.Drawing.Color.White
-        Me.BVendedor.Location = New System.Drawing.Point(769, 423)
+        Me.BVendedor.Location = New System.Drawing.Point(681, 417)
         Me.BVendedor.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.BVendedor.Name = "BVendedor"
         Me.BVendedor.Size = New System.Drawing.Size(201, 32)
@@ -86,7 +89,7 @@ Partial Class FormularioEstadisticas
         '
         'PBFormaPago
         '
-        Me.PBFormaPago.Location = New System.Drawing.Point(267, 186)
+        Me.PBFormaPago.Location = New System.Drawing.Point(179, 180)
         Me.PBFormaPago.Name = "PBFormaPago"
         Me.PBFormaPago.Size = New System.Drawing.Size(201, 177)
         Me.PBFormaPago.TabIndex = 5
@@ -94,7 +97,7 @@ Partial Class FormularioEstadisticas
         '
         'PBProducto
         '
-        Me.PBProducto.Location = New System.Drawing.Point(515, 186)
+        Me.PBProducto.Location = New System.Drawing.Point(427, 180)
         Me.PBProducto.Name = "PBProducto"
         Me.PBProducto.Size = New System.Drawing.Size(201, 177)
         Me.PBProducto.TabIndex = 6
@@ -102,7 +105,7 @@ Partial Class FormularioEstadisticas
         '
         'PBVendedor
         '
-        Me.PBVendedor.Location = New System.Drawing.Point(769, 186)
+        Me.PBVendedor.Location = New System.Drawing.Point(681, 180)
         Me.PBVendedor.Name = "PBVendedor"
         Me.PBVendedor.Size = New System.Drawing.Size(201, 177)
         Me.PBVendedor.TabIndex = 7
@@ -154,6 +157,29 @@ Partial Class FormularioEstadisticas
         Me.LRol.TabIndex = 35
         Me.LRol.Text = "Administrador:"
         '
+        'PBProdxCategoria
+        '
+        Me.PBProdxCategoria.Location = New System.Drawing.Point(939, 180)
+        Me.PBProdxCategoria.Name = "PBProdxCategoria"
+        Me.PBProdxCategoria.Size = New System.Drawing.Size(201, 177)
+        Me.PBProdxCategoria.TabIndex = 38
+        Me.PBProdxCategoria.TabStop = False
+        '
+        'BProdxCategoria
+        '
+        Me.BProdxCategoria.BackColor = System.Drawing.Color.DarkRed
+        Me.BProdxCategoria.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BProdxCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BProdxCategoria.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BProdxCategoria.ForeColor = System.Drawing.Color.White
+        Me.BProdxCategoria.Location = New System.Drawing.Point(939, 417)
+        Me.BProdxCategoria.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.BProdxCategoria.Name = "BProdxCategoria"
+        Me.BProdxCategoria.Size = New System.Drawing.Size(201, 32)
+        Me.BProdxCategoria.TabIndex = 37
+        Me.BProdxCategoria.Text = "Prod por Categoria"
+        Me.BProdxCategoria.UseVisualStyleBackColor = False
+        '
         'FormularioEstadisticas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 20.0!)
@@ -162,6 +188,8 @@ Partial Class FormularioEstadisticas
         Me.BackgroundImage = Global.pcgamer.My.Resources.Resources.hyperx_background
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1202, 673)
+        Me.Controls.Add(Me.PBProdxCategoria)
+        Me.Controls.Add(Me.BProdxCategoria)
         Me.Controls.Add(Me.LApeyNom)
         Me.Controls.Add(Me.LRol)
         Me.Controls.Add(Me.LTitulo)
@@ -184,6 +212,7 @@ Partial Class FormularioEstadisticas
         CType(Me.PBProducto, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PBVendedor, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PBLogo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PBProdxCategoria, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -199,4 +228,6 @@ Partial Class FormularioEstadisticas
     Friend WithEvents PBLogo As PictureBox
     Friend WithEvents LApeyNom As Label
     Friend WithEvents LRol As Label
+    Friend WithEvents PBProdxCategoria As PictureBox
+    Friend WithEvents BProdxCategoria As Button
 End Class

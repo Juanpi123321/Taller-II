@@ -24,6 +24,7 @@ Partial Class VentasxProducto
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(VentasxProducto))
         Me.VentasxProductoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet1 = New pcgamer.DataSet1()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
@@ -52,7 +53,7 @@ Partial Class VentasxProducto
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(711, 673)
+        Me.ReportViewer1.Size = New System.Drawing.Size(882, 673)
         Me.ReportViewer1.TabIndex = 0
         '
         'VentasxProductoTableAdapter
@@ -63,10 +64,15 @@ Partial Class VentasxProducto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(711, 673)
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.ClientSize = New System.Drawing.Size(882, 673)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Location = New System.Drawing.Point(250, 0)
+        Me.MaximizeBox = False
         Me.Name = "VentasxProducto"
-        Me.Text = "VentasxProducto"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
+        Me.Text = "Ventas por Producto"
         CType(Me.VentasxProductoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

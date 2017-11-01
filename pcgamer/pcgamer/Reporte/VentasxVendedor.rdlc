@@ -7,7 +7,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>1c6382a7-56a8-4b99-aad4-bacc7e069081</rd:DataSourceID>
+      <rd:DataSourceID>1f915dd6-582e-4115-ba82-38878a75ab66</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -65,17 +65,17 @@
             <ChartSeriesHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Label>fecha</Label>
+                  <Label>Vendedor</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartSeriesHierarchy>
             <ChartData>
               <ChartSeriesCollection>
-                <ChartSeries Name="fecha">
+                <ChartSeries Name="Vendedor">
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Count(Fields!fecha.Value)</Y>
+                        <Y>=Count(Fields!Vendedor.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
@@ -341,6 +341,25 @@
                 </Style>
               </ChartArea>
             </ChartAreas>
+            <ChartLegends>
+              <ChartLegend Name="Default">
+                <Style>
+                  <BackgroundGradientType>None</BackgroundGradientType>
+                  <FontSize>8pt</FontSize>
+                </Style>
+                <Position>TopLeft</Position>
+                <ChartLegendTitle>
+                  <Caption />
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </ChartLegendTitle>
+                <HeaderSeparatorColor>Black</HeaderSeparatorColor>
+                <ColumnSeparatorColor>Black</ColumnSeparatorColor>
+              </ChartLegend>
+            </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
                 <Caption />
@@ -373,10 +392,10 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSet1</DataSetName>
-            <Top>3.49137cm</Top>
-            <Left>0.79587cm</Left>
-            <Height>7.05317cm</Height>
-            <Width>12.3895cm</Width>
+            <Top>3.48459cm</Top>
+            <Left>1.0922cm</Left>
+            <Height>7.13783cm</Height>
+            <Width>14.14633cm</Width>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -393,7 +412,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Estadisticas de Ventas por Vendedor</Value>
+                    <Value>Estadisticas de Ventas de Vendedores</Value>
                     <Style>
                       <FontSize>18pt</FontSize>
                       <FontWeight>Bold</FontWeight>
@@ -404,11 +423,45 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox7</rd:DefaultName>
-            <Top>0.75353cm</Top>
-            <Left>1.26153cm</Left>
-            <Height>1.08683cm</Height>
-            <Width>11.437cm</Width>
+            <Top>0.9017cm</Top>
+            <Left>2.0917cm</Left>
+            <Height>0.95983cm</Height>
+            <Width>11.81333cm</Width>
             <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox8">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Fecha           Desde:</Value>
+                    <Style />
+                  </TextRun>
+                  <TextRun>
+                    <Value>=min(Fields!fecha.Value, "DataSet1")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox8</rd:DefaultName>
+            <Top>2.44687cm</Top>
+            <Left>2.91253cm</Left>
+            <Height>0.6cm</Height>
+            <Width>6.5005cm</Width>
+            <ZIndex>2</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -426,11 +479,11 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Fecha       Desde:</Value>
+                    <Value>Hasta:</Value>
                     <Style />
                   </TextRun>
                   <TextRun>
-                    <Value>=First(Fields!fecha.Value, "DataSet1")</Value>
+                    <Value>=max(Fields!fecha.Value, "DataSet1")</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -438,44 +491,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>2.30576cm</Top>
-            <Left>0.79587cm</Left>
+            <Top>2.44687cm</Top>
+            <Left>10.2832cm</Left>
             <Height>0.6cm</Height>
-            <Width>8.255cm</Width>
-            <ZIndex>2</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox10">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Hasta:</Value>
-                    <Style />
-                  </TextRun>
-                  <TextRun>
-                    <Value>=Last(Fields!fecha.Value, "DataSet1")</Value>
-                    <Style />
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox10</rd:DefaultName>
-            <Top>2.30576cm</Top>
-            <Left>9.05087cm</Left>
-            <Height>0.6cm</Height>
-            <Width>5.67967cm</Width>
+            <Width>5.31517cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -488,10 +507,10 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>4.44306in</Height>
+        <Height>4.56517in</Height>
         <Style />
       </Body>
-      <Width>5.84759in</Width>
+      <Width>7.06609in</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
@@ -511,5 +530,5 @@
     </GridLayoutDefinition>
   </ReportParametersLayout>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>ac77252d-0e4d-451c-902a-a689e37246f0</rd:ReportID>
+  <rd:ReportID>a3bd590b-4e93-422b-9a3e-282bc8a6860e</rd:ReportID>
 </Report>

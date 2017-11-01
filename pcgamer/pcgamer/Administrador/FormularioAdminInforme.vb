@@ -46,14 +46,14 @@
         End Try
     End Sub
 
-    Private Sub BVerDetalle_Click(sender As Object, e As EventArgs) Handles BVerDetalle.Click
+    Private Sub BVerDetalle_Click(sender As Object, e As EventArgs) Handles BVerDetalle.Click, DataGridFacturas.CellMouseDoubleClick
         If DataGridFacturas.CurrentRow Is Nothing Then
             MsgBox("Error, las fechas seleccionadas son incorrectas", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Filtrado incorrecto")
         Else
             Dim fila As Integer = DataGridFacturas.CurrentRow.Index
-        Dim id_producto As Integer = DataGridFacturas.Item(0, fila).Value
-        DetalleFactura.Tag = id_producto
-        DetalleFactura.ShowDialog()
+            Dim id_producto As Integer = DataGridFacturas.Item(0, fila).Value
+            DetalleFactura.Tag = id_producto
+            DetalleFactura.ShowDialog()
         End If
     End Sub
 

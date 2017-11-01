@@ -24,6 +24,7 @@ Partial Class ProdxCategoria
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ProdxCategoria))
         Me.ProdxCategoriaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet1 = New pcgamer.DataSet1()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
@@ -63,9 +64,14 @@ Partial Class ProdxCategoria
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(991, 673)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Location = New System.Drawing.Point(250, 0)
+        Me.MaximizeBox = False
         Me.Name = "ProdxCategoria"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "ProdxCategoria"
         CType(Me.ProdxCategoriaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()

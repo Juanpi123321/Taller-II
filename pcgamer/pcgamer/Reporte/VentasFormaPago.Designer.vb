@@ -53,7 +53,7 @@ Partial Class VentasFormaPago
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(806, 673)
+        Me.ReportViewer1.Size = New System.Drawing.Size(882, 673)
         Me.ReportViewer1.TabIndex = 0
         '
         'VentasFormaPagoTableAdapter
@@ -65,14 +65,14 @@ Partial Class VentasFormaPago
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ClientSize = New System.Drawing.Size(806, 673)
+        Me.ClientSize = New System.Drawing.Size(882, 673)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Location = New System.Drawing.Point(100, 0)
+        Me.Location = New System.Drawing.Point(250, 0)
         Me.MaximizeBox = False
         Me.Name = "VentasFormaPago"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
-        Me.Text = "VentasFormaPago"
+        Me.Text = "Ventas por Forma de Pago"
         CType(Me.VentasFormaPagoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

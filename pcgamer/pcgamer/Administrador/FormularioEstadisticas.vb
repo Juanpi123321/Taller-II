@@ -11,6 +11,10 @@
         VentasxVendedor.ShowDialog()
     End Sub
 
+    Private Sub BProdxCategoria_Click(sender As Object, e As EventArgs) Handles BProdxCategoria.Click
+        ProdxCategoria.ShowDialog()
+    End Sub
+
     Private Sub FormularioEstadisticas_Closed(sender As Object, e As EventArgs) Handles Me.Closed
         FormularioAdminInforme.Show()
     End Sub
@@ -22,6 +26,7 @@
             Location = New Point(Xpos, Ypos)
         End If
     End Sub
+
 
 #End Region
 

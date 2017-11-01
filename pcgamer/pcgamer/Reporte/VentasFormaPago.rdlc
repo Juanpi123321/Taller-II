@@ -413,7 +413,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Estadisticas de Forma de Pago</Value>
+                    <Value>Estadisticas de Ventas por Forma de Pago</Value>
                     <Style>
                       <FontSize>18pt</FontSize>
                       <FontWeight>Bold</FontWeight>
@@ -425,9 +425,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox7</rd:DefaultName>
             <Top>0.61948cm</Top>
-            <Left>3.10303cm</Left>
+            <Left>1.45203cm</Left>
             <Height>1.06539cm</Height>
-            <Width>9.88717cm</Width>
+            <Width>12.93984cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>

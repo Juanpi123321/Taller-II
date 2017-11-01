@@ -23,7 +23,7 @@ Partial Class DetalleFactura
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DetalleFactura))
         Me.DetalleFacturaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet1 = New pcgamer.DataSet1()
@@ -46,9 +46,9 @@ Partial Class DetalleFactura
         'ReportViewer1
         '
         Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource2.Name = "DataSet1"
-        ReportDataSource2.Value = Me.DetalleFacturaBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.DetalleFacturaBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "pcgamer.DetalleFactura.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
@@ -68,7 +68,7 @@ Partial Class DetalleFactura
         Me.ClientSize = New System.Drawing.Size(962, 673)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Location = New System.Drawing.Point(100, 0)
+        Me.Location = New System.Drawing.Point(250, 0)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "DetalleFactura"

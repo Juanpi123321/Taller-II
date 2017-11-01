@@ -118,8 +118,10 @@ Public Class FormularioFactura
                                             .precio_unit = precio
                                               })
                     Next
-                    MsgBox("La factura se ha generado correctamente", MsgBoxStyle.DefaultButton2 +
-                         MsgBoxStyle.Information, "Facturacion exitosa")
+                    MsgBox("La factura se ha generado correctamente. Aguarde un momento mientras se imprime la factura",
+                           MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Facturacion exitosa")
+                    ReporteFactura.Tag = ultimo_id_factura
+                    ReporteFactura.ShowDialog()
                 Catch ex As Exception
                     MsgBox("Lo sentimos ha ocurrido un evento inesperado, la factura no pudo ser registrada",
                     MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Error al registrar")
