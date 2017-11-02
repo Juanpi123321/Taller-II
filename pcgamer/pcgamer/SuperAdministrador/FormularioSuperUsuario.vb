@@ -110,6 +110,7 @@ Public Class FormularioSuperUsuario
     Private Sub cargarUsuarios()
         AccesoDatos.cargarUsuarios(DataGridUsuario)
         DataGridUsuario.ClearSelection()
+        DataGridUsuario.DefaultCellStyle.ForeColor = Color.Black
 
         TApellido.Clear()
         TNombre.Clear()
