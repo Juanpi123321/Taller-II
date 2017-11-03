@@ -451,7 +451,7 @@
                     <Style />
                   </TextRun>
                   <TextRun>
-                    <Value>=min(Fields!fecha.Value, "DataSet1")</Value>
+                    <Value>=First(Fields!fecha.Value, "DataSet1")</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -485,7 +485,7 @@
                     <Style />
                   </TextRun>
                   <TextRun>
-                    <Value>=max(Fields!fecha.Value, "DataSet1")</Value>
+                    <Value>=Last(Fields!fecha.Value, "DataSet1")</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>

@@ -15,6 +15,10 @@
         ProdxCategoria.ShowDialog()
     End Sub
 
+    Private Sub BTendencias_Click(sender As Object, e As EventArgs) Handles BTendencias.Click
+        FormTendencias.ShowDialog()
+    End Sub
+
     Private Sub FormularioEstadisticas_Closed(sender As Object, e As EventArgs) Handles Me.Closed
         FormularioAdminInforme.Show()
     End Sub
@@ -26,8 +30,6 @@
             Location = New Point(Xpos, Ypos)
         End If
     End Sub
-
-
 #End Region
 
     Private Sub FormularioEstadisticas_Load(sender As Object, e As EventArgs) Handles Me.Load

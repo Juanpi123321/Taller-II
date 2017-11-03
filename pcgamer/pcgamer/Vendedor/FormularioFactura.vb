@@ -120,6 +120,7 @@ Public Class FormularioFactura
                     Next
                     MsgBox("La factura se ha generado correctamente. Aguarde un momento mientras se imprime la factura",
                            MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Facturacion exitosa")
+                    Me.Cursor = Cursors.WaitCursor
                     ReporteFactura.Tag = ultimo_id_factura
                     ReporteFactura.ShowDialog()
                 Catch ex As Exception

@@ -186,6 +186,12 @@
     <Compile Include="Administrador\FormularioAdminInforme.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Administrador\FormTendencias.Designer.vb">
+      <DependentUpon>FormTendencias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\FormTendencias.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reporte\DetalleFactura.Designer.vb">
       <DependentUpon>DetalleFactura.vb</DependentUpon>
     </Compile>
@@ -264,6 +270,18 @@
     <Compile Include="sysdiagrams.vb">
       <DependentUpon>ModeloPcgamer.tt</DependentUpon>
     </Compile>
+    <Compile Include="Reporte\TendenciasMes.Designer.vb">
+      <DependentUpon>TendenciasMes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\TendenciasMes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\TendenciasSemana.Designer.vb">
+      <DependentUpon>TendenciasSemana.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\TendenciasSemana.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="usuarios.vb">
       <DependentUpon>ModeloPcgamer.tt</DependentUpon>
     </Compile>
@@ -336,6 +354,9 @@
     <EmbeddedResource Include="Administrador\FormularioEstadisticas.resx">
       <DependentUpon>FormularioEstadisticas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\FormTendencias.resx">
+      <DependentUpon>FormTendencias.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reporte\ReporteFactura.rdlc" />
     <EmbeddedResource Include="Reporte\DetalleFactura.rdlc" />
     <EmbeddedResource Include="Reporte\DetalleFactura.resx">
@@ -359,6 +380,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SuperAdministrador\FormularioSuperUsuario.resx">
       <DependentUpon>FormularioSuperUsuario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\TendenciasMes.rdlc" />
+    <EmbeddedResource Include="Reporte\TendenciasMes.resx">
+      <DependentUpon>TendenciasMes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\TendenciasSemana.rdlc" />
+    <EmbeddedResource Include="Reporte\TendenciasSemana.resx">
+      <DependentUpon>TendenciasSemana.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vendedor\FormularioFactura.resx">
       <DependentUpon>FormularioFactura.vb</DependentUpon>

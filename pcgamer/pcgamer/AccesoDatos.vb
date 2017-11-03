@@ -621,4 +621,17 @@
         grid.Columns(0).Visible = False
     End Sub
 #End Region
+
+#Region "Reportes"
+    Shared Function FechaMin() As Date
+        Dim fechaMinima = (From f In ctx.factura
+                           Select f.fecha).Min
+        Return fechaMinima
+    End Function
+    Shared Function FechaMax() As Date
+        Dim fechaMaxima = (From f In ctx.factura
+                           Select f.fecha).Max
+        Return fechaMaxima
+    End Function
+#End Region
 End Class
