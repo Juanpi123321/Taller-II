@@ -142,7 +142,9 @@ Public Class FormularioAdminStock
                 BEditar.Visible = False
                 BNuevo.Visible = False
                 DataGridStock.Tag = "SoloActivos"
+                TBuscar.Tag = "1"
             Else
+                TBuscar.Tag = "0" 'busca todos
                 BSoloActivos.Visible = True
                 BVerTodos.Visible = True
             End If
@@ -412,7 +414,7 @@ Public Class FormularioAdminStock
 
     Private Sub TBuscar_TextChanged(sender As Object, e As EventArgs) Handles TBuscar.TextChanged
         'le paso lo qe se escribe, el numero del combobox buscar seleccionado y el datagrid
-        AccesoDatos.buscarProducto(sender.text, CBBuscar.SelectedIndex, DataGridStock)
+        AccesoDatos.buscarProducto(sender.text, CBBuscar.SelectedIndex, DataGridStock, TBuscar.Tag)
     End Sub
 
     'si el estado es 0 (esta dado de baja) entonces lo marca en gris, sino esta dado de baja y el stock es menor a 10 lo marca de rojo
@@ -535,11 +537,13 @@ Public Class FormularioAdminStock
 
     Private Sub BSoloActivos_Click(sender As Object, e As EventArgs) Handles BSoloActivos.Click
         DataGridStock.Tag = "SoloActivos"
+        TBuscar.Tag = "1"
         cargarProductos()
     End Sub
 
     Private Sub BVerTodos_Click(sender As Object, e As EventArgs) Handles BVerTodos.Click
         DataGridStock.Tag = "VerTodos"
+        TBuscar.Tag = "0"
         cargarProductos()
     End Sub
 

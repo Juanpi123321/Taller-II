@@ -219,7 +219,9 @@ Public Class FormularioAdminCliente
                 BAgregarFactura.Visible = True
                 BEditar.Visible = False
                 DataGridCliente.Tag = "SoloActivos"
+                TBuscar.Tag = "1"
             Else
+                TBuscar.Tag = "0" 'busca todos
                 BSoloActivos.Visible = True
                 BVerTodos.Visible = True
             End If
@@ -407,7 +409,7 @@ Public Class FormularioAdminCliente
 
     Private Sub TBuscar_TextChanged(sender As Object, e As EventArgs) Handles TBuscar.TextChanged
         'le paso lo qe se escribe, el numero del combobox buscar seleccionado y el datagrid
-        AccesoDatos.buscarCliente(sender.text, CBBuscar.SelectedIndex, DataGridCliente)
+        AccesoDatos.buscarCliente(sender.text, CBBuscar.SelectedIndex, DataGridCliente, TBuscar.Tag)
     End Sub
 
     Private Sub BAgregarFactura_Click(sender As Object, e As EventArgs) Handles BAgregarFactura.Click, DataGridCliente.CellMouseDoubleClick
@@ -439,11 +441,13 @@ Public Class FormularioAdminCliente
 
     Private Sub BSoloActivos_Click(sender As Object, e As EventArgs) Handles BSoloActivos.Click
         DataGridCliente.Tag = "SoloActivos"
+        TBuscar.Tag = "1"
         cargarClientes()
     End Sub
 
     Private Sub BVerTodos_Click(sender As Object, e As EventArgs) Handles BVerTodos.Click
         DataGridCliente.Tag = "VerTodos"
+        TBuscar.Tag = "0"
         cargarClientes()
     End Sub
 

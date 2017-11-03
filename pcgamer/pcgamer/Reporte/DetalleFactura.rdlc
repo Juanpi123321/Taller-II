@@ -389,7 +389,7 @@
         <Top>2.5242cm</Top>
         <Left>1.53817cm</Left>
         <Height>1.2cm</Height>
-        <Width>17.27053cm</Width>
+        <Width>17.27051cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -638,7 +638,7 @@
                 <TextRun>
                   <Value />
                   <Style>
-                    <FontFamily>Verdana</FontFamily>
+                    <FontFamily>verdana</FontFamily>
                     <FontSize>9pt</FontSize>
                   </Style>
                 </TextRun>
@@ -651,7 +651,7 @@
           <rd:DefaultName>Textbox6</rd:DefaultName>
           <Top>0.21166cm</Top>
           <Left>11.83787cm</Left>
-          <Height>2.43133cm</Height>
+          <Height>2.49908cm</Height>
           <Width>7.80333cm</Width>
           <ZIndex>3</ZIndex>
           <Style>

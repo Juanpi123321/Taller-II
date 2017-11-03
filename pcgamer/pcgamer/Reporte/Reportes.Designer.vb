@@ -2309,16 +2309,6 @@ Partial Public Class DataSet1
         
         Private columntelefono As Global.System.Data.DataColumn
         
-        Private columncantidad As Global.System.Data.DataColumn
-        
-        Private columndescripcion_categoria As Global.System.Data.DataColumn
-        
-        Private columnnombre As Global.System.Data.DataColumn
-        
-        Private columnprecio_unit As Global.System.Data.DataColumn
-        
-        Private columnImporte As Global.System.Data.DataColumn
-        
         Private columndescripcion_formapago As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2422,46 +2412,6 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property cantidadColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columncantidad
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property descripcion_categoriaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columndescripcion_categoria
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property nombreColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnnombre
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property precio_unitColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnprecio_unit
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property ImporteColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnImporte
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public ReadOnly Property descripcion_formapagoColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columndescripcion_formapago
@@ -2505,9 +2455,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddReporteFacturaRow(ByVal fecha As Date, ByVal hora As System.TimeSpan, ByVal Vendedor As String, ByVal Cliente As String, ByVal dni As Integer, ByVal domicilio As String, ByVal telefono As String, ByVal cantidad As Integer, ByVal descripcion_categoria As String, ByVal nombre As String, ByVal precio_unit As Decimal, ByVal Importe As Decimal, ByVal descripcion_formapago As String) As ReporteFacturaRow
+        Public Overloads Function AddReporteFacturaRow(ByVal fecha As Date, ByVal hora As System.TimeSpan, ByVal Vendedor As String, ByVal Cliente As String, ByVal dni As Integer, ByVal domicilio As String, ByVal telefono As String, ByVal descripcion_formapago As String) As ReporteFacturaRow
             Dim rowReporteFacturaRow As ReporteFacturaRow = CType(Me.NewRow,ReporteFacturaRow)
-            Dim columnValuesArray() As Object = New Object() {fecha, Nothing, hora, Vendedor, Cliente, dni, domicilio, telefono, cantidad, descripcion_categoria, nombre, precio_unit, Importe, descripcion_formapago}
+            Dim columnValuesArray() As Object = New Object() {fecha, Nothing, hora, Vendedor, Cliente, dni, domicilio, telefono, descripcion_formapago}
             rowReporteFacturaRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowReporteFacturaRow)
             Return rowReporteFacturaRow
@@ -2544,11 +2494,6 @@ Partial Public Class DataSet1
             Me.columndni = MyBase.Columns("dni")
             Me.columndomicilio = MyBase.Columns("domicilio")
             Me.columntelefono = MyBase.Columns("telefono")
-            Me.columncantidad = MyBase.Columns("cantidad")
-            Me.columndescripcion_categoria = MyBase.Columns("descripcion_categoria")
-            Me.columnnombre = MyBase.Columns("nombre")
-            Me.columnprecio_unit = MyBase.Columns("precio_unit")
-            Me.columnImporte = MyBase.Columns("Importe")
             Me.columndescripcion_formapago = MyBase.Columns("descripcion_formapago")
         End Sub
         
@@ -2571,16 +2516,6 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columndomicilio)
             Me.columntelefono = New Global.System.Data.DataColumn("telefono", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columntelefono)
-            Me.columncantidad = New Global.System.Data.DataColumn("cantidad", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columncantidad)
-            Me.columndescripcion_categoria = New Global.System.Data.DataColumn("descripcion_categoria", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columndescripcion_categoria)
-            Me.columnnombre = New Global.System.Data.DataColumn("nombre", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnnombre)
-            Me.columnprecio_unit = New Global.System.Data.DataColumn("precio_unit", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnprecio_unit)
-            Me.columnImporte = New Global.System.Data.DataColumn("Importe", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnImporte)
             Me.columndescripcion_formapago = New Global.System.Data.DataColumn("descripcion_formapago", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columndescripcion_formapago)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnId_factura}, true))
@@ -2600,13 +2535,6 @@ Partial Public Class DataSet1
             Me.columndomicilio.AllowDBNull = false
             Me.columndomicilio.MaxLength = 2147483647
             Me.columntelefono.MaxLength = 2147483647
-            Me.columncantidad.AllowDBNull = false
-            Me.columndescripcion_categoria.AllowDBNull = false
-            Me.columndescripcion_categoria.MaxLength = 2147483647
-            Me.columnnombre.AllowDBNull = false
-            Me.columnnombre.MaxLength = 100
-            Me.columnprecio_unit.AllowDBNull = false
-            Me.columnImporte.ReadOnly = true
             Me.columndescripcion_formapago.AllowDBNull = false
             Me.columndescripcion_formapago.MaxLength = 2147483647
         End Sub
@@ -3279,65 +3207,6 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property cantidad() As Integer
-            Get
-                Return CType(Me(Me.tableReporteFactura.cantidadColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableReporteFactura.cantidadColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property descripcion_categoria() As String
-            Get
-                Return CType(Me(Me.tableReporteFactura.descripcion_categoriaColumn),String)
-            End Get
-            Set
-                Me(Me.tableReporteFactura.descripcion_categoriaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property nombre() As String
-            Get
-                Return CType(Me(Me.tableReporteFactura.nombreColumn),String)
-            End Get
-            Set
-                Me(Me.tableReporteFactura.nombreColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property precio_unit() As Decimal
-            Get
-                Return CType(Me(Me.tableReporteFactura.precio_unitColumn),Decimal)
-            End Get
-            Set
-                Me(Me.tableReporteFactura.precio_unitColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property Importe() As Decimal
-            Get
-                Try 
-                    Return CType(Me(Me.tableReporteFactura.ImporteColumn),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Importe' de la tabla 'ReporteFactura' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableReporteFactura.ImporteColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property descripcion_formapago() As String
             Get
                 Return CType(Me(Me.tableReporteFactura.descripcion_formapagoColumn),String)
@@ -3381,18 +3250,6 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SettelefonoNull()
             Me(Me.tableReporteFactura.telefonoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsImporteNull() As Boolean
-            Return Me.IsNull(Me.tableReporteFactura.ImporteColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetImporteNull()
-            Me(Me.tableReporteFactura.ImporteColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -4917,11 +4774,6 @@ Namespace DataSet1TableAdapters
             tableMapping.ColumnMappings.Add("dni", "dni")
             tableMapping.ColumnMappings.Add("domicilio", "domicilio")
             tableMapping.ColumnMappings.Add("telefono", "telefono")
-            tableMapping.ColumnMappings.Add("cantidad", "cantidad")
-            tableMapping.ColumnMappings.Add("descripcion_categoria", "descripcion_categoria")
-            tableMapping.ColumnMappings.Add("nombre", "nombre")
-            tableMapping.ColumnMappings.Add("precio_unit", "precio_unit")
-            tableMapping.ColumnMappings.Add("Importe", "Importe")
             tableMapping.ColumnMappings.Add("descripcion_formapago", "descripcion_formapago")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
@@ -4942,29 +4794,23 @@ Namespace DataSet1TableAdapters
             Me._commandCollection(0).CommandText = "SELECT factura.fecha, factura.Id_factura, factura.hora, personas.apellidos + ', '"& _ 
                 " + personas.nombres AS Vendedor, clientes.apellidos + ', ' + clientes.nombres AS"& _ 
                 " Cliente, clientes.dni, clientes.domicilio, clientes.telefono, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"               "& _ 
-                "   factura_detalle.cantidad, categoria.descripcion_categoria, productos.nombre, "& _ 
-                "factura_detalle.precio_unit, factura_detalle.cantidad * factura_detalle.precio_u"& _ 
-                "nit AS Importe, forma_pago.descripcion_formapago"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM     factura INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
-                "                 usuarios ON factura.vendedor_id = usuarios.Id_usuario INNER JOI"& _ 
-                "N"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  personas ON usuarios.persona_id = personas.Id_persona INNER"& _ 
-                " JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  clientes ON factura.cliente_id = clientes.Id_cliente IN"& _ 
-                "NER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  factura_detalle ON factura.Id_factura = factura_deta"& _ 
-                "lle.Id_factura INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  productos ON productos.Id_producto "& _ 
-                "= factura_detalle.producto_id INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  categoria ON product"& _ 
-                "os.categoria_id = categoria.Id_categoria INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  forma_pag"& _ 
-                "o ON factura.forma_pago_id = forma_pago.Id_forma_pago"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE  (factura.Id_factur"& _ 
-                "a = @id)"
+                "   forma_pago.descripcion_formapago"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM     factura INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"              "& _ 
+                "    usuarios ON factura.vendedor_id = usuarios.Id_usuario INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          "& _ 
+                "        personas ON usuarios.persona_id = personas.Id_persona INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
+                "            clientes ON factura.cliente_id = clientes.Id_cliente INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"   "& _ 
+                "               forma_pago ON factura.forma_pago_id = forma_pago.Id_forma_pago"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"W"& _ 
+                "HERE  (factura.Id_factura = @idf)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Id_factura", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@idf", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Id_factura", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet1.ReporteFacturaDataTable, ByVal id As Integer) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet1.ReporteFacturaDataTable, ByVal idf As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id,Integer)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(idf,Integer)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -4976,9 +4822,9 @@ Namespace DataSet1TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal id As Integer) As DataSet1.ReporteFacturaDataTable
+        Public Overloads Overridable Function GetData(ByVal idf As Integer) As DataSet1.ReporteFacturaDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id,Integer)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(idf,Integer)
             Dim dataTable As DataSet1.ReporteFacturaDataTable = New DataSet1.ReporteFacturaDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable

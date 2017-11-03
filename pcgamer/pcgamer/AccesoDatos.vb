@@ -51,22 +51,37 @@
         ctx.SaveChanges()
     End Sub
 
-    Shared Sub buscarCliente(busqueda As String, filtro As Integer, grid As DataGridView)
+    Shared Sub buscarCliente(busqueda As String, filtro As Integer, grid As DataGridView, activos As String)
         Dim datos = (From c In ctx.clientes
                      Select Id = c.Id_cliente, Apellidos = c.apellidos, Nombres = c.nombres, DNI = c.dni,
                          Fecha_Registro = c.fecharegistro, Estado = c.estado).ToList
-        Select Case filtro
-            Case 0
-                datos = (From c In ctx.clientes
-                         Where c.nombres.Contains(busqueda) Or c.apellidos.Contains(busqueda)
-                         Select Id = c.Id_cliente, Apellidos = c.apellidos, Nombres = c.nombres, DNI = c.dni,
+        If activos = "1" Then 'significa qe solo busca los activos o estado = 1 
+            Select Case filtro
+                Case 0
+                    datos = (From c In ctx.clientes
+                             Where (c.nombres.Contains(busqueda) Or c.apellidos.Contains(busqueda)) And c.estado.ToString = activos
+                             Select Id = c.Id_cliente, Apellidos = c.apellidos, Nombres = c.nombres, DNI = c.dni,
                          Fecha_Registro = c.fecharegistro, Estado = c.estado).ToList
-            Case 1
-                datos = (From c In ctx.clientes
-                         Where c.dni.ToString.Contains(busqueda)
-                         Select Id = c.Id_cliente, Apellidos = c.apellidos, Nombres = c.nombres, DNI = c.dni,
+                Case 1
+                    datos = (From c In ctx.clientes
+                             Where c.dni.ToString.Contains(busqueda) And c.estado.ToString = activos
+                             Select Id = c.Id_cliente, Apellidos = c.apellidos, Nombres = c.nombres, DNI = c.dni,
                          Fecha_Registro = c.fecharegistro, Estado = c.estado).ToList
-        End Select
+            End Select
+        Else
+            Select Case filtro
+                Case 0
+                    datos = (From c In ctx.clientes
+                             Where c.nombres.Contains(busqueda) Or c.apellidos.Contains(busqueda)
+                             Select Id = c.Id_cliente, Apellidos = c.apellidos, Nombres = c.nombres, DNI = c.dni,
+                             Fecha_Registro = c.fecharegistro, Estado = c.estado).ToList
+                Case 1
+                    datos = (From c In ctx.clientes
+                             Where c.dni.ToString.Contains(busqueda)
+                             Select Id = c.Id_cliente, Apellidos = c.apellidos, Nombres = c.nombres, DNI = c.dni,
+                             Fecha_Registro = c.fecharegistro, Estado = c.estado).ToList
+            End Select
+        End If
 
         grid.DataSource = datos
         'oculta el Id_cliente
@@ -166,53 +181,101 @@
         ctx.SaveChanges()
     End Sub
 
-    Shared Sub buscarProducto(busqueda As String, filtro As Integer, grid As DataGridView)
+    Shared Sub buscarProducto(busqueda As String, filtro As Integer, grid As DataGridView, activos As String)
         Dim datos = (From p In ctx.productos
                      Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
                                  Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
-        Select Case filtro
-            Case 0
-                datos = (From p In ctx.productos
-                         Where p.nombre.Contains(busqueda)
-                         Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+        If activos = "1" Then 'significa qe solo busca los activos o estado = 1    
+#Region "busqueda"
+            Select Case filtro
+                Case 0
+                    datos = (From p In ctx.productos
+                             Where p.nombre.Contains(busqueda) And p.estado.ToString = activos
+                             Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
                                  Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
-            Case 1
-                datos = (From p In ctx.productos
-                         Where p.categoria.descripcion_categoria.Contains(busqueda)
-                         Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+                Case 1
+                    datos = (From p In ctx.productos
+                             Where p.categoria.descripcion_categoria.Contains(busqueda) And p.estado.ToString = activos
+                             Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
                                  Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
-            Case 2
-                datos = (From p In ctx.productos
-                         Where p.c1_procesador.c1_descripcion.Contains(busqueda)
-                         Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+                Case 2
+                    datos = (From p In ctx.productos
+                             Where p.c1_procesador.c1_descripcion.Contains(busqueda) And p.estado.ToString = activos
+                             Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
                                  Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
-            Case 3
-                datos = (From p In ctx.productos
-                         Where p.c2_placamadre.c2_descripcion.Contains(busqueda)
-                         Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+                Case 3
+                    datos = (From p In ctx.productos
+                             Where p.c2_placamadre.c2_descripcion.Contains(busqueda) And p.estado.ToString = activos
+                             Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
                                  Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
-            Case 4
-                datos = (From p In ctx.productos
-                         Where p.c3_ram.c3_descripcion.Contains(busqueda)
-                         Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+                Case 4
+                    datos = (From p In ctx.productos
+                             Where p.c3_ram.c3_descripcion.Contains(busqueda) And p.estado.ToString = activos
+                             Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
                                  Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
-            Case 5
-                datos = (From p In ctx.productos
-                         Where p.c4_placavideo.c4_descripcion.Contains(busqueda)
-                         Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+                Case 5
+                    datos = (From p In ctx.productos
+                             Where p.c4_placavideo.c4_descripcion.Contains(busqueda) And p.estado.ToString = activos
+                             Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
                                  Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
-            Case 6
-                datos = (From p In ctx.productos
-                         Where p.c5_discorigido.c5_descripcion.Contains(busqueda)
-                         Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+                Case 6
+                    datos = (From p In ctx.productos
+                             Where p.c5_discorigido.c5_descripcion.Contains(busqueda) And p.estado.ToString = activos
+                             Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
                                  Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
-            Case 7
-                datos = (From p In ctx.productos
-                         Where p.c6_gabinete.c6_descripcion.Contains(busqueda)
-                         Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+                Case 7
+                    datos = (From p In ctx.productos
+                             Where p.c6_gabinete.c6_descripcion.Contains(busqueda) And p.estado.ToString = activos
+                             Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+                                     Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
+            End Select
+#End Region
+        Else
+#Region "busqueda"
+            Select Case filtro
+                Case 0
+                    datos = (From p In ctx.productos
+                             Where p.nombre.Contains(busqueda)
+                             Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
                                  Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
-
-        End Select
+                Case 1
+                    datos = (From p In ctx.productos
+                             Where p.categoria.descripcion_categoria.Contains(busqueda)
+                             Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+                                 Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
+                Case 2
+                    datos = (From p In ctx.productos
+                             Where p.c1_procesador.c1_descripcion.Contains(busqueda)
+                             Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+                                 Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
+                Case 3
+                    datos = (From p In ctx.productos
+                             Where p.c2_placamadre.c2_descripcion.Contains(busqueda)
+                             Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+                                 Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
+                Case 4
+                    datos = (From p In ctx.productos
+                             Where p.c3_ram.c3_descripcion.Contains(busqueda)
+                             Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+                                 Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
+                Case 5
+                    datos = (From p In ctx.productos
+                             Where p.c4_placavideo.c4_descripcion.Contains(busqueda)
+                             Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+                                 Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
+                Case 6
+                    datos = (From p In ctx.productos
+                             Where p.c5_discorigido.c5_descripcion.Contains(busqueda)
+                             Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+                                 Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
+                Case 7
+                    datos = (From p In ctx.productos
+                             Where p.c6_gabinete.c6_descripcion.Contains(busqueda)
+                             Select Id = p.Id_producto, Nombre = p.nombre, Precio = p.precio, Stock = p.stock,
+                                     Categoria = p.categoria.descripcion_categoria, Estado = p.estado).ToList
+            End Select
+#End Region
+        End If
 
         grid.DataSource = datos
         grid.Columns(0).Visible = False
