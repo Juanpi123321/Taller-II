@@ -92,25 +92,31 @@ Partial Class FormularioEstadisticas
         '
         'PBFormaPago
         '
+        Me.PBFormaPago.Image = Global.pcgamer.My.Resources.Resources.pago
         Me.PBFormaPago.Location = New System.Drawing.Point(70, 176)
         Me.PBFormaPago.Name = "PBFormaPago"
         Me.PBFormaPago.Size = New System.Drawing.Size(183, 177)
+        Me.PBFormaPago.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PBFormaPago.TabIndex = 5
         Me.PBFormaPago.TabStop = False
         '
         'PBProducto
         '
+        Me.PBProducto.Image = Global.pcgamer.My.Resources.Resources.ventasxprod
         Me.PBProducto.Location = New System.Drawing.Point(299, 176)
         Me.PBProducto.Name = "PBProducto"
         Me.PBProducto.Size = New System.Drawing.Size(183, 177)
+        Me.PBProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PBProducto.TabIndex = 6
         Me.PBProducto.TabStop = False
         '
         'PBVendedor
         '
+        Me.PBVendedor.Image = Global.pcgamer.My.Resources.Resources.ventasxvendedor
         Me.PBVendedor.Location = New System.Drawing.Point(533, 176)
         Me.PBVendedor.Name = "PBVendedor"
         Me.PBVendedor.Size = New System.Drawing.Size(183, 177)
+        Me.PBVendedor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PBVendedor.TabIndex = 7
         Me.PBVendedor.TabStop = False
         '
@@ -162,9 +168,11 @@ Partial Class FormularioEstadisticas
         '
         'PBProdxCategoria
         '
+        Me.PBProdxCategoria.Image = Global.pcgamer.My.Resources.Resources.almacen1
         Me.PBProdxCategoria.Location = New System.Drawing.Point(761, 176)
         Me.PBProdxCategoria.Name = "PBProdxCategoria"
         Me.PBProdxCategoria.Size = New System.Drawing.Size(183, 177)
+        Me.PBProdxCategoria.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PBProdxCategoria.TabIndex = 38
         Me.PBProdxCategoria.TabStop = False
         '
@@ -185,9 +193,11 @@ Partial Class FormularioEstadisticas
         '
         'PBTendencias
         '
+        Me.PBTendencias.Image = Global.pcgamer.My.Resources.Resources.Tendencia__Ilustración
         Me.PBTendencias.Location = New System.Drawing.Point(990, 176)
         Me.PBTendencias.Name = "PBTendencias"
         Me.PBTendencias.Size = New System.Drawing.Size(183, 177)
+        Me.PBTendencias.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PBTendencias.TabIndex = 40
         Me.PBTendencias.TabStop = False
         '

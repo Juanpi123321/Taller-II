@@ -1126,6 +1126,11 @@
       <DependentUpon>ModeloPcgamer.edmx</DependentUpon>
       <LastGenOutput>ModeloPcgamer.vb</LastGenOutput>
     </Content>
+    <None Include="Resources\pago.jpg" />
+    <None Include="Resources\ventasxprod.jpg" />
+    <None Include="Resources\ventasxvendedor.jpg" />
+    <None Include="Resources\almacen1.png" />
+    <None Include="Resources\Tendencia.-Ilustración.jpg" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
