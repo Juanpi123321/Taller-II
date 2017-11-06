@@ -21,7 +21,4 @@ Partial Public Class usuarios
     Public Overridable Property factura As ICollection(Of factura) = New HashSet(Of factura)
     Public Overridable Property personas As personas
 
-    Friend Function nombre() As Object
-        Throw New NotImplementedException()
-    End Function
 End Class

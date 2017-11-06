@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6785d79737d24629938fe5daf6c03b60" Name="Diagram1">
+      <Diagram DiagramId="6785d79737d24629938fe5daf6c03b60" Name="Diagram1" ZoomLevel="57">
         <EntityTypeShape EntityType="pcgamerModel.c1_procesador" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="pcgamerModel.c2_placamadre" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="pcgamerModel.c3_ram" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
@@ -34,6 +34,7 @@
         <AssociationConnector Association="pcgamerModel.FK_factura_usuarios" ManuallyRouted="false" />
         <AssociationConnector Association="pcgamerModel.FK_personas_rol" ManuallyRouted="false" />
         <AssociationConnector Association="pcgamerModel.FK_usuarios_personas" ManuallyRouted="false" />
+        <AssociationConnector Association="pcgamerModel.FK_factura_detalle_productos" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

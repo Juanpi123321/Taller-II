@@ -32,5 +32,6 @@ Partial Public Class productos
     Public Overridable Property c5_discorigido As c5_discorigido
     Public Overridable Property c6_gabinete As c6_gabinete
     Public Overridable Property categoria As categoria
+    Public Overridable Property factura_detalle As ICollection(Of factura_detalle) = New HashSet(Of factura_detalle)
 
 End Class

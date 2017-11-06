@@ -18,5 +18,6 @@ Partial Public Class factura_detalle
     Public Property precio_unit As Decimal
 
     Public Overridable Property factura As factura
+    Public Overridable Property productos As productos
 
 End Class

@@ -182,6 +182,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_factura_detalle_productos">
+          <End Role="productos" Type="Self.productos" Multiplicity="1" />
+          <End Role="factura_detalle" Type="Self.factura_detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productos">
+              <PropertyRef Name="Id_producto" />
+            </Principal>
+            <Dependent Role="factura_detalle">
+              <PropertyRef Name="producto_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_factura_forma_pago">
           <End Role="forma_pago" Type="Self.forma_pago" Multiplicity="1" />
           <End Role="factura" Type="Self.factura" Multiplicity="*" />
@@ -339,6 +351,10 @@
             <End Role="factura" EntitySet="factura" />
             <End Role="factura_detalle" EntitySet="factura_detalle" />
           </AssociationSet>
+          <AssociationSet Name="FK_factura_detalle_productos" Association="Self.FK_factura_detalle_productos">
+            <End Role="productos" EntitySet="productos" />
+            <End Role="factura_detalle" EntitySet="factura_detalle" />
+          </AssociationSet>
           <AssociationSet Name="FK_factura_forma_pago" Association="Self.FK_factura_forma_pago">
             <End Role="forma_pago" EntitySet="forma_pago" />
             <End Role="factura" EntitySet="factura" />
@@ -485,6 +501,7 @@
           <Property Name="cantidad" Type="Int32" Nullable="false" />
           <Property Name="precio_unit" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <NavigationProperty Name="factura" Relationship="Self.FK_factura_detalle_factura" FromRole="factura_detalle" ToRole="factura" />
+          <NavigationProperty Name="productos" Relationship="pcgamerModel.FK_factura_detalle_productos" FromRole="factura_detalle" ToRole="productos" />
         </EntityType>
         <EntityType Name="forma_pago">
           <Key>
@@ -535,6 +552,7 @@
           <NavigationProperty Name="c5_discorigido" Relationship="Self.FK_productos_c5_discorigido" FromRole="productos" ToRole="c5_discorigido" />
           <NavigationProperty Name="c6_gabinete" Relationship="Self.FK_productos_c6_gabinete" FromRole="productos" ToRole="c6_gabinete" />
           <NavigationProperty Name="categoria" Relationship="Self.FK_productos_categoria" FromRole="productos" ToRole="categoria" />
+          <NavigationProperty Name="factura_detalle" Relationship="pcgamerModel.FK_factura_detalle_productos" FromRole="productos" ToRole="factura_detalle" />
         </EntityType>
         <EntityType Name="rol">
           <Key>
@@ -792,7 +810,23 @@
             <End Role="personas" EntitySet="personas" />
             <End Role="usuarios" EntitySet="usuarios" />
           </AssociationSet>
+          <AssociationSet Name="FK_factura_detalle_productos" Association="pcgamerModel.FK_factura_detalle_productos">
+            <End Role="productos" EntitySet="productos" />
+            <End Role="factura_detalle" EntitySet="factura_detalle" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_factura_detalle_productos">
+          <End Type="pcgamerModel.productos" Role="productos" Multiplicity="1" />
+          <End Type="pcgamerModel.factura_detalle" Role="factura_detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productos">
+              <PropertyRef Name="Id_producto" />
+            </Principal>
+            <Dependent Role="factura_detalle">
+              <PropertyRef Name="producto_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

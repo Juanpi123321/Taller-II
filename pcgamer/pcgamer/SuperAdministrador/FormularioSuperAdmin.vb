@@ -1,4 +1,4 @@
-﻿Imports System.Data.SqlClient
+﻿
 Public Class FormularioSuperAdmin
 
     Private Sub BUsuarios_Click(sender As Object, e As EventArgs) Handles BUsuarios.Click
@@ -14,12 +14,9 @@ Public Class FormularioSuperAdmin
         verificarAcceso()
     End Sub
 
-    Dim conexion As New SqlConnection("Data Source=JUANPINETBOOK20\SQLEXPRESS;Initial Catalog=pc_gamer;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework")
     Private Sub BBackup_Click(sender As Object, e As EventArgs) Handles BBackup.Click
         'Verifica la autenticidad del superadministrador, en caso de que deje abierto o de alguna manera alguna persona extraña acceda al sistema
-#Region "verificar acceso"
         verificarAcceso2()
-#End Region
     End Sub
 
     'Verifica la autenticidad del superadministrador, en caso de que deje abierto o de alguna manera alguna persona extraña acceda al sistema y desee otorgarse permisos
@@ -170,21 +167,14 @@ Public Class FormularioSuperAdmin
                                                 Dim nombre_copia As String = ("pcgamer_" & Date.Today.Day.ToString & "-" & Date.Today.Month.ToString & "-" &
                 Date.Today.Year.ToString & "-" & Date.Now.Hour.ToString & "-" & Date.Now.Minute.ToString & "-" &
                 Date.Now.Second.ToString)
-                                                Dim comando_consulta As String = "BACKUP DATABASE [pc_gamer] TO  DISK = N'D:\usuarios\alumno\Documentos\Visual Studio 2017\Projects\Taller-II\pcgamer\Backup\" + nombre_copia + ".bak' WITH NOFORMAT, NOINIT,  NAME = N'pc_gamer-Completa Base de datos Copia de seguridad', SKIP, NOREWIND, NOUNLOAD,  STATS = 10"
-                                                Dim cmd As SqlCommand = New SqlCommand(comando_consulta, conexion)
-                                                Try
-                                                    conexion.Open()
-                                                    cmd.ExecuteNonQuery()
+                                                If backup(nombre_copia) Then
                                                     MsgBox("La copia de seguridad se ha generado correctamente", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Backup Exitoso")
-                                                Catch ex As Exception
+                                                Else
                                                     MsgBox("Ha ocurrido un error, no se pudo generar la copia de seguridad", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "Backup Exitoso")
-                                                Finally
-                                                    conexion.Close()
-                                                    conexion.Dispose()
-                                                End Try
+                                                End If
                                             End If
                                         Else
-                                            MsgBox("Usuario y/o contraseña incorrecto", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Acceso Denegado")
+                                                    MsgBox("Usuario y/o contraseña incorrecto", MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Acceso Denegado")
                                         End If
                                         dialog.Close()
                                     End Sub

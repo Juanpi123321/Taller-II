@@ -420,7 +420,6 @@
   <ItemGroup>
     <EntityDeploy Include="ModeloPcgamer.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModeloPcgamer.Designer.vb</LastGenOutput>
     </EntityDeploy>
     <None Include="My Project\DataSources\AccesoDatos.datasource" />
     <None Include="My Project\DataSources\c1_procesador.datasource" />
